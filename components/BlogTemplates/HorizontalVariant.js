@@ -2,10 +2,10 @@ import ImageComponentity from '../ImageComponentity'
 import Link from 'next/link'
 import ReactHtmlParser from 'react-html-parser'
 
-export default function HorizontalVariant({ blog_pack, section, index }) {
-  const First = () => {
+export default function HorizontalVariant({ blogs, section }) {
+  const First = ({ blog_pack }) => {
     return (
-      <div key={blog_pack.blog.id} className='sm:col-span-6 lg:col-span-5'>
+      <div className='sm:col-span-6 lg:col-span-5'>
         <a aria-label='blog link'>
           <div
             className='h-56 bg-cover text-center overflow-hidden bg-gray-100'
@@ -35,7 +35,7 @@ export default function HorizontalVariant({ blog_pack, section, index }) {
       </div>
     )
   }
-  const Last = () => {
+  const Last = ({ blog_pack }) => {
     return (
       <div className='sm:col-span-12 lg:col-span-3'>
         <a aria-label='blog link'>
@@ -66,7 +66,7 @@ export default function HorizontalVariant({ blog_pack, section, index }) {
       </div>
     )
   }
-  const Default = () => {
+  const Default = ({ blog_pack }) => {
     return (
       <div className='flex items-start mb-3 pb-3'>
         <a aria-label='blog link' className='inline-block mr-3'>
@@ -85,13 +85,19 @@ export default function HorizontalVariant({ blog_pack, section, index }) {
     )
   }
 
+  const middleBlogs = blogs.slice(1, -1)
+
   return (
     <>
-      {index == 0 && <First />}
-      {index == 1 && ReactHtmlParser(`<div class='sm:col-span-6 lg:col-span-4'>`)}
-      {index >= 1 && index < 6 && <Default />}
-      {index == 5 && ReactHtmlParser(`</div>`)}
-      {index == 5 && <Last />}
+      {<First key={blogs[0].blog.id} blog_pack={blogs[0]} />}
+      {
+        <div key={blogs[1].blog.id} className='sm:col-span-6 lg:col-span-4'>
+          {middleBlogs.map((blog_pack) => {
+            return <Default key={blog_pack.blog.id} blog_pack={blog_pack} />
+          })}
+        </div>
+      }
+      {<Last key={blogs[5].blog.id} blog_pack={blogs[5]} />}
     </>
   )
 }

@@ -291,15 +291,15 @@ export default function Posts({
     )
   }
 
-  const BlogTemplate = (blog_pack, section, index) => {
+  const BlogTemplate = (blogs, section) => {
     switch (section.liType) {
       case 'HorizontalSmall':
-        return <HorizontalSmall blog_pack={blog_pack} section={section} index={index} />
+        return <HorizontalSmall blogs={blogs} section={section} />
       case 'HorizontalVariant':
-        return <HorizontalVariant blog_pack={blog_pack} section={section} index={index} />
+        return <HorizontalVariant blogs={blogs} section={section} />
 
       default:
-        return <GridCols blog_pack={blog_pack} section={section} index={index} />
+        return <GridCols blog_pack={blog_pack} section={section} />
     }
   }
 
@@ -313,12 +313,7 @@ export default function Posts({
           {loading && paginationStyle == 'pagination' ? (
             <ResponsiveArticle />
           ) : (
-            <ol className={`${section.olClasses}`}>
-              {blogs &&
-                blogs.map((blog_pack, index) => {
-                  return BlogTemplate(blog_pack, section, index)
-                })}
-            </ol>
+            <ol className={`${section.olClasses}`}>{blogs && BlogTemplate(blogs, section)}</ol>
           )}
           <div className='flex items-center justify-center'>
             {paginationStyle ? <Pagination type={paginationStyle} /> : ''}

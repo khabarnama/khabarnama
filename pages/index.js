@@ -10,7 +10,7 @@ export default function Blog(postsContainer) {
   return Object.entries(postsContainer).map((container) => {
     // console.log('CONTAINER', container)
     return (
-      <>
+      <React.Fragment key={Math.random().toString(36).substring(7)}>
         <Head>
           <title>WP-NextJs Theme</title>
           <meta name='description' content='Componentity Team has made a WP-NEXTJS theme' />
@@ -29,7 +29,6 @@ export default function Blog(postsContainer) {
           <meta property='og:site_name' content='Componentity' />
         </Head>
         <Posts
-          key={Math.random().toString(36).substring(7)}
           title={container[1].name}
           slug={container[1].slug}
           type={container[1].type}
@@ -40,7 +39,7 @@ export default function Blog(postsContainer) {
           posts={container[1].posts}
           section={container[1].section}
         />
-      </>
+      </React.Fragment>
     )
   })
 }
@@ -58,6 +57,11 @@ export async function getStaticProps() {
   //   count: 2
   // }
 
+  // ====================================
+  // HORIZONTALVARIANT
+  // - NO PAGINATION SHOULD BE APPLIED
+  // ====================================
+
   const sections = [
     {
       section: {
@@ -69,18 +73,6 @@ export async function getStaticProps() {
       slug: 'lifestyle',
       type: 'categories',
       type_id: 278,
-      paginationStyle: 'loadmore',
-
-      count: 6
-    },
-    {
-      section: {
-        olClasses: 'grid grid-cols-3 gap-10',
-        liType: 'HorizontalSmall',
-        imageClasses: 'w-20 h-20'
-      },
-      name: 'Latest Stories',
-      paginationStyle: 'pagination',
 
       count: 6
     }
