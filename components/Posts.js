@@ -4,6 +4,7 @@ import SectionTitle from './SectionTitle'
 import ResponsiveArticle from './skeleton/ResponsiveArticle'
 import SVGReload from './SVG/SVGReload'
 import GridCols from './BlogTemplates/GridCols'
+import SingleCol from './BlogTemplates/SingleCol'
 import HorizontalSmall from './BlogTemplates/HorizontalSmall'
 import HorizontalVariant from './BlogTemplates/HorizontalVariant'
 
@@ -297,9 +298,11 @@ export default function Posts({
         return <HorizontalSmall blogs={blogs} section={section} />
       case 'HorizontalVariant':
         return <HorizontalVariant blogs={blogs} section={section} />
+      case 'SingleCol':
+        return <SingleCol blogs={blogs} section={section} />
 
       default:
-        return <GridCols blog_pack={blog_pack} section={section} />
+        return <GridCols blogs={blogs} section={section} />
     }
   }
 

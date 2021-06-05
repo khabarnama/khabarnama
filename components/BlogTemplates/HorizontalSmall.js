@@ -41,6 +41,6 @@ export default function HorizontalSmall({ blogs, section }) {
     )
   }
   return blogs.map((blog_pack) => {
-    template(blog_pack)
+    return template(blog_pack)
   })
 }
