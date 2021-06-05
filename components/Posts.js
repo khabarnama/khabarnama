@@ -292,7 +292,7 @@ export default function Posts({
     )
   }
 
-  const BlogTemplate = (blogs, section) => {
+  const BlogTemplate = (blogs, section = { liType: 'GridCols' }) => {
     switch (section.liType) {
       case 'HorizontalSmall':
         return <HorizontalSmall blogs={blogs} section={section} />
@@ -316,7 +316,13 @@ export default function Posts({
           {loading && paginationStyle == 'pagination' ? (
             <ResponsiveArticle />
           ) : (
-            <ol className={`${section.olClasses}`}>{blogs && BlogTemplate(blogs, section)}</ol>
+            <ol
+              className={`${
+                section ? section.olClasses : 'grid sm:grid-cols-2 lg:grid-cols-4 gap-10'
+              }`}
+            >
+              {blogs && BlogTemplate(blogs, section)}
+            </ol>
           )}
           <div className='flex items-center justify-center'>
             {paginationStyle ? <Pagination type={paginationStyle} /> : ''}
