@@ -43,7 +43,7 @@ export default Tag
 
 // This function gets called at build time
 export async function getStaticPaths() {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/tags`)
+  const res = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/tags?order=desc&orderby=count`)
   const tags = await res.json()
 
   const slugs = []

@@ -123,6 +123,7 @@ export async function getStaticProps() {
     {
       section: {
         containerClasses: 'max-w-screen-xl mx-auto relative mb-10',
+        sectionTitleClasses: '',
         olClasses: 'grid grid-cols-1 sm:grid-cols-12 gap-10',
         liType: 'HorizontalVariant',
         imageClasses: 'h-52'
@@ -135,7 +136,7 @@ export async function getStaticProps() {
     },
     {
       section: {
-        containerClasses: 'max-w-screen-lg mx-auto mb-10 relative',
+        containerClasses: 'max-w-screen-lg mx-auto my-10 relative',
         olClasses: 'text-center',
         liType: 'HorizontalAds',
         imageClasses: 'h-32 w-full',
@@ -163,6 +164,7 @@ export async function getStaticProps() {
     {
       section: {
         containerClasses: 'bg-gray-100 p-8 mb-10 relative',
+        sectionTitleClasses: 'max-w-screen-xl mx-auto',
         olClasses: 'max-w-screen-xl mx-auto grid sm:grid-cols-2 lg:grid-cols-3 gap-10',
         liType: 'HorizontalSmall',
         imageClasses: 'h-20 w-20'

@@ -5,7 +5,7 @@ const ContentLoader = dynamic(() => import('react-content-loader'), { ssr: false
 
 const ResponsiveArticle = (props) => {
   return (
-    <ContentLoader height={650} width={'100%'} {...props}>
+    <ContentLoader className='max-w-screen-xl mx-auto' height={650} width={'100%'} {...props}>
       <rect x='0' y='0' rx='5' ry='5' width='40%' height='20' />
       <rect x='0' y='42' rx='5' ry='5' width='100%' height='200' />
       <rect x='0' y='265' rx='5' ry='5' width='100%' height='10' />

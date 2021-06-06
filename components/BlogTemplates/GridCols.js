@@ -8,7 +8,7 @@ export default function GridCols({ blogs, section }) {
     return (
       <div
         key={blog_pack.blog.id}
-        className='mb-10 rounded overflow-hidden flex flex-col justify-between mx-auto'
+        className='infinite-loader-item mb-10 rounded overflow-hidden flex flex-col justify-between mx-auto'
       >
         <Link href={`/blog/${blog_pack.blog.slug}`}>
           <a
@@ -23,7 +23,7 @@ export default function GridCols({ blogs, section }) {
         <div>
           <Link href={`/blog/${blog_pack.blog.slug}`}>
             <a aria-label='Blog post'>
-              {blog_pack.blog.featured_media != 0 && blog_pack.blog.featured_media ? (
+              {blog_pack.blog.featured_media != 0 && blog_pack.blog.featured_media != null ? (
                 <ImageComponentity
                   src={blog_pack.blog._embedded['wp:featuredmedia'][0].source_url}
                   classes={section.imageClasses}

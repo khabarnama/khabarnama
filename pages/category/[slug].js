@@ -4,7 +4,7 @@ import ResponsiveArticle from './../../components/skeleton/ResponsiveArticle'
 import Head from 'next/head'
 import ReactHtmlParser from 'react-html-parser'
 
-function Category({ categories, posts, category_id, total_pages }) {
+function Category({ categories, posts, category_id, total_pages, section }) {
   const router = useRouter()
 
   // If the page is not yet generated, this will be displayed
@@ -18,11 +18,10 @@ function Category({ categories, posts, category_id, total_pages }) {
       {categories.length === 0 ? (
         <h1>My Custom 404 Page</h1>
       ) : (
-        <div>
+        <div className={section.containerClasses}>
           <Head>{ReactHtmlParser(categories[0].yoast_head)}</Head>
-          <header>
+          <header className={section.sectionTitleClasses}>
             <h1 className='text-xl font-bold uppercase mb-2'>{categories[0].name}</h1>
-            <hr className='mb-2 h-2 w-40' />
             <article dangerouslySetInnerHTML={{ __html: categories[0].description }} />
             <hr className='my-4' />
           </header>
@@ -32,6 +31,9 @@ function Category({ categories, posts, category_id, total_pages }) {
             type_id={category_id}
             totalPages={total_pages}
             paginationStyle='pagination'
+            key={Math.random().toString(36).substring(7)}
+            perPage={10}
+            section={section}
           />
         </div>
       )}
@@ -43,7 +45,7 @@ export default Category
 
 // This function gets called at build time
 export async function getStaticPaths() {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/categories`)
+  const res = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/categories?order=desc&orderby=count`)
   const categories = await res.json()
 
   const slugs = []
@@ -59,6 +61,14 @@ export async function getStaticPaths() {
 
 // This also gets called at build time
 export async function getStaticProps({ params }) {
+  const section = {
+    containerClasses: 'max-w-screen-md mx-auto mb-10 relative',
+    sectionTitleClasses: '',
+    olClasses: 'flex flex-col gap-10',
+    liType: 'SingleCol',
+    imageClasses: 'h-96'
+  }
+
   const { slug } = params
   const res = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/categories?slug=${slug}`)
   const categories = await res.json()
@@ -93,7 +103,7 @@ export async function getStaticProps({ params }) {
 
   // Pass post data to the page via props
   return {
-    props: { categories, posts, category_id, total_pages },
+    props: { categories, posts, category_id, total_pages, section },
     // Re-generate the post at most once per second
     // if a request comes in
     revalidate: 1

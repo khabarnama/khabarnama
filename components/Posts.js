@@ -135,7 +135,9 @@ export default function Posts({
     const handleScroll = () => {
       if (!loading && !disable) {
         // To get page offset of last blog
-        const lastBlogLoaded = document.querySelector('.blog-list > .blog:last-child')
+        const lastBlogLoaded = document.querySelector(
+          '.infinite-loader-container > .infinite-loader-item:last-child'
+        )
         if (lastBlogLoaded) {
           const lastBlogLoadedOffset = lastBlogLoaded.offsetTop + lastBlogLoaded.clientHeight
           const pageOffset = window.pageYOffset + window.innerHeight
@@ -314,13 +316,21 @@ export default function Posts({
       {blogs.length == 0 ? (
         <h1>No Results found</h1>
       ) : (
-        <div className={section.containerClasses ? section.containerClasses : ''}>
-          {title ? <SectionTitle link={slug ? `/${type_url}/${slug}` : ''} title={title} /> : ''}
+        <div className={section && section.containerClasses}>
+          {title ? (
+            <SectionTitle
+              classes={section.sectionTitleClasses}
+              link={slug ? `/${type_url}/${slug}` : ''}
+              title={title}
+            />
+          ) : (
+            ''
+          )}
           {loading && paginationStyle == 'pagination' ? (
             <ResponsiveArticle />
           ) : (
             <ol
-              className={`${
+              className={`infinite-loader-container ${
                 section ? section.olClasses : 'grid sm:grid-cols-2 lg:grid-cols-4 gap-10'
               }`}
             >

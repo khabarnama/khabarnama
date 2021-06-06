@@ -4,7 +4,7 @@ import ResponsiveArticle from './../../components/skeleton/ResponsiveArticle'
 import Head from 'next/head'
 import ReactHtmlParser from 'react-html-parser'
 
-function Author({ author, posts, author_id, total_pages }) {
+function Author({ author, posts, author_id, total_pages, section }) {
   const router = useRouter()
 
   // If the page is not yet generated, this will be displayed
@@ -18,9 +18,9 @@ function Author({ author, posts, author_id, total_pages }) {
       {author.length === 0 ? (
         <h1>My Custom 404 Page</h1>
       ) : (
-        <div>
+        <div className={section.containerClasses}>
           <Head>{ReactHtmlParser(author[0].yoast_head)}</Head>
-          <header>
+          <header className={section.sectionTitleClasses}>
             <h1 className='text-xl font-bold uppercase mb-2'>{author[0].name}</h1>
             <hr className='mb-2 w-40 h-2' />
             <article dangerouslySetInnerHTML={{ __html: author[0].description.rendered }} />
@@ -32,6 +32,9 @@ function Author({ author, posts, author_id, total_pages }) {
             type_id={author_id}
             totalPages={total_pages}
             paginationStyle='infinite'
+            key={Math.random().toString(36).substring(7)}
+            perPage={10}
+            section={section}
           />
         </div>
       )}
@@ -62,6 +65,14 @@ export async function getStaticPaths() {
 
 // This also gets called at build time
 export async function getStaticProps({ params }) {
+  const section = {
+    containerClasses: 'max-w-screen-lg mx-auto mb-10 relative',
+    sectionTitleClasses: '',
+    olClasses: 'grid sm:grid-cols-2 lg:grid-cols-4 gap-10',
+    liType: 'GridCols',
+    imageClasses: 'h-52'
+  }
+
   // params contains the post `id`.
   // If the route is like /posts/1, then params.id is 1
   const { slug } = params
@@ -97,7 +108,7 @@ export async function getStaticProps({ params }) {
   }
   // Pass post data to the page via props
   return {
-    props: { author, posts, author_id, total_pages },
+    props: { author, posts, author_id, total_pages, section },
     // Re-generate the post at most once per second
     // if a request comes in
     revalidate: 1
