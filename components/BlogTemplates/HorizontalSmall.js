@@ -17,7 +17,7 @@ export default function HorizontalSmall({ blogs, section }) {
         </Link>
         <div className='flex items-between justify-between mt-3'>
           <div className='text-sm w-2/3 flex flex-col justify-between'>
-            <p
+            <div
               className='text-gray-700 line-clamp-2 h-10'
               dangerouslySetInnerHTML={{ __html: blog_pack.blog.excerpt.rendered }}
             />

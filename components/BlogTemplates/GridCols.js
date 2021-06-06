@@ -15,7 +15,7 @@ export default function GridCols({ blogs, section }) {
             aria-label='Blog post'
             className='dark:text-gray-50 dark:hover:text-indigo-600 hover:text-indigo-600 transition duration-500 ease-in-out inline-block mb-2'
           >
-            <h1 className='text-xl font-semibold line-clamp-3 h-20 mb-2'>
+            <h1 className='text-lg font-semibold line-clamp-3 h-20 mb-2'>
               {blog_pack.blog.title.rendered}
             </h1>
           </a>

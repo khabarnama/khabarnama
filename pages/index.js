@@ -49,16 +49,70 @@ export default function Blog(postsContainer) {
 export async function getStaticProps() {
   // {
   //   section: {
-  //     olClasses: 'max-w-screen-md mx-auto',
-  //     liType: 'default'
+  //     containerClasses: 'max-w-screen-xl mx-auto p-3 relative',
+  //     olClasses: 'grid grid-cols-1 sm:grid-cols-12 gap-10',
+  //     liType: 'HorizontalVariant',
+  //     imageClasses: 'h-52'
+  //   },
+  //   name: 'NEWS',
+  //   slug: 'news',
+  //   type: 'categories',
+  //   type_id: 423715164,
+  //   count: 6
+  // },
+  // {
+  //   section: {
+  //     containerClasses: 'max-w-screen-lg mx-auto p-3 relative',
+  //     olClasses: 'text-center',
+  //     liType: 'HorizontalAds',
+  //     imageClasses: 'h-32 w-full',
+  //     image: {
+  //       href: 'https://componentity.com',
+  //       src: 'https://www.etilaatroz.com/wp-content/uploads/2020/11/F45-fitness-training-afghanistan.jpg'
+  //     }
+  //   },
+  //   type: 'ads',
+  //   count: 1
+  // },
+  // {
+  //   section: {
+  //     containerClasses: 'max-w-screen-xl mx-auto p-3 relative',
+  //     olClasses: 'flex flex-col gap-10 max-w-screen-md mx-auto',
+  //     liType: 'SingleCol',
+  //     imageClasses: 'h-56'
   //   },
   //   name: 'LIFESTYLE',
   //   slug: 'lifestyle',
   //   type: 'categories',
   //   type_id: 278,
-  //   count: 2
-  // }
 
+  //   count: 1
+  // },
+  // {
+  //   section: {
+  //     containerClasses: 'max-w-screen-xl mx-auto p-3 relative',
+  //     olClasses: 'grid sm:grid-cols-2 lg:grid-cols-4 gap-10',
+  //     liType: 'GridCols',
+  //     imageClasses: 'h-52'
+  //   },
+  //   name: 'LATEST',
+  //   paginationStyle: 'loadmore',
+
+  //   count: 6
+  // },
+  // {
+  //   section: {
+  //     containerClasses: 'max-w-screen-xl mx-auto p-3 relative',
+  //     olClasses: 'grid sm:grid-cols-2 lg:grid-cols-3 gap-10',
+  //     liType: 'HorizontalSmall',
+  //     imageClasses: 'w-20 h-20'
+  //   },
+  //   name: 'Spirituality',
+  //   slug: 'spirituality',
+  //   type: 'categories',
+  //   type_id: 1494,
+  //   count: 6
+  // }
   // ====================================
   // HORIZONTALVARIANT
   // - NO PAGINATION SHOULD BE APPLIED
@@ -68,69 +122,115 @@ export async function getStaticProps() {
   const sections = [
     {
       section: {
-        olClasses: 'flex flex-col gap-10 max-w-screen-md mx-auto',
+        containerClasses: 'max-w-screen-xl mx-auto relative mb-10',
+        olClasses: 'grid grid-cols-1 sm:grid-cols-12 gap-10',
+        liType: 'HorizontalVariant',
+        imageClasses: 'h-52'
+      },
+      name: 'NEWS',
+      slug: 'news',
+      type: 'categories',
+      type_id: 423715164,
+      count: 6
+    },
+    {
+      section: {
+        containerClasses: 'max-w-screen-lg mx-auto mb-10 relative',
+        olClasses: 'text-center',
+        liType: 'HorizontalAds',
+        imageClasses: 'h-32 w-full',
+        image: {
+          href: 'https://componentity.com',
+          src: 'https://www.etilaatroz.com/wp-content/uploads/2020/11/F45-fitness-training-afghanistan.jpg'
+        }
+      },
+      type: 'ads',
+      count: 1
+    },
+    {
+      section: {
+        containerClasses: 'max-w-screen-xl mx-auto mb-10 relative',
+        olClasses: 'grid sm:grid-cols-2 lg:grid-cols-4 gap-10',
+        liType: 'GridCols',
+        imageClasses: 'h-52'
+      },
+      name: 'SPRITUALITY',
+      slug: 'spirituality',
+      type: 'categories',
+      type_id: 1494,
+      count: 8
+    },
+    {
+      section: {
+        containerClasses: 'bg-gray-100 p-8 mb-10 relative',
+        olClasses: 'max-w-screen-xl mx-auto grid sm:grid-cols-2 lg:grid-cols-3 gap-10',
+        liType: 'HorizontalSmall',
+        imageClasses: 'h-20 w-20'
+      },
+      name: 'LATEST',
+      count: 6
+    },
+    {
+      section: {
+        containerClasses: 'max-w-screen-lg mx-auto relative',
+        olClasses: 'grid grid-cols-1 gap-10',
         liType: 'SingleCol',
-        imageClasses: 'h-56'
+        imageClasses: 'h-52'
       },
       name: 'LIFESTYLE',
       slug: 'lifestyle',
       type: 'categories',
       type_id: 278,
-
-      count: 1
-    },
-    {
-      section: {
-        olClasses: 'grid sm:grid-cols-2 lg:grid-cols-4 gap-10',
-        liType: 'GridCols',
-        imageClasses: 'h-52'
-      },
-      name: 'LATEST',
-      paginationStyle: 'loadmore',
-
       count: 6
     }
   ]
 
   let postsContainer = []
   for (const section of sections) {
-    let args = `_embed=true&per_page=${section.count}`
-    if (section.type && section.type_id) {
-      args += `&${section.type}=${section.type_id}`
+    if (section.type != 'ads') {
+      let args = `_embed=true&per_page=${section.count}`
+      if (section.type && section.type_id) {
+        args += `&${section.type}=${section.type_id}`
+      }
+      //console.log('ARGS', `${process.env.NEXT_PUBLIC_SITE_URL}/posts?${args}`)
+
+      const res = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/posts?${args}`)
+      const blogs = await res.json()
+      const total_pages = res.headers.get('X-WP-TotalPages')
+
+      section['total_pages'] = total_pages
+      // console.log('BLOGS INDEXJS', blogs)
+
+      let posts = []
+      for (const post of blogs) {
+        const post_id = post.id
+        // get categories
+        const post_cats = await fetch(
+          `${process.env.NEXT_PUBLIC_SITE_URL}/categories?post=${post_id}`
+        )
+        const cats = await post_cats.json()
+        // get tags
+        const post_tags = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/tags?post=${post_id}`)
+        const tags = await post_tags.json()
+
+        posts.push({ blog: post, cats, tags })
+      }
+
+      // console.log('BLOGS PASSED TO POSTS.JS: ', posts)
+
+      // console.log('SECTOIN', section)
+
+      postsContainer.push({
+        ...section,
+        posts: posts
+      })
+      // console.log('POSTS CONTAINER', postsContainer)
+    } else {
+      postsContainer.push({
+        ...section,
+        posts: 'ads'
+      })
     }
-    //console.log('ARGS', `${process.env.NEXT_PUBLIC_SITE_URL}/posts?${args}`)
-
-    const res = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/posts?${args}`)
-    const blogs = await res.json()
-    const total_pages = res.headers.get('X-WP-TotalPages')
-
-    section['total_pages'] = total_pages
-    // console.log('BLOGS INDEXJS', blogs)
-
-    let posts = []
-    for (const post of blogs) {
-      const post_id = post.id
-      // get categories
-      const post_cats = await fetch(
-        `${process.env.NEXT_PUBLIC_SITE_URL}/categories?post=${post_id}`
-      )
-      const cats = await post_cats.json()
-      // get tags
-      const post_tags = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/tags?post=${post_id}`)
-      const tags = await post_tags.json()
-
-      posts.push({ blog: post, cats, tags })
-    }
-
-    // console.log('BLOGS PASSED TO POSTS.JS: ', posts)
-
-    // console.log('SECTOIN', section)
-
-    postsContainer.push({
-      ...section,
-      posts: posts
-    })
-    // console.log('POSTS CONTAINER', postsContainer)
   }
 
   // console.log('POSTS CONTAINER', ...postsContainer)

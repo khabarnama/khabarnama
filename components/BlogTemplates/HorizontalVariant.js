@@ -42,7 +42,7 @@ export default function HorizontalVariant({ blogs, section }) {
                 {blog_pack.blog.title.rendered}
               </a>
             </Link>
-            <p
+            <div
               className='line-clamp-3 text-gray-700 text-xs mt-2'
               dangerouslySetInnerHTML={{ __html: blog_pack.blog.excerpt.rendered }}
             />
@@ -91,7 +91,7 @@ export default function HorizontalVariant({ blogs, section }) {
                 {blog_pack.blog.title.rendered}
               </a>
             </Link>
-            <p
+            <div
               className='line-clamp-2 text-gray-700 text-xs mt-2'
               dangerouslySetInnerHTML={{ __html: blog_pack.blog.excerpt.rendered }}
             />

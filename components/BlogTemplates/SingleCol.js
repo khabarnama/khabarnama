@@ -7,7 +7,7 @@ import Link from 'next/link'
 export default function SingleCol({ blogs, section }) {
   const template = (blog_pack) => {
     return (
-      <div className='mb-10 rounded overflow-hidden flex flex-col mx-auto'>
+      <div key={blog_pack.blog.id} className='mb-10 rounded overflow-hidden flex flex-col mx-auto'>
         <Link href={`/blog/${blog_pack.blog.slug}`}>
           <a
             aria-label='Blog post'

@@ -7,6 +7,7 @@ import GridCols from './BlogTemplates/GridCols'
 import SingleCol from './BlogTemplates/SingleCol'
 import HorizontalSmall from './BlogTemplates/HorizontalSmall'
 import HorizontalVariant from './BlogTemplates/HorizontalVariant'
+import HorizontalAds from './BlogTemplates/HorizontalAds'
 
 async function getNewPostsFromApi(page, type, type_id, count) {
   const res = await fetch(
@@ -300,6 +301,8 @@ export default function Posts({
         return <HorizontalVariant blogs={blogs} section={section} />
       case 'SingleCol':
         return <SingleCol blogs={blogs} section={section} />
+      case 'HorizontalAds':
+        return <HorizontalAds section={section} />
 
       default:
         return <GridCols blogs={blogs} section={section} />
@@ -311,7 +314,7 @@ export default function Posts({
       {blogs.length == 0 ? (
         <h1>No Results found</h1>
       ) : (
-        <div>
+        <div className={section.containerClasses ? section.containerClasses : ''}>
           {title ? <SectionTitle link={slug ? `/${type_url}/${slug}` : ''} title={title} /> : ''}
           {loading && paginationStyle == 'pagination' ? (
             <ResponsiveArticle />

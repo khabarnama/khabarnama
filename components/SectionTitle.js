@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import SVGNewspaper from './SVG/SVGNewspaper'
 
-export default function SectionTitle({ title, link }) {
+export default function SectionTitle({ title, link, classes }) {
   return (
     <>
       <div className='border-b mb-5 flex justify-between text-sm'>
