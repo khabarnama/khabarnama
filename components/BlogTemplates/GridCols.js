@@ -3,7 +3,7 @@ import SVGCategory from '../SVG/SVGCategory'
 import SVGClock from '../SVG/SVGClock'
 import Link from 'next/link'
 
-export default function GridCols({ blogs, section }) {
+export default function GridCols({ blogs, classes }) {
   const template = (blog_pack) => {
     return (
       <div
@@ -22,15 +22,15 @@ export default function GridCols({ blogs, section }) {
         </Link>
         <div>
           <Link href={`/blog/${blog_pack.blog.slug}`}>
-            <a aria-label='Blog post'>
+            <a aria-label='Blog post Image'>
               {blog_pack.blog.featured_media != 0 && blog_pack.blog.featured_media != null ? (
                 <ImageComponentity
                   src={blog_pack.blog._embedded['wp:featuredmedia'][0].source_url}
-                  classes={section.imageClasses}
+                  classes={classes.imageClasses}
                   alt={blog_pack.blog.title.rendered}
                 />
               ) : (
-                <div className={`${section.heightClass} w-full bg-gray-100`}></div>
+                <div className={`${classes.imageClasses} bg-gray-100`}></div>
               )}
             </a>
           </Link>

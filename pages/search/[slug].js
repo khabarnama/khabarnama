@@ -1,8 +1,9 @@
 import { useRouter } from 'next/router'
+import React from 'react'
 import Posts from './../../components/Posts'
 import ResponsiveArticle from './../../components/skeleton/ResponsiveArticle'
 
-function Search({ posts, slug, total_pages }) {
+function Search({ posts, classes, widget }) {
   const router = useRouter()
 
   // If the page is not yet generated, this will be displayed
@@ -12,23 +13,22 @@ function Search({ posts, slug, total_pages }) {
   }
 
   return (
-    <>
-      <header>
-        <h1 className='text-xl font-bold uppercase mb-2'>#{slug}</h1>
+    <div className={classes.containerClasses}>
+      <header className={classes.sectionTitleClasses}>
+        <h1 className='text-xl font-regular mb-2'>
+          Search Results For: <b>{widget.slug}</b>
+        </h1>
         <hr className='my-4' />
       </header>
       <Posts
+        key={Math.random().toString(36).substring(7)}
         posts={posts}
-        type='search'
-        type_id={slug}
-        totalPages={total_pages}
-        paginationStyle='pagination'
+        classes={classes}
+        widget={widget}
       />
-    </>
+    </div>
   )
 }
-
-export default Search
 
 // This function gets called at build time
 export async function getStaticPaths() {
@@ -48,10 +48,25 @@ export async function getStaticPaths() {
 
 // This also gets called at build time
 export async function getStaticProps({ params }) {
+  const classes = {
+    containerClasses: 'max-w-screen-xl mx-auto relative my-10',
+    sectionTitleClasses: 'max-w-screen-xl mx-auto',
+    olClasses: 'grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10',
+    imageClasses: 'h-52'
+  }
+  const widget = {
+    name: 'Posts',
+    component: 'GridCols',
+    paginationStyle: 'loadmore',
+    count: 12
+  }
+
   const { slug } = params
   const res = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/posts?search=${slug}&_embed=true`)
   const blogs = await res.json()
   const total_pages = res.headers.get('X-WP-TotalPages')
+  widget['totalPages'] = total_pages
+  widget['slug'] = slug
 
   const posts = []
   for (const post of blogs) {
@@ -68,9 +83,11 @@ export async function getStaticProps({ params }) {
 
   // Pass post data to the page via props
   return {
-    props: { posts, slug, total_pages },
+    props: { posts, classes, widget },
     // Re-generate the post at most once per second
     // if a request comes in
     revalidate: 1
   }
 }
+
+export default Search

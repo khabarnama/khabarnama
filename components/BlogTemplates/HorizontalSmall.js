@@ -1,7 +1,7 @@
 import ImageComponentity from '../ImageComponentity'
 import Link from 'next/link'
 
-export default function HorizontalSmall({ blogs, section }) {
+export default function HorizontalSmall({ blogs, classes }) {
   const template = (blog_pack) => {
     return (
       <div key={blog_pack.blog.id} className='flex flex-col justify-between border-b pb-5'>
@@ -28,11 +28,11 @@ export default function HorizontalSmall({ blogs, section }) {
               {blog_pack.blog.featured_media != 0 && blog_pack.blog.featured_media ? (
                 <ImageComponentity
                   src={blog_pack.blog._embedded['wp:featuredmedia'][0].source_url}
-                  classes={section.imageClasses}
+                  classes={classes.imageClasses}
                   alt={blog_pack.blog.title.rendered}
                 />
               ) : (
-                <div className={`${section.heightClass} w-full bg-gray-100`}></div>
+                <div className={`${classes.imageClasses} w-full bg-gray-100`}></div>
               )}
             </a>
           </Link>

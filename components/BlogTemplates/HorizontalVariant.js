@@ -1,7 +1,7 @@
 import ImageComponentity from '../ImageComponentity'
 import Link from 'next/link'
 
-export default function HorizontalVariant({ blogs, section }) {
+export default function HorizontalVariant({ blogs, classes }) {
   const First = ({ blog_pack }) => {
     return (
       <div className='sm:col-span-6 lg:col-span-5'>
@@ -10,11 +10,11 @@ export default function HorizontalVariant({ blogs, section }) {
             {blog_pack.blog.featured_media != 0 && blog_pack.blog.featured_media ? (
               <ImageComponentity
                 src={blog_pack.blog._embedded['wp:featuredmedia'][0].source_url}
-                classes={section.imageClasses}
+                classes={classes.imageClasses}
                 alt={blog_pack.blog.title.rendered}
               />
             ) : (
-              <div className={`${section.heightClass} w-full bg-gray-100`}></div>
+              <div className={`${classes.imageClasses} w-full bg-gray-100`}></div>
             )}
           </a>
         </Link>
@@ -59,11 +59,11 @@ export default function HorizontalVariant({ blogs, section }) {
             {blog_pack.blog.featured_media != 0 && blog_pack.blog.featured_media ? (
               <ImageComponentity
                 src={blog_pack.blog._embedded['wp:featuredmedia'][0].source_url}
-                classes={section.imageClasses}
+                classes={classes.imageClasses}
                 alt={blog_pack.blog.title.rendered}
               />
             ) : (
-              <div className={`${section.heightClass} w-full bg-gray-100`}></div>
+              <div className={`${classes.imageClasses} w-full bg-gray-100`}></div>
             )}
           </a>
         </Link>

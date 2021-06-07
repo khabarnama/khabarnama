@@ -4,7 +4,7 @@ import SVGAuthor from '../SVG/SVGAuthor'
 import SVGClock from '../SVG/SVGClock'
 import Link from 'next/link'
 
-export default function SingleCol({ blogs, section }) {
+export default function SingleCol({ blogs, classes }) {
   const template = (blog_pack) => {
     return (
       <div
@@ -25,10 +25,11 @@ export default function SingleCol({ blogs, section }) {
               {blog_pack.blog.featured_media != 0 && blog_pack.blog.featured_media ? (
                 <ImageComponentity
                   src={blog_pack.blog._embedded['wp:featuredmedia'][0].source_url}
+                  classes={classes.imageClasses}
                   alt={blog_pack.blog.title.rendered}
                 />
               ) : (
-                <div className='h-400 w-full bg-gray-100'></div>
+                <div className={`${classes.imageClasses} w-full bg-gray-100`}></div>
               )}
             </a>
           </Link>

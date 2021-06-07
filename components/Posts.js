@@ -1,47 +1,97 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { useRouter } from 'next/router'
-import SectionTitle from './SectionTitle'
 import ResponsiveArticle from './skeleton/ResponsiveArticle'
 import SVGReload from './SVG/SVGReload'
 import GridCols from './BlogTemplates/GridCols'
 import SingleCol from './BlogTemplates/SingleCol'
 import HorizontalSmall from './BlogTemplates/HorizontalSmall'
 import HorizontalVariant from './BlogTemplates/HorizontalVariant'
-import HorizontalAds from './BlogTemplates/HorizontalAds'
 
-async function getNewPostsFromApi(page, type, type_id, count) {
-  const res = await fetch(
-    `${process.env.NEXT_PUBLIC_SITE_URL}/posts?_embed=true&${type}=${type_id}&page=${page}&per_page=${count}`
-  )
-  const blogs = await res.json()
+import SectionTitle from './SectionTitle'
+import SectionTitleWidget from './sectionTitle/SectionTitleWidget'
 
-  const posts = []
-  for (const post of blogs) {
-    const post_id = post.id
-    // get categories
-    const post_cats = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/categories?post=${post_id}`)
-    const cats = await post_cats.json()
-    // get tags
-    const post_tags = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/tags?post=${post_id}`)
-    const tags = await post_tags.json()
+import ListHorizontal from './BlogTemplates/ListHorizontal'
 
-    posts.push({ blog: post, cats, tags })
+const SectionTitleTemplate = (widget, classes, type_url) => {
+  switch (widget.name) {
+    case 'Posts':
+      return (
+        <SectionTitle
+          classes={classes.sectionTitleClasses}
+          link={widget.slug ? `/${type_url}/${widget.slug}` : ''}
+          title={widget.title}
+        />
+      )
+    case 'ListWidget':
+      return <SectionTitleWidget classes={classes.sectionTitleClasses} widget={widget} />
+
+    default:
+      return (
+        <SectionTitle
+          classes={classes.sectionTitleClasses}
+          link={widget.slug ? `/${type_url}/${widget.slug}` : ''}
+          title={widget.title}
+        />
+      )
   }
+}
 
+const BlogTemplate = (items, component, classes) => {
+  switch (component) {
+    case 'HorizontalSmall':
+      return <HorizontalSmall blogs={items} classes={classes} />
+    case 'HorizontalVariant':
+      return <HorizontalVariant blogs={items} classes={classes} />
+    case 'SingleCol':
+      return <SingleCol blogs={items} classes={classes} />
+
+    case 'ListHorizontal':
+      return <ListHorizontal items={items} />
+
+    default:
+      return <GridCols blogs={items} classes={classes} />
+  }
+}
+
+async function getNewPostsFromApi(page, widget) {
+  let args = `_embed=true&page=${page}&per_page=${widget.count ?? 10}&orderBy=${
+    widget.orderBy ?? 'id'
+  }&order=${widget.order ?? 'desc'}`
+  if (widget.name == 'Posts') {
+    args += `&${widget.type}=${widget.type_id}`
+  }
+  // console.log(
+  //   'LOADMORE ',
+  //   `${process.env.NEXT_PUBLIC_SITE_URL}/${widget.name == 'Posts' ? 'posts' : widget.type}?${args}`
+  // )
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_SITE_URL}/${widget.name == 'Posts' ? 'posts' : widget.type}?${args}`
+  )
+  const items = await res.json()
+
+  let posts = []
+  if (widget.name == 'Posts') {
+    for (const post of items) {
+      const post_id = post.id
+      // get categories
+      const post_cats = await fetch(
+        `${process.env.NEXT_PUBLIC_SITE_URL}/categories?post=${post_id}`
+      )
+      const cats = await post_cats.json()
+      // get tags
+      const post_tags = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/tags?post=${post_id}`)
+      const tags = await post_tags.json()
+
+      posts.push({ blog: post, cats, tags })
+    }
+  } else {
+    posts.push(...items)
+  }
+  // console.log('ITEMS LOADMORE', posts)
   return posts
 }
 
-export default function Posts({
-  posts,
-  title,
-  slug,
-  type,
-  type_id,
-  totalPages = 1,
-  paginationStyle,
-  perPage,
-  section
-}) {
+export default function Posts({ posts, classes, widget }) {
   const router = useRouter()
   if (router.isFallback) {
     return <ResponsiveArticle />
@@ -52,13 +102,13 @@ export default function Posts({
   const [disable, setDisable] = useState(false)
   // posts
   // [{blog:post, cats, tags}, {blog:post, cats, tags}, {blog:post, cats, tags}, ]
-  const [blogs, setBlogs] = useState(posts)
-  // console.log('BLOGS: POSTS.JS', blogs)
+  const [items, setItems] = useState(posts)
+  // console.log('items: POSTS.JS', items)
 
   const isInitialMount = useRef(true)
 
   let type_url
-  switch (type) {
+  switch (widget.type) {
     case 'categories':
       type_url = 'category'
       break
@@ -67,7 +117,7 @@ export default function Posts({
       break
 
     default:
-      type_url = type
+      type_url = widget.type
       break
   }
 
@@ -87,12 +137,12 @@ export default function Posts({
     } else {
       // console.log('ON PAGE UPDATE SET LOADING TRUE')
       setLoading(true)
-      const newPosts = await getNewPostsFromApi(page, type, type_id, perPage)
+      const newPosts = await getNewPostsFromApi(page, widget)
       if (newPosts.length > 0) {
-        if (paginationStyle == 'pagination') {
-          setBlogs([...newPosts])
+        if (widget.paginationStyle == 'pagination') {
+          setItems([...newPosts])
         } else {
-          setBlogs([...blogs, ...newPosts])
+          setItems([...items, ...newPosts])
         }
       }
     }
@@ -101,13 +151,13 @@ export default function Posts({
   useEffect(() => {
     // console.log('ON ROUTER USE EFFECT')
     // console.log('PAGE', page)
-    setBlogs(posts)
+    setItems(posts)
   }, [router])
 
   // disable loadmore
   useEffect(() => {
     // console.log('ON EACH PAGE UPDATE IF PAGE === LAST PAGE SET DISABLE TRUE')
-    if (page >= totalPages) {
+    if (widget.page >= widget.totalPages) {
       setDisable(true)
     }
     // console.log('Total', totalPages)
@@ -115,16 +165,16 @@ export default function Posts({
   }, [page])
 
   useEffect(() => {
-    // console.log('ON EACH BLOGS UPDATE SET LOADING FALSE: ')
+    // console.log('ON EACH items UPDATE SET LOADING FALSE: ')
     setLoading(false)
-  }, [blogs])
+  }, [items])
 
   // ========================================================
   // INFINITE SCROLLING
   // ========================================================
 
   // Listen to scroll positions for loading more data on scroll
-  if (paginationStyle == 'infinite') {
+  if (widget.paginationStyle == 'infinite') {
     useEffect(() => {
       window.addEventListener('scroll', handleScroll)
       return () => {
@@ -226,18 +276,18 @@ export default function Posts({
     let noBefore
     let noAfter
     let start = page
-    let last = totalPages
+    let last = widget.totalPages
 
     // total pages = 1
     // page = 1
-    if (page < totalPages - 5) {
+    if (page < widget.totalPages - 5) {
       noAfter = 5
       noBefore = 0
       start = page * 1
       last = start + 5
     } else {
-      noAfter = totalPages - page // 180 - 178 = 2 || 1-1=0
-      if (totalPages < 5) {
+      noAfter = widget.totalPages - page // 180 - 178 = 2 || 1-1=0
+      if (widget.totalPages < 5) {
         noBefore = 0
       } else {
         noBefore = 5 - noAfter
@@ -266,7 +316,7 @@ export default function Posts({
       <li key='next'>
         <button
           className='border bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 disabled:bg-gray-100 disabled:cursor-not-allowed'
-          disabled={page == totalPages ? true : false}
+          disabled={page == widget.totalPages ? true : false}
           onClick={() => updatePage(page + 1)}
         >
           Next
@@ -278,10 +328,10 @@ export default function Posts({
       <li key='last'>
         <button
           className='border hidden sm:inline-block bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 disabled:bg-gray-100 disabled:cursor-not-allowed'
-          disabled={page == totalPages ? true : false}
-          onClick={() => updatePage(totalPages)}
+          disabled={page == widget.totalPages ? true : false}
+          onClick={() => updatePage(widget.totalPages)}
         >
-          Last ({totalPages})
+          Last ({widget.totalPages})
         </button>
       </li>
     )
@@ -295,50 +345,26 @@ export default function Posts({
     )
   }
 
-  const BlogTemplate = (blogs, section = { liType: 'GridCols' }) => {
-    switch (section.liType) {
-      case 'HorizontalSmall':
-        return <HorizontalSmall blogs={blogs} section={section} />
-      case 'HorizontalVariant':
-        return <HorizontalVariant blogs={blogs} section={section} />
-      case 'SingleCol':
-        return <SingleCol blogs={blogs} section={section} />
-      case 'HorizontalAds':
-        return <HorizontalAds section={section} />
-
-      default:
-        return <GridCols blogs={blogs} section={section} />
-    }
-  }
-
   return (
     <>
-      {blogs.length == 0 ? (
+      {items.length == 0 || !items ? (
         <h1>No Results found</h1>
       ) : (
-        <div className={section && section.containerClasses}>
-          {title ? (
-            <SectionTitle
-              classes={section.sectionTitleClasses}
-              link={slug ? `/${type_url}/${slug}` : ''}
-              title={title}
-            />
-          ) : (
-            ''
-          )}
-          {loading && paginationStyle == 'pagination' ? (
+        <div className={classes && classes.containerClasses}>
+          {widget.title && SectionTitleTemplate(widget, classes, type_url)}
+          {loading && widget.paginationStyle == 'pagination' ? (
             <ResponsiveArticle />
           ) : (
             <ol
               className={`infinite-loader-container ${
-                section ? section.olClasses : 'grid sm:grid-cols-2 lg:grid-cols-4 gap-10'
+                classes.olClasses ? classes.olClasses : 'grid sm:grid-cols-2 lg:grid-cols-4 gap-10'
               }`}
             >
-              {blogs && BlogTemplate(blogs, section)}
+              {items && BlogTemplate(items, widget.component, classes)}
             </ol>
           )}
           <div className='flex items-center justify-center'>
-            {paginationStyle ? <Pagination type={paginationStyle} /> : ''}
+            {widget.paginationStyle ? <Pagination type={widget.paginationStyle} /> : ''}
           </div>
         </div>
       )}
