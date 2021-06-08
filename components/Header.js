@@ -17,7 +17,7 @@ function Header({ router }) {
 
   return (
     <>
-      <header className='max-w-screen-xl mx-auto my-10 flex flex-row items-center justify-between relative'>
+      <header className='max-w-screen-xl mx-auto sm:my-10 flex flex-row items-center justify-between relative'>
         <Link href={'/'}>
           <a>
             <div className='site hover:text-indigo-600'>

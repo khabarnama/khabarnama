@@ -4,7 +4,7 @@ import Link from 'next/link'
 export default function HorizontalSmall({ blogs, classes }) {
   const template = (blog_pack) => {
     return (
-      <div key={blog_pack.blog.id} className='flex flex-col justify-between border-b pb-5'>
+      <div key={blog_pack.blog.id} className='flex flex-col justify-between border-b'>
         <Link href={`/blog/${blog_pack.blog.slug}`}>
           <a aria-label='heading'>
             <h1

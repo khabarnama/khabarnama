@@ -195,7 +195,7 @@ export async function getStaticProps() {
     },
     {
       classes: {
-        containerClasses: 'bg-gray-100 py-10 relative my-10',
+        containerClasses: 'bg-gray-100 relative my-10 p-5 sm:p-0 py-10',
         sectionTitleClasses: 'max-w-screen-xl mx-auto',
         olClasses: 'max-w-screen-xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10',
         imageClasses: 'h-20 w-20'
@@ -215,8 +215,7 @@ export async function getStaticProps() {
     {
       classes: {
         containerClasses: 'max-w-screen-xl mx-auto relative my-10',
-        olClasses:
-          'grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-2 place-content-stretch mb-8',
+        olClasses: 'flex flex-wrap gap-4 mb-8',
         sectionTitleClasses: 'max-w-screen-xl mx-auto'
       },
       widget: {

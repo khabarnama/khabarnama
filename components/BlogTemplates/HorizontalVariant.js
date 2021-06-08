@@ -139,7 +139,7 @@ export default function HorizontalVariant({ blogs, classes }) {
       {
         <div
           key={blogs[1].blog.id}
-          className='sm:col-span-6 lg:col-span-4 flex flex-col justify-between'
+          className='sm:col-span-6 lg:col-span-4 flex flex-col justify-between gap-2'
         >
           {middleBlogs.map((blog_pack) => {
             return <Default key={blog_pack.blog.id} blog_pack={blog_pack} />
