@@ -1,5 +1,12 @@
 module.exports = {
-  purge: ['./pages/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],
+  purge: {
+    content: ['./pages/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],
+    options: {
+      safelist: {
+        standard: [/^[\w:]*grid-cols-/, /^[\w:]*place-content-/]
+      }
+    }
+  },
   darkMode: 'class', // or 'media' or 'class'
   theme: {
     extend: {
