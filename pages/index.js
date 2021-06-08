@@ -139,7 +139,7 @@ export async function getStaticProps() {
       classes: {
         containerClasses: 'bg-gray-100 dark:bg-gray-800  relative px-5 sm:px-0 py-20 my-20',
         sectionTitleClasses: 'max-w-screen-xl mx-auto',
-        olClasses: 'max-w-screen-xl mx-auto flex gap-2'
+        olClasses: 'max-w-screen-xl mx-auto flex flex-wrap gap-2'
       },
       widget: {
         name: 'ListWidget',

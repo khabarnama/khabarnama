@@ -41,7 +41,7 @@ export default function GridCols3({ blogs, classes }) {
     return (
       <div
         key={blog_pack.blog.id}
-        className='infinite-loader-item rounded overflow-hidden col-span-12 sm:col-span-4 flex flex-col justify-start'
+        className='infinite-loader-item rounded overflow-hidden sm:col-span-4 flex flex-col justify-start'
       >
         <Link href={`/blog/${blog_pack.blog.slug}`}>
           <a aria-label='Blog post Image'>
@@ -98,10 +98,7 @@ export default function GridCols3({ blogs, classes }) {
   return (
     <>
       {
-        <div
-          key={blogs[1].blog.id}
-          className='sm:col-span-12 lg:col-span-4 flex flex-col justify-between'
-        >
+        <div key={blogs[1].blog.id} className='lg:col-span-4 flex flex-col justify-between'>
           {first3Blogs.map((blog_pack) => {
             return <First3 key={blog_pack.blog.id} blog_pack={blog_pack} />
           })}
