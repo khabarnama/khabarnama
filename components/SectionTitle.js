@@ -24,7 +24,7 @@ export default function SectionTitle({ widget, classes, type_url }) {
     <>
       <div className={`border-b mb-5 flex justify-between text-sm ${classes && classes}`}>
         <Link href={link} disable={link != ''}>
-          <a className='text-indigo-600 flex items-center pb-2 pr-2 border-b-2 border-indigo-600 uppercase font-semibold'>
+          <a className='text-indigo-600 dark:text-gray-200 flex items-center pb-2 pr-2 border-b-2 border-indigo-600 uppercase font-semibold'>
             {widget.type && svg(widget.type)}
             {widget.title}
           </a>

@@ -39,7 +39,7 @@ export default function GridCols({ blogs, classes }) {
               <SVGClock />
               <span className='ml-1'>{blog_pack.blog.date}</span>
             </span>
-            <span className='flex flex-row gap-1 items-center hover:text-indigo-600 dark:hover:text-indigo-600'>
+            <span className='flex flex-row gap-1 items-center hover:text-indigo-600 dark:hover:text-indigo-600 transition duration-500 ease-in-out'>
               <SVGCategory />
               {blog_pack.cats.map((cat) => {
                 return (

@@ -18,7 +18,7 @@ export default function HorizontalVariant({ blogs, classes }) {
             )}
           </a>
         </Link>
-        <div className='mt-3 bg-white rounded-b lg:rounded-b-none lg:rounded-r flex flex-col justify-between leading-normal'>
+        <div className='mt-3 rounded-b lg:rounded-b-none lg:rounded-r flex flex-col justify-between leading-normal'>
           <div className='lg:pl-16'>
             {blog_pack.cats.map((cat) => {
               return (
@@ -26,7 +26,7 @@ export default function HorizontalVariant({ blogs, classes }) {
                   <Link href={`/category/${cat.slug}`}>
                     <a
                       aria-label='category'
-                      className='text-xs text-indigo-600 uppercase font-medium mb-1 flex items-center hover:text-gray-900 transition duration-500 ease-in-out'
+                      className='text-xs text-indigo-600 uppercase font-medium mb-1 flex items-center hover:text-gray-900 dark:hover:text-gray-100 transition duration-500 ease-in-out'
                     >
                       {cat.name}
                     </a>
@@ -37,7 +37,7 @@ export default function HorizontalVariant({ blogs, classes }) {
             <Link href={`/blog/${blog_pack.blog.slug}`}>
               <a
                 aria-label='blog link'
-                className='line-clamp-2 h-14 text-gray-900 font-bold text-lg mb-2 hover:text-indigo-600 transition duration-500 ease-in-out'
+                className='line-clamp-2 h-14 text-gray-900 dark:text-gray-200 font-bold text-lg mb-2 hover:text-indigo-600 dark:hover:text-indigo-600 transition duration-500 ease-in-out'
               >
                 {blog_pack.blog.title.rendered}
               </a>
@@ -67,7 +67,7 @@ export default function HorizontalVariant({ blogs, classes }) {
             )}
           </a>
         </Link>
-        <div className='mt-3 bg-white rounded-b lg:rounded-b-none lg:rounded-r flex flex-col justify-between leading-normal'>
+        <div className='mt-3 rounded-b lg:rounded-b-none lg:rounded-r flex flex-col justify-between leading-normal'>
           <div className=''>
             {blog_pack.cats.map((cat) => {
               return (
@@ -75,7 +75,7 @@ export default function HorizontalVariant({ blogs, classes }) {
                   <Link href={`/category/${cat.slug}`}>
                     <a
                       aria-label='category'
-                      className='text-xs text-indigo-600 uppercase mb-1 font-medium flex items-center hover:text-gray-900 transition duration-500 ease-in-out'
+                      className='text-xs text-indigo-600 uppercase mb-1 font-medium flex items-center hover:text-gray-900 dark:hover:text-gray-100 transition duration-500 ease-in-out'
                     >
                       {cat.name}
                     </a>
@@ -86,7 +86,7 @@ export default function HorizontalVariant({ blogs, classes }) {
             <Link href={`/blog/${blog_pack.blog.slug}`}>
               <a
                 aria-label='blog link'
-                className='text-gray-900 font-bold text-lg mb-2 hover:text-indigo-600 transition duration-500 ease-in-out'
+                className='text-gray-900 dark:text-gray-200 font-bold text-lg mb-2 hover:text-indigo-600 dark:hover:text-indigo-600 transition duration-500 ease-in-out'
               >
                 {blog_pack.blog.title.rendered}
               </a>
@@ -121,7 +121,7 @@ export default function HorizontalVariant({ blogs, classes }) {
           <Link href={`/blog/${blog_pack.blog.slug}`}>
             <a
               aria-label='blog link'
-              className='text-gray-900 font-semibold hover:text-indigo-600 leading-none'
+              className='text-gray-900 dark:text-gray-100 font-semibold hover:text-indigo-600 dark:hover:text-indigo-600 leading-none'
             >
               {blog_pack.blog.title.rendered}
             </a>

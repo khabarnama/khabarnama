@@ -6,7 +6,7 @@ import Link from 'next/link'
 export default function GridCols3({ blogs, classes }) {
   const First3 = ({ blog_pack }) => {
     return (
-      <div key={blog_pack.blog.id} className='flex items-start justify-start gap-2 pb-2 border-b'>
+      <div key={blog_pack.blog.id} className='flex items-start justify-start gap-3 pb-2 border-b'>
         <Link href={`/blog/${blog_pack.blog.slug}`}>
           <a aria-label='image' className='inline-block ml-2'>
             {blog_pack.blog.featured_media != 0 && blog_pack.blog.featured_media ? (
@@ -26,7 +26,7 @@ export default function GridCols3({ blogs, classes }) {
             <a aria-label='heading'>
               <h1
                 aria-label='heading'
-                className='line-clamp-3 h-12 text-gray-900 font-semibold hover:text-indigo-600'
+                className='line-clamp-3 h-12 text-gray-900 dark:text-gray-200 font-semibold hover:text-indigo-600 dark:hover:text-indigo-600 transition duration-500 ease-in-out'
               >
                 {blog_pack.blog.title.rendered}
               </h1>
