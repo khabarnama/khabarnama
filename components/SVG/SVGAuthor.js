@@ -1,9 +1,8 @@
-export default function SVGAuthor({ color = 'white' }) {
+export default function SVGAuthor({ classes }) {
   return (
     <svg
-      className={`text-${color} group-hover:text-indigo-600`}
+      className={`${classes ? classes : 'h-6 group-hover:text-indigo-600'}`}
       fill='currentColor'
-      height='16px'
       aria-hidden='true'
       role='img'
       focusable='false'

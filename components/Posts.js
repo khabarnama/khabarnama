@@ -6,6 +6,7 @@ import GridCols from './BlogTemplates/GridCols'
 import SingleCol from './BlogTemplates/SingleCol'
 import HorizontalSmall from './BlogTemplates/HorizontalSmall'
 import HorizontalVariant from './BlogTemplates/HorizontalVariant'
+import HorizontalVariantBig from './BlogTemplates/HorizontalVariantBig'
 
 import SectionTitle from './SectionTitle'
 import SectionTitleWidget from './sectionTitle/SectionTitleWidget'
@@ -16,11 +17,7 @@ const SectionTitleTemplate = (widget, classes, type_url) => {
   switch (widget.name) {
     case 'Posts':
       return (
-        <SectionTitle
-          classes={classes.sectionTitleClasses}
-          link={widget.slug ? `/${type_url}/${widget.slug}` : ''}
-          title={widget.title}
-        />
+        <SectionTitle classes={classes.sectionTitleClasses} widget={widget} type_url={type_url} />
       )
     case 'ListWidget':
       return <SectionTitleWidget classes={classes.sectionTitleClasses} widget={widget} />
@@ -42,6 +39,8 @@ const BlogTemplate = (items, component, classes) => {
       return <HorizontalSmall blogs={items} classes={classes} />
     case 'HorizontalVariant':
       return <HorizontalVariant blogs={items} classes={classes} />
+    case 'HorizontalVariantBig':
+      return <HorizontalVariantBig blogs={items} classes={classes} />
     case 'SingleCol':
       return <SingleCol blogs={items} classes={classes} />
 

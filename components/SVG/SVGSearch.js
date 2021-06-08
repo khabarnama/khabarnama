@@ -1,10 +1,9 @@
-export default function SVGSearch() {
+export default function SVGSearch({ classes }) {
   return (
     <svg
+      className={`${classes ? classes : 'h-6'}`}
       fill='currentColor'
       version='1.1'
-      width='20'
-      height='20'
       id='Capa_1'
       xmlns='http://www.w3.org/2000/svg'
       x='0px'

@@ -1,7 +1,7 @@
-export default function SVGNewspaper() {
+export default function SVGNewspaper({ classes }) {
   return (
     <svg
-      className='h-6 mr-3'
+      className={`${classes ? classes : 'h-6 mr-3'}`}
       version='1.1'
       id='Capa_1'
       xmlns='http://www.w3.org/2000/svg'

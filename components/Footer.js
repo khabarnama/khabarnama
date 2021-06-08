@@ -1,7 +1,7 @@
 export default function Footer() {
-    return (
-        <>
-            <div>this is the footer</div>
-        </>
-    );
+  return (
+    <div className='py-20 flex items-center justify-center bg-gray-900 text-white'>
+      <div>Componentity - All Rights Reserved!</div>
+    </div>
+  )
 }
