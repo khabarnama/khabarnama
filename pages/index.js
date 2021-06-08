@@ -103,7 +103,7 @@ export async function getStaticProps() {
     },
     {
       classes: {
-        containerClasses: 'bg-gray-100 dark:bg-gray-800relative m2-10 px-5 sm:px-0 py-20',
+        containerClasses: 'bg-gray-100 dark:bg-gray-800  relative m2-10 px-5 sm:px-0 py-20',
         sectionTitleClasses: 'max-w-screen-xl mx-auto',
         olClasses: 'max-w-screen-xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10',
         imageClasses: 'h-20 w-20'
@@ -137,7 +137,7 @@ export async function getStaticProps() {
     },
     {
       classes: {
-        containerClasses: 'bg-gray-100 dark:bg-gray-800relative px-5 sm:px-0 py-20 my-20',
+        containerClasses: 'bg-gray-100 dark:bg-gray-800  relative px-5 sm:px-0 py-20 my-20',
         sectionTitleClasses: 'max-w-screen-xl mx-auto',
         olClasses: 'max-w-screen-xl mx-auto flex gap-2'
       },
@@ -172,7 +172,7 @@ export async function getStaticProps() {
     },
     {
       classes: {
-        containerClasses: 'bg-gray-100 dark:bg-gray-800relative my-20 px-5 sm:px-0 py-20',
+        containerClasses: 'bg-gray-100 dark:bg-gray-800  relative my-20 px-5 sm:px-0 py-20',
         sectionTitleClasses: 'max-w-screen-xl mx-auto',
         olClasses:
           'max-w-screen-xl mx-auto grid grid-cols-1 sm:grid-cols-12 gap-10 mb-10 place-items-start place-content-stretch',
@@ -212,7 +212,7 @@ export async function getStaticProps() {
     },
     {
       classes: {
-        containerClasses: 'bg-gray-100 dark:bg-gray-800relative my-20 px-5 sm:px-0 py-20',
+        containerClasses: 'bg-gray-100 dark:bg-gray-800  relative my-20 px-5 sm:px-0 py-20',
         sectionTitleClasses: 'max-w-screen-xl mx-auto',
         olClasses:
           'max-w-screen-xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 mb-10',

@@ -121,7 +121,7 @@ export default function HorizontalVariant({ blogs, classes }) {
           <Link href={`/blog/${blog_pack.blog.slug}`}>
             <a
               aria-label='blog link'
-              className='text-gray-900 dark:text-gray-100 font-semibold hover:text-indigo-600 dark:hover:text-indigo-600 leading-none'
+              className='text-gray-900 dark:text-gray-100 font-semibold hover:text-indigo-600 dark:hover:text-indigo-600 leading-none transition duration-500 ease-in-out'
             >
               {blog_pack.blog.title.rendered}
             </a>

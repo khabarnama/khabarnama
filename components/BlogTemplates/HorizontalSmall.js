@@ -9,7 +9,7 @@ export default function HorizontalSmall({ blogs, classes }) {
           <a aria-label='heading'>
             <h1
               aria-label='heading'
-              className='line-clamp-3 h-12 text-gray-900 dark:text-gray-200 font-semibold hover:text-indigo-600 dark:hover:text-indigo-600'
+              className='line-clamp-3 h-12 text-gray-900 dark:text-gray-200 font-semibold hover:text-indigo-600 dark:hover:text-indigo-600 transition duration-500 ease-in-out'
             >
               {blog_pack.blog.title.rendered}
             </h1>
