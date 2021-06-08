@@ -4,6 +4,7 @@ import ResponsiveArticle from './skeleton/ResponsiveArticle'
 import SVGReload from './SVG/SVGReload'
 import GridCols from './BlogTemplates/GridCols'
 import GridCols2 from './BlogTemplates/GridCols2'
+import GridCols3 from './BlogTemplates/GridCols3'
 import SingleCol from './BlogTemplates/SingleCol'
 import HorizontalSmall from './BlogTemplates/HorizontalSmall'
 import HorizontalVariant from './BlogTemplates/HorizontalVariant'
@@ -46,6 +47,8 @@ const BlogTemplate = (items, component, classes) => {
       return <SingleCol blogs={items} classes={classes} />
     case 'GridCols2':
       return <GridCols2 blogs={items} classes={classes} />
+    case 'GridCols3':
+      return <GridCols3 blogs={items} classes={classes} />
 
     case 'ListHorizontal':
       return <ListHorizontal items={items} />

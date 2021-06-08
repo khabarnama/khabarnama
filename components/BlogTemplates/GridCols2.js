@@ -40,6 +40,12 @@ export default function GridCols2({ blogs, classes }) {
                 </h1>
               </a>
             </Link>
+            {index < 2 && (
+              <div
+                className='text-sm text-gray-400 line-clamp-3 h-16'
+                dangerouslySetInnerHTML={{ __html: blog_pack.blog.excerpt.rendered }}
+              />
+            )}
             <div className='py-5 text-sm font-regular text-gray-900 dark:text-gray-300 flex justify-between items-center'>
               <span className='mr-3 flex flex-row gap-1 items-center'>
                 <SVGClock />

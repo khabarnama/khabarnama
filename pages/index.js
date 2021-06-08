@@ -68,99 +68,108 @@ export default function Blog(container) {
 }
 
 export async function getStaticProps() {
-  // {
-  //   section: {
-  //     containerClasses: 'max-w-screen-xl mx-auto relative mb-10',
-  //     sectionTitleClasses: '',
-  //     olClasses: 'grid grid-cols-1 sm:grid-cols-12 gap-10',
-  //     liType: 'HorizontalVariant',
-  //     imageClasses: 'h-52'
-  //   },
-  //   name: 'NEWS',
-  //   slug: 'news',
-  //   type: 'categories',
-  //   type_id: 423715164,
-  //   count: 6
-  // },
-  // {
-  //   section: {
-  //     containerClasses: 'max-w-screen-lg mx-auto my-10 relative',
-  //     olClasses: 'text-center',
-  //     liType: 'HorizontalAds',
-  //     imageClasses: 'h-32 w-full',
-  // image: {
-  //   href: 'https://componentity.com',
-  //   src: 'https://www.etilaatroz.com/wp-content/uploads/2020/11/F45-fitness-training-afghanistan.jpg'
-  // }
-  //   },
-  //   type: 'ads',
-  //   count: 1
-  // },
-  // {
-  //   section: {
-  //     containerClasses: 'max-w-screen-xl mx-auto mb-10 relative',
-  //     olClasses: 'grid sm:grid-cols-2 lg:grid-cols-4 gap-10',
-  //     liType: 'GridCols',
-  //     imageClasses: 'h-52'
-  //   },
-  //   name: 'SPRITUALITY',
-  //   slug: 'spirituality',
-  //   type: 'categories',
-  //   type_id: 1494,
-  //   count: 8
-  // },
-  // {
-  //   section: {
-  // containerClasses: 'bg-gray-100 p-8 mb-10 relative',
-  // sectionTitleClasses: 'max-w-screen-xl mx-auto',
-  // olClasses: 'max-w-screen-xl mx-auto grid sm:grid-cols-2 lg:grid-cols-3 gap-10',
-  //     liType: 'HorizontalSmall',
-  // imageClasses: 'h-20 w-20'
-  //   },
-  //   name: 'LATEST',
-  //   count: 6
-  // },
-  // {
-  //   section: {
-  //     containerClasses: 'max-w-screen-lg mx-auto relative',
-  //     olClasses: 'grid grid-cols-1 gap-10',
-  //     liType: 'SingleCol',
-  //     imageClasses: 'h-52'
-  //   },
-  //   name: 'LIFESTYLE',
-  //   slug: 'lifestyle',
-  //   type: 'categories',
-  //   type_id: 278,
-  //   count: 6
-  // }
-
-  // ====================================
-  // HORIZONTALVARIANT
-  // - NO PAGINATION SHOULD BE APPLIED
-  // DONT REPEAT THE SAME CATEGORY IN 2 DIFFERENT SECTIONS
-  // ====================================
-
-  // =====================
-  // classes: {
-  //   containerClasses,
-  //   olClasses,
-  //   imageClasses,
-  //   sectionTitleClasses,
-  // }
-  // widget: {
-  //   name,
-  //   component,
-  //   title,
-  //   slug,
-  //   type,
-  //   type_id,
-  //   count,
-  //   paginationStyle,
-  //   totalPages
-  // }
-  // =====================
-
   const sections = [
+    {
+      classes: {
+        containerClasses: 'max-w-screen-xl mx-auto relative mb-20 sm:mt-10 p-5 sm:p-0',
+        olClasses: 'grid grid-cols-1 sm:grid-cols-12 gap-10',
+        imageClasses: 'h-52'
+      },
+      widget: {
+        name: 'Posts',
+        component: 'HorizontalVariant',
+        title: 'LIFESTYLE',
+        slug: 'lifestyle',
+        type: 'categories',
+        type_id: 278,
+        orderBy: 'id',
+        order: 'desc',
+        count: 6
+      }
+    },
+    {
+      classes: {
+        containerClasses: 'max-w-screen-lg mx-auto relative my-20',
+        imageClasses: 'h-12 sm:h-32'
+      },
+      widget: {
+        name: 'Ads',
+        component: 'HorizontalAds',
+        image: {
+          href: 'https://componentity.com',
+          src: 'https://www.etilaatroz.com/wp-content/uploads/2020/11/F45-fitness-training-afghanistan.jpg'
+        }
+      }
+    },
+    {
+      classes: {
+        containerClasses: 'bg-gray-100 relative m2-10 px-5 sm:px-0 py-20',
+        sectionTitleClasses: 'max-w-screen-xl mx-auto',
+        olClasses: 'max-w-screen-xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10',
+        imageClasses: 'h-20 w-20'
+      },
+      widget: {
+        name: 'Posts',
+        component: 'HorizontalSmall',
+        title: 'frpatrickbriscoe',
+        slug: 'frpatrickbriscoe',
+        type: 'author',
+        type_id: 187244155,
+        orderBy: 'id',
+        order: 'desc',
+        count: 6
+      }
+    },
+    {
+      classes: {
+        containerClasses: 'max-w-screen-xl mx-auto relative my-20 p-5 sm:p-0',
+        olClasses: 'grid grid-cols-1 sm:grid-cols-12 gap-10',
+        imageClasses: 'h-36'
+      },
+      widget: {
+        name: 'Posts',
+        component: 'HorizontalVariantBig',
+        title: 'Latest',
+        orderBy: 'id',
+        order: 'desc',
+        count: 4
+      }
+    },
+    {
+      classes: {
+        containerClasses: 'bg-gray-100 relative px-5 sm:px-0 py-20 my-20',
+        sectionTitleClasses: 'max-w-screen-xl mx-auto',
+        olClasses: 'max-w-screen-xl mx-auto flex gap-2'
+      },
+      widget: {
+        name: 'ListWidget',
+        component: 'ListHorizontal',
+        title: 'Trends For You',
+        type: 'tags',
+        count: 10,
+        order: 'desc',
+        orderBy: 'count'
+      }
+    },
+    {
+      classes: {
+        containerClasses: 'max-w-screen-xl mx-auto relative my-20 p-5 sm:p-0',
+        olClasses: 'grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 mb-10',
+        imageClasses: 'h-52'
+      },
+      widget: {
+        name: 'Posts',
+        component: 'GridCols',
+        title: 'Pope Francis',
+        slug: 'pope-francis',
+        type: 'tags',
+        type_id: 423714612,
+        orderBy: 'id',
+        order: 'desc',
+        paginationStyle: 'loadmore',
+        count: 3
+      }
+    },
     {
       classes: {
         containerClasses: 'bg-gray-100 relative my-20 px-5 sm:px-0 py-20',
@@ -180,6 +189,65 @@ export async function getStaticProps() {
         order: 'desc',
         paginationStyle: 'loadmore',
         count: 6
+      }
+    },
+    {
+      classes: {
+        containerClasses: 'max-w-screen-xl mx-auto relative my-20 p-5 sm:p-0',
+        olClasses: 'grid grid-cols-1 sm:grid-cols-12 gap-10 mb-10',
+        imageClasses: 'h-52'
+      },
+      widget: {
+        name: 'Posts',
+        component: 'GridCols3',
+        title: 'Church',
+        slug: 'church-news',
+        type: 'categories',
+        type_id: 423715166,
+        orderBy: 'id',
+        order: 'desc',
+        paginationStyle: 'loadmore',
+        count: 5
+      }
+    },
+    {
+      classes: {
+        containerClasses: 'bg-gray-100 relative my-20 px-5 sm:px-0 py-20',
+        sectionTitleClasses: 'max-w-screen-xl mx-auto',
+        olClasses:
+          'max-w-screen-xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 mb-10',
+        imageClasses: 'h-80'
+      },
+      widget: {
+        name: 'Posts',
+        component: 'GridCols',
+        title: 'Art & Culture',
+        slug: 'art-culture',
+        type: 'categories',
+        type_id: 423715388,
+        orderBy: 'id',
+        order: 'desc',
+        paginationStyle: 'loadmore',
+        count: 4
+      }
+    },
+    {
+      classes: {
+        containerClasses: 'max-w-screen-xl mx-auto relative my-20 p-5 sm:p-0',
+        olClasses: 'grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 mb-10',
+        imageClasses: 'h-48'
+      },
+      widget: {
+        name: 'Posts',
+        component: 'GridCols',
+        title: 'Daily Catholic Prayer',
+        slug: 'daily-catholic-prayer',
+        type: 'categories',
+        type_id: 423716895,
+        orderBy: 'id',
+        order: 'desc',
+        paginationStyle: 'loadmore',
+        count: 3
       }
     }
   ]

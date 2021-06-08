@@ -21,7 +21,7 @@ export default function HorizontalSmall({ blogs, classes }) {
               className='text-gray-400 line-clamp-3 h-12'
               dangerouslySetInnerHTML={{ __html: blog_pack.blog.excerpt.rendered }}
             />
-            <span className='text-gray-600 text-xs'>- {blog_pack.blog.date}</span>
+            <span className='text-gray-600 text-xs'>{blog_pack.blog.date}</span>
           </div>
           <Link href={`/blog/${blog_pack.blog.slug}`}>
             <a aria-label='image' className='inline-block ml-2'>
