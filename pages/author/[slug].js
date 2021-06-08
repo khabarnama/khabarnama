@@ -61,8 +61,7 @@ export async function getStaticPaths() {
 // This also gets called at build time
 export async function getStaticProps({ params }) {
   const classes = {
-    containerClasses: 'max-w-screen-xl mx-auto relative my-10',
-    sectionTitleClasses: 'max-w-screen-xl mx-auto',
+    containerClasses: 'max-w-screen-xl mx-auto relative sm:my-10 p-5 sm:p-0',
     olClasses: 'grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10',
     imageClasses: 'h-52'
   }

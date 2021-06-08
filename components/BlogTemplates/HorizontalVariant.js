@@ -43,7 +43,7 @@ export default function HorizontalVariant({ blogs, classes }) {
               </a>
             </Link>
             <div
-              className='line-clamp-3 text-gray-700 text-xs mt-2'
+              className='line-clamp-3 text-gray-400 text-xs mt-2'
               dangerouslySetInnerHTML={{ __html: blog_pack.blog.excerpt.rendered }}
             />
           </div>
@@ -92,7 +92,7 @@ export default function HorizontalVariant({ blogs, classes }) {
               </a>
             </Link>
             <div
-              className='line-clamp-2 text-gray-700 text-xs mt-2'
+              className='line-clamp-2 text-gray-400 text-xs mt-2'
               dangerouslySetInnerHTML={{ __html: blog_pack.blog.excerpt.rendered }}
             />
           </div>
@@ -117,11 +117,11 @@ export default function HorizontalVariant({ blogs, classes }) {
           </a>
         </Link>
         <div className='text-sm'>
-          <p className='text-gray-600 text-xs'>{blog_pack.blog.date}</p>
+          <p className='text-gray-400 text-xs mb-1'>{blog_pack.blog.date}</p>
           <Link href={`/blog/${blog_pack.blog.slug}`}>
             <a
               aria-label='blog link'
-              className='text-gray-900 font-medium hover:text-indigo-600 leading-none'
+              className='text-gray-900 font-semibold hover:text-indigo-600 leading-none'
             >
               {blog_pack.blog.title.rendered}
             </a>

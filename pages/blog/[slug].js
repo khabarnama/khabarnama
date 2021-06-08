@@ -22,7 +22,7 @@ function Post({ post, cats, tags }) {
       {post === null ? (
         <h1>Not found</h1>
       ) : (
-        <div className='max-w-screen-md mx-auto mb-10 rounded overflow-hidden flex flex-col mx-auto'>
+        <div className='max-w-screen-md mx-auto mb-10 rounded overflow-hidden flex flex-col mx-auto p-5 sm:p-0'>
           <Head>{ReactHtmlParser(post[0].yoast_head)}</Head>
           <header>
             <h1 className='text-4xl font-bold mb-4 dark:text-gray-50'>{post[0].title.rendered}</h1>

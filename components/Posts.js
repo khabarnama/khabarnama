@@ -3,6 +3,7 @@ import { useRouter } from 'next/router'
 import ResponsiveArticle from './skeleton/ResponsiveArticle'
 import SVGReload from './SVG/SVGReload'
 import GridCols from './BlogTemplates/GridCols'
+import GridCols2 from './BlogTemplates/GridCols2'
 import SingleCol from './BlogTemplates/SingleCol'
 import HorizontalSmall from './BlogTemplates/HorizontalSmall'
 import HorizontalVariant from './BlogTemplates/HorizontalVariant'
@@ -43,6 +44,8 @@ const BlogTemplate = (items, component, classes) => {
       return <HorizontalVariantBig blogs={items} classes={classes} />
     case 'SingleCol':
       return <SingleCol blogs={items} classes={classes} />
+    case 'GridCols2':
+      return <GridCols2 blogs={items} classes={classes} />
 
     case 'ListHorizontal':
       return <ListHorizontal items={items} />
@@ -228,7 +231,7 @@ export default function Posts({ posts, classes, widget }) {
 
   function Loadmore() {
     return (
-      <>
+      <div className='flex flex-col gap-5 items-center w-full'>
         {loading ? <ResponsiveArticle /> : ''}
         <button
           className='flex flex-row items-center justify-center gap-2 bg-gray-300 hover:bg-gray-400 text-gray-800 font-semibold py-2 px-4 w-40 h-12 rounded disabled:bg-gray-100 disabled:cursor-not-allowed'
@@ -238,7 +241,7 @@ export default function Posts({ posts, classes, widget }) {
           <SVGReload />
           {loading ? 'Loading...' : 'Load more'}
         </button>
-      </>
+      </div>
     )
   }
 
@@ -349,14 +352,16 @@ export default function Posts({ posts, classes, widget }) {
       {items.length == 0 || !items ? (
         <h1>No Results found</h1>
       ) : (
-        <div className={classes && classes.containerClasses}>
+        <div className={widget.title && classes && classes.containerClasses}>
           {widget.title && SectionTitleTemplate(widget, classes, type_url)}
           {loading && widget.paginationStyle == 'pagination' ? (
             <ResponsiveArticle />
           ) : (
             <ol
-              className={`infinite-loader-container ${
-                classes.olClasses ? classes.olClasses : 'grid sm:grid-cols-2 lg:grid-cols-4 gap-10'
+              className={`infinite-loader-container w-full ${
+                classes.olClasses
+                  ? classes.olClasses
+                  : 'grid sm:grid-cols-2 lg:grid-cols-4 gap-10 place-items-start place-content-stretch'
               }`}
             >
               {items && BlogTemplate(items, widget.component, classes)}

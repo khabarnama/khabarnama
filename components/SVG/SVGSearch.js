@@ -1,7 +1,7 @@
 export default function SVGSearch({ classes }) {
   return (
     <svg
-      className={`${classes ? classes : 'h-6'}`}
+      className={`${classes ? classes : 'h-5'}`}
       fill='currentColor'
       version='1.1'
       id='Capa_1'

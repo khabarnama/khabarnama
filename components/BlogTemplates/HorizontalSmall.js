@@ -9,16 +9,16 @@ export default function HorizontalSmall({ blogs, classes }) {
           <a aria-label='heading'>
             <h1
               aria-label='heading'
-              className='line-clamp-3 h-12 text-gray-900 font-medium hover:text-indigo-600'
+              className='line-clamp-3 h-12 text-gray-900 font-semibold hover:text-indigo-600'
             >
               {blog_pack.blog.title.rendered}
             </h1>
           </a>
         </Link>
-        <div className='flex items-between justify-between mt-3'>
-          <div className='text-sm w-2/3 flex flex-col justify-between'>
+        <div className='flex items-between justify-between my-3'>
+          <div className='text-xs w-2/3 flex flex-col justify-between'>
             <div
-              className='text-gray-700 line-clamp-2 h-10'
+              className='text-gray-400 line-clamp-3 h-12'
               dangerouslySetInnerHTML={{ __html: blog_pack.blog.excerpt.rendered }}
             />
             <span className='text-gray-600 text-xs'>- {blog_pack.blog.date}</span>

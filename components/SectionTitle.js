@@ -9,7 +9,7 @@ export default function SectionTitle({ widget, classes, type_url }) {
       case 'categories':
         return <SVGNewspaper classes='h-6 mr-3' />
       case 'tags':
-        return <SVGSearch classes='h-6 mr-3' />
+        return <SVGSearch classes='h-5 mr-3' />
       case 'author':
         return <SVGAuthor classes='h-6 mr-3' />
 
@@ -29,9 +29,13 @@ export default function SectionTitle({ widget, classes, type_url }) {
             {widget.title}
           </a>
         </Link>
-        <Link href={link}>
-          <a>See All</a>
-        </Link>
+        {widget.type ? (
+          <Link href={link}>
+            <a>See All</a>
+          </Link>
+        ) : (
+          ''
+        )}
       </div>
     </>
   )

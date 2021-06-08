@@ -8,7 +8,7 @@ export default function GridCols({ blogs, classes }) {
     return (
       <div
         key={blog_pack.blog.id}
-        className='infinite-loader-item rounded overflow-hidden flex flex-col justify-between mx-auto'
+        className='infinite-loader-item rounded overflow-hidden flex flex-col justify-start'
       >
         <Link href={`/blog/${blog_pack.blog.slug}`}>
           <a aria-label='Blog post Image'>
@@ -29,7 +29,7 @@ export default function GridCols({ blogs, classes }) {
               aria-label='Blog post'
               className='dark:text-gray-50 dark:hover:text-indigo-600 hover:text-indigo-600 transition duration-500 ease-in-out inline-block mb-2'
             >
-              <h1 className='text-lg font-semibold line-clamp-3 h-20 mb-2'>
+              <h1 className='text-md font-semibold line-clamp-2 h-12 mb-2'>
                 {blog_pack.blog.title.rendered}
               </h1>
             </a>

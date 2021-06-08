@@ -163,123 +163,23 @@ export async function getStaticProps() {
   const sections = [
     {
       classes: {
-        containerClasses: 'max-w-screen-xl mx-auto relative my-10',
-        olClasses: 'grid grid-cols-1 sm:grid-cols-12 gap-10',
-        imageClasses: 'h-52'
-      },
-      widget: {
-        name: 'Posts',
-        component: 'HorizontalVariant',
-        title: 'LIFESTYLE',
-        slug: 'lifestyle',
-        type: 'categories',
-        type_id: 278,
-        orderBy: 'id',
-        order: 'desc',
-        count: 6
-      }
-    },
-    {
-      classes: {
-        containerClasses: 'max-w-screen-lg mx-auto relative my-10',
-        imageClasses: 'h-32'
-      },
-      widget: {
-        name: 'Ads',
-        component: 'HorizontalAds',
-        image: {
-          href: 'https://componentity.com',
-          src: 'https://www.etilaatroz.com/wp-content/uploads/2020/11/F45-fitness-training-afghanistan.jpg'
-        }
-      }
-    },
-    {
-      classes: {
-        containerClasses: 'bg-gray-100 relative my-10 p-5 sm:p-0 py-10',
+        containerClasses: 'bg-gray-100 relative my-20 px-5 sm:px-0 py-20',
         sectionTitleClasses: 'max-w-screen-xl mx-auto',
-        olClasses: 'max-w-screen-xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10',
-        imageClasses: 'h-20 w-20'
-      },
-      widget: {
-        name: 'Posts',
-        component: 'HorizontalSmall',
-        title: 'frpatrickbriscoe',
-        slug: 'frpatrickbriscoe',
-        type: 'author',
-        type_id: 187244155,
-        orderBy: 'id',
-        order: 'desc',
-        count: 6
-      }
-    },
-    {
-      classes: {
-        containerClasses: 'max-w-screen-xl mx-auto relative my-10',
-        olClasses: 'flex flex-wrap gap-4 mb-8',
-        sectionTitleClasses: 'max-w-screen-xl mx-auto'
-      },
-      widget: {
-        name: 'ListWidget',
-        type: 'categories',
-        title: 'Categories List',
-        desc: 'Most Popular Categories in order',
-        count: 10,
-        paginationStyle: 'loadmore',
-        orderBy: 'count',
-        order: 'desc',
-        component: 'ListHorizontal'
-      }
-    },
-    {
-      classes: {
-        containerClasses: 'max-w-screen-xl mx-auto relative my-10',
-        olClasses: 'grid grid-cols-1 sm:grid-cols-12 gap-10',
-        imageClasses: 'h-36'
-      },
-      widget: {
-        name: 'Posts',
-        component: 'HorizontalVariantBig',
-        title: 'Latest',
-        orderBy: 'id',
-        order: 'desc',
-        count: 4
-      }
-    },
-    {
-      classes: {
-        containerClasses: 'max-w-screen-xl mx-auto relative my-10',
         olClasses:
-          'grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-2 place-content-stretch mb-8',
-        sectionTitleClasses: 'max-w-screen-xl mx-auto'
-      },
-      widget: {
-        name: 'ListWidget',
-        type: 'tags',
-        title: 'Tags List',
-        desc: 'Most Popular Tags in order',
-        count: 10,
-        paginationStyle: 'loadmore',
-        orderBy: 'count',
-        order: 'desc',
-        component: 'ListHorizontal'
-      }
-    },
-    {
-      classes: {
-        containerClasses: 'max-w-screen-xl mx-auto relative my-10',
-        olClasses: 'grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10',
+          'max-w-screen-xl mx-auto grid grid-cols-1 sm:grid-cols-12 gap-10 mb-10 place-items-start place-content-stretch',
         imageClasses: 'h-52'
       },
       widget: {
         name: 'Posts',
-        component: 'GridCols',
-        title: 'Pope Francis',
-        slug: 'pope-francis',
-        type: 'tags',
-        type_id: 423714612,
+        component: 'GridCols2',
+        title: 'Art & Culture',
+        slug: 'art-culture',
+        type: 'categories',
+        type_id: 423715388,
         orderBy: 'id',
         order: 'desc',
-        count: 8
+        paginationStyle: 'loadmore',
+        count: 6
       }
     }
   ]
