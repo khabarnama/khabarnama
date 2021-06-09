@@ -3,7 +3,13 @@ module.exports = {
     content: ['./pages/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],
     options: {
       safelist: {
-        standard: [/^[\w:]*grid-cols-/, /^[\w:]*place-content-/, /^[\w:]*my-/, /^[\w:]*h-/]
+        standard: [
+          /^[\w:]*grid-cols-/,
+          /^[\w:]*place-content-/,
+          /^[\w:]*my-/,
+          /^[\w:]*h-/,
+          /^[\w:]*flex-/
+        ]
       }
     }
   },
