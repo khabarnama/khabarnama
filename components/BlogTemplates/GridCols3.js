@@ -41,7 +41,7 @@ export default function GridCols3({ blogs, classes }) {
     return (
       <div
         key={blog_pack.blog.id}
-        className='infinite-loader-item rounded overflow-hidden col-span-6 lg:col-span-4 flex flex-col justify-start'
+        className='infinite-loader-item rounded overflow-hidden col-span-12 md:col-span-6 lg:col-span-4 flex flex-col justify-start'
       >
         <Link href={`/blog/${blog_pack.blog.slug}`}>
           <a aria-label='Blog post Image'>

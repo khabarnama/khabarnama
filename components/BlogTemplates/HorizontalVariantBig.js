@@ -54,7 +54,7 @@ export default function HorizontalVariantBig({ blogs, classes }) {
 
   const Default = ({ blog_pack }) => {
     return (
-      <div className='mb-2'>
+      <div className='mb-2 grid-cols-12'>
         <Link href={`/blog/${blog_pack.blog.slug}`}>
           <a aria-label='link'>
             {blog_pack.blog.featured_media != 0 && blog_pack.blog.featured_media ? (
@@ -88,7 +88,7 @@ export default function HorizontalVariantBig({ blogs, classes }) {
       {
         <div
           key={blogs[1].blog.id}
-          className='col-span-12 lg:col-span-3 flex flex-row lg:flex-col justify-between gap-5 lg:gap-10'
+          className='col-span-12 lg:col-span-3 grid sm:flex sm:flex-row lg:flex-col justify-between gap-5 lg:gap-10'
         >
           {middleBlogs.map((blog_pack) => {
             return <Default key={blog_pack.blog.id} blog_pack={blog_pack} />
