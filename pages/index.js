@@ -41,6 +41,7 @@ const SectionWidget = (containerItem) => {
 }
 
 export default function Blog(container) {
+  const aftertwo = Object.entries(container).slice(2)
   return (
     <>
       <Head>
@@ -60,9 +61,14 @@ export default function Blog(container) {
         <meta property='og:locale' content='en_US' />
         <meta property='og:site_name' content='Componentity' />
       </Head>
-      {Object.entries(container).map((containerItem) => {
-        return SectionWidget(containerItem)
+      {SectionWidget(Object.entries(container)[0])}
+      {console.log('LOADED 1')}
+      {SectionWidget(Object.entries(container)[1])}
+      {console.log('LOADED 2')}
+      {aftertwo.map((container) => {
+        return SectionWidget(container)
       })}
+      {console.log('LOADED All')}
     </>
   )
 }
