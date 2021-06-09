@@ -19,7 +19,7 @@ export default function HorizontalVariantBig({ blogs, classes }) {
           </a>
         </Link>
         <div className='max-w-screen-lg mx-auto mt-3 text-center rounded-b lg:rounded-b-none lg:rounded-r flex flex-col justify-between leading-normal'>
-          <div className=''>
+          <div className='max-w-screen-md mx-auto'>
             {blog_pack.cats.map((cat) => {
               return (
                 <div className='ml-1 text-center' key={cat.id}>
@@ -37,13 +37,13 @@ export default function HorizontalVariantBig({ blogs, classes }) {
             <Link href={`/blog/${blog_pack.blog.slug}`}>
               <a
                 aria-label='link'
-                className='block text-gray-900 dark:text-gray-200 font-bold text-2xl mb-4 hover:text-indigo-600 dark:hover:text-indigo-600 transition duration-500 ease-in-out'
+                className='block text-gray-900 dark:text-gray-200 font-bold text-2xl lg:text-4xl mb-4 hover:text-indigo-600 dark:hover:text-indigo-600 transition duration-500 ease-in-out'
               >
                 {blog_pack.blog.title.rendered}
               </a>
             </Link>
             <div
-              className='text-gray-400 text-sm mt-2 mx-5 sm:mx-10 line-clamp-4'
+              className='text-gray-400 text-sm mt-2 mx-5 line-clamp-4'
               dangerouslySetInnerHTML={{ __html: blog_pack.blog.excerpt.rendered }}
             />
           </div>
@@ -88,7 +88,7 @@ export default function HorizontalVariantBig({ blogs, classes }) {
       {
         <div
           key={blogs[1].blog.id}
-          className='col-span-12 lg:col-span-3 grid sm:flex sm:flex-row lg:flex-col justify-between gap-5 lg:gap-10'
+          className='col-span-12 lg:col-span-3 sm:flex sm:flex-row lg:flex-col justify-between gap-5 lg:gap-0'
         >
           {middleBlogs.map((blog_pack) => {
             return <Default key={blog_pack.blog.id} blog_pack={blog_pack} />

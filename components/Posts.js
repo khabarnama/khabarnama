@@ -360,7 +360,7 @@ export default function Posts({ posts, classes, widget }) {
           {loading && widget.paginationStyle == 'pagination' ? (
             <ResponsiveArticle />
           ) : (
-            <ol
+            <div
               className={`infinite-loader-container w-full ${
                 classes.olClasses
                   ? classes.olClasses
@@ -368,7 +368,7 @@ export default function Posts({ posts, classes, widget }) {
               }`}
             >
               {items && BlogTemplate(items, widget.component, classes)}
-            </ol>
+            </div>
           )}
           <div className='flex items-center justify-center'>
             {widget.paginationStyle ? <Pagination type={widget.paginationStyle} /> : ''}
