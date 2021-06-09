@@ -8,7 +8,7 @@ import SearchForm from './SearchForm'
 
 function Header({ router }) {
   const navs = [
-    { text: 'Home', href: '' },
+    { text: 'Home', href: '/' },
     { text: 'Mcgivney Festival', href: '/mcgivneyfestival' },
     { text: 'Catholic App', href: '/catholic-app' }
   ]
@@ -17,8 +17,8 @@ function Header({ router }) {
 
   return (
     <>
-      <header className='max-w-screen-xl mx-auto p-5 sm:p-0 sm:my-10 flex flex-row items-center justify-between relative'>
-        <Link href={''}>
+      <header className='max-w-screen-xl mx-auto p-5 lg:p-0 sm:my-10 flex flex-row items-center justify-between relative'>
+        <Link href={'/'}>
           <a>
             <div className='site hover:text-indigo-600'>
               <h1 aria-label='site-name' className='font-semibold'>

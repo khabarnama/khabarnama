@@ -8,8 +8,8 @@ export default function GridCols2({ blogs, classes }) {
     return (
       <div
         key={blog_pack.blog.id}
-        className={`flex flex-col justify-between gap-10 sm:col-span-6 w-full ${
-          index < 2 ? '' : 'md:col-span-3'
+        className={`flex flex-col justify-between gap-5 md:gap-10 sm:col-span-6 w-full ${
+          index < 2 ? '' : 'md:col-span-6 lg:col-span-3'
         }`}
       >
         <div

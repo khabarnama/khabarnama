@@ -4,7 +4,7 @@ import Link from 'next/link'
 export default function HorizontalVariantBig({ blogs, classes }) {
   const First = ({ blog_pack }) => {
     return (
-      <div className='sm:col-span-6 lg:col-span-9'>
+      <div className='col-span-12 lg:col-span-9'>
         <Link href={`/blog/${blog_pack.blog.slug}`}>
           <a aria-label='link'>
             {blog_pack.blog.featured_media != 0 && blog_pack.blog.featured_media ? (
@@ -88,7 +88,7 @@ export default function HorizontalVariantBig({ blogs, classes }) {
       {
         <div
           key={blogs[1].blog.id}
-          className='sm:col-span-12 lg:col-span-3 flex flex-col justify-between'
+          className='col-span-12 lg:col-span-3 flex flex-row lg:flex-col justify-between gap-5 lg:gap-10'
         >
           {middleBlogs.map((blog_pack) => {
             return <Default key={blog_pack.blog.id} blog_pack={blog_pack} />
