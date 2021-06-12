@@ -23,9 +23,13 @@ export default function GridCols2({ blogs, classes }) {
                   src={
                     index < 2
                       ? blog_pack.blog._embedded['wp:featuredmedia'][0].media_details.sizes.large
-                          .source_url
+                        ? blog_pack.blog._embedded['wp:featuredmedia'][0].media_details.sizes.large
+                            .source_url
+                        : blog_pack.blog._embedded['wp:featuredmedia'][0].source_url
                       : blog_pack.blog._embedded['wp:featuredmedia'][0].media_details.sizes.medium
+                      ? blog_pack.blog._embedded['wp:featuredmedia'][0].media_details.sizes.medium
                           .source_url
+                      : blog_pack.blog._embedded['wp:featuredmedia'][0].source_url
                   }
                   classes={index < 2 ? 'h-80' : classes.imageClasses}
                   alt={blog_pack.blog.title.rendered}

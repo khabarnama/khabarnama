@@ -32,7 +32,10 @@ export default function HorizontalSmall({ blogs, classes }) {
                 <ImageComponentity
                   src={
                     blog_pack.blog._embedded['wp:featuredmedia'][0].media_details.sizes
-                      .aleteia_cecilia_top_ten.source_url
+                      .aleteia_cecilia_top_ten
+                      ? blog_pack.blog._embedded['wp:featuredmedia'][0].media_details.sizes
+                          .aleteia_cecilia_top_ten.source_url
+                      : blog_pack.blog._embedded['wp:featuredmedia'][0].source_url
                   }
                   classes={classes.imageClasses}
                   alt={blog_pack.blog.title.rendered}

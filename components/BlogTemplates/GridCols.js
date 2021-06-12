@@ -16,7 +16,9 @@ export default function GridCols({ blogs, classes }) {
               <ImageComponentity
                 src={
                   blog_pack.blog._embedded['wp:featuredmedia'][0].media_details.sizes.medium
-                    .source_url
+                    ? blog_pack.blog._embedded['wp:featuredmedia'][0].media_details.sizes.medium
+                        .source_url
+                    : blog_pack.blog._embedded['wp:featuredmedia'][0].source_url
                 }
                 classes={classes.imageClasses}
                 alt={blog_pack.blog.title.rendered}

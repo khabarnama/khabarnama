@@ -12,7 +12,12 @@ export default function HorizontalVariantBig({ blogs, classes }) {
           <a aria-label='link'>
             {blog_pack.blog.featured_media != 0 && blog_pack.blog.featured_media ? (
               <ImageComponentity
-                src={blog_pack.blog._embedded['wp:featuredmedia'][0].source_url}
+                src={
+                  blog_pack.blog._embedded['wp:featuredmedia'][0].media_details.sizes.large
+                    ? blog_pack.blog._embedded['wp:featuredmedia'][0].media_details.sizes.large
+                        .source_url
+                    : blog_pack.blog._embedded['wp:featuredmedia'][0].source_url
+                }
                 classes='h-52 lg:h-96'
                 alt={blog_pack.blog.title.rendered}
               />
@@ -67,7 +72,9 @@ export default function HorizontalVariantBig({ blogs, classes }) {
               <ImageComponentity
                 src={
                   blog_pack.blog._embedded['wp:featuredmedia'][0].media_details.sizes.medium
-                    .source_url
+                    ? blog_pack.blog._embedded['wp:featuredmedia'][0].media_details.sizes.medium
+                        .source_url
+                    : blog_pack.blog._embedded['wp:featuredmedia'][0].source_url
                 }
                 classes={classes.imageClasses}
                 alt={blog_pack.blog.title.rendered}
