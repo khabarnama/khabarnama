@@ -14,7 +14,10 @@ export default function GridCols3({ blogs, classes }) {
           <a aria-label='image' className='inline-block ml-2'>
             {blog_pack.blog.featured_media != 0 && blog_pack.blog.featured_media ? (
               <ImageComponentity
-                src={blog_pack.blog._embedded['wp:featuredmedia'][0].source_url}
+                src={
+                  blog_pack.blog._embedded['wp:featuredmedia'][0].media_details.sizes
+                    .aleteia_cecilia_top_ten.source_url
+                }
                 classes='w-24 h-24'
                 alt={blog_pack.blog.title.rendered}
               />
@@ -50,7 +53,10 @@ export default function GridCols3({ blogs, classes }) {
           <a aria-label='Blog post Image'>
             {blog_pack.blog.featured_media != 0 && blog_pack.blog.featured_media != null ? (
               <ImageComponentity
-                src={blog_pack.blog._embedded['wp:featuredmedia'][0].source_url}
+                src={
+                  blog_pack.blog._embedded['wp:featuredmedia'][0].media_details.sizes.medium
+                    .source_url
+                }
                 classes={classes.imageClasses}
                 alt={blog_pack.blog.title.rendered}
               />

@@ -3,18 +3,18 @@ import { useRouter } from 'next/router'
 import useSWR from 'swr'
 import ResponsiveArticle from './skeleton/ResponsiveArticle'
 import SVGReload from './SVG/SVGReload'
-import GridCols from './BlogTemplates/GridCols'
-import GridCols2 from './BlogTemplates/GridCols2'
-import GridCols3 from './BlogTemplates/GridCols3'
-import SingleCol from './BlogTemplates/SingleCol'
-import HorizontalSmall from './BlogTemplates/HorizontalSmall'
-import HorizontalVariant from './BlogTemplates/HorizontalVariant'
-import HorizontalVariantBig from './BlogTemplates/HorizontalVariantBig'
 
-import SectionTitle from './SectionTitle'
-import SectionTitleWidget from './sectionTitle/SectionTitleWidget'
-
-import ListHorizontal from './BlogTemplates/ListHorizontal'
+import dynamic from 'next/dynamic'
+const GridCols = dynamic(() => import('./BlogTemplates/GridCols'))
+const GridCols2 = dynamic(() => import('./BlogTemplates/GridCols2'))
+const GridCols3 = dynamic(() => import('./BlogTemplates/GridCols3'))
+const SingleCol = dynamic(() => import('./BlogTemplates/SingleCol'))
+const HorizontalSmall = dynamic(() => import('./BlogTemplates/HorizontalSmall'))
+const HorizontalVariant = dynamic(() => import('./BlogTemplates/HorizontalVariant'))
+const HorizontalVariantBig = dynamic(() => import('./BlogTemplates/HorizontalVariantBig'))
+const SectionTitle = dynamic(() => import('./SectionTitle'))
+const SectionTitleWidget = dynamic(() => import('./sectionTitle/SectionTitleWidget'))
+const ListHorizontal = dynamic(() => import('./BlogTemplates/ListHorizontal'))
 
 const SectionTitleTemplate = (widget, classes, type_url) => {
   switch (widget.name) {

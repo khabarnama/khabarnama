@@ -12,7 +12,10 @@ export default function HorizontalVariant({ blogs, classes }) {
           <a aria-label='blog link'>
             {blog_pack.blog.featured_media != 0 && blog_pack.blog.featured_media ? (
               <ImageComponentity
-                src={blog_pack.blog._embedded['wp:featuredmedia'][0].source_url}
+                src={
+                  blog_pack.blog._embedded['wp:featuredmedia'][0].media_details.sizes.medium
+                    .source_url
+                }
                 classes={classes.imageClasses}
                 alt={blog_pack.blog.title.rendered}
               />
@@ -64,7 +67,10 @@ export default function HorizontalVariant({ blogs, classes }) {
           <a aria-label='blog link'>
             {blog_pack.blog.featured_media != 0 && blog_pack.blog.featured_media ? (
               <ImageComponentity
-                src={blog_pack.blog._embedded['wp:featuredmedia'][0].source_url}
+                src={
+                  blog_pack.blog._embedded['wp:featuredmedia'][0].media_details.sizes.medium
+                    .source_url
+                }
                 classes={classes.imageClasses}
                 alt={blog_pack.blog.title.rendered}
               />
@@ -116,7 +122,10 @@ export default function HorizontalVariant({ blogs, classes }) {
           <a aria-label='blog link'>
             {blog_pack.blog.featured_media != 0 && blog_pack.blog.featured_media ? (
               <ImageComponentity
-                src={blog_pack.blog._embedded['wp:featuredmedia'][0].source_url}
+                src={
+                  blog_pack.blog._embedded['wp:featuredmedia'][0].media_details.sizes
+                    .aleteia_cecilia_top_ten.source_url
+                }
                 classes={`w-20 h-20`}
                 alt={blog_pack.blog.title.rendered}
               />
