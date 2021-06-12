@@ -4,7 +4,10 @@ import Link from 'next/link'
 export default function HorizontalVariant({ blogs, classes }) {
   const First = ({ blog_pack }) => {
     return (
-      <div className='sm:col-span-6 lg:col-span-5'>
+      <div
+        key={blog_pack.blog.id + Math.random().toString(36).substring(7)}
+        className='sm:col-span-6 lg:col-span-5'
+      >
         <Link href={`/blog/${blog_pack.blog.slug}`}>
           <a aria-label='blog link'>
             {blog_pack.blog.featured_media != 0 && blog_pack.blog.featured_media ? (
@@ -53,7 +56,10 @@ export default function HorizontalVariant({ blogs, classes }) {
   }
   const Last = ({ blog_pack }) => {
     return (
-      <div className='sm:col-span-12 lg:col-span-3'>
+      <div
+        key={blog_pack.blog.id + Math.random().toString(36).substring(7)}
+        className='sm:col-span-12 lg:col-span-3'
+      >
         <Link href={`/blog/${blog_pack.blog.slug}`}>
           <a aria-label='blog link'>
             {blog_pack.blog.featured_media != 0 && blog_pack.blog.featured_media ? (
@@ -102,7 +108,10 @@ export default function HorizontalVariant({ blogs, classes }) {
   }
   const Default = ({ blog_pack }) => {
     return (
-      <div className='flex items-start gap-2'>
+      <div
+        key={blog_pack.blog.id + Math.random().toString(36).substring(7)}
+        className='flex items-start gap-2'
+      >
         <Link href={`/blog/${blog_pack.blog.slug}`}>
           <a aria-label='blog link'>
             {blog_pack.blog.featured_media != 0 && blog_pack.blog.featured_media ? (
@@ -135,18 +144,33 @@ export default function HorizontalVariant({ blogs, classes }) {
 
   return (
     <>
-      {<First key={blogs[0].blog.id} blog_pack={blogs[0]} />}
+      {
+        <First
+          key={blogs[0].blog.id + Math.random().toString(36).substring(7)}
+          blog_pack={blogs[0]}
+        />
+      }
       {
         <div
-          key={blogs[1].blog.id}
+          key={blogs[1].blog.id + Math.random().toString(36).substring(7)}
           className='sm:col-span-6 lg:col-span-4 flex flex-col justify-between gap-2'
         >
           {middleBlogs.map((blog_pack) => {
-            return <Default key={blog_pack.blog.id} blog_pack={blog_pack} />
+            return (
+              <Default
+                key={blog_pack.blog.id + Math.random().toString(36).substring(7)}
+                blog_pack={blog_pack}
+              />
+            )
           })}
         </div>
       }
-      {<Last key={blogs[5].blog.id} blog_pack={blogs[5]} />}
+      {
+        <Last
+          key={blogs[5].blog.id + Math.random().toString(36).substring(7)}
+          blog_pack={blogs[5]}
+        />
+      }
     </>
   )
 }

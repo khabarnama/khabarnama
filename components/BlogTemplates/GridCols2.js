@@ -7,7 +7,7 @@ export default function GridCols2({ blogs, classes }) {
   const template = (blog_pack, index) => {
     return (
       <div
-        key={blog_pack.blog.id}
+        key={blog_pack.blog.id + Math.random().toString(36).substring(7)}
         className={`flex flex-col justify-between gap-5 md:gap-10 sm:col-span-6 w-full ${
           index < 2 ? '' : 'md:col-span-6 lg:col-span-3'
         }`}

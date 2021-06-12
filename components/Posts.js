@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { useRouter } from 'next/router'
+import useSWR from 'swr'
 import ResponsiveArticle from './skeleton/ResponsiveArticle'
 import SVGReload from './SVG/SVGReload'
 import GridCols from './BlogTemplates/GridCols'
@@ -38,62 +39,80 @@ const SectionTitleTemplate = (widget, classes, type_url) => {
 const BlogTemplate = (items, component, classes) => {
   switch (component) {
     case 'HorizontalSmall':
-      return <HorizontalSmall blogs={items} classes={classes} />
+      return <HorizontalSmall key='1' blogs={items} classes={classes} />
     case 'HorizontalVariant':
-      return <HorizontalVariant blogs={items} classes={classes} />
+      return <HorizontalVariant key='2' blogs={items} classes={classes} />
     case 'HorizontalVariantBig':
-      return <HorizontalVariantBig blogs={items} classes={classes} />
+      return <HorizontalVariantBig key='3' blogs={items} classes={classes} />
     case 'SingleCol':
-      return <SingleCol blogs={items} classes={classes} />
+      return <SingleCol key='4' blogs={items} classes={classes} />
     case 'GridCols2':
-      return <GridCols2 blogs={items} classes={classes} />
+      return <GridCols2 key='5' blogs={items} classes={classes} />
     case 'GridCols3':
-      return <GridCols3 blogs={items} classes={classes} />
+      return <GridCols3 key='6' blogs={items} classes={classes} />
 
     case 'ListHorizontal':
-      return <ListHorizontal items={items} />
+      return <ListHorizontal key='7' items={items} />
 
     default:
-      return <GridCols blogs={items} classes={classes} />
+      return <GridCols key='8' blogs={items} classes={classes} />
   }
 }
 
-async function getNewPostsFromApi(page, widget) {
+const postsFetcher = async (url, widget_name) =>
+  await fetch(url)
+    .then((res) => {
+      return res.json()
+    })
+    .then(async (res) => {
+      console.log('DATA', res)
+      let posts = []
+      if (widget_name == 'Posts') {
+        for (const post of res) {
+          const post_id = post.id
+
+          // get categories
+          const post_cats = await fetch(
+            `${process.env.NEXT_PUBLIC_SITE_URL}/categories?post=${post_id}`
+          )
+          const cats = await post_cats.json()
+          // get tags
+          const post_tags = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/tags?post=${post_id}`)
+          const tags = await post_tags.json()
+          posts.push({ blog: post, cats, tags })
+        }
+      } else {
+        posts.push(...data)
+      }
+      return posts
+    })
+
+function Page({ page, widget, classes }) {
   let args = `_embed=true&page=${page}&per_page=${widget.count ?? 10}&orderBy=${
     widget.orderBy ?? 'id'
   }&order=${widget.order ?? 'desc'}`
   if (widget.name == 'Posts') {
     args += `&${widget.type}=${widget.type_id}`
   }
-  // console.log(
-  //   'LOADMORE ',
-  //   `${process.env.NEXT_PUBLIC_SITE_URL}/${widget.name == 'Posts' ? 'posts' : widget.type}?${args}`
-  // )
-  const res = await fetch(
-    `${process.env.NEXT_PUBLIC_SITE_URL}/${widget.name == 'Posts' ? 'posts' : widget.type}?${args}`
+  const { data: posts, error } = useSWR(
+    [
+      `${process.env.NEXT_PUBLIC_SITE_URL}/${
+        widget.name == 'Posts' ? 'posts' : widget.type
+      }?${args}`,
+      widget.name
+    ],
+    postsFetcher
   )
-  const items = await res.json()
+  // console.log('ERROR', error)
+  if (error)
+    return (
+      <div key='12535' className='flex justify-center items-center text-center'>
+        ERROR: failed to load
+      </div>
+    )
+  if (!posts) return <ResponsiveArticle />
 
-  let posts = []
-  if (widget.name == 'Posts') {
-    for (const post of items) {
-      const post_id = post.id
-      // get categories
-      const post_cats = await fetch(
-        `${process.env.NEXT_PUBLIC_SITE_URL}/categories?post=${post_id}`
-      )
-      const cats = await post_cats.json()
-      // get tags
-      const post_tags = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/tags?post=${post_id}`)
-      const tags = await post_tags.json()
-
-      posts.push({ blog: post, cats, tags })
-    }
-  } else {
-    posts.push(...items)
-  }
-  // console.log('ITEMS LOADMORE', posts)
-  return posts
+  return BlogTemplate(posts, widget.component, classes)
 }
 
 export default function Posts({ posts, classes, widget }) {
@@ -105,9 +124,10 @@ export default function Posts({ posts, classes, widget }) {
   const [page, setPage] = useState(1)
   const [loading, setLoading] = useState(false)
   const [disable, setDisable] = useState(false)
+  const [pages, setPages] = useState([BlogTemplate(posts, widget.component, classes)])
   // posts
   // [{blog:post, cats, tags}, {blog:post, cats, tags}, {blog:post, cats, tags}, ]
-  const [items, setItems] = useState(posts)
+  // const [items, setItems] = useState(posts)
   // console.log('items: POSTS.JS', items)
 
   const isInitialMount = useRef(true)
@@ -142,13 +162,15 @@ export default function Posts({ posts, classes, widget }) {
     } else {
       // console.log('ON PAGE UPDATE SET LOADING TRUE')
       setLoading(true)
-      const newPosts = await getNewPostsFromApi(page, widget)
-      if (newPosts.length > 0) {
-        if (widget.paginationStyle == 'pagination') {
-          setItems([...newPosts])
-        } else {
-          setItems([...items, ...newPosts])
-        }
+      const pages_new = [<Page page={page} widget={widget} classes={classes} key={page} />]
+      if (widget.paginationStyle == 'pagination') {
+        console.log('PAGES', pages)
+        console.log('NEW PAGES', pages_new)
+        setPages(...pages_new)
+        console.log('PAGES AFTER SETPAGES', pages)
+        // setPages([...(<Page page={page} widget={widget} key={page} />)])
+      } else {
+        setPages([...pages, <Page page={page} widget={widget} classes={classes} key={page} />])
       }
     }
   }, [page])
@@ -156,7 +178,7 @@ export default function Posts({ posts, classes, widget }) {
   useEffect(() => {
     // console.log('ON ROUTER USE EFFECT')
     // console.log('PAGE', page)
-    setItems(posts)
+    setPages([BlogTemplate(posts, widget.component, classes)])
   }, [router])
 
   // disable loadmore
@@ -170,9 +192,9 @@ export default function Posts({ posts, classes, widget }) {
   }, [page])
 
   useEffect(() => {
-    // console.log('ON EACH items UPDATE SET LOADING FALSE: ')
+    // console.log('ON EACH pages UPDATE SET LOADING FALSE: ')
     setLoading(false)
-  }, [items])
+  }, [pages])
 
   // ========================================================
   // INFINITE SCROLLING
@@ -352,7 +374,7 @@ export default function Posts({ posts, classes, widget }) {
 
   return (
     <>
-      {items.length == 0 || !items ? (
+      {pages.length == 0 || !pages ? (
         <h1>No Results found</h1>
       ) : (
         <div className={widget.title && classes && classes.containerClasses}>
@@ -367,7 +389,7 @@ export default function Posts({ posts, classes, widget }) {
                   : 'grid sm:grid-cols-2 lg:grid-cols-4 gap-10 place-items-start place-content-stretch'
               }`}
             >
-              {items && BlogTemplate(items, widget.component, classes)}
+              {pages}
             </div>
           )}
           <div className='flex items-center justify-center'>

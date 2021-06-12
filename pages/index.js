@@ -3,10 +3,6 @@ import Posts from './../components/Posts'
 import Ads from './../components/Ads'
 import Head from 'next/head'
 
-// show 2 posts of this category - done
-// show 2 posts of this author - done
-// show 2 posts latest - done
-
 const SectionWidget = (containerItem) => {
   switch (containerItem[1].widget.name) {
     case 'Posts':

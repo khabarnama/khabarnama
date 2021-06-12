@@ -6,7 +6,10 @@ import Link from 'next/link'
 export default function GridCols3({ blogs, classes }) {
   const First3 = ({ blog_pack }) => {
     return (
-      <div key={blog_pack.blog.id} className='flex items-start justify-start gap-3 pb-2 border-b'>
+      <div
+        key={blog_pack.blog.id + Math.random().toString(36).substring(7)}
+        className='flex items-start justify-start gap-3 pb-2 border-b'
+      >
         <Link href={`/blog/${blog_pack.blog.slug}`}>
           <a aria-label='image' className='inline-block ml-2'>
             {blog_pack.blog.featured_media != 0 && blog_pack.blog.featured_media ? (
@@ -40,7 +43,7 @@ export default function GridCols3({ blogs, classes }) {
   const Default = ({ blog_pack }) => {
     return (
       <div
-        key={blog_pack.blog.id}
+        key={blog_pack.blog.id + Math.random().toString(36).substring(7)}
         className='infinite-loader-item rounded overflow-hidden col-span-12 md:col-span-6 lg:col-span-4 flex flex-col justify-start'
       >
         <Link href={`/blog/${blog_pack.blog.slug}`}>
@@ -103,12 +106,22 @@ export default function GridCols3({ blogs, classes }) {
           className='col-span-12 lg:col-span-4 flex flex-col justify-between'
         >
           {first3Blogs.map((blog_pack) => {
-            return <First3 key={blog_pack.blog.id} blog_pack={blog_pack} />
+            return (
+              <First3
+                key={blog_pack.blog.id + Math.random().toString(36).substring(7)}
+                blog_pack={blog_pack}
+              />
+            )
           })}
         </div>
       }
       {middleBlogs.map((blog_pack) => {
-        return <Default key={blogs[0].blog.id} blog_pack={blog_pack} />
+        return (
+          <Default
+            key={blogs[0].blog.id + Math.random().toString(36).substring(7)}
+            blog_pack={blog_pack}
+          />
+        )
       })}
     </>
   )

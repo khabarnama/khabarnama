@@ -4,7 +4,10 @@ import Link from 'next/link'
 export default function HorizontalVariantBig({ blogs, classes }) {
   const First = ({ blog_pack }) => {
     return (
-      <div className='col-span-12 lg:col-span-9'>
+      <div
+        key={blog_pack.blog.id + Math.random().toString(36).substring(7)}
+        className='col-span-12 lg:col-span-9'
+      >
         <Link href={`/blog/${blog_pack.blog.slug}`}>
           <a aria-label='link'>
             {blog_pack.blog.featured_media != 0 && blog_pack.blog.featured_media ? (
@@ -54,7 +57,10 @@ export default function HorizontalVariantBig({ blogs, classes }) {
 
   const Default = ({ blog_pack }) => {
     return (
-      <div className='mb-2 grid-cols-12'>
+      <div
+        key={blog_pack.blog.id + Math.random().toString(36).substring(7)}
+        className='mb-2 grid-cols-12'
+      >
         <Link href={`/blog/${blog_pack.blog.slug}`}>
           <a aria-label='link'>
             {blog_pack.blog.featured_media != 0 && blog_pack.blog.featured_media ? (
@@ -84,14 +90,24 @@ export default function HorizontalVariantBig({ blogs, classes }) {
 
   return (
     <>
-      {<First key={blogs[0].blog.id} blog_pack={blogs[0]} />}
+      {
+        <First
+          key={blogs[0].blog.id + Math.random().toString(36).substring(7)}
+          blog_pack={blogs[0]}
+        />
+      }
       {
         <div
-          key={blogs[1].blog.id}
+          key={blogs[1].blog.id + Math.random().toString(36).substring(7)}
           className='col-span-12 lg:col-span-3 sm:flex sm:flex-row lg:flex-col justify-between gap-5 lg:gap-0'
         >
           {middleBlogs.map((blog_pack) => {
-            return <Default key={blog_pack.blog.id} blog_pack={blog_pack} />
+            return (
+              <Default
+                key={blog_pack.blog.id + Math.random().toString(36).substring(7)}
+                blog_pack={blog_pack}
+              />
+            )
           })}
         </div>
       }

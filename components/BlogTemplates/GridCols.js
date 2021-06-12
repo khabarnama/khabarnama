@@ -7,7 +7,7 @@ export default function GridCols({ blogs, classes }) {
   const template = (blog_pack) => {
     return (
       <div
-        key={blog_pack.blog.id}
+        key={blog_pack.blog.id + Math.random().toString(36).substring(7)}
         className='infinite-loader-item rounded overflow-hidden flex flex-col justify-start'
       >
         <Link href={`/blog/${blog_pack.blog.slug}`}>
