@@ -51,7 +51,7 @@ export default function HorizontalVariantBig({ blogs, classes }) {
               </a>
             </Link>
             <div
-              className='text-gray-400 text-sm mt-2 mx-5 line-clamp-4'
+              className='text-gray-600 text-sm mt-2 mx-5 line-clamp-4'
               dangerouslySetInnerHTML={{ __html: blog_pack.blog.excerpt.rendered }}
             />
           </div>

@@ -30,7 +30,7 @@ export default function GridCols3({ blogs, classes }) {
           </a>
         </Link>
         <div>
-          <span className='text-gray-400 text-xs mb-2'>{blog_pack.blog.date}</span>
+          <span className='text-gray-600 text-xs mb-2'>{blog_pack.blog.date}</span>
           <Link href={`/blog/${blog_pack.blog.slug}`}>
             <a aria-label='heading'>
               <h1

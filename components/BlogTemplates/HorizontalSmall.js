@@ -21,7 +21,7 @@ export default function HorizontalSmall({ blogs, classes }) {
         <div className='flex items-between justify-between my-3'>
           <div className='text-xs w-2/3 flex flex-col justify-between'>
             <div
-              className='text-gray-400 line-clamp-3 h-12'
+              className='text-gray-600 line-clamp-3 h-12'
               dangerouslySetInnerHTML={{ __html: blog_pack.blog.excerpt.rendered }}
             />
             <span className='text-gray-600 text-xs'>{blog_pack.blog.date}</span>

@@ -52,7 +52,7 @@ export default function GridCols2({ blogs, classes }) {
             </Link>
             {index < 2 && (
               <div
-                className='text-sm text-gray-400 line-clamp-3 h-16'
+                className='text-sm text-gray-600 line-clamp-3 h-16'
                 dangerouslySetInnerHTML={{ __html: blog_pack.blog.excerpt.rendered }}
               />
             )}
