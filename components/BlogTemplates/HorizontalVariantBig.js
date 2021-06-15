@@ -2,6 +2,11 @@ import ImageComponentity from '../ImageComponentity'
 import Link from 'next/link'
 
 export default function HorizontalVariantBig({ blogs, classes }) {
+  function decodeHTMLEntities(str) {
+    var txt = document.createElement('textarea')
+    txt.innerHTML = str
+    return txt.value
+  }
   const First = ({ blog_pack }) => {
     return (
       <div
@@ -43,11 +48,8 @@ export default function HorizontalVariantBig({ blogs, classes }) {
               )
             })}
             <Link href={`/blog/${blog_pack.blog.slug}`}>
-              <a
-                aria-label='link'
-                className='block text-gray-900 dark:text-gray-200 font-bold text-2xl lg:text-4xl mb-4 hover:text-indigo-600 dark:hover:text-indigo-600 transition duration-500 ease-in-out'
-              >
-                {blog_pack.blog.title.rendered}
+              <a aria-label='link'>
+                <h1 className='block text-gray-900 dark:text-gray-200 font-bold text-2xl lg:text-4xl mb-4 hover:text-indigo-600 dark:hover:text-indigo-600 transition duration-500 ease-in-out' dangerouslySetInnerHTML={{ __html: blog_pack.blog.title.rendered }} />
               </a>
             </Link>
             <div
@@ -87,9 +89,8 @@ export default function HorizontalVariantBig({ blogs, classes }) {
         <Link href={`/blog/${blog_pack.blog.slug}`}>
           <a
             aria-label='link'
-            className='line-clamp-2 text-gray-900 dark:text-gray-100 inline-block font-semibold text-md my-2 hover:text-indigo-600 dark:hover:text-indigo-600 transition duration-500 ease-in-out'
           >
-            {blog_pack.blog.title.rendered}
+            <h1 className='line-clamp-2 text-gray-900 dark:text-gray-100 inline-block font-semibold text-md my-2 hover:text-indigo-600 dark:hover:text-indigo-600 transition duration-500 ease-in-out' dangerouslySetInnerHTML={{ __html: blog_pack.blog.title.rendered }} />
           </a>
         </Link>
       </div>

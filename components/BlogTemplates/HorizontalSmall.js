@@ -2,6 +2,7 @@ import ImageComponentity from '../ImageComponentity'
 import Link from 'next/link'
 
 export default function HorizontalSmall({ blogs, classes }) {
+  var dateFormat = require('dateformat')
   const template = (blog_pack) => {
     return (
       <div
@@ -12,9 +13,8 @@ export default function HorizontalSmall({ blogs, classes }) {
           <a aria-label='heading'>
             <h1
               aria-label='heading'
-              className='line-clamp-3 h-12 text-gray-900 dark:text-gray-200 font-semibold hover:text-indigo-600 dark:hover:text-indigo-600 transition duration-500 ease-in-out'
             >
-              {blog_pack.blog.title.rendered}
+            <h1 className='line-clamp-3 h-12 text-gray-900 dark:text-gray-200 font-semibold hover:text-indigo-600 dark:hover:text-indigo-600 transition duration-500 ease-in-out' dangerouslySetInnerHTML={{ __html: blog_pack.blog.title.rendered }} />
             </h1>
           </a>
         </Link>
@@ -24,7 +24,9 @@ export default function HorizontalSmall({ blogs, classes }) {
               className='text-gray-600 line-clamp-3 h-12'
               dangerouslySetInnerHTML={{ __html: blog_pack.blog.excerpt.rendered }}
             />
-            <span className='text-gray-600 text-xs'>{blog_pack.blog.date}</span>
+            <span className='text-gray-600 text-xs'>
+              {dateFormat(blog_pack.blog.date, 'mediumDate')}
+            </span>
           </div>
           <Link href={`/blog/${blog_pack.blog.slug}`}>
             <a aria-label='image' className='inline-block ml-2'>

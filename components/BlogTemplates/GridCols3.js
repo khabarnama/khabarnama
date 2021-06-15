@@ -4,6 +4,8 @@ import SVGClock from '../SVG/SVGClock'
 import Link from 'next/link'
 
 export default function GridCols3({ blogs, classes }) {
+  var dateFormat = require('dateformat')
+
   const First3 = ({ blog_pack }) => {
     return (
       <div
@@ -30,7 +32,9 @@ export default function GridCols3({ blogs, classes }) {
           </a>
         </Link>
         <div>
-          <span className='text-gray-600 text-xs mb-2'>{blog_pack.blog.date}</span>
+          <span className='text-gray-600 text-xs mb-2'>
+            {dateFormat(blog_pack.blog.date, 'mediumDate')}
+          </span>
           <Link href={`/blog/${blog_pack.blog.slug}`}>
             <a aria-label='heading'>
               <h1
@@ -76,15 +80,13 @@ export default function GridCols3({ blogs, classes }) {
               aria-label='Blog post'
               className='dark:text-gray-50 dark:hover:text-indigo-600 hover:text-indigo-600 transition duration-500 ease-in-out inline-block mb-2'
             >
-              <h1 className='text-md font-semibold line-clamp-2 h-12 mb-2'>
-                {blog_pack.blog.title.rendered}
-              </h1>
+              <h1 className='text-md font-semibold line-clamp-2 h-12 mb-2' dangerouslySetInnerHTML={{ __html: blog_pack.blog.title.rendered }} />
             </a>
           </Link>
           <div className='py-5 text-sm font-regular text-gray-900 dark:text-gray-300 flex justify-between items-center'>
             <span className='mr-3 flex flex-row gap-1 items-center'>
               <SVGClock />
-              <span className='ml-1'>{blog_pack.blog.date}</span>
+              <span className='ml-1'>{dateFormat(blog_pack.blog.date, 'mediumDate')}</span>
             </span>
             <span className='flex flex-row gap-1 items-center hover:text-indigo-600 dark:hover:text-indigo-600'>
               <SVGCategory />

@@ -2,6 +2,8 @@ import ImageComponentity from '../ImageComponentity'
 import Link from 'next/link'
 
 export default function HorizontalVariant({ blogs, classes }) {
+  var dateFormat = require('dateformat')
+
   const First = ({ blog_pack }) => {
     return (
       <div
@@ -45,9 +47,8 @@ export default function HorizontalVariant({ blogs, classes }) {
             <Link href={`/blog/${blog_pack.blog.slug}`}>
               <a
                 aria-label='blog link'
-                className='line-clamp-2 h-14 text-gray-900 dark:text-gray-200 font-bold text-lg mb-2 hover:text-indigo-600 dark:hover:text-indigo-600 transition duration-500 ease-in-out'
               >
-                {blog_pack.blog.title.rendered}
+                <h1 className='line-clamp-2 h-14 text-gray-900 dark:text-gray-200 font-bold text-lg mb-2 hover:text-indigo-600 dark:hover:text-indigo-600 transition duration-500 ease-in-out' dangerouslySetInnerHTML={{ __html: blog_pack.blog.title.rendered }} />
               </a>
             </Link>
             <div
@@ -102,9 +103,8 @@ export default function HorizontalVariant({ blogs, classes }) {
             <Link href={`/blog/${blog_pack.blog.slug}`}>
               <a
                 aria-label='blog link'
-                className='text-gray-900 dark:text-gray-200 font-bold text-lg mb-2 hover:text-indigo-600 dark:hover:text-indigo-600 transition duration-500 ease-in-out'
               >
-                {blog_pack.blog.title.rendered}
+                <h1 className='text-gray-900 dark:text-gray-200 font-bold text-lg mb-2 hover:text-indigo-600 dark:hover:text-indigo-600 transition duration-500 ease-in-out' dangerouslySetInnerHTML={{ __html: blog_pack.blog.title.rendered }} />
               </a>
             </Link>
             <div
@@ -142,13 +142,14 @@ export default function HorizontalVariant({ blogs, classes }) {
           </a>
         </Link>
         <div className='text-sm'>
-          <p className='text-gray-600 text-xs mb-1'>{blog_pack.blog.date}</p>
+          <p className='text-gray-600 text-xs mb-1'>
+            {dateFormat(blog_pack.blog.date, 'mediumDate')}
+          </p>
           <Link href={`/blog/${blog_pack.blog.slug}`}>
             <a
               aria-label='blog link'
-              className='text-gray-900 dark:text-gray-100 font-semibold hover:text-indigo-600 dark:hover:text-indigo-600 leading-none transition duration-500 ease-in-out'
             >
-              {blog_pack.blog.title.rendered}
+              <h1 className='text-gray-900 dark:text-gray-100 font-semibold hover:text-indigo-600 dark:hover:text-indigo-600 leading-none transition duration-500 ease-in-out' dangerouslySetInnerHTML={{ __html: blog_pack.blog.title.rendered }} />
             </a>
           </Link>
         </div>

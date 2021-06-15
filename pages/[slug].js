@@ -18,7 +18,7 @@ function Page({ page }) {
       {page === null ? (
         <h1>Not found</h1>
       ) : (
-        <div>
+        <div className='max-w-screen-xl mx-auto'>
           <Head>{ReactHtmlParser(page[0].yoast_head)}</Head>
           <header>
             <h1>{page[0].title.rendered}</h1>

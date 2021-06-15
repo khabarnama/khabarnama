@@ -5,6 +5,8 @@ import SVGClock from '../SVG/SVGClock'
 import Link from 'next/link'
 
 export default function SingleCol({ blogs, classes }) {
+  var dateFormat = require('dateformat')
+
   const template = (blog_pack) => {
     return (
       <div
@@ -16,7 +18,7 @@ export default function SingleCol({ blogs, classes }) {
             aria-label='Blog post'
             className='dark:text-gray-50 dark:hover:text-indigo-600 hover:text-indigo-600 transition duration-500 ease-in-out inline-block mb-2'
           >
-            <h1 className='text-xl sm:text-4xl font-semibold'>{blog_pack.blog.title.rendered}</h1>
+            <h1 className='text-xl sm:text-4xl font-semibold' dangerouslySetInnerHTML={{ __html: blog_pack.blog.title.rendered }} />
           </a>
         </Link>
         <div className='relative'>
@@ -63,7 +65,7 @@ export default function SingleCol({ blogs, classes }) {
         <div className='py-5 text-sm font-regular text-gray-900 dark:text-gray-300 flex'>
           <span className='mr-3 flex flex-row gap-1 items-center'>
             <SVGClock />
-            <span className='ml-1'>{blog_pack.blog.date}</span>
+            <span className='ml-1'>{dateFormat(blog_pack.blog.date, 'mediumDate')}</span>
           </span>
           <span className='flex flex-row gap-1 items-center hover:text-indigo-600 dark:hover:text-indigo-600'>
             <SVGCategory />
