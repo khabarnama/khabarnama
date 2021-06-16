@@ -164,10 +164,10 @@ export default function Posts({ posts, classes, widget }) {
       setLoading(true)
       const pages_new = [<Page page={page} widget={widget} classes={classes} key={page} />]
       if (widget.paginationStyle == 'pagination') {
-        console.log('PAGES', pages)
-        console.log('NEW PAGES', pages_new)
+        // console.log('PAGES', pages)
+        // console.log('NEW PAGES', pages_new)
         setPages(...pages_new)
-        console.log('PAGES AFTER SETPAGES', pages)
+        // console.log('PAGES AFTER SETPAGES', pages)
         // setPages([...(<Page page={page} widget={widget} key={page} />)])
       } else {
         setPages([...pages, <Page page={page} widget={widget} classes={classes} key={page} />])

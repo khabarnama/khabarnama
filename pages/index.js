@@ -58,13 +58,10 @@ export default function Blog(container) {
         <meta property='og:site_name' content='Componentity' />
       </Head>
       {SectionWidget(Object.entries(container)[0])}
-      {console.log('LOADED 1')}
       {SectionWidget(Object.entries(container)[1])}
-      {console.log('LOADED 2')}
       {aftertwo.map((container) => {
         return SectionWidget(container)
       })}
-      {console.log('LOADED All')}
     </>
   )
 }
