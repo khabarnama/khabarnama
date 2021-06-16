@@ -7,8 +7,5 @@ module.exports = withPWA({
   },
   images: {
     domains: ['reporterly.net', 'wp.en.aleteia.org', 'www.etilaatroz.com']
-  },
-  future: {
-    webpack5: true
   }
 })

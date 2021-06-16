@@ -14,13 +14,10 @@ export default function HorizontalVariant({ blogs, classes }) {
           <a aria-label='blog link'>
             {blog_pack.blog.featured_media != 0 && blog_pack.blog.featured_media ? (
               <ImageComponentity
-                src={
-                  blog_pack.blog._embedded['wp:featuredmedia'][0].media_details.sizes.medium
-                    ? blog_pack.blog._embedded['wp:featuredmedia'][0].media_details.sizes.medium
-                        .source_url
-                    : blog_pack.blog._embedded['wp:featuredmedia'][0].source_url
-                }
+                src={blog_pack.blog._embedded['wp:featuredmedia'][0].source_url}
                 classes={classes.imageClasses}
+                blurDataURL='data:image/jpeg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAb/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWEREiMxUf/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=='
+                placeholder='blur'
                 alt={blog_pack.blog.title.rendered}
               />
             ) : (
@@ -45,10 +42,11 @@ export default function HorizontalVariant({ blogs, classes }) {
               )
             })}
             <Link href={`/blog/${blog_pack.blog.slug}`}>
-              <a
-                aria-label='blog link'
-              >
-                <h1 className='line-clamp-2 h-14 text-gray-900 dark:text-gray-200 font-bold text-lg mb-2 hover:text-indigo-600 dark:hover:text-indigo-600 transition duration-500 ease-in-out' dangerouslySetInnerHTML={{ __html: blog_pack.blog.title.rendered }} />
+              <a aria-label='blog link'>
+                <h1
+                  className='line-clamp-2 h-14 text-gray-900 dark:text-gray-200 font-bold text-lg mb-2 hover:text-indigo-600 dark:hover:text-indigo-600 transition duration-500 ease-in-out'
+                  dangerouslySetInnerHTML={{ __html: blog_pack.blog.title.rendered }}
+                />
               </a>
             </Link>
             <div
@@ -101,10 +99,11 @@ export default function HorizontalVariant({ blogs, classes }) {
               )
             })}
             <Link href={`/blog/${blog_pack.blog.slug}`}>
-              <a
-                aria-label='blog link'
-              >
-                <h1 className='text-gray-900 dark:text-gray-200 font-bold text-lg mb-2 hover:text-indigo-600 dark:hover:text-indigo-600 transition duration-500 ease-in-out' dangerouslySetInnerHTML={{ __html: blog_pack.blog.title.rendered }} />
+              <a aria-label='blog link'>
+                <h1
+                  className='text-gray-900 dark:text-gray-200 font-bold text-lg mb-2 hover:text-indigo-600 dark:hover:text-indigo-600 transition duration-500 ease-in-out'
+                  dangerouslySetInnerHTML={{ __html: blog_pack.blog.title.rendered }}
+                />
               </a>
             </Link>
             <div
@@ -146,10 +145,11 @@ export default function HorizontalVariant({ blogs, classes }) {
             {dateFormat(blog_pack.blog.date, 'mediumDate')}
           </p>
           <Link href={`/blog/${blog_pack.blog.slug}`}>
-            <a
-              aria-label='blog link'
-            >
-              <h1 className='text-gray-900 dark:text-gray-100 font-semibold hover:text-indigo-600 dark:hover:text-indigo-600 leading-none transition duration-500 ease-in-out' dangerouslySetInnerHTML={{ __html: blog_pack.blog.title.rendered }} />
+            <a aria-label='blog link'>
+              <h1
+                className='text-gray-900 dark:text-gray-100 font-semibold hover:text-indigo-600 dark:hover:text-indigo-600 leading-none transition duration-500 ease-in-out'
+                dangerouslySetInnerHTML={{ __html: blog_pack.blog.title.rendered }}
+              />
             </a>
           </Link>
         </div>
