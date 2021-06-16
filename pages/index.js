@@ -49,6 +49,12 @@ export default function Blog(container) {
         <meta httpEquiv='X-UA-Compatible' content='ie=edge' />
         <meta name='robots' content='index,follow' />
         <meta name='googlebot' content='index,follow' />
+
+        <meta property='og:title' content='Componentity NextJs WP Theme' />
+        <meta property='og:description' content='Componentity Team has made a WP-NEXTJS theme' />
+        <meta property='og:image' content='/seoindex.png' />
+        <meta name='twitter:image' content='/seoindex.png' />
+        <meta name='twitter:image:alt' content='Componentity.com' />
         <meta name='twitter:card' content='summary_large_image' />
         <meta name='twitter:site' content='@componentity' />
         <meta name='twitter:creator' content='@componentity' />
