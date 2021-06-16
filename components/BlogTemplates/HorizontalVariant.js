@@ -14,7 +14,12 @@ export default function HorizontalVariant({ blogs, classes }) {
           <a aria-label='blog link'>
             {blog_pack.blog.featured_media != 0 && blog_pack.blog.featured_media ? (
               <ImageComponentity
-                src={blog_pack.blog._embedded['wp:featuredmedia'][0].source_url}
+                src={
+                  blog_pack.blog._embedded['wp:featuredmedia'][0].media_details.sizes.medium
+                    ? blog_pack.blog._embedded['wp:featuredmedia'][0].media_details.sizes.medium
+                        .source_url
+                    : blog_pack.blog._embedded['wp:featuredmedia'][0].source_url
+                }
                 classes={classes.imageClasses}
                 alt={blog_pack.blog.title.rendered}
               />
@@ -145,7 +150,7 @@ export default function HorizontalVariant({ blogs, classes }) {
           <Link href={`/blog/${blog_pack.blog.slug}`}>
             <a aria-label='blog link'>
               <h1
-                className='text-gray-900 dark:text-gray-100 font-semibold hover:text-indigo-600 dark:hover:text-indigo-600 leading-none transition duration-500 ease-in-out'
+                className='text-gray-900 dark:text-gray-100 font-semibold hover:text-indigo-600 dark:hover:text-indigo-600 transition duration-500 ease-in-out'
                 dangerouslySetInnerHTML={{ __html: blog_pack.blog.title.rendered }}
               />
             </a>
