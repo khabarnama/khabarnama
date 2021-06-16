@@ -8,8 +8,6 @@ export default function ImageComponentity({ src, alt, classes = 'h-52 w-full' })
         layout='fill'
         objectFit='cover'
         priority='true'
-        blurDataURL='LPH21ORk-pNH_Nr?kDkC%NRjxuR+'
-        placeholder='blur'
         src={src}
         alt={alt}
       />
