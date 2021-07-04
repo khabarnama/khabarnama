@@ -1,86 +1,70 @@
-export default function Footer() {
+import Link from 'next/link'
+
+export default function Footer({ bottomLeft, bottomRight, topLeft, topRight }) {
   return (
     <section className='bg-gray-600 p-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12'>
       <div className='p-5 text-sm col-span-1 lg:col-span-3'>
         <div className='mb-10'>
-          <span className='mb-3 block uppercase text-gray-100 font-semibold'>MEDIA SERVICES</span>
-          <a className='my-1 block text-gray-300 font-medium' href='/#'>
-            Branding
-          </a>
-          <a className='my-1 block text-gray-300 font-medium' href='/#'>
-            videography
-          </a>
-          <a className='my-1 block text-gray-300 font-medium' href='/#'>
-            photography
-          </a>
-          <a className='my-1 block text-gray-300 font-medium' href='/#'>
-            Media Management
-          </a>
-          <a className='my-1 block text-gray-300 font-medium' href='/#'>
-            TV commercial video
-          </a>
-          <a className='my-1 block text-gray-300 font-medium' href='/#'>
-            Documentary
-          </a>
+          <span className='mb-3 block uppercase text-gray-100 font-semibold'>OUR COMPANY</span>
+          {topLeft.items.map((item) => {
+            return (
+              <Link key={item.id} href={`/${item.url.replace('https://iap.af/', '')}`}>
+                <a
+                  aria-label='Footer Link'
+                  className='my-1 block text-gray-300 font-medium hover:text-white'
+                >
+                  {item.title}
+                </a>
+              </Link>
+            )
+          })}
         </div>
         <div className='mb-10'>
-          <span className='mb-3 block uppercase text-gray-100 font-semibold'>TECH SERVICES</span>
-          <a className='my-1 block text-gray-300 font-medium' href='/#'>
-            Software Development
-          </a>
-          <a className='my-1 block text-gray-300 font-medium' href='/#'>
-            Networking Services
-          </a>
-          <a className='my-1 block text-gray-300 font-medium' href='/#'>
-            Web and Email Hosting
-          </a>
-          <a className='my-1 block text-gray-300 font-medium' href='/#'>
-            Web Development
-          </a>
-          <a className='my-1 block text-gray-300 font-medium' href='/#'>
-            Mobile App Development
-          </a>
+          <span className='mb-3 block uppercase text-gray-100 font-semibold'>QUICK LINKS</span>
+          {bottomLeft.items.map((item) => {
+            return (
+              <Link key={item.id} href={`/${item.url.replace('https://iap.af/', '')}`}>
+                <a
+                  aria-label='Footer Link'
+                  className='my-1 block text-gray-300 font-medium hover:text-white'
+                >
+                  {item.title}
+                </a>
+              </Link>
+            )
+          })}
         </div>
       </div>
       <div className='p-5 text-sm col-span-1 md:col-span-3'>
         <div className='mb-10'>
           <span className='mb-3 block uppercase text-gray-100 font-semibold'>TECH SERVICES</span>
-          <a className='my-1 block text-gray-300 font-medium' href='/#'>
-            Software Development
-          </a>
-          <a className='my-1 block text-gray-300 font-medium' href='/#'>
-            Networking Services
-          </a>
-          <a className='my-1 block text-gray-300 font-medium' href='/#'>
-            Web and Email Hosting
-          </a>
-          <a className='my-1 block text-gray-300 font-medium' href='/#'>
-            Web Development
-          </a>
-          <a className='my-1 block text-gray-300 font-medium' href='/#'>
-            Mobile App Development
-          </a>
+          {topRight.items.map((item) => {
+            return (
+              <Link key={item.id} href={`/${item.url.replace('https://iap.af/', '')}`}>
+                <a
+                  aria-label='Footer Link'
+                  className='my-1 block text-gray-300 font-medium hover:text-white'
+                >
+                  {item.title}
+                </a>
+              </Link>
+            )
+          })}
         </div>
         <div className='mb-10'>
-          <span className='mb-3 block uppercase text-gray-100 font-semibold'>MEDIA SERVICES</span>
-          <a className='my-1 block text-gray-300 font-medium' href='/#'>
-            Branding
-          </a>
-          <a className='my-1 block text-gray-300 font-medium' href='/#'>
-            videography
-          </a>
-          <a className='my-1 block text-gray-300 font-medium' href='/#'>
-            photography
-          </a>
-          <a className='my-1 block text-gray-300 font-medium' href='/#'>
-            Media Management
-          </a>
-          <a className='my-1 block text-gray-300 font-medium' href='/#'>
-            TV commercial video
-          </a>
-          <a className='my-1 block text-gray-300 font-medium' href='/#'>
-            Documentary
-          </a>
+          <span className='mb-3 block uppercase text-gray-100 font-semibold'>PRODUCTS</span>
+          {bottomRight.items.map((item) => {
+            return (
+              <Link key={item.id} href={`/${item.url.replace('https://iap.af/', '')}`}>
+                <a
+                  aria-label='Footer Link'
+                  className='my-1 block text-gray-300 font-medium hover:text-white'
+                >
+                  {item.title}
+                </a>
+              </Link>
+            )
+          })}
         </div>
       </div>
       <div className='p-5 text-sm col-span-1 md:col-span-6'>

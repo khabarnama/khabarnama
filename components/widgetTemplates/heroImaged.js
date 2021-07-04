@@ -22,7 +22,10 @@ export default function HeroImagedWidget({ about }) {
             <div className='sm:h-full bg-gray-300' />
           )}
           {!video && (
-            <div onClick={() => setVideo(true)}>
+            <div
+              className='rounded bg-white w-16 h-12 absolute inset-y-2/4 inset-x-2/4 transform -translate-y-1/2 -translate-x-1/2'
+              onClick={() => setVideo(true)}
+            >
               <SVGYoutube classes='cursor-pointer text-red-600 h-20 w-20 absolute inset-y-2/4 inset-x-2/4 transform -translate-y-1/2 -translate-x-1/2' />
             </div>
           )}

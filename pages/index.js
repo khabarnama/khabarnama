@@ -7,8 +7,21 @@ import TeamWidget from './../components/widgetTemplates/team'
 import ClientsWidget from './../components/widgetTemplates/clients'
 import ProductsWidget from './../components/widgetTemplates/products'
 import WebHostingWidget from './../components/widgetTemplates/webhosting'
+import Footer from './../components/Footer'
 
-export default function Blog({ clients, projects, services, products, about, hosting, team }) {
+export default function Blog({
+  clients,
+  projects,
+  services,
+  products,
+  about,
+  hosting,
+  team,
+  topLeft,
+  topRight,
+  bottomRight,
+  bottomLeft
+}) {
   return (
     <>
       <Head>
@@ -47,6 +60,12 @@ export default function Blog({ clients, projects, services, products, about, hos
           </div>
         </div>
       </div>
+      <Footer
+        topRight={topRight}
+        topLeft={topLeft}
+        bottomLeft={bottomLeft}
+        bottomRight={bottomRight}
+      />
     </>
   )
 }
@@ -73,6 +92,18 @@ export async function getStaticProps() {
   const hostingRes = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/pages/2403?${args}`)
   const hosting = await hostingRes.json()
 
+  const topLeftRes = await fetch(`${process.env.MENU_URL}/locations/footer-topleft`)
+  const topLeft = await topLeftRes.json()
+
+  const bottomleftRes = await fetch(`${process.env.MENU_URL}/locations/footer-bottomleft`)
+  const bottomLeft = await bottomleftRes.json()
+
+  const toprightRes = await fetch(`${process.env.MENU_URL}/locations/footer-topright`)
+  const topRight = await toprightRes.json()
+
+  const bottomrightRes = await fetch(`${process.env.MENU_URL}/locations/footer-bottomright`)
+  const bottomRight = await bottomrightRes.json()
+
   const servicesRes = await fetch(
     `${process.env.NEXT_PUBLIC_SITE_URL}/pages?${args}&per_page=3&categories=97`
   )
@@ -86,7 +117,11 @@ export async function getStaticProps() {
       products,
       about,
       hosting,
-      team
+      team,
+      topLeft,
+      topRight,
+      bottomLeft,
+      bottomRight
     }
   }
 }
