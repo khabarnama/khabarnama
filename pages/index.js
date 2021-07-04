@@ -8,7 +8,7 @@ import ClientsWidget from './../components/widgetTemplates/clients'
 import ProductsWidget from './../components/widgetTemplates/products'
 import WebHostingWidget from './../components/widgetTemplates/webhosting'
 
-export default function Blog({ clients, projects, services, products, about, hosting }) {
+export default function Blog({ clients, projects, services, products, about, hosting, team }) {
   return (
     <>
       <Head>
@@ -39,7 +39,7 @@ export default function Blog({ clients, projects, services, products, about, hos
           <ServicesWidget services={services} />
           <HeroWidget about={about} />
           <ProjectsWidget projects={projects} />
-          <TeamWidget />
+          <TeamWidget team={team} />
           <div className='order-5 col-span-1 sm:col-span-6 lg:col-span-9 bg-indigo-500'>
             <ClientsWidget clients={clients} />
             <WebHostingWidget hosting={hosting} />
@@ -62,10 +62,15 @@ export async function getStaticProps() {
   const productsRes = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/nproject?${args}&per_page=2`)
   const products = await productsRes.json()
 
-  const aboutRes = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/pages/13`)
+  const aboutRes = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/pages/13?${args}`)
   const about = await aboutRes.json()
 
-  const hostingRes = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/pages/2403?_embed=true`)
+  const teamRes = await fetch(
+    `${process.env.NEXT_PUBLIC_SITE_URL}/awsm_team_member?${args}&per_page=20`
+  )
+  const team = await teamRes.json()
+
+  const hostingRes = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/pages/2403?${args}`)
   const hosting = await hostingRes.json()
 
   const servicesRes = await fetch(
@@ -80,7 +85,8 @@ export async function getStaticProps() {
       services,
       products,
       about,
-      hosting
+      hosting,
+      team
     }
   }
 }

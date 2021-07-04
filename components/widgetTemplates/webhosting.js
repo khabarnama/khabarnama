@@ -11,8 +11,8 @@ export default function WebHostingWidget({ hosting }) {
           </h3>
           <div className='mt-6'>
             <div
-              className='text-gray-300 line-clamp-3'
-              dangerouslySetInnerHTML={{ __html: hosting.content.rendered }}
+              className='text-gray-300 line-clamp-3 mb-2'
+              dangerouslySetInnerHTML={{ __html: hosting.excerpt.rendered }}
             />
             <Link href={`/${hosting.slug}`}>
               <a
