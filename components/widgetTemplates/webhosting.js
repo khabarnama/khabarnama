@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import SVGArrow from './../SVG/SVGArrow'
+import ImageComponentity from '../ImageComponentity'
 
 export default function WebHostingWidget({ hosting }) {
   const template = (hosting) => {
@@ -28,7 +29,8 @@ export default function WebHostingWidget({ hosting }) {
         <div className='bg-gray-100 col-span-1 lg:col-span-4 h-72'>
           {hosting.featured_media != 0 && hosting.featured_media != null && (
             <ImageComponentity
-              src={hosting._embedded['wp:featuredmedia'][0].source_url}
+              src={hosting._embedded['wp:featuredmedia'][0].media_details.sizes.medium.source_url}
+              classes={'h-72'}
               alt={hosting.title.rendered}
             />
           )}

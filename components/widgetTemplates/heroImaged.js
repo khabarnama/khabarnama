@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import ImageComponentity from './../ImageComponentity'
 import YoutubeEmbed from './../youtubeEmbed'
+import SVGYoutube from './../SVG/SVGYoutube'
 import React, { useState } from 'react'
 
 export default function HeroImagedWidget({ about }) {
@@ -21,10 +22,9 @@ export default function HeroImagedWidget({ about }) {
             <div className='sm:h-full bg-gray-300' />
           )}
           {!video && (
-            <div
-              className='cursor-pointer bg-gray-900 h-24 w-24 rounded-full absolute inset-y-2/4 inset-x-2/4 transform -translate-y-1/2 -translate-x-1/2'
-              onClick={() => setVideo(true)}
-            />
+            <div onClick={() => setVideo(true)}>
+              <SVGYoutube classes='cursor-pointer text-red-600 h-20 w-20 absolute inset-y-2/4 inset-x-2/4 transform -translate-y-1/2 -translate-x-1/2' />
+            </div>
           )}
         </div>
         <Link href={`/${about.slug}`}>

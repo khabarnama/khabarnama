@@ -16,7 +16,10 @@ export default function ProductsWidget({ products }) {
                 <div className='order-2 sm:order-1 bg-yellow-500 col-span-1 lg:col-span-6 h-72'>
                   {product.featured_media != 0 && product.featured_media != null ? (
                     <ImageComponentity
-                      src={product._embedded['wp:featuredmedia'][0].source_url}
+                      src={
+                        product._embedded['wp:featuredmedia'][0].media_details.sizes.medium
+                          .source_url
+                      }
                       classes={'h-72'}
                       alt={product.title.rendered}
                     />
