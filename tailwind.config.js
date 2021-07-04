@@ -23,7 +23,10 @@ module.exports = {
   },
   variants: {
     backgroundColor: ({ after }) => after(['disabled']),
-    cursor: ({ after }) => after(['disabled'])
+    cursor: ({ after }) => after(['disabled']),
+    extend: {
+      margin: ['group-hover']
+    }
   },
   plugins: [require('@tailwindcss/line-clamp')]
 }
