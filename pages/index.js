@@ -1,7 +1,7 @@
 import React from 'react'
 import Head from 'next/head'
 import ServicesWidget from './../components/widgetTemplates/services'
-import HeroWidget from './../components/widgetTemplates/hero'
+import HeroImagedWidget from './../components/widgetTemplates/heroImaged'
 import ProjectsWidget from './../components/widgetTemplates/projects'
 import TeamWidget from './../components/widgetTemplates/team'
 import ClientsWidget from './../components/widgetTemplates/clients'
@@ -37,7 +37,7 @@ export default function Blog({ clients, projects, services, products, about, hos
       <div className='max-w-screen-2xl mx-auto p-5'>
         <div className='grid grid-cols-1 sm:grid-cols-12 gap-5 lg:gap-0 items-stretch justify-stretch'>
           <ServicesWidget services={services} />
-          <HeroWidget about={about} />
+          <HeroImagedWidget about={about} />
           <ProjectsWidget projects={projects} />
           <TeamWidget team={team} />
           <div className='order-5 col-span-1 sm:col-span-6 lg:col-span-9 bg-indigo-500'>
