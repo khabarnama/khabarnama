@@ -1,4 +1,5 @@
 module.exports = {
+  plugins: [require('@tailwindcss/line-clamp')],
   purge: {
     content: ['./pages/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],
     options: {
@@ -27,6 +28,5 @@ module.exports = {
     extend: {
       margin: ['group-hover']
     }
-  },
-  plugins: [require('@tailwindcss/line-clamp')]
+  }
 }
