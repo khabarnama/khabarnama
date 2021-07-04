@@ -1,16 +1,18 @@
 import ImageComponentity from '../ImageComponentity'
 import Link from 'next/link'
 import React, { Component } from 'react'
+import SVGArrow from './../SVG/SVGArrow'
 
 export default function TeamWidget({ team }) {
   class CarouselLeftArrow extends Component {
     render() {
       return (
         <span
-          className='bg-gray-900 py-1 px-4 text-white hover:bg-gray-700 cursor-pointer'
+          className='bg-gray-900 py-1 px-4 text-white group cursor-pointer flex'
           onClick={this.props.onClick}
         >
-          Left
+          <SVGArrow classes={'w-4 text-white mr-2 group-hover:-ml-1 transform rotate-180'} />{' '}
+          <span>Prev</span>
         </span>
       )
     }
@@ -20,10 +22,11 @@ export default function TeamWidget({ team }) {
     render() {
       return (
         <span
-          className='bg-gray-900 py-1 px-4 text-white hover:bg-gray-700 cursor-pointer'
+          className='bg-gray-900 py-1 px-4 text-white group cursor-pointer flex'
           onClick={this.props.onClick}
         >
-          Right
+          <span>Next</span>
+          <SVGArrow classes={'w-4 text-white ml-2 group-hover:-mr-1'} />
         </span>
       )
     }
@@ -42,7 +45,7 @@ export default function TeamWidget({ team }) {
             <div className='sm:h-96 bg-gray-300' />
           )}
           <div className='p-8 flex flex-col justify-between'>
-            <span className='uppercase text-xs mb-1'>president</span>
+            <span className='uppercase text-xs mb-1'>{this.props.slide.designation[0]}</span>
             <h3
               className='font-bold uppercase text-2xl'
               dangerouslySetInnerHTML={{ __html: this.props.slide.title.rendered }}
