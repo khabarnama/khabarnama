@@ -9,6 +9,9 @@ module.exports = {
           /^[\w:]*place-content-/,
           /^[\w:]*my-/,
           /^[\w:]*h-/,
+          /^[\w:]*w-/,
+          /^[\w:]*border-/,
+          /^[\w:]*underline/,
           /^[\w:]*flex-/
         ]
       }
