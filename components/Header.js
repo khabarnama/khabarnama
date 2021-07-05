@@ -41,12 +41,10 @@ function Header({ router }) {
               <div className='relative w-screen max-w-md'>
                 <div className='h-full flex flex-col py-6 bg-white dark:bg-gray-700 shadow-xl overflow-y-scroll'>
                   <div className='px-4 sm:px-6'>
-                    <h2
-                      className='pl-4 text-lg font-medium text-gray-900 dark:text-white'
-                      id='slide-over-title'
-                    >
-                      Panel title
-                    </h2>
+                    <ImageComponentity
+                      src='https://iap.af/wp-content/uploads/2021/06/IAP-Landscape-Transparent.png'
+                      classes='h-16 w-72'
+                    />
                   </div>
                   <div className='mt-6 relative flex-1 px-4 sm:px-6'>
                     <div className='absolute inset-0 px-4 sm:px-6'>
@@ -56,9 +54,9 @@ function Header({ router }) {
                             <li key={index}>
                               <Link href={nav.href}>
                                 <a
-                                  className={`block py-2 px-5 rounded-md text-sm font-light hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:text-gray-300 ${
+                                  className={`block text-sm px-5 py-2 font-light hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 ${
                                     router.pathname == nav.href
-                                      ? 'bg-indigo-600 text-gray-50 hover:text-gray-700'
+                                      ? 'bg-gray-600 text-white hover:text-gray-700'
                                       : 'text-gray-700'
                                   }`}
                                   aria-label='nav link'
@@ -70,6 +68,28 @@ function Header({ router }) {
                           )
                         })}
                       </ul>
+                      <ul className='grid gap-3 mt-10'>
+                        <li>
+                          <Link
+                            prefetch={true}
+                            href='https://iap.af/wp-content/uploads/2021/06/2021-Corporate-Profile.pdf'
+                          >
+                            <a aria-label='corporate profile' className='underline'>
+                              Download Our Corporate profile
+                            </a>
+                          </Link>
+                        </li>
+                        <li>
+                          <span>
+                            Have any questions?{' '}
+                            <Link href='tel:+93729444427'>
+                              <a aria-label='telephone' className='underline'>
+                                0729 4444 27
+                              </a>
+                            </Link>
+                          </span>
+                        </li>
+                      </ul>
                     </div>
                   </div>
                 </div>
@@ -79,8 +99,11 @@ function Header({ router }) {
         </div>
 
         <div className='flex flex-col gap-2 items-stretch justify-center'>
-          <div class='text-xs text-white bg-gray-600 px-3 py-2 flex justify-between items-center'>
-            <Link href='/profile.pdf'>
+          <div class='text-xs text-white bg-gray-600 px-3 py-2 hidden sm:flex justify-between items-center'>
+            <Link
+              prefetch={true}
+              href='https://iap.af/wp-content/uploads/2021/06/2021-Corporate-Profile.pdf'
+            >
               <a aria-label='corporate profile' className='underline'>
                 Download Our Corporate profile
               </a>
@@ -119,7 +142,7 @@ function Header({ router }) {
             <button
               aria-label='navbar-mobile'
               onClick={() => setDisplay(!display)}
-              className='sm:hidden z-10 whitespace-no-wrap fixed bottom-4 right-4 w-12 h-12 flex items-center justify-center px-4 py-2 border border-transparent text-base leading-6 font-medium rounded-full text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition ease-in-out duration-150'
+              className='sm:hidden z-10 whitespace-no-wrap fixed bottom-4 right-4 w-12 h-12 flex items-center justify-center px-4 py-2 border border-transparent text-base leading-6 font-medium rounded-full text-white bg-gray-600 hover:bg-gray-500 focus:outline-none focus:border-gray-700 focus:shadow-outline-gray active:bg-gray-700 transition ease-in-out duration-150'
             >
               {display ? <SVGCross /> : <SVGBurgernav />}
             </button>
