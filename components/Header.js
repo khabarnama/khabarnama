@@ -3,33 +3,28 @@ import Link from 'next/link'
 import React, { useState } from 'react'
 import SVGCross from './SVG/SVGCross'
 import SVGBurgernav from './SVG/SVGBurgernav'
-import SwitchTheme from './SwitchTheme'
-import SearchForm from './SearchForm'
+import ImageComponentity from './ImageComponentity'
 
 function Header({ router }) {
   const navs = [
     { text: 'Home', href: '/' },
-    { text: 'Mcgivney Festival', href: '/mcgivneyfestival' },
-    { text: 'Catholic App', href: '/catholic-app' }
+    { text: 'Company', href: '/about' },
+    { text: 'Services', href: '/services' },
+    { text: 'Products', href: '/products' },
+    { text: 'Contact Us', href: '/#contact' }
   ]
 
   const [display, setDisplay] = useState(false)
 
+  // console.log('LOGO URL: ', process.env.LOGO_URL)
+
   return (
     <>
-      <header className='max-w-screen-xl mx-auto p-5 lg:p-0 sm:my-10 flex flex-row items-center justify-between relative'>
-        <Link href={'/'}>
-          <a>
-            <div className='site hover:text-indigo-600'>
-              <h1 aria-label='site-name' className='font-semibold'>
-                Componentity
-              </h1>
-              <p aria-label='site-description' className='text-xs'>
-                Just Copy & Paste
-              </p>
-            </div>
-          </a>
-        </Link>
+      <header className='max-w-screen-2xl mx-auto p-5 sm:my-5 sm:mb-2 flex items-end justify-between relative'>
+        <ImageComponentity
+          src='https://iap.af/wp-content/uploads/2021/06/IAP-Landscape-Transparent.png'
+          classes='h-16 w-72'
+        />
         <div
           className={`z-10 ${display ? 'fixed' : 'hidden'} inset-0 overflow-hidden`}
           aria-labelledby='slide-over-title'
@@ -83,16 +78,32 @@ function Header({ router }) {
           </div>
         </div>
 
-        <div className='flex flex-row gap-1 items-center justify-center'>
+        <div className='flex flex-col gap-2 items-stretch justify-center'>
+          <div class='text-xs text-white bg-gray-600 px-3 py-2 flex justify-between items-center'>
+            <Link href='/profile.pdf'>
+              <a aria-label='corporate profile' className='underline'>
+                Download Our Corporate profile
+              </a>
+            </Link>
+            <span>|</span>
+            <span>
+              Have any questions?{' '}
+              <Link href='tel:+93729444427'>
+                <a aria-label='telephone' className='underline'>
+                  0729 4444 27
+                </a>
+              </Link>
+            </span>
+          </div>
           <ul className='hidden sm:flex flex-row gap-1'>
             {navs.map((nav, index) => {
               return (
                 <li key={index}>
                   <Link href={nav.href}>
                     <a
-                      className={`py-2 px-5 rounded-md text-sm font-light hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:text-gray-100 dark:hover:text-gray-900 ${
+                      className={`py-2 px-5 text-sm font-semibold border-gray-600 border-0 hover:border-b-4 focus:outline-none ${
                         router.pathname == nav.href
-                          ? 'bg-indigo-600 text-gray-50 hover:text-gray-700'
+                          ? 'border-b-4 border-gray-600 hover:text-gray-700'
                           : 'text-gray-700'
                       }`}
                       aria-label='nav link'
@@ -105,8 +116,6 @@ function Header({ router }) {
             })}
           </ul>
           <span className='flex items-center justify-center gap-1'>
-            <SwitchTheme />
-            <SearchForm />
             <button
               aria-label='navbar-mobile'
               onClick={() => setDisplay(!display)}
