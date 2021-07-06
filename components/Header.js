@@ -71,7 +71,7 @@ function Header({ router }) {
                       <ul className='grid gap-3 mt-10'>
                         <li>
                           <Link
-                            prefetch={true}
+                            rel='preload'
                             href='https://iap.af/wp-content/uploads/2021/06/2021-Corporate-Profile.pdf'
                           >
                             <a aria-label='corporate profile' className='underline'>
@@ -99,9 +99,9 @@ function Header({ router }) {
         </div>
 
         <div className='flex flex-col gap-2 items-stretch justify-center'>
-          <div class='text-xs text-white bg-gray-600 px-3 py-2 hidden sm:flex justify-between items-center'>
+          <div className='text-xs text-white bg-gray-600 px-3 py-2 hidden sm:flex justify-between items-center'>
             <Link
-              prefetch={true}
+              rel='preload'
               href='https://iap.af/wp-content/uploads/2021/06/2021-Corporate-Profile.pdf'
             >
               <a aria-label='corporate profile' className='underline'>
