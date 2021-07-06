@@ -29,7 +29,8 @@ module.exports = {
     backgroundColor: ({ after }) => after(['disabled']),
     cursor: ({ after }) => after(['disabled']),
     extend: {
-      margin: ['group-hover']
+      margin: ['group-hover'],
+      display: ['group-hover']
     }
   }
 }
