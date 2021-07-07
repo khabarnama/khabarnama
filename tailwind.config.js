@@ -1,7 +1,12 @@
 module.exports = {
   plugins: [require('@tailwindcss/line-clamp')],
   purge: {
-    content: ['./pages/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}']
+    content: ['./pages/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],
+    options: {
+      safelist: {
+        standard: [/^[\w:]*border-t-/]
+      }
+    }
   },
   theme: {
     extend: {

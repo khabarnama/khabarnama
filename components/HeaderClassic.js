@@ -204,7 +204,7 @@ function HeaderClassic({ router }) {
           </ul>
         </div>
 
-        <div className='h-16 w-72 hidden lg:flex items-center'>
+        <div className='h-16 hidden lg:flex items-center'>
           <span className='mr-2'>
             <ImageComponentity
               src='https://iapcorporate.com/wp-content/uploads/2018/08/conversations-4872_af60b258-251e-41af-b238-dfb706d7b3d4.svg'
