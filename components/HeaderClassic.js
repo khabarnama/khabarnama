@@ -146,15 +146,15 @@ function HeaderClassic({ router }) {
               </a>
             </Link>
           </div>
-          <ul className='flex flex-row gap-1 border-t-2 border-gray-600'>
+          <ul className='flex flex-row gap-1 border-gray-600 border-t-2'>
             {navs.map((nav, index) => {
               return nav.href != '#' ? (
                 <li className='flex items-center justify-center' key={index}>
                   <Link href={nav.href}>
                     <a
-                      className={`py-2 px-5 font-semibold border-gray-600 border-0 hover:border-b-4 focus:outline-none ${
+                      className={`py-2 px-5 font-semibold border-gray-600 hover:border-t-4 focus:outline-none ${
                         router.pathname == nav.href
-                          ? 'border-t-4 border-gray-600 hover:text-gray-700'
+                          ? 'border-t-4 hover:text-gray-700'
                           : 'text-gray-700 hover:text-gray-500'
                       }`}
                       aria-label='nav link'
