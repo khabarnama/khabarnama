@@ -46,10 +46,17 @@ export default function TeamWidget({ team }) {
           )}
           <div className='px-8 pt-8 pb-3 flex flex-col justify-between'>
             <span className='uppercase text-xs mb-1'>{this.props.slide.designation[0]}</span>
-            <h3
-              className='font-bold uppercase text-3xl'
-              dangerouslySetInnerHTML={{ __html: this.props.slide.title.rendered }}
-            />
+            <Link href={`/team#${this.props.slide.slug}`}>
+              <a
+                aria-label='Project'
+                className='font-semibold hover:underline flex items-center group'
+              >
+                <h3
+                  className='font-bold uppercase text-3xl'
+                  dangerouslySetInnerHTML={{ __html: this.props.slide.title.rendered }}
+                />
+              </a>
+            </Link>
             <div className='mt-2'>
               <div
                 className='text-gray-700 mb-2 line-clamp-4'
@@ -59,15 +66,6 @@ export default function TeamWidget({ team }) {
                     : this.props.slide.content.rendered
                 }}
               />
-              <Link href={`/team#${this.props.slide.slug}`}>
-                <a
-                  aria-label='Project'
-                  className='font-semibold hover:underline flex items-center group'
-                >
-                  <span className='mr-2 group-hover:mr-3'>read more </span>
-                  <SVGArrow classes={`w-4`} />
-                </a>
-              </Link>
             </div>
           </div>
         </li>
