@@ -139,14 +139,14 @@ function HeaderClassic({ router }) {
         </div>
 
         <div className='hidden lg:flex flex-col gap-2 items-center justify-between'>
-          <div className='text-gray-600 font-semibold py-2 hidden lg:block'>
+          <div className='text-gray-600 font-semibold py-2 block'>
             <Link href='https://iap.af/wp-content/uploads/2021/06/2021-Corporate-Profile.pdf'>
               <a aria-label='corporate profile' className='hover:underline'>
                 Download Our Corporate profile
               </a>
             </Link>
           </div>
-          <ul className='flex flex-row gap-1 border-t'>
+          <ul className='flex flex-row gap-1 border-t-2 border-gray-600'>
             {navs.map((nav, index) => {
               return nav.href != '#' ? (
                 <li className='flex items-center justify-center' key={index}>
@@ -221,7 +221,7 @@ function HeaderClassic({ router }) {
           </div>
         </div>
 
-        <span className='lg:hidden z-10 flex items-center justify-center gap-1'>
+        <span className='md:hidden z-10 flex items-center justify-center gap-1'>
           <button
             aria-label='navbar-mobile'
             onClick={() => setDisplay(!display)}
