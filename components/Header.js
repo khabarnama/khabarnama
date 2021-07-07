@@ -215,7 +215,7 @@ function Header({ router }) {
             <button
               aria-label='navbar-mobile'
               onClick={() => setDisplay(!display)}
-              className='lg:hidden z-10 whitespace-no-wrap w-12 h-12 flex items-center justify-center px-4 py-2 border border-transparent text-base leading-6 font-medium rounded-full text-white bg-gray-600 hover:bg-gray-500 focus:outline-none focus:border-gray-700 focus:shadow-outline-gray active:bg-gray-700 transition ease-in-out duration-150'
+              className='md:hidden z-10 whitespace-no-wrap w-12 h-12 flex items-center justify-center px-4 py-2 border border-transparent text-base leading-6 font-medium rounded-full text-white bg-gray-600 hover:bg-gray-500 focus:outline-none focus:border-gray-700 focus:shadow-outline-gray active:bg-gray-700 transition ease-in-out duration-150'
             >
               {display ? <SVGCross /> : <SVGBurgernav />}
             </button>

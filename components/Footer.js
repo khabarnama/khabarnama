@@ -123,7 +123,7 @@ export default function Footer({
               <Link key={item.id} href={`${item.url.replace('https://iap.af/', '')}`}>
                 <a
                   aria-label='Footer Link'
-                  className='my-1 block text-gray-300 font-medium hover:text-white'
+                  className='my-2 block text-gray-300 font-medium hover:text-white'
                 >
                   {item.title}
                 </a>
