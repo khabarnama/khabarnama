@@ -1,4 +1,6 @@
-export default function ClientsWidget({ clients }) {
+import ImageComponentity from '../ImageComponentity'
+
+export default function ClientsImagedWidget({ clients }) {
   const template = (clients) => {
     return (
       <div className='bg-white lg:px-12 py-8'>
@@ -6,13 +8,11 @@ export default function ClientsWidget({ clients }) {
         <div className='grid grid-cols-3 lg:flex flex-row items-center justify-between gap-5 overflow-x-auto'>
           {clients.map((client) => {
             return (
-              <div
+              <ImageComponentity
                 key={client.id}
-                className='w-32 h-20 bg-contain bg-no-repeat bg-center'
-                style={{
-                  backgroundImage: `url(${client._embedded['wp:featuredmedia'][0].source_url})`
-                }}
-              ></div>
+                classes='w-32 h-20'
+                src={client._embedded['wp:featuredmedia'][0].source_url}
+              />
             )
           })}
         </div>

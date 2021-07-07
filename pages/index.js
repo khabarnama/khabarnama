@@ -4,7 +4,7 @@ import ServicesWidget from './../components/widgetTemplates/services'
 import HeroImagedWidget from './../components/widgetTemplates/heroImaged'
 import ProjectsWidget from './../components/widgetTemplates/projects'
 import TeamWidget from './../components/widgetTemplates/team'
-import ClientsWidget from './../components/widgetTemplates/clients'
+import ClientImagedWidget from './../components/widgetTemplates/clientImaged'
 import ProductsWidget from './../components/widgetTemplates/products'
 import WebHostingWidget from './../components/widgetTemplates/webhosting'
 import Footer from './../components/Footer'
@@ -57,7 +57,7 @@ export default function Blog({
           <ProjectsWidget projects={projects} />
           <TeamWidget team={team} />
           <div className='order-5 col-span-1 sm:col-span-12 lg:col-span-9 bg-indigo-500'>
-            <ClientsWidget clients={clients} />
+            <ClientImagedWidget clients={clients} />
             <WebHostingWidget hosting={hosting} />
             <ProductsWidget products={products} />
           </div>
