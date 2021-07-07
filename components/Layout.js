@@ -1,8 +1,8 @@
-import Header from './Header'
+import HeaderClassic from './HeaderClassic'
 export default function Layout({ children }) {
   return (
     <>
-      <Header />
+      <HeaderClassic />
       {children}
     </>
   )
