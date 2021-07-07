@@ -1,5 +1,8 @@
 module.exports = {
   plugins: [require('@tailwindcss/line-clamp')],
+  purge: {
+    content: ['./pages/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}']
+  },
   theme: {
     extend: {
       fontFamily: {
