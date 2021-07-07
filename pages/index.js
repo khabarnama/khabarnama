@@ -19,8 +19,11 @@ export default function Blog({
   team,
   topLeft,
   topRight,
+  topRight2,
   bottomRight,
-  bottomLeft
+  bottomRight2,
+  bottomLeft,
+  footerAddress
 }) {
   return (
     <>
@@ -65,6 +68,9 @@ export default function Blog({
         topLeft={topLeft}
         bottomLeft={bottomLeft}
         bottomRight={bottomRight}
+        bottomRight2={bottomRight2}
+        topRight2={topRight2}
+        footerAddress={footerAddress}
       />
     </>
   )
@@ -103,8 +109,17 @@ export async function getStaticProps() {
   const toprightRes = await fetch(`${process.env.MENU_URL}/locations/footer-topright`)
   const topRight = await toprightRes.json()
 
+  const topright2Res = await fetch(`${process.env.MENU_URL}/locations/footer-topright2`)
+  const topRight2 = await topright2Res.json()
+
   const bottomrightRes = await fetch(`${process.env.MENU_URL}/locations/footer-bottomright`)
   const bottomRight = await bottomrightRes.json()
+
+  const bottomright2Res = await fetch(`${process.env.MENU_URL}/locations/footer-bottomright2`)
+  const bottomRight2 = await bottomright2Res.json()
+
+  const footeraddressres = await fetch(`${process.env.MENU_URL}/locations/footer-address`)
+  const footerAddress = await footeraddressres.json()
 
   const servicesRes = await fetch(
     `${process.env.NEXT_PUBLIC_SITE_URL}/pages?${args}&per_page=3&categories=97`
@@ -122,8 +137,11 @@ export async function getStaticProps() {
       team,
       topLeft,
       topRight,
+      topRight2,
       bottomLeft,
-      bottomRight
+      bottomRight,
+      bottomRight2,
+      footerAddress
     },
     revalidate: 1
   }
