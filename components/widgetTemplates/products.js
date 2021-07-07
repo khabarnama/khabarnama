@@ -29,7 +29,12 @@ export default function ProductsWidget({ products }) {
                 </div>
                 <div className='order-1 sm:order-2 p-8 col-span-1 sm:col-span-8 lg:col-span-6 flex flex-col justify-between'>
                   <Link href={`${product.website ? product.website[0] : ''}`}>
-                    <a target='_blank' aria-label='product' className='hover:underline'>
+                    <a
+                      rel='noreferrer'
+                      target='_blank'
+                      aria-label='product'
+                      className='hover:underline'
+                    >
                       <h3
                         className='font-bold uppercase text-3xl'
                         dangerouslySetInnerHTML={{ __html: product.title.rendered }}
@@ -43,6 +48,7 @@ export default function ProductsWidget({ products }) {
                     />
                     <Link href={`${product.website ? product.website[0] : ''}`}>
                       <a
+                        rel='noreferrer'
                         target='_blank'
                         aria-label='product'
                         className='font-semibold hover:underline flex items-center group'
@@ -61,7 +67,12 @@ export default function ProductsWidget({ products }) {
                 className='bg-white col-span-1 sm:col-span-12 lg:col-span-4 p-8 flex flex-col justify-between'
               >
                 <Link href={`${product.website ? product.website[0] : ''}`}>
-                  <a target='_blank' aria-label='product' className='hover:underline'>
+                  <a
+                    rel='noreferrer'
+                    target='_blank'
+                    aria-label='product'
+                    className='hover:underline'
+                  >
                     <h3
                       className='font-bold uppercase text-3xl'
                       dangerouslySetInnerHTML={{ __html: product.title.rendered }}
@@ -75,6 +86,7 @@ export default function ProductsWidget({ products }) {
                   />
                   <Link href={`${product.website ? product.website[0] : ''}`}>
                     <a
+                      rel='noreferrer'
                       target='_blank'
                       aria-label='product'
                       className='font-semibold hover:underline flex items-center group'
