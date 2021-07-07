@@ -34,7 +34,7 @@ export default function TeamWidget({ team }) {
   class CarouselSlide extends Component {
     render() {
       return (
-        <li className={this.props.index == this.props.activeIndex ? 'block' : 'hidden'}>
+        <li className={`${this.props.index == this.props.activeIndex ? 'block' : 'hidden'}`}>
           {this.props.slide.featured_media != 0 && this.props.slide.featured_media != null ? (
             <ImageComponentity
               src={this.props.slide._embedded['wp:featuredmedia'][0].source_url}
@@ -44,17 +44,30 @@ export default function TeamWidget({ team }) {
           ) : (
             <div className='sm:h-96 bg-gray-300' />
           )}
-          <div className='p-8 flex flex-col justify-between'>
+          <div className='px-8 pt-8 pb-3 flex flex-col justify-between'>
             <span className='uppercase text-xs mb-1'>{this.props.slide.designation[0]}</span>
             <h3
-              className='font-bold uppercase text-2xl'
+              className='font-bold uppercase text-3xl'
               dangerouslySetInnerHTML={{ __html: this.props.slide.title.rendered }}
             />
-            <div className='mt-6'>
+            <div className='mt-2'>
               <div
                 className='text-gray-700 mb-2 line-clamp-4'
-                dangerouslySetInnerHTML={{ __html: this.props.slide.content.rendered }}
+                dangerouslySetInnerHTML={{
+                  __html: this.props.slide.excerpt
+                    ? this.props.slide.excerpt[0]
+                    : this.props.slide.content.rendered
+                }}
               />
+              <Link href={`/team#${this.props.slide.slug}`}>
+                <a
+                  aria-label='Project'
+                  className='font-semibold hover:underline flex items-center group'
+                >
+                  <span className='mr-2 group-hover:mr-3'>read more </span>
+                  <SVGArrow classes={`w-4`} />
+                </a>
+              </Link>
             </div>
           </div>
         </li>
@@ -120,7 +133,7 @@ export default function TeamWidget({ team }) {
 
     render() {
       return (
-        <div className='order-4 col-span-1 sm:col-span-6 lg:col-span-3 bg-gray-100'>
+        <div className='hidden lg:inline-block order-4 col-span-1 sm:col-span-6 lg:col-span-3 bg-gray-100'>
           <div className='p-8'>
             <h3 className='uppercase font-bold text-2xl'>Core Team</h3>
           </div>

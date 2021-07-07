@@ -53,7 +53,7 @@ export default function Blog({
           <HeroImagedWidget about={about} />
           <ProjectsWidget projects={projects} />
           <TeamWidget team={team} />
-          <div className='order-5 col-span-1 sm:col-span-6 lg:col-span-9 bg-indigo-500'>
+          <div className='order-5 col-span-1 sm:col-span-12 lg:col-span-9 bg-indigo-500'>
             <ClientsWidget clients={clients} />
             <WebHostingWidget hosting={hosting} />
             <ProductsWidget products={products} />
@@ -78,7 +78,9 @@ export async function getStaticProps() {
   const projectsRes = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/posts?${args}&per_page=5`)
   const projects = await projectsRes.json()
 
-  const productsRes = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/nproject?${args}&per_page=2`)
+  const productsRes = await fetch(
+    `${process.env.NEXT_PUBLIC_SITE_URL}/products?${args}&per_page=2&order=asc`
+  )
   const products = await productsRes.json()
 
   const aboutRes = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/pages/13?${args}`)
@@ -122,6 +124,7 @@ export async function getStaticProps() {
       topRight,
       bottomLeft,
       bottomRight
-    }
+    },
+    revalidate: 1
   }
 }

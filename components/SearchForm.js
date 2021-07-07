@@ -56,7 +56,7 @@ function SearchForm() {
       >
         <div className='rounded-lg shadow-lg'>
           <div className='rounded-lg shadow-xs overflow-hidden'>
-            <div className='px-5 py-5 bg-gray-50 dark:bg-gray-700 space-y-6 sm:flex sm:space-y-0 sm:space-x-10 sm:px-8'>
+            <div className='px-5 py-5 bg-gray-50 space-y-6 sm:flex sm:space-y-0 sm:space-x-10 sm:px-8'>
               <form
                 className='w-full flex flex-col sm:flex-row sm:items-center gap-2'
                 onSubmit={(e) => onSubmitHandler(e)}

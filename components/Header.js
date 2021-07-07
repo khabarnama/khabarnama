@@ -30,10 +30,10 @@ function Header({ router }) {
 
   return (
     <>
-      <header className='max-w-screen-2xl mx-auto p-5 sm:my-5 sm:mb-2 flex items-end justify-between relative'>
+      <header className='max-w-screen-2xl mx-auto p-5 pb-0 sm:mt-4 flex items-end justify-between relative'>
         <ImageComponentity
           src='https://iap.af/wp-content/uploads/2021/06/IAP-Landscape-Transparent.png'
-          classes='h-16 w-72'
+          classes='h-12 w-52 sm:h-16 sm:w-72'
         />
         <div
           className={`z-10 ${display ? 'fixed' : 'hidden'} inset-0 overflow-hidden`}
@@ -49,7 +49,7 @@ function Header({ router }) {
 
             <div className='fixed inset-y-0 left-0 pr-20 max-w-full flex'>
               <div className='relative w-screen max-w-md'>
-                <div className='h-full flex flex-col py-6 bg-white dark:bg-gray-700 shadow-xl overflow-y-scroll'>
+                <div className='h-full flex flex-col py-6 bg-white shadow-xl overflow-y-scroll'>
                   <div className='px-4 sm:px-6'>
                     <ImageComponentity
                       src='https://iap.af/wp-content/uploads/2021/06/IAP-Landscape-Transparent.png'
@@ -139,7 +139,7 @@ function Header({ router }) {
         </div>
 
         <div className='flex flex-col gap-2 items-stretch justify-center'>
-          <div className='text-xs text-white bg-gray-600 px-3 py-2 hidden sm:flex justify-between items-center'>
+          <div className='text-xs text-white bg-gray-600 px-3 py-2 hidden lg:flex justify-between items-center'>
             <Link href='https://iap.af/wp-content/uploads/2021/06/2021-Corporate-Profile.pdf'>
               <a aria-label='corporate profile' className='underline'>
                 Download Our Corporate profile
@@ -155,7 +155,7 @@ function Header({ router }) {
               </Link>
             </span>
           </div>
-          <ul className='hidden sm:flex flex-row gap-1'>
+          <ul className='hidden lg:flex flex-row gap-1'>
             {navs.map((nav, index) => {
               return nav.href != '#' ? (
                 <li className='flex items-center justify-center' key={index}>
@@ -215,7 +215,7 @@ function Header({ router }) {
             <button
               aria-label='navbar-mobile'
               onClick={() => setDisplay(!display)}
-              className='sm:hidden z-10 whitespace-no-wrap fixed bottom-4 right-4 w-12 h-12 flex items-center justify-center px-4 py-2 border border-transparent text-base leading-6 font-medium rounded-full text-white bg-gray-600 hover:bg-gray-500 focus:outline-none focus:border-gray-700 focus:shadow-outline-gray active:bg-gray-700 transition ease-in-out duration-150'
+              className='lg:hidden z-10 whitespace-no-wrap w-12 h-12 flex items-center justify-center px-4 py-2 border border-transparent text-base leading-6 font-medium rounded-full text-white bg-gray-600 hover:bg-gray-500 focus:outline-none focus:border-gray-700 focus:shadow-outline-gray active:bg-gray-700 transition ease-in-out duration-150'
             >
               {display ? <SVGCross /> : <SVGBurgernav />}
             </button>

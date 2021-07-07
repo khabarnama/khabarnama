@@ -32,11 +32,16 @@ export default function HeroImagedWidget({ about }) {
         </div>
         <Link href={`/${about.slug}`}>
           <a aria-label='about iap' className='hover:underline'>
-            <h3 className='font-bold uppercase text-3xl p-4 sm:w-4/5 mx-auto my-5 sm:mt-8'>
-              IAP IS A reliable technology and media partner.
-            </h3>
+            <h3
+              className='font-bold uppercase text-3xl p-4 sm:w-11/12 mx-auto my-2 sm:mt-5'
+              dangerouslySetInnerHTML={{ __html: about.title.rendered }}
+            />
           </a>
         </Link>
+        <div
+          className={`sm:w-10/12 mx-auto text-gray-700 sm:mb-6 lg:mb-2 line-clamp-2`}
+          dangerouslySetInnerHTML={{ __html: about.excerpt.rendered }}
+        />
       </div>
     )
   }

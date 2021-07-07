@@ -5,8 +5,8 @@ import ImageComponentity from '../ImageComponentity'
 export default function WebHostingWidget({ hosting }) {
   const template = (hosting) => {
     return (
-      <div className='bg-gray-600 grid grid-cols-1 lg:grid-cols-12'>
-        <div className='p-12 col-span-1 lg:col-span-8 text-white'>
+      <div className='bg-gray-600 grid grid-cols-1 sm:grid-cols-12'>
+        <div className='p-12 col-span-1 sm:col-span-8 text-white'>
           <h3 className='font-bold uppercase text-3xl'>
             16 YEARS IN WEB HOSTING & DOMAIN REGISTRATION.
           </h3>
@@ -26,11 +26,11 @@ export default function WebHostingWidget({ hosting }) {
             </Link>
           </div>
         </div>
-        <div className='bg-gray-100 col-span-1 lg:col-span-4 h-72'>
+        <div className='bg-gray-100 col-span-1 sm:col-span-4 h-full lg:h-72'>
           {hosting.featured_media != 0 && hosting.featured_media != null && (
             <ImageComponentity
               src={hosting._embedded['wp:featuredmedia'][0].media_details.sizes.medium.source_url}
-              classes={'h-72'}
+              classes={'h-full lg:h-72'}
               alt={hosting.title.rendered}
             />
           )}
