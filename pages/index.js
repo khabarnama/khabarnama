@@ -122,7 +122,7 @@ export async function getStaticProps() {
   const footerAddress = await footeraddressres.json()
 
   const servicesRes = await fetch(
-    `${process.env.NEXT_PUBLIC_SITE_URL}/pages?${args}&per_page=3&categories=97`
+    `${process.env.NEXT_PUBLIC_SITE_URL}/pages?${args}&per_page=3&categories=97&orderby=title&order=desc`
   )
   const services = await servicesRes.json()
 
