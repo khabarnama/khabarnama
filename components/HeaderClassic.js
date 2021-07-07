@@ -154,7 +154,7 @@ function HeaderClassic({ router }) {
                     <a
                       className={`py-2 px-5 font-semibold border-gray-600 hover:border-t-4 focus:outline-none ${
                         router.pathname == nav.href
-                          ? 'border-t-4 hover:text-gray-700'
+                          ? 'hover:text-gray-700'
                           : 'text-gray-700 hover:text-gray-500'
                       }`}
                       aria-label='nav link'
