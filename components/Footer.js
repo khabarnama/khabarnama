@@ -11,7 +11,7 @@ export default function Footer({
 }) {
   return (
     <section className='bg-gray-600 p-8 grid sm:grid-cols-12'>
-      <div className='p-5 text-sm col-span-1 sm:col-span-6 lg:col-span-3'>
+      <div className='p-5 col-span-1 sm:col-span-6 lg:col-span-3'>
         <div className='mb-10'>
           <span className='mb-3 block uppercase text-gray-100 font-semibold'>{topLeft.name}</span>
           {topLeft.items.map((item) => {
@@ -45,7 +45,7 @@ export default function Footer({
           })}
         </div>
       </div>
-      <div className='p-5 text-sm col-span-1 sm:col-span-6 lg:col-span-3'>
+      <div className='p-5 col-span-1 sm:col-span-6 lg:col-span-3'>
         <div className='mb-10'>
           <span className='mb-3 block uppercase text-gray-100 font-semibold'>{topRight.name}</span>
           {topRight.items.map((item) => {
@@ -79,7 +79,7 @@ export default function Footer({
           })}
         </div>
       </div>
-      <div className='p-5 text-sm col-span-1 sm:col-span-6 lg:col-span-3'>
+      <div className='p-5 col-span-1 sm:col-span-6 lg:col-span-3'>
         <div className='mb-10'>
           <span className='mb-3 block uppercase text-gray-100 font-semibold'>{topRight2.name}</span>
           {topRight2.items.map((item) => {
@@ -113,7 +113,7 @@ export default function Footer({
           })}
         </div>
       </div>
-      <div className='p-5 text-sm col-span-1 sm:col-span-6 lg:col-span-3'>
+      <div className='p-5 col-span-1 sm:col-span-6 lg:col-span-3'>
         <a href='#' className='text-8xl font-bold text-white'>
           IAP
         </a>
