@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+  background-color: #eaecee;
+}
+
 .video-responsive {
   overflow: hidden;
   padding-bottom: 56.25%;

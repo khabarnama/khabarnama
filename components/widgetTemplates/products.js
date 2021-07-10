@@ -20,7 +20,7 @@ export default function ProductsWidget({ products }) {
                         product._embedded['wp:featuredmedia'][0].media_details.sizes.medium
                           .source_url
                       }
-                      classes={'h-full lg:h-72'}
+                      classes={'h-full lg:h-72 filter grayscale'}
                       alt={product.title.rendered}
                     />
                   ) : (
