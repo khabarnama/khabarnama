@@ -9,7 +9,7 @@ export default function CTAWrapper({ cta }) {
       />
       <div className='grid grid-cols-1 sm:grid-cols-12 items-center mt-3 text-gray-600'>
         <div
-          className='grid-cols-1 sm:col-span-10'
+          className='col-span-1 sm:col-span-8 md:col-span-10'
           dangerouslySetInnerHTML={{ __html: cta.excerpt.rendered }}
         />
         <Link href={cta.website[0]}>
@@ -17,7 +17,7 @@ export default function CTAWrapper({ cta }) {
             aria-label='link'
             rel='noreferrer'
             target='_blank'
-            className='col-span-1 sm:col-span-2 inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-yellow-600 hover:bg-yellow-700'
+            className='col-span-1 sm:col-span-4 md:col-span-2 inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-yellow-600 hover:bg-yellow-700'
           >
             {cta.website[0]}
           </a>
