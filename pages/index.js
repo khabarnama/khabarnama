@@ -52,7 +52,9 @@ export default function Blog({
       </Head>
       <div className='max-w-screen-2xl mx-auto p-5'>
         <div className='grid grid-cols-1 sm:grid-cols-12 gap-5 lg:gap-0 items-stretch justify-stretch'>
-          <ServicesWidget services={services} />
+          <div className='order-1 sm:order-2 lg:order-1 col-span-1 sm:col-span-6 lg:col-span-3 flex flex-col justify-between'>
+            <ServicesWidget services={services} />
+          </div>
           <HeroImagedWidget about={about} />
           <ProjectsWidget projects={projects} />
           <TeamWidget team={team} />
