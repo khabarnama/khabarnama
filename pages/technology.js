@@ -40,7 +40,7 @@ function Technology({
         <CardsWrapper
           id={software.slug}
           title={software.title.rendered}
-          desc={software.excerpt.rendered}
+          desc={[software.excerpt.rendered]}
           gridClasses={'grid grid-cols-1 sm:grid-cols-12 mt-8'}
           services={softwares}
           isLink={false}
