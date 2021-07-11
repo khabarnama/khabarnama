@@ -52,7 +52,7 @@ function Media({
         <CardsWrapper
           id={'what-do-you-get'}
           title={'What do you get?'}
-          gridClasses={'grid grid-cols-1 sm:grid-cols-12 mt-8'}
+          gridClasses={'grid grid-cols-1 sm:grid-cols-12 gap-8 mt-8'}
           services={digitals}
           isLink={false}
         />
