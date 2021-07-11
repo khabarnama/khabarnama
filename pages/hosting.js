@@ -5,6 +5,7 @@ import ReactHtmlParser from 'react-html-parser'
 import Footer from '../components/Footer'
 import CardsWrapper from '../components/widgetTemplates/cardsWrapper'
 import PageWrapper from '../components/widgetTemplates/pageWrapper'
+import CTAWrapper from '../components/widgetTemplates/ctaWrapper'
 
 function Webhosting({
   page,
@@ -40,24 +41,7 @@ function Webhosting({
           isLink={false}
         />
 
-        <div id={web.slug} className='text-left p-10 bg-white'>
-          <h3
-            className='font-bold uppercase text-3xl'
-            dangerouslySetInnerHTML={{ __html: web.title.rendered }}
-          />
-          <div className='grid grid-cols-1 sm:grid-cols-12 items-center mt-3 text-gray-600'>
-            <div
-              className='grid-cols-1 sm:col-span-10'
-              dangerouslySetInnerHTML={{ __html: web.excerpt.rendered }}
-            />
-            <a
-              href='#'
-              className='col-span-1 sm:col-span-2 inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-yellow-600 hover:bg-yellow-700'
-            >
-              {web.website}
-            </a>
-          </div>
-        </div>
+        <CTAWrapper cta={web} />
       </div>
       <Footer
         topRight={topRight}
@@ -81,7 +65,7 @@ export async function getStaticProps() {
   const webRes = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/pages/10025?${args}`)
   const web = await webRes.json()
 
-  const whysRes = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/pages?${args}&categories=106`)
+  const whysRes = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/hostingservices?${args}`)
   const whys = await whysRes.json()
 
   const topLeftRes = await fetch(`${process.env.MENU_URL}/locations/footer-topleft`)
