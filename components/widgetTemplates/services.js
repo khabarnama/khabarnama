@@ -20,6 +20,7 @@ export default function ServicesWidget({ services, isLink = true }) {
       return (
         <div
           key={service.id}
+          id={service.slug}
           className={` ${bgColor(
             index
           )} col-span-1 sm:col-span-4 p-8 flex flex-col justify-between flex-1`}

@@ -3,9 +3,8 @@ import ResponsiveArticle from '../components/skeleton/ResponsiveArticle'
 import Head from 'next/head'
 import ReactHtmlParser from 'react-html-parser'
 import Footer from '../components/Footer'
-import ImageComponentity from '../components/ImageComponentity'
-import ServicesWidget from '../components/widgetTemplates/services'
-import Link from 'next/link'
+import CardsWrapper from '../components/widgetTemplates/cardsWrapper'
+import PageWrapper from '../components/widgetTemplates/pageWrapper'
 
 function Webhosting({
   page,
@@ -31,46 +30,17 @@ function Webhosting({
     <>
       <Head>{ReactHtmlParser(page.yoast_head)}</Head>
       <div className='max-w-screen-xl mx-auto my-8 relative'>
-        <div className='mb-8 bg-white border'>
-          <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-10 p-10'>
-            <div className='col-span-1 lg:col-span-8'>
-              <h3
-                className='font-bold uppercase text-3xl mb-4'
-                dangerouslySetInnerHTML={{ __html: page.title.rendered }}
-              />
+        <PageWrapper page={page} />
 
-              <div className='text-gray-600'>
-                We are one of the pioneers in providing web hosting services in Afghanistan with
-                over 400 active clients.
-                <br />
-                <br />
-                IAP has been offering its customers reliable and secure web hosting services since
-                2005 (previously under NETLINKS Ltd’s leadership). We are one of the pioneers in web
-                hosting services in Afghanistan and we take pride in hosting a number of critical
-                and important websites in Afghanistan.
-              </div>
-            </div>
-            {page.featured_media != 0 && page.featured_media != null ? (
-              <ImageComponentity
-                src={page._embedded['wp:featuredmedia'][0].media_details.sizes.medium.source_url}
-                classes={'col-span-1 lg:col-span-4 bg-gray-300 filter grayscale'}
-                alt={page.title.rendered}
-              />
-            ) : (
-              <div className='col-span-1 lg:col-span-4 bg-gray-300'></div>
-            )}
-          </div>
-        </div>
+        <CardsWrapper
+          id={''}
+          title={'What do you get?'}
+          gridClasses={'grid grid-cols-1 sm:grid-cols-12 mt-8'}
+          services={whys}
+          isLink={false}
+        />
 
-        <div id='software-development' className='text-left mb-8 p-10 bg-white'>
-          <h3 className='font-bold uppercase text-3xl'>What do you get?</h3>
-
-          <div className='grid grid-cols-1 sm:grid-cols-12 mt-8'>
-            <ServicesWidget services={whys} isLink={false} />
-          </div>
-        </div>
-
-        <div id='key-projects' className='text-left p-10 bg-white'>
+        <div id={web.slug} className='text-left p-10 bg-white'>
           <h3
             className='font-bold uppercase text-3xl'
             dangerouslySetInnerHTML={{ __html: web.title.rendered }}

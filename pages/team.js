@@ -38,14 +38,20 @@ function Team({
             dangerouslySetInnerHTML={{ __html: page.excerpt.rendered }}
           />
         </div>
-        <div className='grid grid-cols-1 sm:grid-cols-12 gap-8 mt-8'>
+        <div className='grid grid-cols-1 lg:grid-cols-12 gap-8 mt-8'>
           {teams.map((team, index) => {
             return index == 0 ? (
-              <div className='bg-white border p-10 shadow-md col-span-1 sm:col-span-12 grid grid-cols-1 md:grid-cols-12 items-start gap-8'>
+              <div
+                key={index}
+                className='bg-white border p-10 shadow-md col-span-1 lg:col-span-12 grid grid-cols-1 md:grid-cols-12 items-start gap-8'
+              >
                 <TeamPage team={team} />
               </div>
             ) : (
-              <div className='bg-white border p-10 shadow-md col-span-1 lg:col-span-6 grid grid-cols-1 md:grid-cols-12 gap-5'>
+              <div
+                key={index}
+                className='bg-white border p-10 shadow-md col-span-1 lg:col-span-6 grid grid-cols-1 md:grid-cols-12 gap-5'
+              >
                 <TeamPage team={team} />
               </div>
             )
