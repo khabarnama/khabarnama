@@ -30,7 +30,7 @@ function HeaderClassic({ router }) {
 
   return (
     <>
-      <header className='max-w-screen-2xl mx-auto p-5 pb-0 sm:mt-4 flex items-center justify-between relative'>
+      <header className='max-w-screen-2xl mx-auto p-5 flex items-center justify-between relative bg-white'>
         <ImageComponentity
           src='https://iap.af/wp-content/uploads/2021/06/IAP-Landscape-Transparent.png'
           classes='h-12 w-52 sm:h-16 sm:w-72'
