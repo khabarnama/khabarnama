@@ -32,7 +32,7 @@ function Header({ router }) {
     <>
       <header className='max-w-screen-2xl mx-auto p-5 flex items-end justify-between relative bg-white shadow-md'>
         <ImageComponentity
-          src='https://iap.af/wp-content/uploads/2021/06/IAP-Landscape-Transparent.png'
+          src='https://iap.af/wp-content/uploads/2021/06/IAP-Landscape-Transparent-e1626077042229.png'
           classes='h-12 w-52 sm:h-16 sm:w-72'
         />
         <div
