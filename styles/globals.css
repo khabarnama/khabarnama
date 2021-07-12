@@ -41,8 +41,8 @@ body {
 }
 
 ul {
-  list-style: disc !important;
+  list-style: disc;
 }
 ol {
-  list-style: decimal !important;
+  list-style: decimal;
 }

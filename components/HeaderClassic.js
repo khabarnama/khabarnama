@@ -8,20 +8,32 @@ import ImageComponentity from './ImageComponentity'
 function HeaderClassic({ router }) {
   const navs = [
     { text: 'Home', href: '/' },
-    { text: 'Company', href: '/about' },
-    { text: 'Services', href: '/services' },
-    { text: 'Products', href: '/products' },
-    { text: 'Contact Us', href: '/#contact' },
     {
-      text: 'Dropdown',
+      text: 'Company',
       href: '#',
       dropdown: [
-        { text: 'Item', href: '/item' },
-        { text: 'Item short', href: '/item2' },
-        { text: 'Item tooo long', href: '/item3' },
-        { text: 'Item popo', href: '/item4' }
+        { text: 'About Us', href: '/about' },
+        { text: 'Core Team', href: '/team' }
       ]
-    }
+    },
+    {
+      text: 'Services',
+      href: '#',
+      dropdown: [
+        { text: 'Technology', href: '/technology' },
+        { text: 'Media', href: '/media' },
+        { text: 'Consultancy', href: '/consultancy' }
+      ]
+    },
+    {
+      text: 'Products',
+      href: '#',
+      dropdown: [
+        { text: 'WasalPay', href: 'https://wasalpay.com' },
+        { text: 'CoWorthy', href: 'https://coworthy.com' }
+      ]
+    },
+    { text: 'Contact', href: '/contact' }
   ]
 
   const [display, setDisplay] = useState(false)
@@ -59,12 +71,13 @@ function HeaderClassic({ router }) {
                     </div>
                     <div className='mt-6 relative flex-1 px-4 sm:px-6'>
                       <div className='absolute inset-0 px-4 sm:px-6'>
-                        <ul className='grid gap-3'>
+                        <ul className='grid gap-3 list-none	'>
                           {navs.map((nav, index) => {
                             return nav.href != '#' ? (
                               <li key={index}>
                                 <Link href={nav.href}>
                                   <a
+                                    target={`${nav.href.startsWith('http') ? '_blank' : '_self'}`}
                                     className={`block text-sm px-5 py-2 font-light hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 ${
                                       router.pathname == nav.href
                                         ? 'bg-gray-600 text-white hover:text-gray-700'
@@ -88,12 +101,15 @@ function HeaderClassic({ router }) {
                                     <path d='M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z' />{' '}
                                   </svg>
                                 </button>
-                                <ul className='dropdown-menu block text-gray-700 pt-1 pl-3'>
+                                <ul className='dropdown-menu block text-gray-700 pt-1 pl-3 list-none	'>
                                   {nav.dropdown.map((nav, index) => {
                                     return (
                                       <li key={index}>
                                         <Link href={nav.href}>
                                           <a
+                                            target={`${
+                                              nav.href.startsWith('http') ? '_blank' : '_self'
+                                            }`}
                                             className={`block text-sm px-5 py-2 font-light hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 ${
                                               router.pathname == nav.href
                                                 ? 'bg-gray-600 text-white hover:text-gray-700'
@@ -112,9 +128,12 @@ function HeaderClassic({ router }) {
                             )
                           })}
                         </ul>
-                        <ul className='grid gap-3 mt-10'>
+                        <ul className='grid gap-3 mt-10 list-none	'>
                           <li>
-                            <Link href='https://iap.af/wp-content/uploads/2021/06/2021-Corporate-Profile.pdf'>
+                            <Link
+                              target='_blank'
+                              href='https://iap.af/wp-content/uploads/2021/06/2021-Corporate-Profile.pdf'
+                            >
                               <a aria-label='corporate profile' className='underline'>
                                 Download Our Corporate profile
                               </a>
@@ -147,12 +166,13 @@ function HeaderClassic({ router }) {
                 </a>
               </Link>
             </div>
-            <ul className='flex flex-row gap-1 border-gray-600 border-t-2'>
+            <ul className='flex flex-row gap-1 border-gray-600 border-t-2 list-none	'>
               {navs.map((nav, index) => {
                 return nav.href != '#' ? (
                   <li className='flex items-center justify-center' key={index}>
                     <Link href={nav.href}>
                       <a
+                        target={`${nav.href.startsWith('http') ? '_blank' : '_self'}`}
                         className={`py-2 px-5 font-semibold border-gray-600 hover:border-t-4 focus:outline-none ${
                           router.pathname == nav.href
                             ? 'hover:text-gray-700'
@@ -179,12 +199,13 @@ function HeaderClassic({ router }) {
                         <path d='M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z' />{' '}
                       </svg>
                     </button>
-                    <ul className='dropdown-menu hidden group-hover:block absolute left-0 top-0 bg-gray-600 text-white mt-10 z-10'>
+                    <ul className='dropdown-menu hidden group-hover:block absolute left-0 top-0 bg-gray-600 text-white mt-10 z-10 list-none	'>
                       {nav.dropdown.map((nav, index) => {
                         return (
                           <li key={index}>
                             <Link href={nav.href}>
                               <a
+                                target={`${nav.href.startsWith('http') ? '_blank' : '_self'}`}
                                 className={`block text-sm px-5 py-2 font-light hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 ${
                                   router.pathname == nav.href
                                     ? 'bg-gray-600 text-white hover:text-gray-700'
