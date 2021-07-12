@@ -1,7 +1,6 @@
 import '../styles/globals.css'
 import Layout from '../components/Layout'
 import Router from 'next/router'
-import { ThemeProvider } from 'next-themes'
 import NProgress from 'nprogress' //nprogress module
 import 'nprogress/nprogress.css' //styles of nprogress
 
@@ -27,11 +26,9 @@ Router.onRouteChangeComplete = () => {
 function MyApp({ Component, pageProps }) {
   return (
     <>
-      <ThemeProvider>
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
-      </ThemeProvider>
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
     </>
   )
 }
