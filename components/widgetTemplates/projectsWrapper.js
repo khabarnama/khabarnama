@@ -28,7 +28,7 @@ export default function ProjectsWrapper({ category, projects }) {
             <div className='col-span-1 md:col-span-8 text-left mt-1'>
               <div className='mb-4 text-gray-500'>
                 <div
-                  className='mt-2 leading-6'
+                  className='mt-2 leading-6 break-all'
                   dangerouslySetInnerHTML={{ __html: project.excerpt.rendered }}
                 />
                 <div className=' mt-5'>
