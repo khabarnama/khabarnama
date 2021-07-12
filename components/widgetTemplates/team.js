@@ -9,7 +9,11 @@ export default function TeamWidget({ team }) {
       <li className={`${index == activeIndex ? 'block' : 'hidden'}`}>
         {slide.featured_media != 0 && slide.featured_media != null ? (
           <ImageComponentity
-            src={slide._embedded['wp:featuredmedia'][0].source_url}
+            src={
+              slide._embedded['wp:featuredmedia'][0].media_details.sizes.medium_large
+                ? slide._embedded['wp:featuredmedia'][0].media_details.sizes.medium_large.source_url
+                : slide._embedded['wp:featuredmedia'][0].source_url
+            }
             classes={'sm:h-96 bg-gray-300 filter grayscale'}
             alt={slide.title.rendered}
           />
