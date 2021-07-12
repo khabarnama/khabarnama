@@ -40,11 +40,6 @@ body {
   line-height: 32px;
 }
 
-ol,
-ul {
-  list-style: default !important;
-  margin-left: 15px !important;
-}
 ul {
   list-style: disc !important;
 }

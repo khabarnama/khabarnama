@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import Head from 'next/head'
 import ServicesWidget from './../components/widgetTemplates/services'
 import HeroImagedWidget from './../components/widgetTemplates/heroImaged'
@@ -25,6 +25,24 @@ export default function Blog({
   bottomLeft,
   footerAddress
 }) {
+  const [hidden, setHidden] = useState(true)
+  var lastScrollTop = 0
+
+  const listenScrollEvent = (e) => {
+    var st = window.pageYOffset || document.documentElement.scrollTop
+    if (st > lastScrollTop) {
+      setHidden(false)
+    } else {
+      setHidden(true)
+    }
+    lastScrollTop = st <= 0 ? 0 : st // For Mobile or negative scrolling
+  }
+
+  useEffect(() => {
+    window.addEventListener('scroll', listenScrollEvent)
+    console.log('Hidden', hidden)
+  })
+
   return (
     <>
       <Head>
@@ -51,12 +69,22 @@ export default function Blog({
         <meta property='og:site_name' content='Componentity' />
       </Head>
       <div className='max-w-screen-2xl mx-auto p-5'>
-        <div className='grid grid-cols-1 sm:grid-cols-12 gap-5 lg:gap-0 items-stretch justify-stretch'>
+        <div
+          className={`${
+            !hidden && 'lg:hidden transition duration-1000 ease-in-out'
+          } grid grid-cols-1 sm:grid-cols-12 gap-5 lg:gap-0 items-stretch justify-stretch transition duration-1000 ease-in-out`}
+        >
           <div className='order-1 sm:order-2 lg:order-1 col-span-1 sm:col-span-6 lg:col-span-3 flex flex-col justify-between'>
             <ServicesWidget services={services} />
           </div>
           <HeroImagedWidget about={about} />
           <ProjectsWidget projects={projects} />
+        </div>
+        <div
+          className={`${
+            hidden && 'lg:hidden transition duration-1000 ease-in-out'
+          } grid grid-cols-1 sm:grid-cols-12 gap-5 lg:gap-0 items-stretch justify-stretch transition duration-1000 ease-in-out`}
+        >
           <TeamWidget team={team} />
           <div className='order-5 col-span-1 sm:col-span-12 lg:col-span-9 bg-indigo-500'>
             <ClientImagedWidget clients={clients} />
