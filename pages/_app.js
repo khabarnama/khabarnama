@@ -27,7 +27,7 @@ Router.onRouteChangeComplete = () => {
 function MyApp({ Component, pageProps }) {
   return (
     <>
-      <ThemeProvider attribute='class'>
+      <ThemeProvider>
         <Layout>
           <Component {...pageProps} />
         </Layout>
