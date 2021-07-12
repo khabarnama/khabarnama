@@ -20,3 +20,34 @@ body {
   width: 100%;
   position: absolute;
 }
+
+.h-33rem {
+  height: 33rem;
+}
+
+.has-small-font-size {
+  font-size: 13px;
+  line-height: 20px;
+}
+
+.has-medium-font-size {
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.has-small-font-size {
+  font-size: 22px;
+  line-height: 32px;
+}
+
+ol,
+ul {
+  list-style: default !important;
+  margin-left: 15px !important;
+}
+ul {
+  list-style: disc !important;
+}
+ol {
+  list-style: decimal !important;
+}

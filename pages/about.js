@@ -134,7 +134,6 @@ function About({
                     number of critical and important websites in Afghanistan.
                   </div>
                 </div>
-                <div className='col-span-1 lg:col-span-4 bg-gray-300'></div>
               </div>
             </div>
           </div>
