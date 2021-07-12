@@ -85,7 +85,7 @@ function About({
           <div className='col-span-1 lg:col-span-9'>
             <div className='mb-8 bg-white border'>
               <div className=''>
-                <div className='bg-gray-400 relative' style={{ height: '33rem' }}>
+                <div className='relative' style={{ height: '33rem' }}>
                   {video ? (
                     <YoutubeEmbed embedId={page.featuredvideo[0]} />
                   ) : page.featured_media != 0 && page.featured_media != null ? (

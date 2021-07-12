@@ -42,7 +42,7 @@ function Post({
             <Head>{ReactHtmlParser(post[0].yoast_head)}</Head>
             <div className='my-8 bg-white border'>
               <div className=''>
-                <div className='bg-gray-400 relative'>
+                <div className='relative'>
                   {video ? (
                     <YoutubeEmbed embedId={post[0].featuredvideo[0]} />
                   ) : (
