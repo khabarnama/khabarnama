@@ -4,10 +4,13 @@ import Head from 'next/head'
 import ReactHtmlParser from 'react-html-parser'
 import Footer from '../components/Footer'
 import CTAWrapper from '../components/widgetTemplates/ctaWrapper'
+import SVGArrow from './../components/SVG/SVGArrow'
+import Link from 'next/link'
 
 function Contact({
   page,
   question,
+  contacts,
   topLeft,
   topRight,
   topRight2,
@@ -28,7 +31,36 @@ function Contact({
     <>
       <Head>{ReactHtmlParser(page.yoast_head)}</Head>
 
-      <div className='max-w-screen-xl mx-auto my-8 relative'>
+      <div className='max-w-screen-xl mx-auto my-8 relative p-5'>
+        <div className='grid grid-cols-1 md:grid-cols-2 gap-x-8'>
+          {contacts.map((contact) => {
+            return (
+              <div className='p-8 bg-white border mb-8'>
+                <h3
+                  className='font-bold uppercase text-2xl'
+                  dangerouslySetInnerHTML={{ __html: contact.title.rendered }}
+                />
+                <div className='mt-6'>
+                  <div
+                    className={`text-gray-600 mb-2 line-clamp-3`}
+                    dangerouslySetInnerHTML={{ __html: contact.excerpt.rendered }}
+                  />
+                  <Link href={`${contact.url[0]}`}>
+                    <a
+                      target='_blank'
+                      aria-label='contact'
+                      className='font-semibold hover:underline flex items-center group'
+                    >
+                      <span className='mr-2 group-hover:mr-3'>{contact.urllabel[0]}</span>
+                      <SVGArrow classes={`w-4`} />
+                    </a>
+                  </Link>
+                </div>
+              </div>
+            )
+          })}
+        </div>
+
         <CTAWrapper cta={question} />
       </div>
       <Footer
@@ -49,6 +81,9 @@ export async function getStaticProps() {
 
   const pageRes = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/pages/711?${args}`)
   const page = await pageRes.json()
+
+  const contactsRes = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/contacts?${args}`)
+  const contacts = await contactsRes.json()
 
   const questionRes = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/pages/10027?${args}`)
   const question = await questionRes.json()
@@ -78,6 +113,7 @@ export async function getStaticProps() {
     props: {
       page,
       question,
+      contacts,
       topLeft,
       topRight,
       topRight2,

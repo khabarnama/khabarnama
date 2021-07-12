@@ -36,7 +36,7 @@ function About({
   return (
     <>
       <Head>{ReactHtmlParser(page.yoast_head)}</Head>
-      <div className='max-w-screen-xl mx-auto my-8 relative'>
+      <div className='max-w-screen-xl mx-auto my-8 relative p-5'>
         <div className='grid grid-cols-1 lg:grid-cols-12 items-start gap-8 relative'>
           <div className='hidden lg:inline-block col-span-1 lg:col-span-3 sticky top-0'>
             <div className='border bg-white p-8 mb-8'>

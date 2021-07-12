@@ -71,8 +71,8 @@ export default function Blog({
       <div className='max-w-screen-2xl mx-auto p-5'>
         <div
           className={`${
-            !hidden && 'lg:hidden transition duration-1000 ease-in-out'
-          } grid grid-cols-1 sm:grid-cols-12 gap-5 lg:gap-0 items-stretch justify-stretch transition duration-1000 ease-in-out`}
+            !hidden ? 'lg:translate-y-full lg:hidden' : 'lg:translate-y-0 lg:grid'
+          } grid grid-cols-1 sm:grid-cols-12 gap-5 lg:gap-0 items-stretch justify-stretch transition-transform duration-1000 ease-in-out`}
         >
           <div className='order-1 sm:order-2 lg:order-1 col-span-1 sm:col-span-6 lg:col-span-3 flex flex-col justify-between'>
             <ServicesWidget services={services} />
@@ -81,9 +81,9 @@ export default function Blog({
           <ProjectsWidget projects={projects} />
         </div>
         <div
-          className={`${
-            hidden && 'lg:hidden transition duration-1000 ease-in-out'
-          } grid grid-cols-1 sm:grid-cols-12 gap-5 lg:gap-0 items-stretch justify-stretch transition duration-1000 ease-in-out`}
+          className={` ${
+            hidden ? 'lg:translate-y-full lg:hidden' : 'lg:translate-y-0 lg:grid'
+          } grid grid-cols-1 sm:grid-cols-12 gap-5 lg:gap-0 items-stretch justify-stretch transition-transform duration-1000 ease-in-out`}
         >
           <TeamWidget team={team} />
           <div className='order-5 col-span-1 sm:col-span-12 lg:col-span-9 bg-indigo-500'>

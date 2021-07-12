@@ -27,7 +27,7 @@ function Team({
   return (
     <>
       <Head>{ReactHtmlParser(page.yoast_head)}</Head>
-      <div className='max-w-screen-xl mx-auto my-8 relative'>
+      <div className='max-w-screen-xl mx-auto my-8 relative p-5'>
         <div className=' p-10 bg-white border shadow-md mt-8'>
           <h3
             className='font-bold uppercase text-3xl mb-4'

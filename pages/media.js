@@ -35,7 +35,7 @@ function Media({
     <>
       <Head>{ReactHtmlParser(page.yoast_head)}</Head>
 
-      <div className='max-w-screen-xl mx-auto my-8 relative'>
+      <div className='max-w-screen-xl mx-auto my-8 relative p-5'>
         <PageWrapper page={page} isImage={false} />
 
         <ImagedCardsWrapper

@@ -9,7 +9,7 @@ export default function CTAWrapper({ cta }) {
       />
       <div className='grid grid-cols-1 sm:grid-cols-12 items-center mt-3 text-gray-600'>
         <div
-          className='col-span-1 sm:col-span-8 md:col-span-10'
+          className='col-span-1 sm:col-span-8 md:col-span-10 mb-5 sm:mb-0'
           dangerouslySetInnerHTML={{ __html: cta.excerpt.rendered }}
         />
         <Link href={cta.website[0]}>
