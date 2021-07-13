@@ -36,7 +36,7 @@ export default function ProductsWidget({ products }) {
                       className='hover:underline'
                     >
                       <h3
-                        className='font-bold uppercase text-3xl'
+                        className='font-bold uppercase text-2xl'
                         dangerouslySetInnerHTML={{ __html: product.title.rendered }}
                       />
                     </a>
@@ -53,7 +53,7 @@ export default function ProductsWidget({ products }) {
                         aria-label='product'
                         className='font-semibold hover:underline flex items-center group'
                       >
-                        <span className='mr-2 group-hover:mr-3'>Visit Webiste</span> <SVGArrow />
+                        <span className='mr-2 group-hover:mr-3'>Visit Website</span> <SVGArrow />
                       </a>
                     </Link>
                   </div>
