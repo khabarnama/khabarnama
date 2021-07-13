@@ -21,8 +21,7 @@ function HeaderClassic({ router }) {
       href: '#',
       dropdown: [
         { text: 'Technology', href: '/technology' },
-        { text: 'Media', href: '/media' },
-        { text: 'Consultancy', href: '/consultancy' }
+        { text: 'Media', href: '/media' }
       ]
     },
     {
