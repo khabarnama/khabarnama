@@ -20,7 +20,7 @@ export default function WebHostingWidget({ hosting }) {
                 aria-label='WebHosting Page'
                 className='font-semibold hover:underline flex items-center group'
               >
-                <span className='mr-2 group-hover:mr-3'>Read more</span>
+                <span className='mr-2 group-hover:mr-3'>Host your websites & emails</span>
                 <SVGArrow classes='text-white w-5' />
               </a>
             </Link>
