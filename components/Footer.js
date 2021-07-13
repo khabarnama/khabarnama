@@ -121,7 +121,8 @@ export default function Footer({
               src={
                 'https://iap.af/wp-content/uploads/2021/07/IAP-Transparent-Initials-e1626169138610.png'
               }
-              classes={'h-24'}
+              classes={'h-auto w-auto mb-8'}
+              style={{ height: '60px', width: '130px' }}
               alt={'IAP LOGO'}
             />
           </a>
