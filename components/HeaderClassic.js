@@ -246,7 +246,7 @@ function HeaderClassic({ router }) {
               <span className='mb-1 font-semibold text-gray-600'>Have any questions?</span>
               <Link href='tel:+93729444427'>
                 <a aria-label='telephone' className='hover:underline'>
-                  <b>Call:</b> 0729 4444 27
+                  <b>Call:</b> +93729444427
                 </a>
               </Link>
             </div>
