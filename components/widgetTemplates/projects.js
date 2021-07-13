@@ -13,9 +13,7 @@ export default function ProjectsWidget({ projects }) {
               key={project.id}
               className={`h-28 ${index < 4 ? 'border-b border-gray-500 mb-2 ' : ''}`}
             >
-              <span className='text-xs text-gray-100'>
-                {dateFormat(project.date, 'mediumDate')}
-              </span>
+              <span className='text-sm text-white'>{dateFormat(project.date, 'mediumDate')}</span>
               <h2>
                 <Link href={`/projects/${project.slug}`}>
                   <a

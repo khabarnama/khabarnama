@@ -86,6 +86,7 @@ function HeaderClassic({ router }) {
                                 <Link href={nav.href}>
                                   <a
                                     target={`${nav.href.startsWith('http') ? '_blank' : '_self'}`}
+                                    rel={`${nav.href.startsWith('http') && 'noreferrer'}`}
                                     className={`block text-sm px-8 py-3 font-semibold hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 ${
                                       router.pathname == nav.href
                                         ? 'bg-gray-600 text-white '
@@ -118,6 +119,7 @@ function HeaderClassic({ router }) {
                                             target={`${
                                               nav.href.startsWith('http') ? '_blank' : '_self'
                                             }`}
+                                            rel={`${nav.href.startsWith('http') && 'noreferrer'}`}
                                             className={`block text-sm px-8 py-3 font-semibold hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 ${
                                               router.pathname == nav.href
                                                 ? 'bg-gray-600 text-white '
@@ -181,6 +183,7 @@ function HeaderClassic({ router }) {
                     <Link href={nav.href}>
                       <a
                         target={`${nav.href.startsWith('http') ? '_blank' : '_self'}`}
+                        rel={`${nav.href.startsWith('http') && 'noreferrer'}`}
                         className={`py-2 px-5 font-semibold border-gray-600 hover:border-t-4 focus:outline-none ${
                           router.pathname == nav.href ? '' : 'text-gray-700'
                         }`}
