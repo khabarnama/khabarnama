@@ -78,7 +78,7 @@ export default function TeamWidget({ team }) {
 
     return (
       <div className='hidden lg:inline-block order-4 col-span-1 sm:col-span-6 lg:col-span-3 bg-gray-100'>
-        <div className='p-8'>
+        <div className='p-8 py-9'>
           <Link href='/team'>
             <a aria-label='link'>
               <h3 className='uppercase font-bold text-2xl'>Core Team</h3>
