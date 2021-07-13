@@ -40,7 +40,7 @@ function Post({
           </Head>
           <div className='max-w-screen-lg mx-auto p-5'>
             <Head>{ReactHtmlParser(post[0].yoast_head)}</Head>
-            <div className='my-8 bg-white border'>
+            <div className='my-8 bg-white border list-margin'>
               <div className=''>
                 <div className='relative'>
                   {video ? (

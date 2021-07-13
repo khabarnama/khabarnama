@@ -116,7 +116,7 @@ function About({
                     dangerouslySetInnerHTML={{ __html: page.title.rendered }}
                   />
                   <article
-                    className='text-gray-600'
+                    className='text-gray-600  list-margin'
                     dangerouslySetInnerHTML={{ __html: page.content.rendered }}
                   />
                 </div>

@@ -46,3 +46,7 @@ ul {
 ol {
   list-style: decimal;
 }
+
+.list-margin li {
+  margin-left: 15px !important;
+}

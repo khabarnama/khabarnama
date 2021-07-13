@@ -11,7 +11,7 @@ export default function PageWrapper({ page, isImage = true }) {
           />
 
           <article
-            className='text-gray-600'
+            className='text-gray-600 list-margin'
             dangerouslySetInnerHTML={{ __html: page.content.rendered }}
           />
         </div>
