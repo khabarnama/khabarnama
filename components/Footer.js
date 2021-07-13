@@ -81,7 +81,7 @@ export default function Footer({ topLeft, topRight, topRight2 }) {
       <div className='hidden lg:inline-block p-5 col-span-1 sm:col-span-6 lg:col-span-3'>
         <a aria-label='logo' className='text-8xl font-bold text-white'>
           <img
-            src='https://iap.af/wp-content/uploads/2021/07/IAP-Square-White-e1626172672699.png'
+            src='https://admin.iap.af/wp-content/uploads/2021/07/IAP-Square-White-e1626172672699.png'
             className='mb-4'
             style={{ height: '133px', width: '130px' }}
             alt={'IAP LOGO'}
