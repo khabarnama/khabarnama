@@ -93,14 +93,14 @@ export default function TeamWidget({ team }) {
         <div className='mx-8 flex justify-between items-center'>
           <span
             onClick={() => goToPrevSlide()}
-            className='bg-gray-900 py-1 px-4 text-white group cursor-pointer flex'
+            className='bg-gray-900 py-1 px-4 text-white group cursor-pointer flex items-center'
           >
             <SVGArrow classes={'w-4 text-white mr-2 group-hover:-ml-1 transform rotate-180'} />{' '}
             <span>Prev</span>
           </span>
           <span
             onClick={() => goToNextSlide()}
-            className='bg-gray-900 py-1 px-4 text-white group cursor-pointer flex'
+            className='bg-gray-900 py-1 px-4 text-white group cursor-pointer flex items-center'
           >
             <span>Next</span>
             <SVGArrow classes={'w-4 text-white ml-2 group-hover:-mr-1'} />

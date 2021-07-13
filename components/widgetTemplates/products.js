@@ -13,14 +13,14 @@ export default function ProductsWidget({ products }) {
                 key={product.id}
                 className='bg-gray-300 col-span-1 sm:col-span-12 lg:col-span-8 grid grid-cols-1 sm:grid-cols-12'
               >
-                <div className='order-2 sm:order-1 bg-yellow-500 col-span-1 sm:col-span-4 lg:col-span-6 h-72'>
+                <div className='order-2 sm:order-1 bg-yellow-500 col-span-1 sm:col-span-4 lg:col-span-6 h-full'>
                   {product.featured_media != 0 && product.featured_media != null ? (
                     <ImageComponentity
                       src={
                         product._embedded['wp:featuredmedia'][0].media_details.sizes.medium
                           .source_url
                       }
-                      classes={'h-full lg:h-72 filter grayscale'}
+                      classes={'h-full filter grayscale'}
                       alt={product.title.rendered}
                     />
                   ) : (
