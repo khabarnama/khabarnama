@@ -17,7 +17,7 @@ export default function Footer({ topLeft, topRight, topRight2 }) {
                 }`}
               >
                 <a
-                  target={`${item.url.startsWith('http') || item.url.startsWith('mailto') || item.url.startsWith('tel') ? '_blank' : '_self'}`}
+                  target={`${item.url.startsWith('https://admin.iap.af') ? '_self' : '_blank'}`}
                   rel="noreferrer"
                   aria-label='Footer Link'
                   className='my-1 block text-gray-300 font-medium hover:text-white'
@@ -43,7 +43,7 @@ export default function Footer({ topLeft, topRight, topRight2 }) {
                 }`}
               >
                 <a
-                  target={`${item.url.startsWith('http') || item.url.startsWith('mailto') || item.url.startsWith('tel') ? '_blank' : '_self'}`}
+                  target={`${item.url.startsWith('https://admin.iap.af') ? '_self' : '_blank'}`}
                   rel="noreferrer"
                   aria-label='Footer Link'
                   className='my-1 block text-gray-300 font-medium hover:text-white'
@@ -69,7 +69,7 @@ export default function Footer({ topLeft, topRight, topRight2 }) {
                 }`}
               >
                 <a
-                  target={`${item.url.startsWith('http') || item.url.startsWith('mailto') || item.url.startsWith('tel') ? '_blank' : '_self'}`}
+                  target={`${item.url.startsWith('https://admin.iap.af') ? '_self' : '_blank'}`}
                   rel="noreferrer"
                   aria-label='Footer Link'
                   className='my-1 block text-gray-300 font-medium hover:text-white'
