@@ -99,7 +99,7 @@ export async function getStaticProps() {
   const clientsRes = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/clients?${args}`)
   const clients = await clientsRes.json()
 
-  const projectsRes = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/posts?${args}&per_page=5`)
+  const projectsRes = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/posts?${args}&per_page=7`)
   const projects = await projectsRes.json()
 
   const productsRes = await fetch(

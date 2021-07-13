@@ -11,7 +11,7 @@ export default function ProjectsWidget({ projects }) {
           return (
             <div
               key={project.id}
-              className={`${index < 4 ? 'border-b border-gray-500 mb-2 pb-2' : ' pb-2'}`}
+              className={`${index < 6 ? 'border-b border-gray-500 mb-2 pb-2' : ' pb-2'}`}
             >
               <span className='text-sm text-white'>{dateFormat(project.date, 'mediumDate')}</span>
               <h2>
