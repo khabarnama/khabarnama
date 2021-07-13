@@ -20,13 +20,13 @@ export default function WebHostingWidget({ hosting }) {
                 aria-label='WebHosting Page'
                 className='font-semibold hover:underline flex items-center group'
               >
-                <span className='mr-2 group-hover:mr-3'>Contact Us</span>
+                <span className='mr-2 group-hover:mr-3'>Read more</span>
                 <SVGArrow classes='text-white w-5' />
               </a>
             </Link>
           </div>
         </div>
-        <div className='bg-gray-100 col-span-1 sm:col-span-4 h-full lg:h-72'>
+        <div className='bg-gray-100 col-span-1 sm:col-span-4 h-full'>
           {hosting.featured_media != 0 && hosting.featured_media != null && (
             <ImageComponentity
               src={hosting._embedded['wp:featuredmedia'][0].media_details.sizes.medium.source_url}

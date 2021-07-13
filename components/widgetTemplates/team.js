@@ -24,11 +24,11 @@ export default function TeamWidget({ team }) {
           <span className='uppercase text-xs mb-1'>{slide.designation[0]}</span>
           <Link href={`/team#${slide.slug}`}>
             <a
-              aria-label='Project'
+              aria-label='Team member'
               className='font-semibold hover:underline flex items-center group'
             >
               <h3
-                className='font-bold uppercase text-3xl'
+                className='font-bold uppercase text-2xl'
                 dangerouslySetInnerHTML={{ __html: slide.title.rendered }}
               />
             </a>

@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import ImageComponentity from './../components/ImageComponentity'
 
 export default function Footer({
   bottomLeft,
@@ -114,9 +115,17 @@ export default function Footer({
         </div>
       </div>
       <div className='p-5 col-span-1 sm:col-span-6 lg:col-span-3'>
-        <a href='#' className='text-8xl font-bold text-white'>
-          IAP
-        </a>
+        <Link href='/'>
+          <a aria-label='logo' className='text-8xl font-bold text-white'>
+            <ImageComponentity
+              src={
+                'https://iap.af/wp-content/uploads/2021/07/IAP-Transparent-Initials-e1626169138610.png'
+              }
+              classes={'h-24'}
+              alt={'IAP LOGO'}
+            />
+          </a>
+        </Link>
         <div className='mb-10'>
           {footerAddress.items.map((item) => {
             return (

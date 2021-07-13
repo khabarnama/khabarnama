@@ -36,7 +36,7 @@ export default function TeamPage({ team }) {
               onClick={() => setExpanded(!expanded)}
               className='border rounded-md p-3 cursor-pointer font-semibold mt-5 block flex items-center justify-center gap-2'
             >
-              {expanded ? 'Read Less...' : 'Read more...'}
+              {expanded ? 'Show less...' : 'Show more...'}
             </div>
           </div>
         </div>

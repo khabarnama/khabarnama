@@ -16,6 +16,8 @@ function About({
   question,
   category,
   projects,
+  aboutOne,
+  aboutTwo,
   topLeft,
   topRight,
   topRight2,
@@ -41,10 +43,10 @@ function About({
           <div className='hidden lg:inline-block col-span-1 lg:col-span-3 sticky top-0'>
             <div className='border bg-white p-8 mb-8'>
               <h3 className='mb-3 text-3xl block uppercase text-gray-900 font-bold'>
-                {topLeft.name}
+                {aboutOne.name}
               </h3>
               <ul className='list-disc ml-8'>
-                {topRight.items.map((item) => {
+                {aboutOne.items.map((item) => {
                   return (
                     <li>
                       <Link key={item.id} href={`/${item.url.replace('https://iap.af/', '')}`}>
@@ -62,10 +64,10 @@ function About({
             </div>
             <div className='border bg-white p-8 mb-8'>
               <h3 className='mb-3 text-3xl block uppercase text-gray-900 font-bold'>
-                {topLeft.name}
+                {aboutTwo.name}
               </h3>
               <ul className='list-disc ml-8'>
-                {topRight.items.map((item) => {
+                {aboutTwo.items.map((item) => {
                   return (
                     <li>
                       <Link key={item.id} href={`/${item.url.replace('https://iap.af/', '')}`}>
@@ -109,30 +111,14 @@ function About({
                   )}
                 </div>
                 <div className='p-10'>
-                  <h3 className='font-bold text-3xl mb-4'>
-                    We provide solutions powered by the latest and the best Technology.
-                  </h3>
-                  <div className='text-gray-600'>
-                    Intellectual Applications & Products (IAP) is a reputable technology-driven
-                    consulting company staffed with highly skilled and experienced professionals in
-                    the field of Information Technology and Digital Marketing. We champion
-                    innovative technology, providing turnkey technology and media solutions to both
-                    the private and non-private sectors in Afghanistan. At IAP, the focus is on
-                    solving real-life problems using two key technologies that can bring a
-                    revolution in the tech-industry: Blockchain and Artificial Intelligence. Our
-                    partnerships involve some of the world’s well-known names in the technology
-                    industry including Microsoft, Cisco, Palo Alto, Dell, Polycom and Zoho. Our
-                    customer-centric approach has enabled us to grow rapidly and become a trusted
-                    partner to large enterprises as well as the government such as; the Ministry of
-                    Economy, Roshan Telecom, the First Microfinance Bank, Geneva Call, Colombo Plan,
-                    Tetra Tech and AECOM. Some of our past performance include:
-                    <br />
-                    <br />
-                    IAP has been offering its customers reliable and secure web hosting services
-                    since 2005 (previously under NETLINKS Ltd’s leadership). We are one of the
-                    pioneers in web hosting services in Afghanistan and we take pride in hosting a
-                    number of critical and important websites in Afghanistan.
-                  </div>
+                  <h3
+                    className='font-bold text-3xl mb-4'
+                    dangerouslySetInnerHTML={{ __html: page.title.rendered }}
+                  />
+                  <article
+                    className='text-gray-600'
+                    dangerouslySetInnerHTML={{ __html: page.content.rendered }}
+                  />
                 </div>
               </div>
             </div>
@@ -173,6 +159,12 @@ export async function getStaticProps() {
   )
   const projects = await projectsRes.json()
 
+  const aboutOneRes = await fetch(`${process.env.MENU_URL}/locations/about-one`)
+  const aboutOne = await aboutOneRes.json()
+
+  const aboutTwoRes = await fetch(`${process.env.MENU_URL}/locations/about-two`)
+  const aboutTwo = await aboutTwoRes.json()
+
   const topLeftRes = await fetch(`${process.env.MENU_URL}/locations/footer-topleft`)
   const topLeft = await topLeftRes.json()
 
@@ -200,6 +192,8 @@ export async function getStaticProps() {
       question,
       category,
       projects,
+      aboutOne,
+      aboutTwo,
       topLeft,
       topRight,
       topRight2,

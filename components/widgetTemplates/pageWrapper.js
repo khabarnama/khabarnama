@@ -10,16 +10,10 @@ export default function PageWrapper({ page, isImage = true }) {
             dangerouslySetInnerHTML={{ __html: page.title.rendered }}
           />
 
-          <div className='text-gray-600'>
-            We are one of the pioneers in providing web hosting services in Afghanistan with over
-            400 active clients.
-            <br />
-            <br />
-            IAP has been offering its customers reliable and secure web hosting services since 2005
-            (previously under NETLINKS Ltd’s leadership). We are one of the pioneers in web hosting
-            services in Afghanistan and we take pride in hosting a number of critical and important
-            websites in Afghanistan.
-          </div>
+          <article
+            className='text-gray-600'
+            dangerouslySetInnerHTML={{ __html: page.content.rendered }}
+          />
         </div>
         {isImage && page.featured_media != 0 && page.featured_media != null && (
           <ImageComponentity

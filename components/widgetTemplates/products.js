@@ -53,7 +53,7 @@ export default function ProductsWidget({ products }) {
                         aria-label='product'
                         className='font-semibold hover:underline flex items-center group'
                       >
-                        <span className='mr-2 group-hover:mr-3'>Contact Us</span> <SVGArrow />
+                        <span className='mr-2 group-hover:mr-3'>Visit Webiste</span> <SVGArrow />
                       </a>
                     </Link>
                   </div>
@@ -91,7 +91,7 @@ export default function ProductsWidget({ products }) {
                       aria-label='product'
                       className='font-semibold hover:underline flex items-center group'
                     >
-                      <span className='mr-2 group-hover:mr-3'>Contact Us</span> <SVGArrow />
+                      <span className='mr-2 group-hover:mr-3'>Visit Website</span> <SVGArrow />
                     </a>
                   </Link>
                 </div>

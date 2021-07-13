@@ -4,6 +4,7 @@ import Head from 'next/head'
 import ReactHtmlParser from 'react-html-parser'
 import Footer from './../components/Footer'
 import TeamPage from './../components/widgetTemplates/teampage'
+import PageWrapper from '../components/widgetTemplates/pageWrapper'
 
 function Team({
   page,
@@ -28,16 +29,7 @@ function Team({
     <>
       <Head>{ReactHtmlParser(page.yoast_head)}</Head>
       <div className='max-w-screen-xl mx-auto my-8 relative p-5'>
-        <div className=' p-10 bg-white border shadow-md mt-8'>
-          <h3
-            className='font-bold uppercase text-3xl mb-4'
-            dangerouslySetInnerHTML={{ __html: page.title.rendered }}
-          />
-          <div
-            className='text-gray-600'
-            dangerouslySetInnerHTML={{ __html: page.excerpt.rendered }}
-          />
-        </div>
+        <PageWrapper page={page} isImage={false} />
         <div className='grid grid-cols-1 lg:grid-cols-12 gap-8 mt-8'>
           {teams.map((team, index) => {
             return index == 0 ? (

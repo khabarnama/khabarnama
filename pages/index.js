@@ -28,8 +28,11 @@ export default function Blog({
   return (
     <>
       <Head>
-        <title>Intellectual Applications & Products</title>
-        <meta name='description' content='Componentity Team has made a WP-NEXTJS theme' />
+        <title>IAP - Technology & Media Services</title>
+        <meta
+          name='description'
+          content='IAP is a reputable technology-driven consulting company staffed with highly skilled and experienced professionals in the field of Information Technology and Digital Marketing'
+        />
         <meta httpEquiv='Content-Type' content='text/html;charset=UTF-8' />
         <meta name='viewport' content='width=device-width, initial-scale=1.0' />
         <meta httpEquiv='X-UA-Compatible' content='IE=7' />
@@ -37,14 +40,21 @@ export default function Blog({
         <meta name='robots' content='index,follow' />
         <meta name='googlebot' content='index,follow' />
 
-        <meta property='og:title' content='Componentity NextJs WP Theme' />
-        <meta property='og:description' content='Componentity Team has made a WP-NEXTJS theme' />
-        <meta property='og:image' content='/seoindex.png' />
-        <meta name='twitter:image' content='/seoindex.png' />
-        <meta name='twitter:image:alt' content='Componentity.com' />
+        <meta property='og:title' content='IAP - Technology & Media Services' />
+        <meta
+          property='og:description'
+          content='IAP is a reputable technology-driven consulting company staffed with highly skilled and experienced professionals in the field of Information Technology and Digital Marketing'
+        />
+        <meta
+          property='og:image'
+          content='https://iap.af/wp-content/uploads/2021/07/9M5A3275.jpg'
+        />
+        <meta
+          name='twitter:image'
+          content='https://iap.af/wp-content/uploads/2021/07/9M5A3275.jpg'
+        />
+        <meta name='twitter:image:alt' content='iap.af' />
         <meta name='twitter:card' content='summary_large_image' />
-        <meta name='twitter:site' content='@componentity' />
-        <meta name='twitter:creator' content='@componentity' />
         <meta property='og:url' content='https://iap.af/' />
         <meta property='og:type' content='website' />
         <meta property='og:locale' content='en_US' />
