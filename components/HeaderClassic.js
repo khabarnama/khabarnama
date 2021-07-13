@@ -44,10 +44,14 @@ function HeaderClassic({ router }) {
     <>
       <div className='w-full  bg-white'>
         <header className='max-w-screen-2xl mx-auto p-5 flex items-center justify-between relative'>
-          <ImageComponentity
-            src='https://iap.af/wp-content/uploads/2021/06/IAP-Landscape-Transparent-e1626077042229.png'
-            classes='h-12 w-52 sm:h-16 sm:w-72'
-          />
+          <Link href='/'>
+            <a aria-label='logo link'>
+              <ImageComponentity
+                src='https://iap.af/wp-content/uploads/2021/06/IAP-Landscape-Transparent-e1626077042229.png'
+                classes='h-12 w-52 sm:h-16 sm:w-72'
+              />
+            </a>
+          </Link>
           <div
             className={`z-10 ${display ? 'fixed' : 'hidden'} inset-0 overflow-hidden`}
             aria-labelledby='slide-over-title'
@@ -64,10 +68,14 @@ function HeaderClassic({ router }) {
                 <div className='relative w-screen max-w-md'>
                   <div className='h-full flex flex-col py-6 bg-white shadow-xl overflow-y-scroll'>
                     <div className='px-4 sm:px-6'>
-                      <ImageComponentity
-                        src='https://iap.af/wp-content/uploads/2021/06/IAP-Landscape-Transparent.png'
-                        classes='h-16 w-72'
-                      />
+                      <Link href='/'>
+                        <a aria-label='logo link'>
+                          <ImageComponentity
+                            src='https://iap.af/wp-content/uploads/2021/06/IAP-Landscape-Transparent-e1626077042229.png'
+                            classes='h-12 w-52 sm:h-16 sm:w-72'
+                          />
+                        </a>
+                      </Link>
                     </div>
                     <div className='mt-6 relative flex-1 px-4 sm:px-6'>
                       <div className='absolute inset-0 px-4 sm:px-6'>
@@ -78,9 +86,9 @@ function HeaderClassic({ router }) {
                                 <Link href={nav.href}>
                                   <a
                                     target={`${nav.href.startsWith('http') ? '_blank' : '_self'}`}
-                                    className={`block text-sm px-5 py-2 font-light hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 ${
+                                    className={`block text-sm px-8 py-3 font-semibold hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 ${
                                       router.pathname == nav.href
-                                        ? 'bg-gray-600 text-white hover:text-gray-700'
+                                        ? 'bg-gray-600 text-white '
                                         : 'text-gray-700'
                                     }`}
                                     aria-label='nav link'
@@ -91,7 +99,7 @@ function HeaderClassic({ router }) {
                               </li>
                             ) : (
                               <li key={index} className='dropdown inline-block relative'>
-                                <button className='block text-sm px-5 py-2 font-light flex gap-1'>
+                                <button className='block text-sm px-8 py-3 font-semibold flex gap-1'>
                                   <span className='mr-1'>{nav.text}</span>
                                   <svg
                                     className='fill-current h-4 w-4'
@@ -110,9 +118,9 @@ function HeaderClassic({ router }) {
                                             target={`${
                                               nav.href.startsWith('http') ? '_blank' : '_self'
                                             }`}
-                                            className={`block text-sm px-5 py-2 font-light hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 ${
+                                            className={`block text-sm px-8 py-3 font-semibold hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 ${
                                               router.pathname == nav.href
-                                                ? 'bg-gray-600 text-white hover:text-gray-700'
+                                                ? 'bg-gray-600 text-white '
                                                 : 'text-gray-700'
                                             }`}
                                             aria-label='nav link'
@@ -174,9 +182,7 @@ function HeaderClassic({ router }) {
                       <a
                         target={`${nav.href.startsWith('http') ? '_blank' : '_self'}`}
                         className={`py-2 px-5 font-semibold border-gray-600 hover:border-t-4 focus:outline-none ${
-                          router.pathname == nav.href
-                            ? 'hover:text-gray-700'
-                            : 'text-gray-700 hover:text-gray-500'
+                          router.pathname == nav.href ? '' : 'text-gray-700'
                         }`}
                         aria-label='nav link'
                       >
@@ -189,7 +195,7 @@ function HeaderClassic({ router }) {
                     key={index}
                     className='dropdown flex items-center justify-center inline-block relative group'
                   >
-                    <button className='block px-5 py-2 font-semibold text-gray-700 hover:text-gray-500 flex items-center gap-1'>
+                    <button className='block px-8 py-3 font-semibold text-gray-700 flex items-center gap-1'>
                       <span className='mr-1'>{nav.text}</span>
                       <svg
                         className='fill-current h-4 w-4'
@@ -206,10 +212,10 @@ function HeaderClassic({ router }) {
                             <Link href={nav.href}>
                               <a
                                 target={`${nav.href.startsWith('http') ? '_blank' : '_self'}`}
-                                className={`block text-sm px-5 py-2 font-light hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 ${
+                                className={`block text-sm px-8 py-3 font-semibold hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 ${
                                   router.pathname == nav.href
-                                    ? 'bg-gray-600 text-white hover:text-gray-700'
-                                    : 'text-white hover:text-gray-500'
+                                    ? 'bg-gray-600 text-white '
+                                    : 'text-white'
                                 }`}
                                 aria-label='nav link'
                               >

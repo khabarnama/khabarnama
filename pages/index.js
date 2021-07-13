@@ -112,7 +112,7 @@ export async function getStaticProps() {
   const about = await aboutRes.json()
 
   const teamRes = await fetch(
-    `${process.env.NEXT_PUBLIC_SITE_URL}/awsm_team_member?${args}&per_page=2&orderby=id&order=asc`
+    `${process.env.NEXT_PUBLIC_SITE_URL}/awsm_team_member?${args}&per_page=4&orderby=id&order=asc`
   )
   const team = await teamRes.json()
 
