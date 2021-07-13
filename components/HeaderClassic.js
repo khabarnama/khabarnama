@@ -42,7 +42,7 @@ function HeaderClassic({ router }) {
 
   return (
     <>
-      <div className='w-full  bg-white'>
+      <div className='w-full bg-white'>
         <header className='max-w-screen-2xl mx-auto p-5 flex items-center justify-between relative'>
           <Link href='/'>
             <a aria-label='logo link'>

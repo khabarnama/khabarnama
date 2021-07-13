@@ -8,6 +8,7 @@ import ClientImagedWidget from './../components/widgetTemplates/clientImaged'
 import ProductsWidget from './../components/widgetTemplates/products'
 import WebHostingWidget from './../components/widgetTemplates/webhosting'
 import Footer from './../components/Footer'
+import ReactPageScroller from 'react-page-scroller'
 
 export default function Blog({
   clients,
@@ -25,6 +26,10 @@ export default function Blog({
   bottomLeft,
   footerAddress
 }) {
+  let goToPage = (pageNumber) => {
+    this.reactPageScroller.goToPage(pageNumber)
+  }
+
   return (
     <>
       <Head>
@@ -45,41 +50,49 @@ export default function Blog({
         <meta name='twitter:card' content='summary_large_image' />
         <meta name='twitter:site' content='@componentity' />
         <meta name='twitter:creator' content='@componentity' />
-        <meta property='og:url' content='https://iap.af/' />
+        <meta property='og:url' content='https://iap-pi.vercel.app/' />
         <meta property='og:type' content='website' />
         <meta property='og:locale' content='en_US' />
-        <meta property='og:site_name' content='IAP' />
+        <meta property='og:site_name' content='Componentity' />
       </Head>
-      <div className='max-w-screen-2xl mx-auto p-5'>
-        <div
-          className={`grid grid-cols-1 sm:grid-cols-12 gap-5 lg:gap-0 items-stretch justify-stretch`}
+      <div className='max-w-screen-2xl mx-auto p-5 pb-0'>
+        <ReactPageScroller
+          containerHeight={'105vh'}
+          containerWidth={'100%'}
+          ref={(c) => (this.reactPageScroller = c)}
         >
-          <div className='order-1 sm:order-2 lg:order-1 col-span-1 sm:col-span-6 lg:col-span-3 flex flex-col justify-between'>
-            <ServicesWidget services={services} />
+          <div
+            className={`grid grid-cols-1 sm:grid-cols-12 gap-5 lg:gap-0 items-stretch justify-stretch`}
+          >
+            <div className='order-1 sm:order-2 lg:order-1 col-span-1 sm:col-span-6 lg:col-span-3 flex flex-col justify-between'>
+              <ServicesWidget services={services} />
+            </div>
+            <HeroImagedWidget about={about} />
+            <ProjectsWidget projects={projects} />
           </div>
-          <HeroImagedWidget about={about} />
-          <ProjectsWidget projects={projects} />
-        </div>
-        <div
-          className={`grid grid-cols-1 sm:grid-cols-12 gap-5 lg:gap-0 items-stretch justify-stretch`}
-        >
-          <TeamWidget team={team} />
-          <div className='order-5 col-span-1 sm:col-span-12 lg:col-span-9 bg-indigo-500'>
-            <ClientImagedWidget clients={clients} />
-            <WebHostingWidget hosting={hosting} />
-            <ProductsWidget products={products} />
+          <div
+            className={`grid grid-cols-1 sm:grid-cols-12 gap-5 lg:gap-0 items-stretch justify-stretch`}
+          >
+            <TeamWidget team={team} />
+            <div className='order-5 col-span-1 sm:col-span-12 lg:col-span-9 bg-indigo-500'>
+              <ClientImagedWidget clients={clients} />
+              <WebHostingWidget hosting={hosting} />
+              <ProductsWidget products={products} />
+            </div>
           </div>
-        </div>
+          <div class='pt-12 mt-12 bg-gray-600 h-screen'>
+            <Footer
+              topRight={topRight}
+              topLeft={topLeft}
+              bottomLeft={bottomLeft}
+              bottomRight={bottomRight}
+              bottomRight2={bottomRight2}
+              topRight2={topRight2}
+              footerAddress={footerAddress}
+            />
+          </div>
+        </ReactPageScroller>
       </div>
-      <Footer
-        topRight={topRight}
-        topLeft={topLeft}
-        bottomLeft={bottomLeft}
-        bottomRight={bottomRight}
-        bottomRight2={bottomRight2}
-        topRight2={topRight2}
-        footerAddress={footerAddress}
-      />
     </>
   )
 }
