@@ -75,7 +75,7 @@ function Post({
                     dangerouslySetInnerHTML={{ __html: post[0].title.rendered }}
                   />
                   <article
-                    className='text-gray-600'
+                    className='text-gray-600 list-margin'
                     dangerouslySetInnerHTML={{ __html: post[0].content.rendered }}
                   />
                 </div>

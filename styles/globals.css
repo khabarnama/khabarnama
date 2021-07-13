@@ -48,5 +48,9 @@ ol {
 }
 
 .list-margin li {
-  margin-left: 15px !important;
+  margin-left: 40px !important;
+}
+
+.list-margin p {
+  margin-bottom: 15px !important;
 }
