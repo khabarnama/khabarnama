@@ -42,7 +42,7 @@ export default function ServicesWidget({ services, isLink = true }) {
           )}
           <div className='mt-6'>
             <div
-              className={` ${index <= 1 ? 'text-gray-700' : 'text-gray-200'} mb-2 line-clamp-3`}
+              className={` ${index <= 1 ? 'text-gray-700' : 'text-gray-200'} mb-2 line-clamp-4`}
               dangerouslySetInnerHTML={{ __html: service.excerpt.rendered }}
             />
             {isLink && (

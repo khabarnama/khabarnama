@@ -18,7 +18,7 @@ export default function ProjectsWidget({ projects }) {
                 <Link href={`/projects/${project.slug}`}>
                   <a
                     aria-label='Project'
-                    className='text-white hover:underline text-lg font-semibold'
+                    className='text-white hover:underline text-lg font-semibold line-clamp-2'
                     dangerouslySetInnerHTML={{ __html: project.title.rendered }}
                   />
                 </Link>

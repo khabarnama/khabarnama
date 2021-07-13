@@ -43,7 +43,7 @@ export default function ProductsWidget({ products }) {
                   </Link>
                   <div className='mt-3'>
                     <div
-                      className='text-gray-700 mb-2 line-clamp-4'
+                      className='text-gray-700 mb-2 line-clamp-6'
                       dangerouslySetInnerHTML={{ __html: product.excerpt.rendered }}
                     />
                     <Link href={`${product.website ? product.website[0] : ''}`}>
@@ -74,14 +74,14 @@ export default function ProductsWidget({ products }) {
                     className='hover:underline'
                   >
                     <h3
-                      className='font-bold uppercase text-3xl'
+                      className='font-bold uppercase text-2xl'
                       dangerouslySetInnerHTML={{ __html: product.title.rendered }}
                     />
                   </a>
                 </Link>
                 <div className='mt-3'>
                   <div
-                    className='text-gray-700 mb-2 line-clamp-4'
+                    className='text-gray-700 mb-2 line-clamp-6'
                     dangerouslySetInnerHTML={{ __html: product.excerpt.rendered }}
                   />
                   <Link href={`${product.website ? product.website[0] : ''}`}>

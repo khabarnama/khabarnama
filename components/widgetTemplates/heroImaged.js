@@ -41,7 +41,7 @@ export default function HeroImagedWidget({ about }) {
           </a>
         </Link>
         <div
-          className={`sm:w-10/12 mx-auto text-gray-700 sm:mb-6 lg:mb-2 line-clamp-2`}
+          className={`sm:w-10/12 mx-auto text-gray-700 sm:mb-6 lg:mb-2 line-clamp-3`}
           dangerouslySetInnerHTML={{ __html: about.excerpt.rendered }}
         />
       </div>
