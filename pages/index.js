@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import Head from 'next/head'
 import ServicesWidget from './../components/widgetTemplates/services'
 import HeroImagedWidget from './../components/widgetTemplates/heroImaged'
@@ -8,6 +8,7 @@ import ClientImagedWidget from './../components/widgetTemplates/clientImaged'
 import ProductsWidget from './../components/widgetTemplates/products'
 import WebHostingWidget from './../components/widgetTemplates/webhosting'
 import Footer from './../components/Footer'
+import ReactPageScroller from 'react-page-scroller'
 
 export default function Blog({
   clients,
@@ -25,23 +26,9 @@ export default function Blog({
   bottomLeft,
   footerAddress
 }) {
-  const [hidden, setHidden] = useState(true)
-  var lastScrollTop = 0
-
-  const listenScrollEvent = (e) => {
-    var st = window.pageYOffset || document.documentElement.scrollTop
-    if (st > lastScrollTop) {
-      setHidden(false)
-    } else {
-      setHidden(true)
-    }
-    lastScrollTop = st <= 0 ? 0 : st // For Mobile or negative scrolling
+  let goToPage = (pageNumber) => {
+    this.reactPageScroller.goToPage(pageNumber)
   }
-
-  useEffect(() => {
-    window.addEventListener('scroll', listenScrollEvent)
-    console.log('Hidden', hidden)
-  })
 
   return (
     <>
@@ -69,29 +56,31 @@ export default function Blog({
         <meta property='og:site_name' content='Componentity' />
       </Head>
       <div className='max-w-screen-2xl mx-auto p-5'>
-        <div
-          className={`${
-            !hidden ? 'lg:translate-y-full lg:hidden' : 'lg:translate-y-0 lg:grid'
-          } grid grid-cols-1 sm:grid-cols-12 gap-5 lg:gap-0 items-stretch justify-stretch transition-transform duration-1000 ease-in-out`}
+        <ReactPageScroller
+          containerHeight={'105vh'}
+          containerWidth={'100%'}
+          ref={(c) => (this.reactPageScroller = c)}
         >
-          <div className='order-1 sm:order-2 lg:order-1 col-span-1 sm:col-span-6 lg:col-span-3 flex flex-col justify-between'>
-            <ServicesWidget services={services} />
+          <div
+            className={`grid grid-cols-1 sm:grid-cols-12 gap-5 lg:gap-0 items-stretch justify-stretch`}
+          >
+            <div className='order-1 sm:order-2 lg:order-1 col-span-1 sm:col-span-6 lg:col-span-3 flex flex-col justify-between'>
+              <ServicesWidget services={services} />
+            </div>
+            <HeroImagedWidget about={about} />
+            <ProjectsWidget projects={projects} />
           </div>
-          <HeroImagedWidget about={about} />
-          <ProjectsWidget projects={projects} />
-        </div>
-        <div
-          className={` ${
-            hidden ? 'lg:translate-y-full lg:hidden' : 'lg:translate-y-0 lg:grid'
-          } grid grid-cols-1 sm:grid-cols-12 gap-5 lg:gap-0 items-stretch justify-stretch transition-transform duration-1000 ease-in-out`}
-        >
-          <TeamWidget team={team} />
-          <div className='order-5 col-span-1 sm:col-span-12 lg:col-span-9 bg-indigo-500'>
-            <ClientImagedWidget clients={clients} />
-            <WebHostingWidget hosting={hosting} />
-            <ProductsWidget products={products} />
+          <div
+            className={`grid grid-cols-1 sm:grid-cols-12 gap-5 lg:gap-0 items-stretch justify-stretch`}
+          >
+            <TeamWidget team={team} />
+            <div className='order-5 col-span-1 sm:col-span-12 lg:col-span-9 bg-indigo-500'>
+              <ClientImagedWidget clients={clients} />
+              <WebHostingWidget hosting={hosting} />
+              <ProductsWidget products={products} />
+            </div>
           </div>
-        </div>
+        </ReactPageScroller>
       </div>
       <Footer
         topRight={topRight}
