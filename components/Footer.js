@@ -13,7 +13,7 @@ export default function Footer({ topLeft, topRight, topRight2 }) {
                 href={`${
                   item.url.startsWith('mailto') || item.url.startsWith('tel')
                     ? item.url
-                    : '/${item.url.replace("https://admin.iap.af/", "")}'
+                    : item.url.replace("https://admin.iap.af", "")
                 }`}
               >
                 <a
@@ -39,7 +39,7 @@ export default function Footer({ topLeft, topRight, topRight2 }) {
                 href={`${
                   item.url.startsWith('mailto') || item.url.startsWith('tel')
                     ? item.url
-                    : '/${item.url.replace("https://admin.iap.af/", "")}'
+                    : item.url.replace("https://admin.iap.af", "")
                 }`}
               >
                 <a
@@ -65,7 +65,7 @@ export default function Footer({ topLeft, topRight, topRight2 }) {
                 href={`${
                   item.url.startsWith('mailto') || item.url.startsWith('tel')
                     ? item.url
-                    : '/${item.url.replace("https://admin.iap.af/", "")}'
+                    : item.url.replace("https://admin.iap.af", "")
                 }`}
               >
                 <a
