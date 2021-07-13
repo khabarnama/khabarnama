@@ -1,7 +1,6 @@
 import Link from 'next/link'
-import ImageComponentity from './../components/ImageComponentity'
 
-export default function Footer({ topLeft, topRight, topRight2, footerAddress }) {
+export default function Footer({ topLeft, topRight, topRight2 }) {
   return (
     <section className='bg-gray-600 p-8 grid sm:grid-cols-12'>
       <div className='p-5 col-span-1 sm:col-span-6 lg:col-span-3'>
@@ -9,8 +8,16 @@ export default function Footer({ topLeft, topRight, topRight2, footerAddress }) 
           <span className='mb-3 block uppercase text-gray-100 font-semibold'>{topLeft.name}</span>
           {topLeft.items.map((item) => {
             return (
-              <Link key={item.id} href={`/${item.url.replace('https://iap.af/', '')}`}>
+              <Link
+                key={item.id}
+                href={`${
+                  item.url.startsWith('http')
+                    ? item.url
+                    : '/${item.url.replace("https://iap.af/", "")}'
+                }`}
+              >
                 <a
+                  target={`${item.url.startsWith('http') ? '_blank' : '_self'}`}
                   aria-label='Footer Link'
                   className='my-1 block text-gray-300 font-medium hover:text-white'
                 >
@@ -26,8 +33,16 @@ export default function Footer({ topLeft, topRight, topRight2, footerAddress }) 
           <span className='mb-3 block uppercase text-gray-100 font-semibold'>{topRight.name}</span>
           {topRight.items.map((item) => {
             return (
-              <Link key={item.id} href={`/${item.url.replace('https://iap.af/', '')}`}>
+              <Link
+                key={item.id}
+                href={`${
+                  item.url.startsWith('http')
+                    ? item.url
+                    : '/${item.url.replace("https://iap.af/", "")}'
+                }`}
+              >
                 <a
+                  target={`${item.url.startsWith('http') ? '_blank' : '_self'}`}
                   aria-label='Footer Link'
                   className='my-1 block text-gray-300 font-medium hover:text-white'
                 >
@@ -43,8 +58,16 @@ export default function Footer({ topLeft, topRight, topRight2, footerAddress }) 
           <span className='mb-3 block uppercase text-gray-100 font-semibold'>{topRight2.name}</span>
           {topRight2.items.map((item) => {
             return (
-              <Link key={item.id} href={`/${item.url.replace('https://iap.af/', '')}`}>
+              <Link
+                key={item.id}
+                href={`${
+                  item.url.startsWith('http')
+                    ? item.url
+                    : '/${item.url.replace("https://iap.af/", "")}'
+                }`}
+              >
                 <a
+                  target={`${item.url.startsWith('http') ? '_blank' : '_self'}`}
                   aria-label='Footer Link'
                   className='my-1 block text-gray-300 font-medium hover:text-white'
                 >

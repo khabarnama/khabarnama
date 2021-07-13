@@ -53,8 +53,16 @@ function About({
                 {aboutOne.items.map((item) => {
                   return (
                     <li>
-                      <Link key={item.id} href={`/${item.url.replace('https://iap.af/', '')}`}>
+                      <Link
+                        key={item.id}
+                        href={`${
+                          item.url.startsWith('http')
+                            ? item.url
+                            : '/${item.url.replace("https://iap.af/", "")}'
+                        }`}
+                      >
                         <a
+                          target={`${item.url.startsWith('http') ? '_blank' : '_self'}`}
                           aria-label='Link'
                           className='my-1 block text-gray-600 font-medium hover:text-gray-900 hover:underline'
                         >
@@ -74,8 +82,16 @@ function About({
                 {aboutTwo.items.map((item) => {
                   return (
                     <li>
-                      <Link key={item.id} href={`/${item.url.replace('https://iap.af/', '')}`}>
+                      <Link
+                        key={item.id}
+                        href={`${
+                          item.url.startsWith('http')
+                            ? item.url
+                            : '/${item.url.replace("https://iap.af/", "")}'
+                        }`}
+                      >
                         <a
+                          target={`${item.url.startsWith('http') ? '_blank' : '_self'}`}
                           aria-label='Link'
                           className='my-1 block text-gray-600 font-medium hover:text-gray-900 hover:underline'
                         >
