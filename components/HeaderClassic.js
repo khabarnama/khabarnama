@@ -48,7 +48,7 @@ function HeaderClassic({ router }) {
             <a aria-label='logo link'>
               <ImageComponentity
                 src='https://iap.af/wp-content/uploads/2021/06/IAP-Landscape-Transparent-e1626077042229.png'
-                classes='h-12 w-52 sm:h-16 sm:w-72'
+                classes='h-12 w-52 sm:h-14 sm:w-68'
               />
             </a>
           </Link>
