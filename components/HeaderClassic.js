@@ -238,7 +238,7 @@ function HeaderClassic({ router }) {
           <div className='h-16 hidden lg:flex items-center'>
             <span className='mr-2'>
               <ImageComponentity
-                src='https://iapcorporate.com/wp-content/uploads/2018/08/conversations-4872_af60b258-251e-41af-b238-dfb706d7b3d4.svg'
+                src='https://admin.iap.af/wp-content/uploads/2018/08/conversations-4872_af60b258-251e-41af-b238-dfb706d7b3d4.svg'
                 classes={'w-12 h-12'}
               />
             </span>
