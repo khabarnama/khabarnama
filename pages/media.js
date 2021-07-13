@@ -11,7 +11,6 @@ import CTAWrapper from '../components/widgetTemplates/ctaWrapper'
 function Media({
   page,
   services,
-  print,
   digitalPage,
   digitals,
   question,
@@ -45,8 +44,6 @@ function Media({
           items={services}
         />
 
-        <PageWrapper page={print} isImage={false} />
-
         <PageWrapper page={digitalPage} />
 
         <CardsWrapper
@@ -77,9 +74,6 @@ export async function getStaticProps() {
 
   const pageRes = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/pages/709?${args}`)
   const page = await pageRes.json()
-
-  const printRes = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/pages/10029?${args}`)
-  const print = await printRes.json()
 
   const digitalPageRes = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/pages/2229?${args}`)
   const digitalPage = await digitalPageRes.json()
@@ -121,7 +115,6 @@ export async function getStaticProps() {
       services,
       digitalPage,
       question,
-      print,
       topLeft,
       topRight,
       topRight2,
