@@ -11,13 +11,13 @@ export default function Footer({ topLeft, topRight, topRight2 }) {
               <Link
                 key={item.id}
                 href={`${
-                  item.url.startsWith('http') || items.url.startsWith('mailto') || items.url.startsWith('tel')
+                  item.url.startsWith('http') || item.url.startsWith('mailto') || item.url.startsWith('tel')
                     ? item.url
                     : '/${item.url.replace("https://admin.iap.af/", "")}'
                 }`}
               >
                 <a
-                  target={`${item.url.startsWith('http') || items.url.startsWith('mailto') || items.url.startsWith('tel') ? '_blank' : '_self'}`}
+                  target={`${item.url.startsWith('http') || item.url.startsWith('mailto') || item.url.startsWith('tel') ? '_blank' : '_self'}`}
                   aria-label='Footer Link'
                   className='my-1 block text-gray-300 font-medium hover:text-white'
                 >
@@ -36,13 +36,13 @@ export default function Footer({ topLeft, topRight, topRight2 }) {
               <Link
                 key={item.id}
                 href={`${
-                  item.url.startsWith('http') || items.url.startsWith('mailto') || items.url.startsWith('tel')
+                  item.url.startsWith('http') || item.url.startsWith('mailto') || item.url.startsWith('tel')
                     ? item.url
                     : '/${item.url.replace("https://admin.iap.af/", "")}'
                 }`}
               >
                 <a
-                  target={`${item.url.startsWith('http') || items.url.startsWith('mailto') || items.url.startsWith('tel') ? '_blank' : '_self'}`}
+                  target={`${item.url.startsWith('http') || item.url.startsWith('mailto') || item.url.startsWith('tel') ? '_blank' : '_self'}`}
                   aria-label='Footer Link'
                   className='my-1 block text-gray-300 font-medium hover:text-white'
                 >
@@ -61,13 +61,13 @@ export default function Footer({ topLeft, topRight, topRight2 }) {
               <Link
                 key={item.id}
                 href={`${
-                  item.url.startsWith('http') || items.url.startsWith('mailto') || items.url.startsWith('tel')
+                  item.url.startsWith('http') || item.url.startsWith('mailto') || item.url.startsWith('tel')
                     ? item.url
                     : '/${item.url.replace("https://admin.iap.af/", "")}'
                 }`}
               >
                 <a
-                  target={`${item.url.startsWith('http') || items.url.startsWith('mailto') || items.url.startsWith('tel') ? '_blank' : '_self'}`}
+                  target={`${item.url.startsWith('http') || item.url.startsWith('mailto') || item.url.startsWith('tel') ? '_blank' : '_self'}`}
                   aria-label='Footer Link'
                   className='my-1 block text-gray-300 font-medium hover:text-white'
                 >
