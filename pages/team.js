@@ -32,14 +32,7 @@ function Team({
         <PageWrapper page={page} isImage={false} />
         <div className='grid grid-cols-1 lg:grid-cols-12 gap-8 mt-8'>
           {teams.map((team, index) => {
-            return index == 0 ? (
-              <div
-                key={index}
-                className='bg-white border p-10 shadow-md col-span-1 lg:col-span-12 grid grid-cols-1 md:grid-cols-12 items-start gap-8'
-              >
-                <TeamPage team={team} />
-              </div>
-            ) : (
+            return (
               <div
                 key={index}
                 className='bg-white border p-10 shadow-md col-span-1 lg:col-span-6 grid grid-cols-1 md:grid-cols-12 gap-5'

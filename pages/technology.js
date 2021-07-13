@@ -13,6 +13,8 @@ function Technology({
   question,
   software,
   softwares,
+  hosting,
+  whys,
   category,
   projects,
   topLeft,
@@ -46,6 +48,15 @@ function Technology({
           isLink={false}
         />
 
+        <CardsWrapper
+          id={hosting.slug}
+          title={hosting.title.rendered}
+          desc={[hosting.excerpt.rendered]}
+          gridClasses={'grid grid-cols-1 sm:grid-cols-12 mt-8'}
+          services={whys}
+          isLink={false}
+        />
+
         <ProjectsWrapper category={category} projects={projects} />
 
         <CTAWrapper cta={question} />
@@ -74,6 +85,12 @@ export async function getStaticProps() {
 
   const softwareRes = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/pages/9694?${args}`)
   const software = await softwareRes.json()
+
+  const hostingRes = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/pages/2403?${args}`)
+  const hosting = await hostingRes.json()
+
+  const whysRes = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/hostingservices?${args}`)
+  const whys = await whysRes.json()
 
   const softwaresRes = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/softwareservices?${args}`)
   const softwares = await softwaresRes.json()
@@ -113,6 +130,8 @@ export async function getStaticProps() {
       question,
       software,
       softwares,
+      hosting,
+      whys,
       category,
       projects,
       topLeft,
