@@ -6,8 +6,8 @@ export default function WebHostingWidget({ hosting }) {
   const template = (hosting) => {
     return (
       <div className='bg-gray-600 grid grid-cols-1 sm:grid-cols-12'>
-        <div className='p-12 col-span-1 sm:col-span-8 text-white'>
-          <h3 className='font-bold uppercase text-3xl'>
+        <div className='p-8 sm:p-12 col-span-1 sm:col-span-8 text-white'>
+          <h3 className='font-bold uppercase text-2xl lg:text-3xl'>
             16 YEARS IN WEB HOSTING & DOMAIN REGISTRATION.
           </h3>
           <div className='mt-6'>

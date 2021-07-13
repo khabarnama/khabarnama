@@ -8,7 +8,7 @@ export default function HeroImagedWidget({ about }) {
   const [video, setVideo] = useState(false)
   const template = (about) => {
     return (
-      <div className='order-2 sm:order-1 lg:order-2 col-span-1 sm:col-span-12 lg:col-span-6 bg-gray-100 text-center'>
+      <div className='order-2 sm:order-1 lg:order-2 col-span-1 sm:col-span-12 lg:col-span-6 bg-gray-100 text-center pb-5 sm:pb-0'>
         <div className='bg-gray-400 relative' style={{ height: '29.45rem' }}>
           {video ? (
             <YoutubeEmbed embedId={about.featuredvideo[0]} />
@@ -41,7 +41,7 @@ export default function HeroImagedWidget({ about }) {
           </a>
         </Link>
         <div
-          className={`sm:w-10/12 mx-auto text-gray-700 sm:mb-6 lg:mb-2 line-clamp-3`}
+          className={`sm:w-10/12 mx-auto text-gray-700 sm:mb-6 lg:mb-2 line-clamp-3 px-5`}
           dangerouslySetInnerHTML={{ __html: about.excerpt.rendered }}
         />
       </div>

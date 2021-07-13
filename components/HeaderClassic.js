@@ -172,7 +172,7 @@ function HeaderClassic({ router }) {
             <div className='text-gray-600 font-semibold py-2 block'>
               <Link href='https://iap.af/wp-content/uploads/2021/06/2021-Corporate-Profile.pdf'>
                 <a aria-label='corporate profile' className='hover:underline text-sm'>
-                  Download Our Corporate profile
+                  Download our corporate profile
                 </a>
               </Link>
             </div>
