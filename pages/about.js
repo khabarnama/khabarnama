@@ -67,6 +67,9 @@ function About({
               </ul>
             </div>
             <div className='border bg-white p-8 mb-8'>
+              <h3 className='mb-3 text-3xl block uppercase text-gray-900 font-bold'>
+                {aboutTwo.name}
+              </h3>
               <ul className='list-disc ml-8'>
                 {aboutTwo.items.map((item) => {
                   return (
@@ -112,10 +115,6 @@ function About({
                   )}
                 </div>
                 <div className='p-10'>
-                  <h3
-                    className='font-bold text-3xl mb-4'
-                    dangerouslySetInnerHTML={{ __html: page.title.rendered }}
-                  />
                   <article
                     className='text-gray-600  list-margin'
                     dangerouslySetInnerHTML={{ __html: page.content.rendered }}
