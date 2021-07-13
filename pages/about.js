@@ -46,7 +46,7 @@ function About({
         <div className='grid grid-cols-1 lg:grid-cols-12 items-start gap-8 relative'>
           <div className='hidden lg:inline-block col-span-1 lg:col-span-3 sticky top-0'>
             <div className='border bg-white p-8 mb-8'>
-              <h3 className='mb-3 text-3xl block uppercase text-gray-900 font-bold'>
+              <h3 className='mb-3 text-2xl block uppercase text-gray-900 font-bold'>
                 {aboutOne.name}
               </h3>
               <ul className='list-disc ml-8'>
@@ -67,7 +67,7 @@ function About({
               </ul>
             </div>
             <div className='border bg-white p-8 mb-8'>
-              <h3 className='mb-3 text-3xl block uppercase text-gray-900 font-bold'>
+              <h3 className='mb-3 text-2xl block uppercase text-gray-900 font-bold'>
                 {aboutTwo.name}
               </h3>
               <ul className='list-disc ml-8'>
