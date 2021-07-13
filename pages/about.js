@@ -39,6 +39,17 @@ function About({
         <link rel='stylesheet' href='/theme.css' />
       </Head>
       <div className='max-w-screen-xl mx-auto my-8 relative p-5'>
+        <div id={page.slug} className='mb-8 bg-white border'>
+          <div className='grid grid-cols-1 lg:grid-cols-12 gap-10 p-10'>
+            <div className={`col-span-1 lg:col-span-12`}>
+              <h3
+                className='font-bold uppercase text-3xl mb-4'
+                dangerouslySetInnerHTML={{ __html: page.title.rendered }}
+              />
+            </div>
+          </div>
+        </div>
+
         <div className='grid grid-cols-1 lg:grid-cols-12 items-start gap-8 relative'>
           <div className='hidden lg:inline-block col-span-1 lg:col-span-3 sticky top-0'>
             <div className='border bg-white p-8 mb-8'>
