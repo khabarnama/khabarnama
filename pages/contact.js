@@ -7,18 +7,7 @@ import CTAWrapper from '../components/widgetTemplates/ctaWrapper'
 import SVGArrow from './../components/SVG/SVGArrow'
 import Link from 'next/link'
 
-function Contact({
-  page,
-  question,
-  contacts,
-  topLeft,
-  topRight,
-  topRight2,
-  bottomRight,
-  bottomRight2,
-  bottomLeft,
-  footerAddress
-}) {
+function Contact({ page, question, contacts, topLeft, topRight, topRight2 }) {
   const router = useRouter()
 
   // If the page is not yet generated, this will be displayed
@@ -63,15 +52,7 @@ function Contact({
 
         <CTAWrapper cta={question} />
       </div>
-      <Footer
-        topRight={topRight}
-        topLeft={topLeft}
-        bottomLeft={bottomLeft}
-        bottomRight={bottomRight}
-        bottomRight2={bottomRight2}
-        topRight2={topRight2}
-        footerAddress={footerAddress}
-      />
+      <Footer topRight={topRight} topLeft={topLeft} topRight2={topRight2} />
     </>
   )
 }
@@ -91,23 +72,11 @@ export async function getStaticProps() {
   const topLeftRes = await fetch(`${process.env.MENU_URL}/locations/footer-topleft`)
   const topLeft = await topLeftRes.json()
 
-  const bottomleftRes = await fetch(`${process.env.MENU_URL}/locations/footer-bottomleft`)
-  const bottomLeft = await bottomleftRes.json()
-
   const toprightRes = await fetch(`${process.env.MENU_URL}/locations/footer-topright`)
   const topRight = await toprightRes.json()
 
   const topright2Res = await fetch(`${process.env.MENU_URL}/locations/footer-topright2`)
   const topRight2 = await topright2Res.json()
-
-  const bottomrightRes = await fetch(`${process.env.MENU_URL}/locations/footer-bottomright`)
-  const bottomRight = await bottomrightRes.json()
-
-  const bottomright2Res = await fetch(`${process.env.MENU_URL}/locations/footer-bottomright2`)
-  const bottomRight2 = await bottomright2Res.json()
-
-  const footeraddressres = await fetch(`${process.env.MENU_URL}/locations/footer-address`)
-  const footerAddress = await footeraddressres.json()
 
   return {
     props: {
@@ -116,11 +85,7 @@ export async function getStaticProps() {
       contacts,
       topLeft,
       topRight,
-      topRight2,
-      bottomLeft,
-      bottomRight,
-      bottomRight2,
-      footerAddress
+      topRight2
     },
     revalidate: 1
   }
