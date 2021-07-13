@@ -46,7 +46,7 @@ function HeaderClassic({ router }) {
           <Link href='/'>
             <a aria-label='logo link'>
               <ImageComponentity
-                src='https://iap.af/wp-content/uploads/2021/06/IAP-Landscape-Transparent-e1626077042229.png'
+                src='https://admin.iap.af/wp-content/uploads/2021/06/IAP-Landscape-Transparent-e1626077042229.png'
                 classes='h-12 w-52 sm:w-68'
               />
             </a>
@@ -70,7 +70,7 @@ function HeaderClassic({ router }) {
                       <Link href='/'>
                         <a aria-label='logo link'>
                           <ImageComponentity
-                            src='https://iap.af/wp-content/uploads/2021/06/IAP-Landscape-Transparent-e1626077042229.png'
+                            src='https://admin.iap.af/wp-content/uploads/2021/06/IAP-Landscape-Transparent-e1626077042229.png'
                             classes='h-12 w-52 sm:h-16 sm:w-72'
                           />
                         </a>
@@ -141,7 +141,7 @@ function HeaderClassic({ router }) {
                           <li>
                             <Link
                               target='_blank'
-                              href='https://iap.af/wp-content/uploads/2021/06/2021-Corporate-Profile.pdf'
+                              href='https://admin.iap.af/wp-content/uploads/2021/06/2021-Corporate-Profile.pdf'
                             >
                               <a aria-label='corporate profile' className='underline'>
                                 Download Our Corporate profile
@@ -169,7 +169,7 @@ function HeaderClassic({ router }) {
 
           <div className='hidden lg:flex flex-col gap-2 items-center justify-between'>
             <div className='text-gray-600 font-semibold py-2 block'>
-              <Link href='https://iap.af/wp-content/uploads/2021/06/2021-Corporate-Profile.pdf'>
+              <Link href='https://admin.iap.af/wp-content/uploads/2021/06/2021-Corporate-Profile.pdf'>
                 <a aria-label='corporate profile' className='hover:underline text-sm'>
                   Download our corporate profile
                 </a>
