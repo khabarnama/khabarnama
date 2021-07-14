@@ -64,7 +64,7 @@ export default function Blog({
         <div
           className={`grid grid-cols-1 sm:grid-cols-12 gap-5 lg:gap-0 items-stretch justify-stretch`}
         >
-          <div className='order-1 sm:order-2 lg:order-1 col-span-1 sm:col-span-6 lg:col-span-3 flex flex-col justify-between'>
+          <div className='order-1 sm:order-2 lg:order-1 col-span-1 sm:col-span-12 lg:col-span-3 flex flex-col justify-between'>
             <ServicesWidget services={services} />
           </div>
           <HeroImagedWidget about={about} />
