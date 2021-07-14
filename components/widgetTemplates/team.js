@@ -10,8 +10,8 @@ export default function TeamWidget({ team }) {
         {slide.featured_media != 0 && slide.featured_media != null ? (
           <ImageComponentity
             src={
-              slide._embedded['wp:featuredmedia'][0].media_details.sizes.awsm_team
-                ? slide._embedded['wp:featuredmedia'][0].media_details.sizes.awsm_team.source_url
+              slide._embedded['wp:featuredmedia'][0].media_details.sizes.medium
+                ? slide._embedded['wp:featuredmedia'][0].media_details.sizes.medium.source_url
                 : slide._embedded['wp:featuredmedia'][0].source_url
             }
             classes={'sm:h-96 bg-gray-300 filter grayscale'}
