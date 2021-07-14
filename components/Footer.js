@@ -2,7 +2,7 @@ import Link from 'next/link'
 
 export default function Footer({ topLeft, topRight, topRight2 }) {
   return (
-    <section className='bg-gray-600 p-8 grid sm:grid-cols-12'>
+    <section className='text-lg sm:text-base bg-gray-600 p-8 grid sm:grid-cols-12'>
       <div className='p-5 col-span-1 sm:col-span-6 lg:col-span-3'>
         <div className='mb-5'>
           <span className='mb-3 block uppercase text-gray-100 font-semibold'>{topLeft.name}</span>
