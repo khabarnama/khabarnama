@@ -21,6 +21,12 @@ function Contact({ page, question, contacts, topLeft, topRight, topRight2 }) {
       <Head>{ReactHtmlParser(page.yoast_head)}</Head>
 
       <div className='max-w-screen-xl mx-auto my-8 relative p-5'>
+             <div className="p-8 bg-white mb-8">
+                <h3 className="font-bold uppercase text-2xl">Get Directions</h3>
+                <div className="mt-6">
+                  <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13151.043195450231!2d69.149493!3d34.508948!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb514444c5852f82!2sIAP%20%7C%20Technology%20%26%20Media%20Services%20in%20Afghanistan!5e0!3m2!1sen!2s!4v1626241954751!5m2!1sen!2s" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+             </div>
         <div className='grid grid-cols-1 md:grid-cols-2 gap-x-8'>
           {contacts.map((contact) => {
             return (
