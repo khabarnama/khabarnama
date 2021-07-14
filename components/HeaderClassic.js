@@ -252,7 +252,7 @@ function HeaderClassic({ router }) {
             </div>
           </div>
 
-          <span className='md:hidden z-10 flex items-center justify-center gap-1'>
+          <span className='lg:hidden z-10 flex items-center justify-center gap-1'>
             <button
               aria-label='navbar-mobile'
               onClick={() => setDisplay(!display)}
