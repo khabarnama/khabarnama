@@ -4,7 +4,7 @@ module.exports = {
     content: ['./pages/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],
     options: {
       safelist: {
-        standard: [/^[\w:]*border-t-/, /^[\w:]*col-span-/, /^[\w:]*w-32/, /^[\w:]*h-20/]
+        standard: [/^[\w:]*border-t-/, /^[\w:]*col-span-/, /^[\w:]*w-32/, /^[\w:]*h-20/, /^[\w:]*h-36/]
       }
     }
   },
