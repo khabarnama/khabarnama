@@ -29,7 +29,7 @@ export default function TeamPage({ team }) {
               />
             </div>
             <div
-              className={`mt-3 text-base leading-6 ${expanded ? '' : 'line-clamp-6'} `}
+              className={`mt-3 text-base leading-6 ${expanded ? '' : 'line-clamp-6 h-48 overflow-hidden'} `}
               dangerouslySetInnerHTML={{ __html: team.content.rendered }}
             />
             <div
