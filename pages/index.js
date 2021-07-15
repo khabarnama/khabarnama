@@ -1,4 +1,3 @@
-import React from 'react'
 import Head from 'next/head'
 import ServicesWidget from './../components/widgetTemplates/services'
 import HeroImagedWidget from './../components/widgetTemplates/heroImaged'
