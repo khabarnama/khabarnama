@@ -14,7 +14,7 @@ export default function TeamWidget({ team }) {
                 ? slide._embedded['wp:featuredmedia'][0].media_details.sizes.medium.source_url
                 : slide._embedded['wp:featuredmedia'][0].source_url
             }
-            classes={'sm:h-96 bg-gray-300 filter grayscale'}
+            classes={'sm:h-96 bg-gray-300'}
             alt={slide.title.rendered}
           />
         ) : (
