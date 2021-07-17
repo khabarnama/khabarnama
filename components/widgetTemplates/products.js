@@ -17,7 +17,7 @@ export default function ProductsWidget({ products }) {
                   {product.featured_media != 0 && product.featured_media != null ? (
                     <ImageComponentity
                       src={
-                        product._embedded['wp:featuredmedia'][0].media_details.sizes.medium
+                        product._embedded['wp:featuredmedia'][0].media_details.sizes.awsm_team
                           .source_url
                       }
                       classes={'h-full'}
