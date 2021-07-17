@@ -17,7 +17,7 @@ export default function HeroImagedWidget({ about }) {
               src={
                 about._embedded['wp:featuredmedia'][0].media_details.sizes.awsm_team.source_url
               }
-              classes={'h-full bg-gray-300 filter grayscale'}
+              classes={'h-full bg-gray-300'}
               alt={about.title.rendered}
             />
           ) : (
