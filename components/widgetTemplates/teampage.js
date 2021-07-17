@@ -10,7 +10,7 @@ export default function TeamPage({ team }) {
         {team.featured_media != 0 && team.featured_media != null ? (
           <ImageComponentity
             src={team._embedded['wp:featuredmedia'][0].media_details.sizes.medium.source_url}
-            classes={'h-72 bg-gray-300 col-span-1 md:col-span-3 filter grayscale'}
+            classes={'h-72 bg-gray-300 col-span-1 md:col-span-3'}
             alt={team.title.rendered}
           />
         ) : (
