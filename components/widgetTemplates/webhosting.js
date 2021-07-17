@@ -30,7 +30,7 @@ export default function WebHostingWidget({ hosting }) {
           {hosting.featured_media != 0 && hosting.featured_media != null && (
             <ImageComponentity
               src={hosting._embedded['wp:featuredmedia'][0].media_details.sizes.medium.source_url}
-              classes={'h-full filter grayscale'}
+              classes={'h-full'}
               alt={hosting.title.rendered}
             />
           )}
