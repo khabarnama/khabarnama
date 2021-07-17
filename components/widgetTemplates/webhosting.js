@@ -29,7 +29,7 @@ export default function WebHostingWidget({ hosting }) {
         <div className='bg-gray-100 col-span-1 sm:col-span-4 h-full'>
           {hosting.featured_media != 0 && hosting.featured_media != null && (
             <ImageComponentity
-              src={hosting._embedded['wp:featuredmedia'][0].media_details.sizes.medium.source_url}
+              src={hosting._embedded['wp:featuredmedia'][0].media_details.sizes.awsm_team.source_url}
               classes={'h-full'}
               alt={hosting.title.rendered}
             />
