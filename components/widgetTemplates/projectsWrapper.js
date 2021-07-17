@@ -18,7 +18,7 @@ export default function ProjectsWrapper({ category, projects }) {
             {project.featured_media != 0 && project.featured_media != null && (
               <ImageComponentity
                 src={
-                  project._embedded['wp:featuredmedia'][0].media_details.sizes.medium_large
+                  project._embedded['wp:featuredmedia'][0].media_details.sizes.medium
                     .source_url
                 }
                 classes={'col-span-1 md:col-span-4 rounded-sm mr-10'}
