@@ -9,7 +9,7 @@ export default function HeroImagedWidget({ about }) {
   const template = (about) => {
     return (
       <div className='order-2 sm:order-1 lg:order-2 col-span-1 sm:col-span-12 lg:col-span-6 bg-gray-100 text-center pb-5 sm:pb-0'>
-        <div className='bg-gray-400 relative' style={{ height: '29.45rem' }}>
+        <div className='bg-gray-400 relative' style={{ height: '32.6rem' }}>
           {video ? (
             <YoutubeEmbed embedId={about.featuredvideo[0]} />
           ) : about.featured_media != 0 && about.featured_media != null ? (
