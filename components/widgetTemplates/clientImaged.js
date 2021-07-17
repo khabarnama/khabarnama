@@ -10,7 +10,7 @@ export default function ClientsImagedWidget({ clients }) {
             return (
               <ImageComponentity
                 key={client.id}
-                classes='w-16 h-12 sm:w-32 sm:h-16'
+                classes='w-16 h-16 sm:w-20 sm:h-20'
                 src={client._embedded['wp:featuredmedia'][0].source_url}
               />
             )
