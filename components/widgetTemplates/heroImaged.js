@@ -15,7 +15,7 @@ export default function HeroImagedWidget({ about }) {
           ) : about.featured_media != 0 && about.featured_media != null ? (
             <ImageComponentity
               src={
-                about._embedded['wp:featuredmedia'][0].media_details.sizes.awsm_team.source_url
+                about._embedded['wp:featuredmedia'][0].media_details.sizes.medium_large.source_url
               }
               classes={'h-full bg-gray-300'}
               alt={about.title.rendered}
