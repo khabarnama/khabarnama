@@ -48,12 +48,31 @@ function Test({ page }) {
   )
 }
 
+// This function gets called at build time
+export async function getStaticPaths() {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/pages`)
+  const posts = await res.json()
+
+  const slugs = []
+  posts.forEach((post) => {
+    slugs.push({ params: { slug: post.slug } })
+  })
+
+  return {
+    // Only `/pages/1` and `/pages/2` are generated at build time
+    paths: slugs,
+    // Enable statically generating additional pages
+    // For example: `/pages/3`
+    fallback: true
+  }
+}
+
 export async function getStaticProps({ params }) {
   let args = '_embed=true'
   const { slug } = params
 
   const pageRes = await fetch(
-    `https://ctechnical.solutions/wp-json/wp/v2/pages?${args}&slug=test-test`
+    `https://ctechnical.solutions/wp-json/wp/v2/pages?${args}&slug=${slug}`
   )
   const page = await pageRes.json()
 
