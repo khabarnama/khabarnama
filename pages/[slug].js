@@ -50,7 +50,7 @@ function Test({ page }) {
 
 // This function gets called at build time
 export async function getStaticPaths() {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/pages`)
+  const res = await fetch(`https://ctechnical.solutions/wp-json/wp/v2/pages?slug=test-test`)
   const posts = await res.json()
 
   const slugs = []
