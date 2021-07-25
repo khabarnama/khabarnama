@@ -42,6 +42,56 @@ function Test({ page }) {
           type='text/css'
           media='all'
         />
+        <script
+          type='text/javascript'
+          src='https://ctechnical.solutions/wp-includes/js/jquery/jquery.min.js?ver=3.5.1'
+          id='jquery-core-js'
+        ></script>
+        <script
+          type='text/javascript'
+          src='https://ctechnical.solutions/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.3.2'
+          id='jquery-migrate-js'
+        ></script>
+        <script
+          type='text/javascript'
+          src='https://ctechnical.solutions/wp-content/plugins/elementor/assets/js/webpack.runtime.min.js?ver=3.2.5'
+          id='elementor-webpack-runtime-js'
+        ></script>
+        <script
+          type='text/javascript'
+          src='https://ctechnical.solutions/wp-content/plugins/elementor/assets/js/frontend-modules.min.js?ver=3.2.5'
+          id='elementor-frontend-modules-js'
+        ></script>
+        <script
+          type='text/javascript'
+          src='https://ctechnical.solutions/wp-content/plugins/elementor/assets/lib/waypoints/waypoints.min.js?ver=4.0.2'
+          id='elementor-waypoints-js'
+        ></script>
+        <script
+          type='text/javascript'
+          src='https://ctechnical.solutions/wp-content/plugins/elementor/assets/lib/swiper/swiper.min.js?ver=5.3.6'
+          id='swiper-js'
+        ></script>
+        <script
+          type='text/javascript'
+          src='https://ctechnical.solutions/wp-content/plugins/elementor/assets/lib/share-link/share-link.min.js?ver=3.2.5'
+          id='share-link-js'
+        ></script>
+        <script
+          type='text/javascript'
+          src='https://ctechnical.solutions/wp-content/plugins/elementor/assets/lib/dialog/dialog.min.js?ver=4.8.1'
+          id='elementor-dialog-js'
+        ></script>
+        <script
+          type='text/javascript'
+          src='https://ctechnical.solutions/wp-content/plugins/elementor/assets/js/frontend.min.js?ver=3.2.5'
+          id='elementor-frontend-js'
+        ></script>
+        <script
+          type='text/javascript'
+          src='https://ctechnical.solutions/wp-content/plugins/elementor/assets/js/preloaded-modules.min.js?ver=3.2.5'
+          id='preloaded-modules-js'
+        ></script>
       </Head>
       <div dangerouslySetInnerHTML={{ __html: page[0].content.rendered }} />
     </>
