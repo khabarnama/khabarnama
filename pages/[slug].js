@@ -84,12 +84,12 @@ function Test({ page }) {
         ></script>
         <script
           type='text/javascript'
-          src='https://ctechnical.solutions/wp-content/plugins/elementor/assets/js/frontend.min.js?ver=3.2.5'
+          src='https://ctechnical.solutions/wp-content/plugins/elementor/assets/js/frontend.min.js?ao_noptimize=1'
           id='elementor-frontend-js'
         ></script>
         <script
           type='text/javascript'
-          src='https://ctechnical.solutions/wp-content/plugins/elementor/assets/js/preloaded-modules.min.js?ver=3.2.5'
+          src='https://ctechnical.solutions/wp-content/plugins/elementor/assets/js/preloaded-modules.min.js?ao_noptimize=1'
           id='preloaded-modules-js'
         ></script>
       </Head>
