@@ -73,6 +73,8 @@ function Test({ page }) {
         />
         <script type='text/javascript' src='/js/jquery.js'></script>
         <script type='text/javascript' src='/js/jquerymigrate.js'></script>
+        <script type='text/javascript' src='/js/wputil.js'></script>
+        <script type='text/javascript' src='/js/wpembed.js'></script>
         <script type='text/javascript' src='/js/elementorwebpackruntime.js'></script>
         <script type='text/javascript' src='/js/frontendmodules.js'></script>
         <script type='text/javascript' src='/js/waypoints.js'></script>
@@ -80,6 +82,7 @@ function Test({ page }) {
         <script type='text/javascript' src='/js/swiper.js'></script>
         <script type='text/javascript' src='/js/sharelink.js'></script>
         <script type='text/javascript' src='/js/dialog.js'></script>
+        <script type='text/javascript' src='/js/frontendbefore.js'></script>
         <script type='text/javascript' src='/js/frontend.js'></script>
         <script type='text/javascript' src='/js/preloadedmodules.js'></script>
       </Head>
