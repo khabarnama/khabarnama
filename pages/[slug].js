@@ -24,28 +24,28 @@ function Test({ page }) {
         <link
           rel='stylesheet'
           id='elementor-animations-css'
-          href='/css/elementoranimations.css'
+          href='https://ctechnical.solutions/wp-content/plugins/elementor/assets/lib/animations/animations.min.css?ver=3.2.5'
           type='text/css'
           media='all'
         />
         <link
           rel='stylesheet'
           id='elementor-frontend-css'
-          href='/css/elementorfrontend.css'
+          href='https://ctechnical.solutions/wp-content/plugins/elementor/assets/css/frontend.min.css?ver=3.2.5'
           type='text/css'
           media='all'
         />
         <link
           rel='stylesheet'
           id='elementor-global-css'
-          href='/css/elementorglobal.css'
+          href='https://ctechnical.solutions/wp-content/uploads/elementor/css/global.css?ver=1627195897'
           type='text/css'
           media='all'
         />
         <link
           rel='stylesheet'
           id='elementor-icons-shared-0-css'
-          href='/css/iconshared.css'
+          href='https://ctechnical.solutions/wp-content/plugins/elementor/assets/lib/font-awesome/css/fontawesome.min.css?ver=5.15.1'
           type='text/css'
           media='all'
         />
