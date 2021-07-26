@@ -17,24 +17,60 @@ function Test({ page }) {
         <link
           rel='stylesheet'
           id='elementor-icons-css'
-          href='https://ctechnical.solutions/wp-content/plugins/elementor/assets/lib/eicons/css/elementor-icons.min.css'
+          href='https://ctechnical.solutions/wp-content/plugins/elementor/assets/lib/eicons/css/elementor-icons.min.css?ver=5.11.0'
           type='text/css'
           media='all'
         />
         <link
           rel='stylesheet'
           id='elementor-animations-css'
-          href='https://ctechnical.solutions/wp-content/plugins/elementor/assets/lib/animations/animations.min.css'
+          href='https://ctechnical.solutions/wp-content/plugins/elementor/assets/lib/animations/animations.min.css?ver=3.2.5'
           type='text/css'
           media='all'
         />
         <link
           rel='stylesheet'
           id='elementor-frontend-css'
-          href='https://ctechnical.solutions/wp-content/plugins/elementor/assets/css/frontend.min.css'
+          href='https://ctechnical.solutions/wp-content/plugins/elementor/assets/css/frontend.min.css?ver=3.2.5'
           type='text/css'
           media='all'
         />
+        <link
+          rel='stylesheet'
+          id='elementor-post-44-css'
+          href='https://ctechnical.solutions/wp-content/uploads/elementor/css/post-44.css?ver=1627192824'
+          type='text/css'
+          media='all'
+        />
+        <link
+          rel='stylesheet'
+          id='elementor-global-css'
+          href='https://ctechnical.solutions/wp-content/uploads/elementor/css/global.css?ver=1627195897'
+          type='text/css'
+          media='all'
+        />
+        <link
+          rel='stylesheet'
+          id='elementor-post-402-css'
+          href='https://ctechnical.solutions/wp-content/uploads/elementor/css/post-402.css?ver=1627289659'
+          type='text/css'
+          media='all'
+        />
+        <link
+          rel='stylesheet'
+          id='elementor-icons-shared-0-css'
+          href='https://ctechnical.solutions/wp-content/plugins/elementor/assets/lib/font-awesome/css/fontawesome.min.css?ver=5.15.1'
+          type='text/css'
+          media='all'
+        />
+        <link
+          rel='stylesheet'
+          id='elementor-icons-fa-solid-css'
+          href='https://ctechnical.solutions/wp-content/plugins/elementor/assets/lib/font-awesome/css/solid.min.css?ver=5.15.1'
+          type='text/css'
+          media='all'
+        />
+
         <link
           rel='stylesheet'
           id={`elementor-post-${page[0].id}-css`}
@@ -67,6 +103,12 @@ function Test({ page }) {
           src='https://ctechnical.solutions/wp-content/plugins/elementor/assets/lib/waypoints/waypoints.min.js?ver=4.0.2'
           id='elementor-waypoints-js'
         ></script>
+        <script
+          type='text/javascript'
+          src='https://ctechnical.solutions/wp-includes/js/jquery/ui/core.min.js?ver=1.12.1'
+          id='jquery-ui-core-js'
+        ></script>
+
         <script
           type='text/javascript'
           src='https://ctechnical.solutions/wp-content/plugins/elementor/assets/lib/swiper/swiper.min.js?ver=5.3.6'
