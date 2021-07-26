@@ -1,6 +1,7 @@
 import { useRouter } from 'next/router'
 import ResponsiveArticle from '../components/skeleton/ResponsiveArticle'
 import Head from 'next/head'
+import Script from 'next/script'
 
 function Test({ page }) {
   const router = useRouter()
@@ -51,13 +52,6 @@ function Test({ page }) {
         />
         <link
           rel='stylesheet'
-          id='elementor-post-402-css'
-          href='https://ctechnical.solutions/wp-content/uploads/elementor/css/post-402.css?ver=1627289659'
-          type='text/css'
-          media='all'
-        />
-        <link
-          rel='stylesheet'
           id='elementor-icons-shared-0-css'
           href='https://ctechnical.solutions/wp-content/plugins/elementor/assets/lib/font-awesome/css/fontawesome.min.css?ver=5.15.1'
           type='text/css'
@@ -78,56 +72,19 @@ function Test({ page }) {
           type='text/css'
           media='all'
         />
-        <script
-          type='text/javascript'
-          src='https://ctechnical.solutions/wp-includes/js/jquery/jquery.min.js?ver=3.5.1'
-          id='jquery-core-js'
-        ></script>
-        <script
-          type='text/javascript'
-          src='https://ctechnical.solutions/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.3.2'
-          id='jquery-migrate-js'
-        ></script>
-        <script
-          type='text/javascript'
-          src='https://ctechnical.solutions/wp-content/plugins/elementor/assets/js/webpack.runtime.min.js?ver=3.2.5'
-          id='elementor-webpack-runtime-js'
-        ></script>
-        <script
-          type='text/javascript'
-          src='https://ctechnical.solutions/wp-content/plugins/elementor/assets/js/frontend-modules.min.js?ver=3.2.5'
-          id='elementor-frontend-modules-js'
-        ></script>
-        <script
-          type='text/javascript'
-          src='https://ctechnical.solutions/wp-content/plugins/elementor/assets/lib/waypoints/waypoints.min.js?ver=4.0.2'
-          id='elementor-waypoints-js'
-        ></script>
-        <script
-          type='text/javascript'
-          src='https://ctechnical.solutions/wp-includes/js/jquery/ui/core.min.js?ver=1.12.1'
-          id='jquery-ui-core-js'
-        ></script>
-
-        <script
-          type='text/javascript'
-          src='https://ctechnical.solutions/wp-content/plugins/elementor/assets/lib/swiper/swiper.min.js?ver=5.3.6'
-          id='swiper-js'
-        ></script>
-        <script
-          type='text/javascript'
-          src='https://ctechnical.solutions/wp-content/plugins/elementor/assets/lib/share-link/share-link.min.js?ver=3.2.5'
-          id='share-link-js'
-        ></script>
-        <script
-          type='text/javascript'
-          src='https://ctechnical.solutions/wp-content/plugins/elementor/assets/lib/dialog/dialog.min.js?ver=4.8.1'
-          id='elementor-dialog-js'
-        ></script>
-        <script type='text/javascript' src='./frontend.js' id='elementor-frontend-js'></script>
-        <script type='text/javascript' src='./preloadmodules.js' id='preloaded-modules-js'></script>
       </Head>
       <div dangerouslySetInnerHTML={{ __html: page[0].content.rendered }} />
+      <Script src='https://ctechnical.solutions/wp-includes/js/jquery/jquery.min.js?ver=3.5.1' />
+      <Script src='https://ctechnical.solutions/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.3.2' />
+      <Script src='https://ctechnical.solutions/wp-content/plugins/elementor/assets/js/webpack.runtime.min.js?ver=3.2.5' />
+      <Script src='https://ctechnical.solutions/wp-content/plugins/elementor/assets/js/frontend-modules.min.js?ver=3.2.5' />
+      <Script src='https://ctechnical.solutions/wp-content/plugins/elementor/assets/lib/waypoints/waypoints.min.js?ver=4.0.2' />
+      <Script src='https://ctechnical.solutions/wp-includes/js/jquery/ui/core.min.js?ver=1.12.1' />
+      <Script src='https://ctechnical.solutions/wp-content/plugins/elementor/assets/lib/swiper/swiper.min.js?ver=5.3.6' />
+      <Script src='https://ctechnical.solutions/wp-content/plugins/elementor/assets/lib/share-link/share-link.min.js?ver=3.2.5' />
+      <Script src='https://ctechnical.solutions/wp-content/plugins/elementor/assets/lib/dialog/dialog.min.js?ver=4.8.1' />
+      <Script src='./frontend.js' />
+      <Script src='./preloadmodules.js' />
     </>
   )
 }
