@@ -1,7 +1,6 @@
 import { useRouter } from 'next/router'
 import ResponsiveArticle from '../components/skeleton/ResponsiveArticle'
 import Head from 'next/head'
-import Script from 'next/script'
 
 function Test({ page }) {
   const router = useRouter()
@@ -72,19 +71,52 @@ function Test({ page }) {
           type='text/css'
           media='all'
         />
+        <script
+          type='text/javascript'
+          dangerouslySetInnerHTML={{ __html: process.env.jquery }}
+        ></script>
+        <script
+          type='text/javascript'
+          dangerouslySetInnerHTML={{ __html: process.env.jquerymigrate }}
+        ></script>
+        <script
+          type='text/javascript'
+          dangerouslySetInnerHTML={{ __html: process.env.elementorwebpackruntime }}
+        ></script>
+        <script
+          type='text/javascript'
+          dangerouslySetInnerHTML={{ __html: process.env.frontendmodules }}
+        ></script>
+        <script
+          type='text/javascript'
+          dangerouslySetInnerHTML={{ __html: process.env.waypoints }}
+        ></script>
+        <script
+          type='text/javascript'
+          dangerouslySetInnerHTML={{ __html: process.env.jquerycore }}
+        ></script>
+        <script
+          type='text/javascript'
+          dangerouslySetInnerHTML={{ __html: process.env.swiper }}
+        ></script>
+        <script
+          type='text/javascript'
+          dangerouslySetInnerHTML={{ __html: process.env.sharelink }}
+        ></script>
+        <script
+          type='text/javascript'
+          dangerouslySetInnerHTML={{ __html: process.env.dialog }}
+        ></script>
+        <script
+          type='text/javascript'
+          dangerouslySetInnerHTML={{ __html: process.env.frontend }}
+        ></script>
+        <script
+          type='text/javascript'
+          dangerouslySetInnerHTML={{ __html: process.env.preloadedmodules }}
+        ></script>
       </Head>
       <div dangerouslySetInnerHTML={{ __html: page[0].content.rendered }} />
-      <Script src='https://ctechnical.solutions/wp-includes/js/jquery/jquery.min.js?ver=3.5.1' />
-      <Script src='https://ctechnical.solutions/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.3.2' />
-      <Script src='https://ctechnical.solutions/wp-content/plugins/elementor/assets/js/webpack.runtime.min.js?ver=3.2.5' />
-      <Script src='https://ctechnical.solutions/wp-content/plugins/elementor/assets/js/frontend-modules.min.js?ver=3.2.5' />
-      <Script src='https://ctechnical.solutions/wp-content/plugins/elementor/assets/lib/waypoints/waypoints.min.js?ver=4.0.2' />
-      <Script src='https://ctechnical.solutions/wp-includes/js/jquery/ui/core.min.js?ver=1.12.1' />
-      <Script src='https://ctechnical.solutions/wp-content/plugins/elementor/assets/lib/swiper/swiper.min.js?ver=5.3.6' />
-      <Script src='https://ctechnical.solutions/wp-content/plugins/elementor/assets/lib/share-link/share-link.min.js?ver=3.2.5' />
-      <Script src='https://ctechnical.solutions/wp-content/plugins/elementor/assets/lib/dialog/dialog.min.js?ver=4.8.1' />
-      <Script src='./frontend.js' />
-      <Script src='./preloadmodules.js' />
     </>
   )
 }
