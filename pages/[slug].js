@@ -17,49 +17,42 @@ function Test({ page }) {
         <link
           rel='stylesheet'
           id='elementor-icons-css'
-          href='https://ctechnical.solutions/wp-content/plugins/elementor/assets/lib/eicons/css/elementor-icons.min.css?ver=5.11.0'
+          href='/css/elementoricons.css'
           type='text/css'
           media='all'
         />
         <link
           rel='stylesheet'
           id='elementor-animations-css'
-          href='https://ctechnical.solutions/wp-content/plugins/elementor/assets/lib/animations/animations.min.css?ver=3.2.5'
+          href='/css/elementoranimations.css'
           type='text/css'
           media='all'
         />
         <link
           rel='stylesheet'
           id='elementor-frontend-css'
-          href='https://ctechnical.solutions/wp-content/plugins/elementor/assets/css/frontend.min.css?ver=3.2.5'
-          type='text/css'
-          media='all'
-        />
-        <link
-          rel='stylesheet'
-          id='elementor-post-44-css'
-          href='https://ctechnical.solutions/wp-content/uploads/elementor/css/post-44.css?ver=1627192824'
+          href='/css/elementorfrontend.css'
           type='text/css'
           media='all'
         />
         <link
           rel='stylesheet'
           id='elementor-global-css'
-          href='https://ctechnical.solutions/wp-content/uploads/elementor/css/global.css?ver=1627195897'
+          href='/css/elementorglobal.css'
           type='text/css'
           media='all'
         />
         <link
           rel='stylesheet'
           id='elementor-icons-shared-0-css'
-          href='https://ctechnical.solutions/wp-content/plugins/elementor/assets/lib/font-awesome/css/fontawesome.min.css?ver=5.15.1'
+          href='/css/iconshared.css'
           type='text/css'
           media='all'
         />
         <link
           rel='stylesheet'
           id='elementor-icons-fa-solid-css'
-          href='https://ctechnical.solutions/wp-content/plugins/elementor/assets/lib/font-awesome/css/solid.min.css?ver=5.15.1'
+          href='/css/fasolid.css'
           type='text/css'
           media='all'
         />
