@@ -71,50 +71,17 @@ function Test({ page }) {
           type='text/css'
           media='all'
         />
-        <script
-          type='text/javascript'
-          dangerouslySetInnerHTML={{ __html: process.env.jquery }}
-        ></script>
-        <script
-          type='text/javascript'
-          dangerouslySetInnerHTML={{ __html: process.env.jquerymigrate }}
-        ></script>
-        <script
-          type='text/javascript'
-          dangerouslySetInnerHTML={{ __html: process.env.elementorwebpackruntime }}
-        ></script>
-        <script
-          type='text/javascript'
-          dangerouslySetInnerHTML={{ __html: process.env.frontendmodules }}
-        ></script>
-        <script
-          type='text/javascript'
-          dangerouslySetInnerHTML={{ __html: process.env.waypoints }}
-        ></script>
-        <script
-          type='text/javascript'
-          dangerouslySetInnerHTML={{ __html: process.env.jquerycore }}
-        ></script>
-        <script
-          type='text/javascript'
-          dangerouslySetInnerHTML={{ __html: process.env.swiper }}
-        ></script>
-        <script
-          type='text/javascript'
-          dangerouslySetInnerHTML={{ __html: process.env.sharelink }}
-        ></script>
-        <script
-          type='text/javascript'
-          dangerouslySetInnerHTML={{ __html: process.env.dialog }}
-        ></script>
-        <script
-          type='text/javascript'
-          dangerouslySetInnerHTML={{ __html: process.env.frontend }}
-        ></script>
-        <script
-          type='text/javascript'
-          dangerouslySetInnerHTML={{ __html: process.env.preloadedmodules }}
-        ></script>
+        <script type='text/javascript' src='/js/jquery.js'></script>
+        <script type='text/javascript' src='/js/jquerymigrate.js'></script>
+        <script type='text/javascript' src='/js/elementorwebpackruntime.js'></script>
+        <script type='text/javascript' src='/js/frontendmodules.js'></script>
+        <script type='text/javascript' src='/js/waypoints.js'></script>
+        <script type='text/javascript' src='/js/jquerycore.js'></script>
+        <script type='text/javascript' src='/js/swiper.js'></script>
+        <script type='text/javascript' src='/js/sharelink.js'></script>
+        <script type='text/javascript' src='/js/dialog.js'></script>
+        <script type='text/javascript' src='/js/frontend.js'></script>
+        <script type='text/javascript' src='/js/preloadedmodules.js'></script>
       </Head>
       <div dangerouslySetInnerHTML={{ __html: page[0].content.rendered }} />
     </>
