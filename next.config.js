@@ -8,19 +8,26 @@ module.exports = withPWA({
   },
   images: {
     domains: ['admin.iap.af']
-  },
-  env: {
-    robots: fs.readFileSync('./public/robots.txt').toString(),
-    dialog: fs.readFileSync('./public/js/dialog.js').toString(),
-    elementorwebpackruntime: fs.readFileSync('./public/js/elementorwebpackruntime.js').toString(),
-    frontend: fs.readFileSync('./public/js/frontend.js').toString(),
-    jquery: fs.readFileSync('./public/js/jquery.js').toString(),
-    jquerycore: fs.readFileSync('./public/js/jquerycore.js').toString(),
-    jquerymigrate: fs.readFileSync('./public/js/jquerymigrate.js').toString(),
-    preloadedmodules: fs.readFileSync('./public/js/preloadedmodules.js').toString(),
-    sharelink: fs.readFileSync('./public/js/sharelink.js').toString(),
-    swiper: fs.readFileSync('./public/js/swiper.js').toString(),
-    waypoints: fs.readFileSync('./public/js/waypoints.js').toString(),
-    frontendmodules: fs.readFileSync('./public/js/frontendmodules.js').toString()
   }
 })
+
+module.exports = {
+  async headers() {
+    return [
+      {
+        // matching all API routes
+        source: '/api/:path*',
+        headers: [
+          { key: 'Access-Control-Allow-Credentials', value: 'true' },
+          { key: 'Access-Control-Allow-Origin', value: '*' },
+          { key: 'Access-Control-Allow-Methods', value: 'GET' },
+          {
+            key: 'Access-Control-Allow-Headers',
+            value:
+              'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version'
+          }
+        ]
+      }
+    ]
+  }
+}
