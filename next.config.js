@@ -10,6 +10,7 @@ module.exports = withPWA({
     domains: ['admin.iap.af']
   },
   env: {
+    robots: fs.readFileSync('./robots.txt').toString(),
     dialog: fs.readFileSync('/js/dialog.js').toString(),
     elementorwebpackruntime: fs.readFileSync('/js/elementorwebpackruntime.js').toString(),
     frontend: fs.readFileSync('/js/frontend.js').toString(),
