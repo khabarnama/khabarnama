@@ -98,6 +98,7 @@ function Test({ page }) {
 
         <script type='text/javascript' src='/js/cffstringify.js'></script>
         <script type='text/javascript' src='/js/cffvalidate.js'></script>
+        <script type='text/javascript' src='/js/cffcacheall.js'></script>
       </Head>
       <div dangerouslySetInnerHTML={{ __html: page[0].content.rendered }} />
     </>
