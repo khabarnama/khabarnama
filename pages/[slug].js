@@ -64,6 +64,36 @@ function Test({ page }) {
           type='text/css'
           media='all'
         />
+
+        <link
+          rel='stylesheet'
+          id='sweetalert2-css'
+          href='https://ctechnical.solutions/wp-content/plugins/user-registration/assets/css/sweetalert2/sweetalert2.min.css?ver=8.17.1'
+          type='text/css'
+          media='all'
+        />
+        <link
+          rel='stylesheet'
+          id='user-registration-general-css'
+          href='https://ctechnical.solutions/wp-content/plugins/user-registration/assets/css/user-registration.css?ver=1.9.8'
+          type='text/css'
+          media='all'
+        />
+        <link
+          rel='stylesheet'
+          id='user-registration-smallscreen-css'
+          href='https://ctechnical.solutions/wp-content/plugins/user-registration/assets/css/user-registration-smallscreen.css?ver=1.9.8'
+          type='text/css'
+          media='only screen and (max-width: 768px)'
+        />
+        <link
+          rel='stylesheet'
+          id='user-registration-my-account-layout-css'
+          href='https://ctechnical.solutions/wp-content/plugins/user-registration/assets/css/my-account-layout.css?ver=1.9.8'
+          type='text/css'
+          media='all'
+        />
+
         <script type='text/javascript' src='/js/jquery.js'></script>
         <script type='text/javascript' src='/js/jquerymigrate.js'></script>
         <script type='text/javascript' src='/js/wputil.js'></script>
