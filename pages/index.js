@@ -159,7 +159,7 @@ export async function getStaticProps() {
       bottomRight,
       bottomRight2,
       footerAddress
-    },
-    revalidate: 1
+    }
+    // revalidate: 1
   }
 }
