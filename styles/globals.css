@@ -2,10 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  background-color: #eaecee;
-}
-
 .video-responsive {
   overflow: hidden;
   padding-bottom: 56.25%;
@@ -19,39 +15,4 @@ body {
   height: 29.5rem;
   width: 100%;
   position: absolute;
-}
-
-.h-33rem {
-  height: 33rem;
-}
-
-.has-small-font-size {
-  font-size: 13px;
-  line-height: 20px;
-}
-
-.has-medium-font-size {
-  font-size: 16px;
-  line-height: 24px;
-}
-
-.has-small-font-size {
-  font-size: 22px;
-  line-height: 32px;
-}
-
-ul {
-  list-style: disc;
-}
-ol {
-  list-style: decimal;
-}
-
-.list-margin li {
-  margin-left: 40px !important;
-}
-
-.list-margin p {
-  margin-bottom: 15px !important;
-  margin-top: 15px !important;
 }
