@@ -1,6 +1,7 @@
 import { useRouter } from 'next/router'
 import ResponsiveArticle from '../components/skeleton/ResponsiveArticle'
 import Head from 'next/head'
+import ReactHtmlParser from 'react-html-parser'
 
 function Test({ page }) {
   const router = useRouter()
