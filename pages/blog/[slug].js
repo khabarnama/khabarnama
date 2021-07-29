@@ -14,6 +14,8 @@ function Blog({ page }) {
   return (
     <>
       <Head>
+        {ReactHtmlParser(page.yoast_head)}
+
         <link
           rel='stylesheet'
           id='elementor-icons-css'

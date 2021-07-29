@@ -9,30 +9,19 @@ function HeaderClassic({ router }) {
   const navs = [
     { text: 'Home', href: '/' },
     {
-      text: 'Company',
+      text: 'Dropdown Pages',
       href: '#',
       dropdown: [
-        { text: 'About Us', href: '/about' },
-        { text: 'Core Team', href: '/team' }
+        { text: 'Vendors', href: '/vendors' },
+        { text: 'Club Layouts', href: '/club-layouts-exhibitors' }
       ]
     },
     {
-      text: 'Services',
+      text: 'About',
       href: '#',
-      dropdown: [
-        { text: 'Technology', href: '/technology' },
-        { text: 'Media', href: '/media' }
-      ]
+      dropdown: [{ text: 'About Us', href: '/about-us' }]
     },
-    {
-      text: 'Products',
-      href: '#',
-      dropdown: [
-        { text: 'WasalPay', href: 'https://wasalpay.com' },
-        { text: 'CoWorthy', href: 'https://coworthy.com' }
-      ]
-    },
-    { text: 'Contact', href: '/contact' }
+    { text: 'Vendors', href: '/vendors' }
   ]
 
   const [display, setDisplay] = useState(false)
