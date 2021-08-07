@@ -3,6 +3,9 @@ import Layout from '../components/Layout'
 import Router from 'next/router'
 import NProgress from 'nprogress' //nprogress module
 import 'nprogress/nprogress.css' //styles of nprogress
+import { QueryClient, QueryClientProvider } from 'react-query'
+
+const queryClient = new QueryClient()
 
 //Binding events.
 Router.events.on('routeChangeStart', () => NProgress.start())
@@ -25,11 +28,11 @@ Router.onRouteChangeComplete = () => {
 
 function MyApp({ Component, pageProps }) {
   return (
-    <>
+    <QueryClientProvider client={queryClient}>
       <Layout>
         <Component {...pageProps} />
       </Layout>
-    </>
+    </QueryClientProvider>
   )
 }
 

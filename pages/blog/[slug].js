@@ -14,7 +14,7 @@ function Blog({ page }) {
 
   return (
     <>
-      <Head>{ReactHtmlParser(page.yoast_head)}</Head>
+      <Head>{ReactHtmlParser(page[0].yoast_head)}</Head>
       <div dangerouslySetInnerHTML={{ __html: page[0].content.rendered }} />
     </>
   )
@@ -22,7 +22,7 @@ function Blog({ page }) {
 
 // This function gets called at build time
 export async function getStaticPaths() {
-  const res = await fetch(`https://ctechnical.solutions/wp-json/wp/v2/posts`)
+  const res = await fetch(`http://reporterly.net/wp-json/wp/v2/posts`)
   const posts = await res.json()
 
   const slugs = []
@@ -43,9 +43,7 @@ export async function getStaticProps({ params }) {
   let args = '_embed=true'
   const { slug } = params
 
-  const pageRes = await fetch(
-    `https://ctechnical.solutions/wp-json/wp/v2/posts?${args}&slug=${slug}`
-  )
+  const pageRes = await fetch(`http://reporterly.net/wp-json/wp/v2/posts?${args}&slug=${slug}`)
   const page = await pageRes.json()
 
   return {

@@ -1,3 +1,38 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+  font-family: 'Poppins', sans-serif !important;
+}
+.newsfeed li:before {
+  position: absolute;
+  left: 4px;
+  top: 0;
+  content: '';
+  height: 100%;
+  width: 0;
+  border-left: 2px solid #d2cfc9;
+}
+
+.newsfeed li:after {
+  position: absolute;
+  top: 0;
+  left: -1px;
+  margin-left: 0px;
+  content: '';
+  /* counter-increment: steps; */
+  border: 2px solid #fff;
+  border-radius: 50%;
+  display: inline-block;
+  height: 12px;
+  width: 12px;
+  text-align: center;
+  line-height: 24px;
+  background: #d2cfc9;
+  transition: all 0.6s;
+}
+
+.newsfeed li:hover:after {
+  background-color: rgba(153, 27, 27, 1);
+}
