@@ -12,7 +12,7 @@ function Projects() {
 
   const fetchProjects = async ({ pageParam = page }) => {
     const res = await fetch(
-      'http://reporterly.net/wp-json/wp/v2/posts?_embed=true&per_page=2&page=' + pageParam
+      'https://aleteia.org/wp-json/wp/v2/posts?_embed=true&per_page=2&page=' + pageParam
     )
     const totalPages = res.headers.get('X-WP-TotalPages')
     const posts = res.json()

@@ -4,7 +4,7 @@ import NotificationLoader from './skeleton/NotificationLoader'
 
 function LatestStories() {
   const { isLoading, error, data } = useQuery('repoData', () =>
-    fetch('http://reporterly.net/wp-json/wp/v2/posts').then((res) => res.json())
+    fetch('https://aleteia.org/wp-json/wp/v2/posts').then((res) => res.json())
   )
 
   if (isLoading) return <NotificationLoader />

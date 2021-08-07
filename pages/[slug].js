@@ -22,7 +22,7 @@ function Test({ page }) {
 
 // This function gets called at build time
 export async function getStaticPaths() {
-  const res = await fetch(`https://ctechnical.solutions/wp-json/wp/v2/pages?slug=test-test`)
+  const res = await fetch(`https://aleteia.org/wp-json/wp/v2/pages?per_page=1`)
   const posts = await res.json()
 
   const slugs = []
@@ -43,9 +43,7 @@ export async function getStaticProps({ params }) {
   let args = '_embed=true'
   const { slug } = params
 
-  const pageRes = await fetch(
-    `https://ctechnical.solutions/wp-json/wp/v2/pages?${args}&slug=${slug}`
-  )
+  const pageRes = await fetch(`https://aleteia.org/wp-json/wp/v2/pages?${args}&slug=${slug}`)
   const page = await pageRes.json()
 
   return {
