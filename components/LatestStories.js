@@ -1,11 +1,22 @@
 import PostSmall from './PostSmall'
-import { useQuery } from 'react-query'
+import { useQuery, useQueryClient } from 'react-query'
 import NotificationLoader from './skeleton/NotificationLoader'
+import { useEffect } from 'react'
 
 function LatestStories() {
-  const { isLoading, error, data } = useQuery('repoData', () =>
+  const { isLoading, error, data } = useQuery('lateststories', () =>
     fetch('https://aleteia.org/wp-json/wp/v2/posts').then((res) => res.json())
   )
+
+  const queryClient = new useQueryClient()
+
+  useEffect(() => {
+    return async () => {
+      await queryClient.prefetchQuery('lateststories', () =>
+        fetch('https://aleteia.org/wp-json/wp/v2/posts').then((res) => res.json())
+      )
+    }
+  }, [])
 
   if (isLoading) return <NotificationLoader />
 
