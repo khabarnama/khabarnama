@@ -11,6 +11,7 @@
     "@ap.cx/react-fullpage": "^0.2.0",
     "@appbaseio/reactivesearch": "3.18.0",
     "@tailwindcss/line-clamp": "^0.2.1",
+    "dateformat": "^4.5.1",
     "next": "^11.0.0",
     "next-pwa": "^5.2.21",
     "nprogress": "^0.2.0",
@@ -18,7 +19,8 @@
     "react-content-loader": "^6.0.3",
     "react-dom": "^17.0.2",
     "react-html-parser": "^2.0.2",
-    "react-query": "^3.19.2"
+    "react-query": "^3.19.2",
+    "react-share": "^4.4.0"
   },
   "devDependencies": {
     "autoprefixer": "^10.2.6",

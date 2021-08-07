@@ -1,257 +1,80 @@
 import { withRouter } from 'next/router'
 import Link from 'next/link'
-import React, { useState } from 'react'
 import SVGCross from './SVG/SVGCross'
 import SVGBurgernav from './SVG/SVGBurgernav'
 import ImageComponentity from './ImageComponentity'
+import Populartags from './Populartags'
 
-function HeaderClassic({ router }) {
-  const navs = [
-    { text: 'Home', href: '/' },
-    {
-      text: 'Dropdown Pages',
-      href: '#',
-      dropdown: [
-        { text: 'Vendors', href: '/vendors' },
-        { text: 'Club Layouts', href: '/club-layouts-exhibitors' }
-      ]
-    },
-    {
-      text: 'About',
-      href: '#',
-      dropdown: [{ text: 'About Us', href: '/about-us' }]
-    },
-    { text: 'Vendors', href: '/vendors' }
-  ]
-
-  const [display, setDisplay] = useState(false)
-
-  // console.log('LOGO URL: ', process.env.LOGO_URL)
-
+function HeaderClassic() {
   return (
     <>
-      <div className='w-full bg-white'>
-        <header className='max-w-screen-2xl mx-auto p-5 flex items-center justify-between relative'>
-          <Link href='/'>
-            <a aria-label='logo link'>
-              <ImageComponentity
-                src='https://admin.iap.af/wp-content/uploads/2021/06/IAP-Landscape-Transparent-e1626077042229.png'
-                classes='h-12 w-52 sm:w-68'
-              />
-            </a>
-          </Link>
-          <div
-            className={`z-10 ${display ? 'fixed' : 'hidden'} inset-0 overflow-hidden`}
-            aria-labelledby='slide-over-title'
-            role='dialog'
-            aria-modal='true'
-          >
-            <div className='absolute inset-0 overflow-hidden'>
-              <div
-                className='absolute inset-0 bg-gray-500 bg-opacity-75 transition-opacity'
-                aria-hidden='true'
-              ></div>
-
-              <div className='fixed inset-y-0 left-0 pr-20 max-w-full flex'>
-                <div className='relative w-screen max-w-md'>
-                  <div className='h-full flex flex-col py-6 bg-white shadow-xl overflow-y-scroll'>
-                    <div className='px-4 sm:px-6'>
-                      <Link href='/'>
-                        <a aria-label='logo link'>
-                          <ImageComponentity
-                            src='https://admin.iap.af/wp-content/uploads/2021/06/IAP-Landscape-Transparent-e1626077042229.png'
-                            classes='h-12 w-52 sm:h-16 sm:w-72'
-                          />
-                        </a>
-                      </Link>
-                    </div>
-                    <div className='mt-6 relative flex-1 px-4 sm:px-6'>
-                      <div className='absolute inset-0 px-4 sm:px-6'>
-                        <ul className='grid gap-3 list-none	'>
-                          {navs.map((nav, index) => {
-                            return nav.href != '#' ? (
-                              <li key={index}>
-                                <Link href={nav.href}>
-                                  <a
-                                    target={`${nav.href.startsWith('http') ? '_blank' : '_self'}`}
-                                    rel={`${nav.href.startsWith('http') && 'noreferrer'}`}
-                                    className={`block text-sm px-8 py-3 font-semibold hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 ${
-                                      router.pathname == nav.href
-                                        ? 'bg-gray-600 text-white '
-                                        : 'text-gray-700'
-                                    }`}
-                                    aria-label='nav link'
-                                  >
-                                    {nav.text}
-                                  </a>
-                                </Link>
-                              </li>
-                            ) : (
-                              <li key={index} className='dropdown inline-block relative'>
-                                <button className='block text-sm px-8 py-3 font-semibold flex gap-1'>
-                                  <span className='mr-1'>{nav.text}</span>
-                                  <svg
-                                    className='fill-current h-4 w-4'
-                                    xmlns='http://www.w3.org/2000/svg'
-                                    viewBox='0 0 20 20'
-                                  >
-                                    <path d='M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z' />{' '}
-                                  </svg>
-                                </button>
-                                <ul className='dropdown-menu block text-gray-700 pt-1 pl-3 list-none	'>
-                                  {nav.dropdown.map((nav, index) => {
-                                    return (
-                                      <li key={index}>
-                                        <Link href={nav.href}>
-                                          <a
-                                            target={`${
-                                              nav.href.startsWith('http') ? '_blank' : '_self'
-                                            }`}
-                                            rel={`${nav.href.startsWith('http') && 'noreferrer'}`}
-                                            className={`block text-sm px-8 py-3 font-semibold hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 ${
-                                              router.pathname == nav.href
-                                                ? 'bg-gray-600 text-white '
-                                                : 'text-gray-700'
-                                            }`}
-                                            aria-label='nav link'
-                                          >
-                                            {nav.text}
-                                          </a>
-                                        </Link>
-                                      </li>
-                                    )
-                                  })}
-                                </ul>
-                              </li>
-                            )
-                          })}
-                        </ul>
-                        <ul className='grid gap-3 mt-10 list-none	'>
-                          <li>
-                            <Link
-                              target='_blank'
-                              href='https://admin.iap.af/wp-content/uploads/2021/06/2021-Corporate-Profile.pdf'
-                            >
-                              <a aria-label='corporate profile' className='underline'>
-                                Download Our Corporate profile
-                              </a>
-                            </Link>
-                          </li>
-                          <li>
-                            <span>
-                              Have any questions?{' '}
-                              <Link href='tel:+93729444427'>
-                                <a aria-label='telephone' className='underline'>
-                                  0729 4444 27
-                                </a>
-                              </Link>
-                            </span>
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className='hidden lg:flex flex-col gap-2 items-center justify-between'>
-            <div className='text-gray-600 font-semibold py-2 block'>
-              <Link href='https://admin.iap.af/wp-content/uploads/2021/06/2021-Corporate-Profile.pdf'>
-                <a aria-label='corporate profile' className='hover:underline text-sm'>
-                  Download our corporate profile
+      <header className='bg-white p-4 px-8 border-b border-gray-100 mb-2'>
+        <section className='max-w-screen-2xl mx-auto grid grid-cols-1 md:grid-cols-12 items-center gap-5'>
+          <div className='col-span-9 flex gap-5 items-center'>
+            <div className='w-64 flex-none'>
+              <Link href='/'>
+                <a>
+                  <ImageComponentity
+                    src='https://reporterly.net/wp-content/themes/sharks/assets/images/logo.png'
+                    classes='h-10'
+                  />
                 </a>
               </Link>
             </div>
-            <ul className='flex flex-row gap-1 border-gray-600 border-t-2 list-none	'>
-              {navs.map((nav, index) => {
-                return nav.href != '#' ? (
-                  <li className='flex items-center justify-center' key={index}>
-                    <Link href={nav.href}>
-                      <a
-                        target={`${nav.href.startsWith('http') ? '_blank' : '_self'}`}
-                        rel={`${nav.href.startsWith('http') && 'noreferrer'}`}
-                        className={`py-2 px-5 font-semibold border-gray-600 hover:border-t-4 focus:outline-none ${
-                          router.pathname == nav.href ? '' : 'text-gray-700'
-                        }`}
-                        aria-label='nav link'
-                      >
-                        {nav.text}
-                      </a>
-                    </Link>
-                  </li>
-                ) : (
-                  <li
-                    key={index}
-                    className='dropdown flex items-center justify-center inline-block relative group'
-                  >
-                    <button className='block px-8 py-3 font-semibold text-gray-700 flex items-center gap-1'>
-                      <span className='mr-1'>{nav.text}</span>
-                      <svg
-                        className='fill-current h-4 w-4'
-                        xmlns='http://www.w3.org/2000/svg'
-                        viewBox='0 0 20 20'
-                      >
-                        <path d='M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z' />{' '}
-                      </svg>
-                    </button>
-                    <ul className='dropdown-menu hidden group-hover:block absolute left-0 top-0 bg-gray-600 text-white mt-10 z-10 list-none	'>
-                      {nav.dropdown.map((nav, index) => {
-                        return (
-                          <li key={index}>
-                            <Link href={nav.href}>
-                              <a
-                                target={`${nav.href.startsWith('http') ? '_blank' : '_self'}`}
-                                rel={`${nav.href.startsWith('http') && 'noreferrer'}`}
-                                className={`block text-sm px-8 py-3 font-semibold hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 ${
-                                  router.pathname == nav.href
-                                    ? 'bg-gray-600 text-white '
-                                    : 'text-white'
-                                }`}
-                                aria-label='nav link'
-                              >
-                                {nav.text}
-                              </a>
-                            </Link>
-                          </li>
-                        )
-                      })}
-                    </ul>
-                  </li>
-                )
-              })}
-            </ul>
-          </div>
-
-          <div className='h-16 hidden lg:flex items-center'>
-            <span className='mr-2'>
-              <ImageComponentity
-                src='https://admin.iap.af/wp-content/uploads/2018/08/conversations-4872_af60b258-251e-41af-b238-dfb706d7b3d4.svg'
-                classes={'w-12 h-12'}
-              />
-            </span>
-            <div className='flex flex-col items-center'>
-              <span className='mb-1 font-semibold text-gray-600'>Have any questions?</span>
-              <Link href='tel:+93729444427'>
-                <a aria-label='telephone' className='hover:underline'>
-                  <b>Call:</b> +93729444427
-                </a>
-              </Link>
+            <div className='flex-grow'>
+              <button
+                type='button'
+                className='group leading-6 flex items-center space-x-3 sm:space-x-4 text-gray-500 hover:text-gray-600 transition-colors duration-200 w-full py-2'
+              >
+                <svg
+                  width='24'
+                  height='24'
+                  fill='none'
+                  className='text-gray-400 group-hover:text-gray-500 transition-colors duration-200'
+                >
+                  <path
+                    d='M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z'
+                    stroke='currentColor'
+                    strokeWidth='2'
+                    strokeLinecap='round'
+                    strokeLinejoin='round'
+                  ></path>
+                </svg>
+                <span>
+                  Quick search<span className='hidden sm:inline'> for anything</span>
+                </span>
+                <Populartags />
+              </button>
             </div>
           </div>
-
-          <span className='md:hidden z-10 flex items-center justify-center gap-1'>
-            <button
-              aria-label='navbar-mobile'
-              onClick={() => setDisplay(!display)}
-              className='whitespace-no-wrap w-12 h-12 flex items-center justify-center px-4 py-2 border border-transparent text-base leading-6 font-medium rounded-full text-white bg-gray-600 hover:bg-gray-500 focus:outline-none focus:border-gray-700 focus:shadow-outline-gray active:bg-gray-700 transition ease-in-out duration-150'
-            >
-              {display ? <SVGCross /> : <SVGBurgernav />}
-            </button>
-          </span>
-        </header>
-      </div>
+          <div className='cols-span-1 md:col-span-3 pl-5'>
+            <div className='darkmode rounded-full bg-gray-50 flex justify-between p-5 mr-3'>
+              <span>Switch To</span>
+              <svg
+                className='h-6'
+                fill='currentColor'
+                xmlns='http://www.w3.org/2000/svg'
+                viewBox='0 0 512 512'
+                enableBackground='new 0 0 512 512'
+              >
+                <g>
+                  <g>
+                    <path d='m256,432.3c-11.3,0-20.4,9.1-20.4,20.4v27.9c0,11.3 9.1,20.4 20.4,20.4s20.4-9.1 20.4-20.4v-27.9c0-11.3-9.1-20.4-20.4-20.4z' />
+                    <path d='m256,102.5c-84.6,0-153.5,68.8-153.5,153.5 0,84.6 68.8,153.5 153.5,153.5 84.6,0 153.5-68.8 153.5-153.5 0-84.6-68.9-153.5-153.5-153.5zm0,266.1c-62.1,0-112.6-50.5-112.6-112.6 0-62.1 50.5-112.6 112.6-112.6s112.6,50.5 112.6,112.6c0,62.1-50.5,112.6-112.6,112.6z' />
+                    <path d='M256,79.7c11.3,0,20.4-9.1,20.4-20.4V31.4c0-11.3-9.1-20.4-20.4-20.4s-20.4,9.1-20.4,20.4v27.9    C235.6,70.6,244.7,79.7,256,79.7z' />
+                    <path d='m480.6,235.6h-27.9c-11.3,0-20.4,9.1-20.4,20.4 0,11.3 9.1,20.4 20.4,20.4h27.9c11.3,0 20.4-9.1 20.4-20.4 0-11.3-9.1-20.4-20.4-20.4z' />
+                    <path d='m59.3,235.6h-27.9c-11.3,0-20.4,9.1-20.4,20.4 0,11.3 9.1,20.4 20.4,20.4h27.9c11.3,0 20.4-9.1 20.4-20.4 1.42109e-14-11.3-9.1-20.4-20.4-20.4z' />
+                    <path d='m409.5,131.4l19.7-19.7c8-8 8-20.9 0-28.9-8-8-20.9-8-28.9,0l-19.7,19.7c-8,8-8,20.9 0,28.9s20.9,7.9 28.9,0z' />
+                    <path d='m102.5,380.6l-19.7,19.7c-8,8-8,20.9 0,28.9 8,8 20.9,8 28.9,0l19.7-19.7c8-8 8-20.9 0-28.9s-20.9-7.9-28.9,0z' />
+                    <path d='m409.5,380.6c-8-8-20.9-8-28.9,0-8,8-8,20.9 0,28.9l19.7,19.7c8,8 20.9,8 28.9,0 8-8 8-20.9 0-28.9l-19.7-19.7z' />
+                    <path d='m102.5,131.4c8,8 20.9,8 28.9,0 8-8 8-20.9 0-28.9l-19.7-19.7c-8-8-20.9-8-28.9,0-8,8-8,20.9 0,28.9l19.7,19.7z' />
+                  </g>
+                </g>
+              </svg>
+            </div>
+          </div>
+        </section>
+      </header>
     </>
   )
 }

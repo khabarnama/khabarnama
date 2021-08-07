@@ -11,7 +11,9 @@ module.exports = withPWA({
       'wp.en.aleteia.org',
       'en.aleteia.org',
       'aleteia.org',
-      'etilaatroz.com'
+      'etilaatroz.com',
+      'reporterly.net',
+      'secure.gravatar.com'
     ]
   }
 })

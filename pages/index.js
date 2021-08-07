@@ -29,7 +29,7 @@ function Projects() {
     })
 
   return status === 'loading' ? (
-    <ResponsiveArticle />
+    <ResponsiveArticle className='pl-5' />
   ) : status === 'error' ? (
     <p className='my-5 text-center text-red-800 font-semibold'>Error: {error.message}</p>
   ) : (

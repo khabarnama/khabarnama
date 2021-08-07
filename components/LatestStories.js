@@ -27,7 +27,7 @@ function LatestStories() {
       <div className='border-b border-gray-100 py-5 mb-2'>
         <h1 className='uppercase font-semibold mb-3'>Latest Stories</h1>
         <ul className='newsfeed text-gray-600'>
-          {data.map((post, i) => (
+          {data.map((post) => (
             <PostSmall post={post} />
           ))}
         </ul>
