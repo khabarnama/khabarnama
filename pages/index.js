@@ -2,13 +2,25 @@ import { useRouter } from 'next/router'
 import ResponsiveArticle from '../components/skeleton/ResponsiveArticle'
 import Head from 'next/head'
 import ReactHtmlParser from 'react-html-parser'
-import { useInfiniteQuery } from 'react-query'
-import react, { useState } from 'react'
+import { useInfiniteQuery, useQueryClient } from 'react-query'
+import react, { useState, useEffect } from 'react'
 import Post from './../components/Post'
 
 function Projects() {
   const [page, setPage] = useState(1)
   const [totalpages, setTotalpages] = useState(1)
+
+
+  const queryClient = new useQueryClient()
+
+  useEffect(() => {
+    return async () => {
+      await queryClient.prefetchQuery('projects', () =>
+        fetch('https://aleteia.org/wp-json/wp/v2/posts?_embed=true&per_page=4').then((res) => res.json())
+      )
+    }
+  }, [])
+
 
   const fetchProjects = async ({ pageParam = page }) => {
     const res = await fetch(
