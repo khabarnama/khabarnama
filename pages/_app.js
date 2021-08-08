@@ -9,7 +9,9 @@ import { ReactQueryDevtools } from 'react-query/devtools'
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
-      refetchOnWindowFocus: false
+      refetchOnWindowFocus: false,
+      keepPreviousData: true,
+      refetchOnMount: 'always'
     }
   }
 })
