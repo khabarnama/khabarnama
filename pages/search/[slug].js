@@ -4,7 +4,7 @@ import ResponsiveArticle from '../../components/skeleton/ResponsiveArticle'
 import Head from 'next/head'
 import ReactHtmlParser from 'react-html-parser'
 
-function Tag({ tag }) {
+function Search({ search }) {
   const router = useRouter()
 
   // If the page is not yet generated, this will be displayed
@@ -19,40 +19,40 @@ function Tag({ tag }) {
 
   return (
     <>
-      {tag.length === 0 ? (
-        <h1 className='pl-5'>NO POSTS WITH THIS TAG</h1>
+      {search.length === 0 ? (
+        <h1 className='pl-5'>NO POSTS FOUND</h1>
       ) : (
         <>
           <Head>
             {ReactHtmlParser(
-              tag[0].yoast_head.replace('https://aleteia.org', 'https://reporterly.net')
+              search[0].yoast_head.replace('https://aleteia.org', 'https://reporterly.net')
             )}
           </Head>
           <header className='px-5'>
             <h1 className='text-xl font-semibold mb-2'>
-              <span class='font-medium'>Tag: </span>
-              {tag[0].name}
+              <span className='font-medium'>Search Results For: </span>
+              {search[0].name}
             </h1>
-            <article dangerouslySetInnerHTML={{ __html: tag[0].description }} />
+            <article dangerouslySetInnerHTML={{ __html: search[0].description }} />
             <hr className='my-4' />
           </header>
-          <Infiniteblog type='tags' type_id={tag[0].id} />
+          <Infiniteblog type='search' type_id={search[0].id} />
         </>
       )}
     </>
   )
 }
 
-export default Tag
+export default Search
 
 // This function gets called at build time
 export async function getStaticPaths() {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/tags?order=desc&orderby=count`)
-  const tags = await res.json()
+  const res = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/posts`)
+  const posts = await res.json()
 
   const slugs = []
-  tags.forEach((tag) => {
-    slugs.push({ params: { slug: tag.slug } })
+  posts.forEach((post) => {
+    slugs.push({ params: { slug: post.slug } })
   })
 
   return {
@@ -64,11 +64,10 @@ export async function getStaticPaths() {
 // This also gets called at build time
 export async function getStaticProps({ params }) {
   const { slug } = params
-  const res = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/tags?slug=${slug}`)
-  const tag = await res.json()
+  const res = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/posts?search=${slug}&_embed=true`)
+  const search = await res.json()
 
-  // Pass post data to the page via props
   return {
-    props: { tag }
+    props: { search }
   }
 }

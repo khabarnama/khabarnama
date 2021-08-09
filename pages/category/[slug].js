@@ -25,11 +25,14 @@ function Category({ category }) {
         <>
           <Head>
             {ReactHtmlParser(
-              category[0].yoast_head.replace('https://aleteia.org', 'https://reporterly.vercel.app')
+              category[0].yoast_head.replace('https://aleteia.org', 'https://reporterly.net')
             )}
           </Head>
           <header className='px-5'>
-            <h1 className='text-xl font-bold uppercase mb-2'>{category[0].name}</h1>
+            <h1 className='text-xl font-semibold mb-2'>
+              <span className='font-medium'>Category: </span>
+              {category[0].name}
+            </h1>
             <article dangerouslySetInnerHTML={{ __html: category[0].description }} />
             <hr className='my-4' />
           </header>
@@ -44,7 +47,7 @@ export default Category
 
 // This function gets called at build time
 export async function getStaticPaths() {
-  const res = await fetch(`https://aleteia.org/wp-json/wp/v2/categories?order=desc&orderby=count`)
+  const res = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/categories?order=desc&orderby=count`)
   const categories = await res.json()
 
   const slugs = []
@@ -61,7 +64,7 @@ export async function getStaticPaths() {
 // This also gets called at build time
 export async function getStaticProps({ params }) {
   const { slug } = params
-  const res = await fetch(`https://aleteia.org/wp-json/wp/v2/categories?slug=${slug}`)
+  const res = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/categories?slug=${slug}`)
   const category = await res.json()
 
   // Pass post data to the page via props

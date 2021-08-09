@@ -15,7 +15,7 @@ function Post({ post }) {
         id={post.id}
         className='blog hover:bg-purple-50 hover:bg-purple-50 overflow-hidden flex flex-col mx-auto px-5'
       >
-        <div className='flex flex-col gap-3 p-7 pb-3'>
+        <div className='flex flex-col gap-3 p-3 md:p-7 pb-3'>
           <Link href={`/${post.slug}`}>
             <a className='font-semibold text-xl md:text-2xl inline-block hover:text-red-700 transition duration-500 ease-in-out inline-block mb-2'>
               <h1 dangerouslySetInnerHTML={{ __html: post.title.rendered }} />
@@ -39,7 +39,7 @@ function Post({ post }) {
                 </Link>
                 <div className='text-xs'>
                   <Link href={`/author/${post._embedded.author.slug}`}>
-                    <a className='text-gray-900 font-semibold leading-none text-sm hover:text-red-700'>
+                    <a className='text-gray-900 font-semibold leading-none text-xs md:text-sm hover:text-red-700'>
                       {post._embedded.author.name}
                     </a>
                   </Link>
@@ -64,19 +64,19 @@ function Post({ post }) {
           {post.featured_media != 0 && post.featured_media != null && (
             <ImageComponentity
               src={post._embedded['wp:featuredmedia'][0].source_url}
-              classes={'h-72 bg-gray-300 rounded-xl overflow-hidden'}
+              classes={'h-48 md:h-72 bg-gray-300 rounded-xl overflow-hidden'}
               alt={post.title.rendered}
             />
           )}
         </div>
-        <div className='p-7 pb-5 border-b border-gray-100'>
+        <div className='p-3 md:p-7 pb-5 border-b border-gray-100'>
           <div
-            className='text-gray-700 text-base leading-8'
+            className='text-gray-700 text-sm md:text-base h-24 overflow-hidden line-clamp-4 leading-6 md:leading-8'
             dangerouslySetInnerHTML={{ __html: post.excerpt.rendered }}
           />
-          <div className='text-sm font-regular text-gray-900 flex mt-4 flex items-center justify-between'>
-            <div className='flex'>
-              <span className='mr-5 flex flex-row items-center'>
+          <div className='text-xs md:text-sm font-regular text-gray-900 flex mt-4 flex items-center justify-between'>
+            <div className='flex overflow-scroll scrollbar-hide'>
+              <span className='mr-3 flex-none flex flex-row items-center'>
                 <SVGClock />
                 <span className='ml-1'>{dateFormat(post.date_gmt, 'mmm dS')}</span>
               </span>
@@ -89,7 +89,11 @@ function Post({ post }) {
                           (term.taxonomy == 'category' ? '/category' : '/tag') + `/${term.slug}`
                         }
                       >
-                        <a className='mr-3 flex items-center hover:text-red-700'>
+                        <a
+                          className={`mr-1 sm:mr-3 ${
+                            index == 1 ? 'hidden sm:flex' : 'flex'
+                          } flex-none items-center hover:text-red-700`}
+                        >
                           {term.taxonomy == 'category' ? <SVGCategory /> : <SVGTag />}
                           <span className='ml-1' dangerouslySetInnerHTML={{ __html: term.name }} />
                         </a>

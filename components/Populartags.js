@@ -27,9 +27,13 @@ function Populartags() {
     return <p className='text-red-800 font-semibold'>'An error has occurred: ' + error.message</p>
   return (
     <>
-      {data.map((tag) => (
+      {data.map((tag, index) => (
         <Link key={tag.id} href={`/tag/${tag.slug}`}>
-          <a className='border border-gray-100 hover:bg-red-700 hover:text-white transition duration-300 ease-in-out text-xs p-2 rounded-md'>
+          <a
+            className={`${
+              index == 3 ? 'hidden sm:flex' : ''
+            }flex-none sm:border border-gray-100 hover:bg-red-700 hover:text-white transition duration-300 ease-in-out text-xs sm:p-2 rounded-md`}
+          >
             #{tag.name}
           </a>
         </Link>

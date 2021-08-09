@@ -1,82 +1,31 @@
 import HeaderClassic from './HeaderClassic'
 import LatestStories from './LatestStories'
+import SVGHome from './../components/SVG/SVGHome'
+import SVGNotification from './../components/SVG/SVGNotification'
 
 export default function Layout({ children }) {
   return (
-    <div className='bg-white p-4 flex flex-col gap-5'>
+    <div className='bg-white py-4 md:px-4 flex flex-col md:gap-5'>
       <HeaderClassic />
       <div className='main grid grid-cols-12 justify-between'>
-        <div className='col-span-9 flex'>
-          <div className='md:w-72 flex-none border-r border-gray-100'>
-            <div className='sticky top-0 bg-white p-8 pt-0 pr-1'>
-              <ul className='navigationbar my-5 border-y flex flex-col text-lg'>
+        <div className='col-span-12 md:col-span-9 flex'>
+          <div className='block fixed bottom-0 right-0 left-0 md:relative bg-white z-50 md:inline-block md:w-72 md:flex-none md:border-r border-gray-100'>
+            <div className='md:sticky md:top-0 bg-white md:p-8 md:pt-0 md:pr-1'>
+              <ul className='navigationbar md:my-5 border-y flex flex-row justify-around md:flex-col text-lg'>
                 <li>
-                  <a
-                    href='#'
-                    className='text-red-800 hover:text-red-700 px-5 py-3 hover:bg-red-50 transition duration-300 ease-in-out rounded-full font-semibold flex items-center'
-                  >
-                    <svg
-                      className='h-8 text-red-800'
-                      fill='currentColor'
-                      viewBox='0 0 24 24'
-                      id='_24x24_On_Light_Queue-In'
-                      data-name='24x24/On Light/Queue-In'
-                      xmlns='http://www.w3.org/2000/svg'
-                    >
-                      <rect id='view-box' width='24' height='24' fill='none' />
-                      <path
-                        id='Shape'
-                        d='M3.75,19.5A3.75,3.75,0,0,1,0,15.75V6.607A2.607,2.607,0,0,1,2.607,4H4V2.75A2.754,2.754,0,0,1,6.75,0h10A2.753,2.753,0,0,1,19.5,2.75v10a2.752,2.752,0,0,1-2.75,2.75H15.5v1.393A2.607,2.607,0,0,1,12.892,19.5ZM1.5,6.607V15.75A2.25,2.25,0,0,0,3.75,18h9.142A1.108,1.108,0,0,0,14,16.893V15.5H6.75A2.753,2.753,0,0,1,4,12.75V5.5H2.607A1.107,1.107,0,0,0,1.5,6.607Zm4-3.857v10A1.252,1.252,0,0,0,6.75,14h10A1.251,1.251,0,0,0,18,12.75v-10A1.251,1.251,0,0,0,16.75,1.5h-10A1.252,1.252,0,0,0,5.5,2.75ZM9.25,10.5a.75.75,0,1,1,0-1.5h5a.75.75,0,1,1,0,1.5Z'
-                        transform='translate(2.25 2.25)'
-                        fill='currentColor'
-                      />
-                      <path
-                        id='Shape-2'
-                        data-name='Shape'
-                        d='M.75,1.5h5a.75.75,0,0,0,0-1.5h-5a.75.75,0,0,0,0,1.5Z'
-                        transform='translate(17.25 8.75) rotate(-180)'
-                        fill='currentColor'
-                      />
-                    </svg>
-                    <span className='ml-2'>Home</span>
+                  <a className='text-red-800 hover:text-red-700 p-3 md:px-5 md:py-3 hover:bg-red-50 transition duration-300 ease-in-out rounded-full font-semibold flex items-center'>
+                    <SVGHome />
+                    <span className='ml-2 hidden md:inline-block'>Home</span>
                   </a>
                 </li>
                 <li>
-                  <a
-                    href='#'
-                    className='flex items-center hover:text-red-700 px-5 py-3 hover:bg-red-50 transition duration-300 ease-in-out rounded-full'
-                  >
-                    <svg
-                      className='h-8'
-                      fill='currentColor'
-                      viewBox='0 0 24 24'
-                      id='_24x24_On_Light_Notification-Alert'
-                      data-name='24x24/On Light/Notification-Alert'
-                      xmlns='http://www.w3.org/2000/svg'
-                    >
-                      <rect id='view-box' width='24' height='24' fill='none' />
-                      <path
-                        id='Shape'
-                        d='M6,17v-.5H2.25A2.253,2.253,0,0,1,0,14.25v-.382a2.542,2.542,0,0,1,1.415-2.289A1.247,1.247,0,0,0,2.1,10.572l.446-4.91A6.227,6.227,0,0,1,10.618.286a5.477,5.477,0,0,0-.635,1.374A4.794,4.794,0,0,0,8.75,1.5,4.7,4.7,0,0,0,4.045,5.8L3.6,10.708A2.739,2.739,0,0,1,2.089,12.92a1.055,1.055,0,0,0-.589.949v.382A.751.751,0,0,0,2.25,15h13A.751.751,0,0,0,16,14.25v-.382a1.053,1.053,0,0,0-.586-.948A2.739,2.739,0,0,1,13.9,10.708l-.2-2.18a5.473,5.473,0,0,0,1.526.221l.166,1.822a1.26,1.26,0,0,0,.686,1.005,2.547,2.547,0,0,1,1.418,2.29v.382a2.252,2.252,0,0,1-2.25,2.25H11.5V17A2.75,2.75,0,0,1,6,17Zm1.5,0A1.25,1.25,0,0,0,10,17v-.5H7.5ZM15.047,6.744A3.486,3.486,0,0,1,13.5,6.28L13.456,5.8a4.7,4.7,0,0,0-1.648-3.185,3.5,3.5,0,0,1,.61-1.417A6.221,6.221,0,0,1,14.95,5.662l.1,1.081v0Z'
-                        transform='translate(3.25 2.25)'
-                        fill='currentColor'
-                      />
-                      <path
-                        id='Shape-2'
-                        data-name='Shape'
-                        d='M3.5,7A3.5,3.5,0,1,1,7,3.5,3.5,3.5,0,0,1,3.5,7Z'
-                        transform='translate(15 2)'
-                        fill='#ff6359'
-                      />
-                    </svg>
-                    <span className='ml-2'>Latest Stories</span>
+                  <a className='flex items-center hover:text-red-700 p-3 md:px-5 md:py-3 hover:bg-red-50 transition duration-300 ease-in-out rounded-full'>
+                    <SVGNotification />
+                    <span className='ml-2 hidden md:inline-block'>Latest Stories</span>
                   </a>
                 </li>
                 <li>
-                  <a
-                    href='#'
-                    className='flex items-center hover:text-red-700 px-5 py-3 hover:bg-red-50 transition duration-300 ease-in-out rounded-full'
-                  >
+                  <a className='flex items-center hover:text-red-700 p-3 md:px-5 md:py-3 hover:bg-red-50 transition duration-300 ease-in-out rounded-full'>
                     <svg className='h-7 ml-1 mr-1' fill='currentColor' viewBox='0 0 512 512'>
                       <g>
                         <g>
@@ -140,14 +89,11 @@ export default function Layout({ children }) {
                       </g>
                     </svg>
 
-                    <span className='ml-2'>Beyond Afg</span>
+                    <span className='ml-2 hidden md:inline-block'>Beyond Afg</span>
                   </a>
                 </li>
                 <li>
-                  <a
-                    href='#'
-                    className='flex items-center hover:text-red-700 px-5 py-3 hover:bg-red-50 transition duration-300 ease-in-out rounded-full'
-                  >
+                  <a className='flex items-center hover:text-red-700 p-3 md:px-5 md:py-3 hover:bg-red-50 transition duration-300 ease-in-out rounded-full'>
                     <svg
                       className='h-8'
                       fill='currentColor'
@@ -164,14 +110,11 @@ export default function Layout({ children }) {
                         fill='currentColor'
                       />
                     </svg>
-                    <span className='ml-2'>Narratives</span>
+                    <span className='ml-2 hidden md:inline-block'>Narratives</span>
                   </a>
                 </li>
                 <li>
-                  <a
-                    href='#'
-                    className='flex items-center hover:text-red-700 px-5 py-3 hover:bg-red-50 transition duration-300 ease-in-out rounded-full'
-                  >
+                  <a className='flex items-center hover:text-red-700 p-3 md:px-5 md:py-3 hover:bg-red-50 transition duration-300 ease-in-out rounded-full'>
                     <svg
                       className='h-8'
                       fill='currentColor'
@@ -188,14 +131,11 @@ export default function Layout({ children }) {
                         fill='currentColor'
                       />
                     </svg>
-                    <span className='ml-2'>Social Voices</span>
+                    <span className='ml-2 hidden md:inline-block'>Social Voices</span>
                   </a>
                 </li>
                 <li>
-                  <a
-                    href='#'
-                    className='flex items-center hover:text-red-700 px-5 py-3 hover:bg-red-50 transition duration-300 ease-in-out rounded-full'
-                  >
+                  <a className='flex items-center hover:text-red-700 p-3 md:px-5 md:py-3 hover:bg-red-50 transition duration-300 ease-in-out rounded-full'>
                     <svg
                       className='h-8'
                       fill='currentColor'
@@ -212,11 +152,11 @@ export default function Layout({ children }) {
                         fill='currentColor'
                       />
                     </svg>
-                    <span className='ml-2'>Watch</span>
+                    <span className='ml-2 hidden md:inline-block'>Watch</span>
                   </a>
                 </li>
               </ul>
-              <div className='ml-4'>
+              <div className='ml-4 hidden md:inline-block'>
                 <button className='text-center px-7 py-3 bg-red-700 text-white rounded-full shadow-md hover:bg-red-800 transition duration-300 ease-in-out'>
                   See Archives
                 </button>

@@ -41,47 +41,39 @@ function SearchForm() {
 
   return (
     <>
-      <button
-        aria-label='navbar-mobile'
-        onClick={() => setDisplay(!display)}
-        className='whitespace-no-wrap inline-flex items-center justify-center px-4 py-2 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition ease-in-out duration-150'
+      <form
+        className='w-96 hidden md:flex flex-row items-center gap-2'
+        onSubmit={(e) => onSubmitHandler(e)}
       >
-        {display ? <SVGCross /> : <SVGSearch />}
-      </button>
-
-      <div
-        className={`${
-          display ? 'block' : 'hidden'
-        } z-10 absolute -ml-60 mt-48 md:mt-32 transform px-2 w-screen max-w-5xl sm:px-0 lg:ml-0 lg:left-1/2 lg:-translate-x-1/2`}
-      >
-        <div className='rounded-lg shadow-lg'>
-          <div className='rounded-lg shadow-xs overflow-hidden'>
-            <div className='px-5 py-5 bg-gray-50 space-y-6 sm:flex sm:space-y-0 sm:space-x-10 sm:px-8'>
-              <form
-                className='w-full flex flex-col sm:flex-row sm:items-center gap-2'
-                onSubmit={(e) => onSubmitHandler(e)}
-              >
-                <input
-                  type='text'
-                  name='search'
-                  placeholder='Search...'
-                  onChange={(e) => inputHandler(e)}
-                  value={search}
-                  className='py-2 px-3 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border rounded-md'
-                />
-                <button
-                  className='bg-white py-2 px-5 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500'
-                  disabled={disabled}
-                  type='submit'
-                  onClick={(e) => onSubmitHandler(e)}
-                >
-                  {loading ? 'loading...' : 'Submit'}
-                </button>
-              </form>
-            </div>
-          </div>
-        </div>
-      </div>
+        <button
+          className='font-medium text-gray-700 hover:text-red-700'
+          disabled={disabled}
+          type='submit'
+          onClick={(e) => onSubmitHandler(e)}
+        >
+          {loading ? (
+            'loading...'
+          ) : (
+            <svg width='24' height='24' fill='none' className='text-gray-400'>
+              <path
+                d='M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z'
+                stroke='currentColor'
+                strokeWidth='2'
+                strokeLinecap='round'
+                strokeLinejoin='round'
+              ></path>
+            </svg>
+          )}
+        </button>
+        <input
+          type='text'
+          name='search'
+          placeholder='Search...'
+          onChange={(e) => inputHandler(e)}
+          value={search}
+          className='p-3 focus:ring-red-700 focus:border-red-700 rounded-md block w-full sm:text-sm'
+        />
+      </form>
     </>
   )
 }
