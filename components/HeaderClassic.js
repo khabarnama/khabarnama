@@ -22,29 +22,25 @@ function HeaderClassic() {
               </Link>
             </div>
             <div className='flex-grow'>
-              <button
-                type='button'
-                className='group leading-6 flex items-center space-x-3 sm:space-x-4 text-gray-500 hover:text-gray-600 transition-colors duration-200 w-full py-2'
-              >
-                <svg
-                  width='24'
-                  height='24'
-                  fill='none'
-                  className='text-gray-400 group-hover:text-gray-500 transition-colors duration-200'
-                >
-                  <path
-                    d='M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z'
-                    stroke='currentColor'
-                    strokeWidth='2'
-                    strokeLinecap='round'
-                    strokeLinejoin='round'
-                  ></path>
-                </svg>
-                <span>
-                  Quick search<span className='hidden sm:inline'> for anything</span>
-                </span>
-                <Populartags />
-              </button>
+              <div className='leading-6 flex items-center justify-between space-x-3 sm:space-x-4 text-gray-500 hover:text-gray-600 transition-colors duration-200 w-full py-2'>
+                <div class='flex gap-3'>
+                  <svg width='24' height='24' fill='none' className='text-gray-400'>
+                    <path
+                      d='M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z'
+                      stroke='currentColor'
+                      strokeWidth='2'
+                      strokeLinecap='round'
+                      strokeLinejoin='round'
+                    ></path>
+                  </svg>
+                  <span>
+                    Quick search<span className='hidden sm:inline'> for anything</span>
+                  </span>
+                </div>
+                <div class='flex gap-2'>
+                  <Populartags />
+                </div>
+              </div>
             </div>
           </div>
           <div className='cols-span-1 md:col-span-3 pl-5'>

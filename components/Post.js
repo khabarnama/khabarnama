@@ -81,14 +81,21 @@ function Post({ post }) {
                 <span className='ml-1'>{dateFormat(post.date_gmt, 'mmm dS')}</span>
               </span>
               {post._embedded['wp:term'].map((termArray) =>
-                termArray.map((term) => (
-                  <Link href={(term.taxonomy == 'category' ? 'category' : 'tag') + `/${term.slug}`}>
-                    <a className='mr-3 flex items-center hover:text-red-700'>
-                      {term.taxonomy == 'category' ? <SVGCategory /> : <SVGTag />}
-                      <span className='ml-1' dangerouslySetInnerHTML={{ __html: term.name }} />
-                    </a>
-                  </Link>
-                ))
+                termArray.map(
+                  (term, index) =>
+                    index < 3 && (
+                      <Link
+                        href={
+                          (term.taxonomy == 'category' ? '/category' : '/tag') + `/${term.slug}`
+                        }
+                      >
+                        <a className='mr-3 flex items-center hover:text-red-700'>
+                          {term.taxonomy == 'category' ? <SVGCategory /> : <SVGTag />}
+                          <span className='ml-1' dangerouslySetInnerHTML={{ __html: term.name }} />
+                        </a>
+                      </Link>
+                    )
+                )
               )}
             </div>
           </div>

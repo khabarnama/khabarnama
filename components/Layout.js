@@ -226,7 +226,7 @@ export default function Layout({ children }) {
           <div className='flex-grow flex flex-col'>{children}</div>
         </div>
 
-        <div className='hidden md:block relative col-span-3 bg-white px-5 h-screen overflow-y-scroll sticky top-0'>
+        <div className='hidden md:block relative col-span-3 bg-white pr-5 scrollbar-hide h-screen overflow-y-scroll sticky top-0'>
           <LatestStories />
           <div className='border-b border-gray-100 py-5 mb-2'>
             <h1 className='uppercase font-semibold mb-3'>ADS</h1>

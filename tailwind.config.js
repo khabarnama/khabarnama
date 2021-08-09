@@ -1,5 +1,5 @@
 module.exports = {
-  plugins: [require('@tailwindcss/line-clamp')],
+  plugins: [require('tailwind-scrollbar-hide')],
   purge: {
     content: ['./pages/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}']
   },
