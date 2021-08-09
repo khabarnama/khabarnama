@@ -15,7 +15,7 @@ function Projects() {
 
   useEffect(() => {
     return async () => {
-      await queryClient.prefetchQuery('projects', () =>
+      await queryClient.prefetchInfiniteQuery('projects', () =>
         fetch('https://aleteia.org/wp-json/wp/v2/posts?_embed=true&per_page=4').then((res) => res.json())
       )
     }
