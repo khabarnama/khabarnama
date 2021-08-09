@@ -16,7 +16,7 @@ function Post({ post }) {
         className='blog hover:bg-purple-50 hover:bg-purple-50 overflow-hidden flex flex-col mx-auto px-5'
       >
         <div className='flex flex-col gap-3 p-7 pb-3'>
-          <Link href={`/blog/${post.slug}`}>
+          <Link href={`/${post.slug}`}>
             <a className='font-semibold text-xl md:text-2xl inline-block hover:text-red-700 transition duration-500 ease-in-out inline-block mb-2'>
               <h1 dangerouslySetInnerHTML={{ __html: post.title.rendered }} />
             </a>
@@ -48,13 +48,13 @@ function Post({ post }) {
               </div>
             )}
             <div className='share flex gap-2 items-center text-gray-600'>
-              <TwitterShareButton url={`https://reporterly.net/blog/${post.slug}`}>
+              <TwitterShareButton url={`https://reporterly.net/${post.slug}`}>
                 <TwitterIcon size={24} round={false} />
               </TwitterShareButton>
-              <LinkedinShareButton url={`https://reporterly.net/blog/${post.slug}`}>
+              <LinkedinShareButton url={`https://reporterly.net/${post.slug}`}>
                 <LinkedinIcon size={24} round={false} />
               </LinkedinShareButton>
-              <FacebookShareButton url={`https://reporterly.net/blog/${post.slug}`}>
+              <FacebookShareButton url={`https://reporterly.net/${post.slug}`}>
                 <FacebookIcon size={24} round={false} />
               </FacebookShareButton>
             </div>
@@ -83,7 +83,7 @@ function Post({ post }) {
               {post._embedded['wp:term'].map((termArray) =>
                 termArray.map(
                   (term, index) =>
-                    index < 3 && (
+                    index < 2 && (
                       <Link
                         href={
                           (term.taxonomy == 'category' ? '/category' : '/tag') + `/${term.slug}`
