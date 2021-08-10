@@ -24,7 +24,7 @@ function LatestStories() {
     return <p className='text-red-800 font-semibold'>'An error has occurred: ' + error.message</p>
   return (
     <>
-      <div className='border-b border-gray-100 py-5 mb-2'>
+      <div className='border-b border-gray-100 py-5 ml-2 mb-2'>
         <h1 className='uppercase font-semibold mb-3'>Latest Stories</h1>
         <ul className='newsfeed text-gray-600'>
           {data.map((post) => (

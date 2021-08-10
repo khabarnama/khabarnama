@@ -1,5 +1,5 @@
 import { withRouter } from 'next/router'
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 
 import Link from 'next/link'
 import SVGCross from './SVG/SVGCross'
@@ -25,8 +25,16 @@ import SVGMoon from './SVG/SVGMoon'
 
 function HeaderClassic() {
   const [display, setDisplay] = useState(false)
-  const { theme, setTheme } = useTheme('light')
-
+  const { theme, setTheme } = useTheme()
+  const [isMounted, setIsMounted] = useState(false)
+  useEffect(() => {
+    setIsMounted(true)
+  }, [])
+  const switchTheme = () => {
+    if (isMounted) {
+      setTheme(theme === 'light' ? 'dark' : 'light')
+    }
+  }
   return (
     <>
       <header className=' p-4 lg:px-8 lg:border-b border-gray-100 lg:mb-2'>
@@ -47,10 +55,7 @@ function HeaderClassic() {
                 <div className='hidden md:inline-block lg:hidden'>
                   <SearchForm />
                 </div>
-                <div
-                  onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-                  className='inline-block lg:hidden cursor-pointer'
-                >
+                <div onClick={switchTheme} className='inline-block lg:hidden cursor-pointer'>
                   {theme === 'dark' ? <SVGSun /> : <SVGMoon />}
                 </div>
                 <button
@@ -67,14 +72,14 @@ function HeaderClassic() {
                 <div className='hidden lg:inline-block'>
                   <SearchForm />
                 </div>
-                <div className='flex gap-2 overflow-scroll scrollbar-hide'>
+                <div className='flex overflow-scroll scrollbar-hide'>
                   <span className='lg:hidden text-xs text-red-800 dark:text-red-600 font-semibold'>
                     Trending:
                   </span>
                   <Populartags />
                 </div>
                 <div
-                  onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+                  onClick={switchTheme}
                   className='cursor-pointer hidden lg:inline-block darkmode rounded-full bg-gray-50 p-5 mr-3'
                 >
                   {theme === 'dark' ? <SVGSun /> : <SVGMoon />}

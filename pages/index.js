@@ -15,7 +15,7 @@ function Index() {
 
   return (
     <>
-      <div className='ad p-5 hover:bg-purple-50'>
+      <div className='ad p-5 hover:bg-purple-50 dark:hover:bg-gray-900'>
         <a href='#' target='_blank'>
           <img
             src='https://www.etilaatroz.com/wp-content/uploads/2020/11/F45-fitness-training-afghanistan.jpg'

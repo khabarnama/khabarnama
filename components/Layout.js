@@ -11,6 +11,8 @@ import SVGMosque from './SVG/SVGMosque'
 import SVGTv from './SVG/SVGTv'
 import SVGHospital from './SVG/SVGHospital'
 import Link from 'next/link'
+import { useTheme } from 'next-themes'
+import { useState } from 'react'
 
 export default function Layout({ children }) {
   return (
