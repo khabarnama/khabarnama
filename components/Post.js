@@ -13,7 +13,7 @@ function Post({ post }) {
     <>
       <div
         id={post.id}
-        className='blog hover:bg-purple-50 hover:bg-purple-50 overflow-hidden flex flex-col mx-auto px-5'
+        className='blog hover:bg-purple-50 dark:hover:bg-gray-900 overflow-hidden flex flex-col mx-auto px-5'
       >
         <div className='flex flex-col gap-3 p-3 md:p-7 pb-3'>
           <Link href={`/${post.slug}`}>
@@ -71,10 +71,10 @@ function Post({ post }) {
         </div>
         <div className='p-3 md:p-7 pb-5 border-b border-gray-100'>
           <div
-            className='text-gray-700 text-sm md:text-base h-24 overflow-hidden line-clamp-4 leading-6 md:leading-8'
+            className='text-gray-700 dark:text-gray-300 text-sm md:text-base h-24 overflow-hidden line-clamp-4 leading-6 md:leading-8'
             dangerouslySetInnerHTML={{ __html: post.excerpt.rendered }}
           />
-          <div className='text-xs md:text-sm font-regular text-gray-900 flex mt-4 flex items-center justify-between'>
+          <div className='text-xs md:text-sm font-regular text-gray-900 dark:text-gray-100 flex mt-4 flex items-center justify-between'>
             <div className='flex overflow-scroll scrollbar-hide'>
               <span className='mr-3 flex-none flex flex-row items-center'>
                 <SVGClock />

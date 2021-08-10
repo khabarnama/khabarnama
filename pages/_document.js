@@ -8,7 +8,7 @@ class MyDocument extends Document {
 
   render() {
     return (
-      <Html lang='en'>
+      <Html lang='en' className='light'>
         <Head>
           <link rel='preconnect' href='https://fonts.gstatic.com' crossOrigin='true' />
           <link rel='preconnect' href='https://fonts.gstatic.com' />
@@ -26,9 +26,15 @@ class MyDocument extends Document {
           <meta name='msapplication-tap-highlight' content='no' />
           <meta name='theme-color' content='#000000' />
 
-          <link rel='apple-touch-icon' href='https://admin.iap.af/wp-content/uploads/2021/06/cropped-IAP-Square-Initials-scaled-1-192x192.jpg' />
+          <link
+            rel='apple-touch-icon'
+            href='https://admin.iap.af/wp-content/uploads/2021/06/cropped-IAP-Square-Initials-scaled-1-192x192.jpg'
+          />
           <link rel='manifest' href='/manifest.json' />
-          <link rel='shortcut icon' href='https://admin.iap.af/wp-content/uploads/2021/06/cropped-IAP-Square-Initials-scaled-1-192x192.jpg' />
+          <link
+            rel='shortcut icon'
+            href='https://admin.iap.af/wp-content/uploads/2021/06/cropped-IAP-Square-Initials-scaled-1-192x192.jpg'
+          />
         </Head>
         <body>
           <Main />

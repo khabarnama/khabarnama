@@ -41,10 +41,7 @@ function SearchForm() {
 
   return (
     <>
-      <form
-        className='w-96 hidden md:flex flex-row items-center gap-2'
-        onSubmit={(e) => onSubmitHandler(e)}
-      >
+      <form className='w-96 flex flex-row items-center gap-2' onSubmit={(e) => onSubmitHandler(e)}>
         <button
           className='font-medium text-gray-700 hover:text-red-700'
           disabled={disabled}

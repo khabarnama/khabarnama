@@ -5,12 +5,13 @@ import NProgress from 'nprogress' //nprogress module
 import 'nprogress/nprogress.css' //styles of nprogress
 import { QueryClient, QueryClientProvider } from 'react-query'
 import { ReactQueryDevtools } from 'react-query/devtools'
+import { ThemeProvider } from 'next-themes'
 
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
       refetchOnWindowFocus: false,
-      keepPreviousData: <i class="fas fa-temperature-high    "></i>
+      keepPreviousData: <i class='fas fa-temperature-high    '></i>
     }
   }
 })
@@ -36,9 +37,11 @@ Router.onRouteChangeComplete = () => {
 function MyApp({ Component, pageProps }) {
   return (
     <QueryClientProvider client={queryClient}>
-      <Layout>
-        <Component {...pageProps} />
-      </Layout>
+      <ThemeProvider attribute='class'>
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
+      </ThemeProvider>
       <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>
   )

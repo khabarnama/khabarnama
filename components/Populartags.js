@@ -32,7 +32,7 @@ function Populartags() {
           <a
             className={`${
               index == 3 ? 'hidden sm:flex' : ''
-            }flex-none sm:border border-gray-100 hover:bg-red-700 hover:text-white transition duration-300 ease-in-out text-xs sm:p-2 rounded-md`}
+            } flex-none lg:border border-gray-100 hover:bg-red-700 hover:text-white transition duration-300 ease-in-out text-xs lg:p-2 rounded-md`}
           >
             #{tag.name}
           </a>
