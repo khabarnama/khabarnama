@@ -30,7 +30,7 @@ export default function Layout({ children }) {
                   </Link>
                 </li>
                 <li>
-                  <Link href='/latest-stories'>
+                  <Link href='/category/latest-stories'>
                     <a className='flex items-center hover:text-red-700 p-3 lg:px-5 lg:py-3 hover:bg-red-50 transition duration-300 ease-in-out rounded-full'>
                       <SVGNotification />
                       <span className='ml-2 hidden lg:inline-block'>Latest Stories</span>
@@ -38,7 +38,7 @@ export default function Layout({ children }) {
                   </Link>
                 </li>
                 <li>
-                  <Link href='/latest-stories'>
+                  <Link href='/category/latest-stories'>
                     <a className='flex items-center hover:text-red-700 p-3 lg:px-5 lg:py-3 hover:bg-red-50 transition duration-300 ease-in-out rounded-full'>
                       <SVGSecurity />
                       <span className='ml-2 hidden lg:inline-block'>Security Trends</span>
@@ -46,7 +46,7 @@ export default function Layout({ children }) {
                   </Link>
                 </li>
                 <li>
-                  <Link href='/latest-stories'>
+                  <Link href='/category/latest-stories'>
                     <a className='flex items-center hover:text-red-700 p-3 lg:px-5 lg:py-3 hover:bg-red-50 transition duration-300 ease-in-out rounded-full'>
                       <SVGPeace />
                       <span className='ml-2 hidden lg:inline-block'>Peace Developments</span>
@@ -54,7 +54,7 @@ export default function Layout({ children }) {
                   </Link>
                 </li>
                 <li>
-                  <Link href='/latest-stories'>
+                  <Link href='/category/latest-stories'>
                     <a className='flex items-center hover:text-red-700 p-3 lg:px-5 lg:py-3 hover:bg-red-50 transition duration-300 ease-in-out rounded-full'>
                       <SVGSpeech />
                       <span className='ml-2 hidden lg:inline-block'>Political Dynamics</span>
@@ -62,7 +62,7 @@ export default function Layout({ children }) {
                   </Link>
                 </li>
                 <li>
-                  <Link href='/latest-stories'>
+                  <Link href='/category/latest-stories'>
                     <a className='flex items-center hover:text-red-700 p-3 lg:px-5 lg:py-3 hover:bg-red-50 transition duration-300 ease-in-out rounded-full'>
                       <SVGEconomy />
                       <span className='ml-2 hidden lg:inline-block'>Economic Situation</span>
@@ -70,7 +70,7 @@ export default function Layout({ children }) {
                   </Link>
                 </li>
                 <li>
-                  <Link href='/latest-stories'>
+                  <Link href='/category/latest-stories'>
                     <a className='flex items-center hover:text-red-700 p-3 lg:px-5 lg:py-3 hover:bg-red-50 transition duration-300 ease-in-out rounded-full'>
                       <SVGWomensymbol />
                       <span className='ml-2 hidden lg:inline-block'>Women Rights</span>
@@ -78,7 +78,7 @@ export default function Layout({ children }) {
                   </Link>
                 </li>
                 <li>
-                  <Link href='/latest-stories'>
+                  <Link href='/category/latest-stories'>
                     <a className='flex items-center hover:text-red-700 p-3 lg:px-5 lg:py-3 hover:bg-red-50 transition duration-300 ease-in-out rounded-full'>
                       <SVGMosque />
                       <span className='ml-2 hidden lg:inline-block'>Ethnic and Religious</span>
@@ -86,7 +86,7 @@ export default function Layout({ children }) {
                   </Link>
                 </li>
                 <li>
-                  <Link href='/latest-stories'>
+                  <Link href='/category/latest-stories'>
                     <a className='flex items-center hover:text-red-700 p-3 lg:px-5 lg:py-3 hover:bg-red-50 transition duration-300 ease-in-out rounded-full'>
                       <SVGTv />
                       <span className='ml-2 hidden lg:inline-block'>Media Status</span>
@@ -94,7 +94,7 @@ export default function Layout({ children }) {
                   </Link>
                 </li>
                 <li>
-                  <Link href='/latest-stories'>
+                  <Link href='/category/latest-stories'>
                     <a className='flex items-center hover:text-red-700 p-3 lg:px-5 lg:py-3 hover:bg-red-50 transition duration-300 ease-in-out rounded-full'>
                       <SVGHospital />
                       <span className='ml-2 hidden lg:inline-block'>Humanitarian Issues</span>

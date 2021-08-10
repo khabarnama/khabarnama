@@ -125,7 +125,7 @@ function HeaderClassic() {
                           </Link>
                         </li>
                         <li>
-                          <Link href='/latest-stories'>
+                          <Link href='/category/latest-stories'>
                             <a className='flex items-center hover:text-red-700 p-3 lg:px-5 lg:py-3 hover:bg-red-50 transition duration-300 ease-in-out rounded-full'>
                               <SVGNotification />
                               <span className='ml-2 '>Latest Stories</span>
@@ -133,7 +133,7 @@ function HeaderClassic() {
                           </Link>
                         </li>
                         <li>
-                          <Link href='/latest-stories'>
+                          <Link href='/category/latest-stories'>
                             <a className='flex items-center hover:text-red-700 p-3 lg:px-5 lg:py-3 hover:bg-red-50 transition duration-300 ease-in-out rounded-full'>
                               <SVGSecurity />
                               <span className='ml-2 '>Security Trends</span>
@@ -141,7 +141,7 @@ function HeaderClassic() {
                           </Link>
                         </li>
                         <li>
-                          <Link href='/latest-stories'>
+                          <Link href='/category/latest-stories'>
                             <a className='flex items-center hover:text-red-700 p-3 lg:px-5 lg:py-3 hover:bg-red-50 transition duration-300 ease-in-out rounded-full'>
                               <SVGPeace />
                               <span className='ml-2 '>Peace Developments</span>
@@ -149,7 +149,7 @@ function HeaderClassic() {
                           </Link>
                         </li>
                         <li>
-                          <Link href='/latest-stories'>
+                          <Link href='/category/latest-stories'>
                             <a className='flex items-center hover:text-red-700 p-3 lg:px-5 lg:py-3 hover:bg-red-50 transition duration-300 ease-in-out rounded-full'>
                               <SVGSpeech />
                               <span className='ml-2 '>Political Dynamics</span>
@@ -157,7 +157,7 @@ function HeaderClassic() {
                           </Link>
                         </li>
                         <li>
-                          <Link href='/latest-stories'>
+                          <Link href='/category/latest-stories'>
                             <a className='flex items-center hover:text-red-700 p-3 lg:px-5 lg:py-3 hover:bg-red-50 transition duration-300 ease-in-out rounded-full'>
                               <SVGEconomy />
                               <span className='ml-2 '>Economic Situation</span>
@@ -165,7 +165,7 @@ function HeaderClassic() {
                           </Link>
                         </li>
                         <li>
-                          <Link href='/latest-stories'>
+                          <Link href='/category/latest-stories'>
                             <a className='flex items-center hover:text-red-700 p-3 lg:px-5 lg:py-3 hover:bg-red-50 transition duration-300 ease-in-out rounded-full'>
                               <SVGWomensymbol />
                               <span className='ml-2 '>Women Rights</span>
@@ -173,7 +173,7 @@ function HeaderClassic() {
                           </Link>
                         </li>
                         <li>
-                          <Link href='/latest-stories'>
+                          <Link href='/category/latest-stories'>
                             <a className='flex items-center hover:text-red-700 p-3 lg:px-5 lg:py-3 hover:bg-red-50 transition duration-300 ease-in-out rounded-full'>
                               <SVGMosque />
                               <span className='ml-2 '>Ethnic and Religious</span>
@@ -181,7 +181,7 @@ function HeaderClassic() {
                           </Link>
                         </li>
                         <li>
-                          <Link href='/latest-stories'>
+                          <Link href='/category/latest-stories'>
                             <a className='flex items-center hover:text-red-700 p-3 lg:px-5 lg:py-3 hover:bg-red-50 transition duration-300 ease-in-out rounded-full'>
                               <SVGTv />
                               <span className='ml-2 '>Media Status</span>
@@ -189,7 +189,7 @@ function HeaderClassic() {
                           </Link>
                         </li>
                         <li>
-                          <Link href='/latest-stories'>
+                          <Link href='/category/latest-stories'>
                             <a className='flex items-center hover:text-red-700 p-3 lg:px-5 lg:py-3 hover:bg-red-50 transition duration-300 ease-in-out rounded-full'>
                               <SVGHospital />
                               <span className='ml-2 '>Humanitarian Issues</span>
