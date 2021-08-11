@@ -48,17 +48,17 @@ function Post({ post }) {
               </div>
             )}
             <div className='share flex items-center text-gray-600'>
-              <div className='mx-1'>
+              <div className='ml-1'>
                 <TwitterShareButton url={`https://reporterly.net/${post.slug}`}>
                   <TwitterIcon size={24} round={false} />
                 </TwitterShareButton>
               </div>
-              <div className='mx-1'>
+              <div className='ml-1'>
                 <LinkedinShareButton url={`https://reporterly.net/${post.slug}`}>
                   <LinkedinIcon size={24} round={false} />
                 </LinkedinShareButton>
               </div>
-              <div className='mx-1'>
+              <div className='ml-1'>
                 <FacebookShareButton url={`https://reporterly.net/${post.slug}`}>
                   <FacebookIcon size={24} round={false} />
                 </FacebookShareButton>
