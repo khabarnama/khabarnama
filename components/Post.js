@@ -9,6 +9,8 @@ import { FacebookIcon, LinkedinIcon, TwitterIcon } from 'react-share'
 function Post({ post }) {
   var dateFormat = require('dateformat')
 
+  console.log('POST: ', post)
+
   return (
     <>
       <div
@@ -22,28 +24,28 @@ function Post({ post }) {
             </a>
           </Link>
           <div className='flex justify-between'>
-            {post._embedded.author.slug && (
-              <div className='w-64 flex items-center'>
-                <Link href={`/author/${post._embedded.author.slug}`}>
+            {post._embedded.author[0].slug && (
+              <div className='flex items-center'>
+                <Link href={`/author/${post._embedded.author[0].slug}`}>
                   <a>
                     <ImageComponentity
-                      classes='w-10 h-10 rounded-full ml-2'
+                      classes='w-10 h-10 rounded-full overflow-hidden ml-2'
                       src={
-                        post._embedded.author.avatar_urls
-                          ? post._embedded.author.avatar_urls['96']
+                        post._embedded.author[0].avatar_urls
+                          ? post._embedded.author[0].avatar_urls['96']
                           : 'https://secure.gravatar.com/avatar/5ba47e3ab322d98712c8147821ede32a?s=4896&d=mm&r=g'
                       }
-                      alt={`Author: ` + post._embedded.author.name}
+                      alt={`نویسنده: ` + post._embedded.author[0].name}
                     />
                   </a>
                 </Link>
                 <div className='text-xs'>
-                  <Link href={`/author/${post._embedded.author.slug}`}>
+                  <Link href={`/author/${post._embedded.author[0].slug}`}>
                     <a className='text-gray-900 font-semibold leading-none text-xs md:text-sm hover:text-red-700'>
-                      {post._embedded.author.name}
+                      {post._embedded.author[0].name}
                     </a>
                   </Link>
-                  <p className='text-gray-600 text-xs'>{`@` + post._embedded.author.slug}</p>
+                  <p className='text-gray-600 text-xs'>{`@` + post._embedded.author[0].slug}</p>
                 </div>
               </div>
             )}
@@ -75,7 +77,7 @@ function Post({ post }) {
             />
           )}
         </div>
-        <div className='p-3 md:p-7 pb-5 border-b border-gray-100'>
+        <div className='p-3 md:p-7 pb-5 border-b border-gray-100 w-full'>
           <div
             className='text-gray-700 dark:text-gray-300 text-sm md:text-base h-24 overflow-hidden line-clamp-4 leading-6 md:leading-8'
             dangerouslySetInnerHTML={{ __html: post.excerpt.rendered }}
