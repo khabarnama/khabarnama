@@ -64,7 +64,7 @@ export default function Layout({ children }) {
             <h1 className='uppercase font-semibold mb-3'>تبلیغات</h1>
             <img
               className='w-full'
-              src='https://paikaftab.com/wp-content/uploads/2021/06/banner-1.jpg'
+              src='https://paikaftab.com/wp-content/uploads/2021/09/Ad.png'
             />
           </div>
         </div>

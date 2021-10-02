@@ -57,7 +57,7 @@ function Index() {
           <a target='_blank' rel='noopener'>
             <ImageComponentity
               src='https://www.etilaatroz.com/wp-content/uploads/2020/11/F45-fitness-training-afghanistan.jpg'
-              classes={'w-full'}
+              classes={'w-full h-24'}
               alt='Advertisement Fitness'
             />
           </a>
