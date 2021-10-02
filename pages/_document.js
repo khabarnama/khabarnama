@@ -8,16 +8,13 @@ class MyDocument extends Document {
 
   render() {
     return (
-      <Html lang='en' className='light'>
+      <Html lang='dr' className='light'>
         <Head>
-          <meta name='application-name' content='Khabarnama' />
+          <meta name='application-name' content='خبرنامه' />
           <meta name='apple-mobile-web-app-capable' content='yes' />
           <meta name='apple-mobile-web-app-status-bar-style' content='default' />
           <meta name='apple-mobile-web-app-title' content='IAP' />
-          <meta
-            name='description'
-            content='رسانه‌ای برای بازتاب رویدادها، وقایع و اتفاقات از طریق آنلاین  '
-          />
+          <meta name='description' content='رسانه‌ای برای نسل به هم‌پیوسته' />
           <meta name='format-detection' content='telephone=no' />
           <meta name='mobile-web-app-capable' content='yes' />
           <meta name='msapplication-config' content='/static/icons/browserconfig.xml' />
