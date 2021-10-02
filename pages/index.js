@@ -54,7 +54,7 @@ function Index() {
       </Head>
       <div className='ad p-5 hover:bg-purple-50 dark:hover:bg-gray-900'>
         <Link href='https://f45training.af/'>
-          <a target='_blank'>
+          <a target='_blank' rel='noopener'>
             <ImageComponentity
               src='https://www.etilaatroz.com/wp-content/uploads/2020/11/F45-fitness-training-afghanistan.jpg'
               classes={'w-full'}

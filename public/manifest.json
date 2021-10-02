@@ -1,6 +1,6 @@
 {
-    "name": "Intellectual Applications & Products",
-    "short_name": "IAP",
+    "name": "خبرنامه",
+    "short_name": "خبرنامه",
     "display": "standalone",
     "orientation": "portrait",
     "theme_color": "#FFFFFF",
@@ -8,13 +8,13 @@
     "start_url": "/",
     "icons": [
         {
-            "src": "https://admin.iap.af/wp-content/uploads/2021/06/cropped-IAP-Square-Initials-scaled-1-192x192.jpg",
+            "src": "http://khabarnama.net/wp-content/themes/shark/images/favicon.png",
             "sizes": "192x192",
             "type": "image/png",
             "purpose": "any maskable"
         },
         {
-            "src": "https://admin.iap.af/wp-content/uploads/2021/06/cropped-IAP-Square-Initials-scaled-1-192x192.jpg",
+            "src": "http://khabarnama.net/wp-content/themes/shark/images/favicon.png",
             "sizes": "512x512",
             "type": "image/png"
         }
