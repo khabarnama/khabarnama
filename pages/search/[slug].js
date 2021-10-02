@@ -24,7 +24,8 @@ function Search({ search }) {
       ) : (
         <>
           <Head>
-            {ReactHtmlParser(search[0].yoast_head.replace('subhekabul.com', 'khabarnama.net'))}
+            {search[0].yoast_head &&
+              ReactHtmlParser(search[0].yoast_head.replace('etilaatroz.com', 'khabarnama.net'))}
           </Head>
           <header className='px-5'>
             <h1 className='text-xl font-semibold mb-2'>
@@ -62,7 +63,9 @@ export async function getStaticPaths() {
 // This also gets called at build time
 export async function getStaticProps({ params }) {
   const { slug } = params
-  const res = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/posts?search=${slug}&_embed=true`)
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_SITE_URL}/posts?search=${encodeURI(slug)}&_embed=true`
+  )
   const search = await res.json()
 
   return {

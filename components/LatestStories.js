@@ -5,7 +5,7 @@ import { useEffect } from 'react'
 
 function LatestStories() {
   const { isLoading, error, data } = useQuery('lateststories', () =>
-    fetch('https://subhekabul.com/wp-json/wp/v2/posts').then((res) => res.json())
+    fetch('https://khaama.com/persian/wp-json/wp/v2/posts').then((res) => res.json())
   )
 
   const queryClient = new useQueryClient()
@@ -13,7 +13,7 @@ function LatestStories() {
   useEffect(() => {
     return async () => {
       await queryClient.prefetchQuery('lateststories', () =>
-        fetch('https://subhekabul.com/wp-json/wp/v2/posts').then((res) => res.json())
+        fetch('https://khaama.com/persian/wp-json/wp/v2/posts').then((res) => res.json())
       )
     }
   }, [])

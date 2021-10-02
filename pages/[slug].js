@@ -22,7 +22,7 @@ function Blog({ post }) {
 
   return (
     <>
-      <Head>{ReactHtmlParser(post.yoast_head)}</Head>
+      <Head>{post.yoast_head && ReactHtmlParser(post.yoast_head)}</Head>
       <div id={post.id} className='blog flex flex-col mx-auto px-5'>
         <div className='flex flex-col gap-3 p-7 pb-3'>
           <h1
@@ -35,13 +35,13 @@ function Blog({ post }) {
                 <Link href={`/author/${post._embedded.author.slug}`}>
                   <a>
                     <ImageComponentity
-                      classes='w-10 h-10 rounded-full mr-2'
+                      classes='w-10 h-10 rounded-full ml-2'
                       src={
                         post._embedded.author.avatar_urls
                           ? post._embedded.author.avatar_urls['96']
                           : 'https://secure.gravatar.com/avatar/5ba47e3ab322d98712c8147821ede32a?s=4896&d=mm&r=g'
                       }
-                      alt={`Author: ` + post._embedded.author.name}
+                      alt={`نویسنده: ` + post._embedded.author.name}
                     />
                   </a>
                 </Link>
@@ -56,13 +56,13 @@ function Blog({ post }) {
               </div>
             )}
             <div className='share flex gap-2 items-center text-gray-600'>
-              <TwitterShareButton url={`https://reporterly.net/${post.slug}`}>
+              <TwitterShareButton url={`https://khabarnama.net/${post.slug}`}>
                 <TwitterIcon size={24} round={false} />
               </TwitterShareButton>
-              <LinkedinShareButton url={`https://reporterly.net/${post.slug}`}>
+              <LinkedinShareButton url={`https://khabarnama.net/${post.slug}`}>
                 <LinkedinIcon size={24} round={false} />
               </LinkedinShareButton>
-              <FacebookShareButton url={`https://reporterly.net/${post.slug}`}>
+              <FacebookShareButton url={`https://khabarnama.net/${post.slug}`}>
                 <FacebookIcon size={24} round={false} />
               </FacebookShareButton>
             </div>
@@ -84,9 +84,9 @@ function Blog({ post }) {
           />
           <div className='text-sm font-regular text-gray-900 flex mt-4 flex items-center justify-between'>
             <div className='flex'>
-              <span className='mr-5 flex flex-row items-center'>
+              <span className='ml-5 flex flex-row items-center'>
                 <SVGClock />
-                <span className='ml-1'>{dateFormat(post.date_gmt, 'mmm dS')}</span>
+                <span className='mr-1'>{dateFormat(post.date_gmt, 'mmm dS')}</span>
               </span>
               {post._embedded['wp:term'].map((termArray) =>
                 termArray.map(
@@ -99,7 +99,7 @@ function Blog({ post }) {
                       >
                         <a className='mr-3 flex items-center hover:text-red-700'>
                           {term.taxonomy == 'category' ? <SVGCategory /> : <SVGTag />}
-                          <span className='ml-1' dangerouslySetInnerHTML={{ __html: term.name }} />
+                          <span className='mr-1' dangerouslySetInnerHTML={{ __html: term.name }} />
                         </a>
                       </Link>
                     )
@@ -136,7 +136,9 @@ export async function getStaticProps({ params }) {
   let args = '_embed=true'
   const { slug } = params
 
-  const pageRes = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/posts?${args}&slug=${slug}`)
+  const pageRes = await fetch(
+    `${process.env.NEXT_PUBLIC_SITE_URL}/posts?${args}&slug=${encodeURI(slug)}`
+  )
   const page = await pageRes.json()
   const post = page[0]
 

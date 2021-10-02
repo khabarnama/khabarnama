@@ -4,7 +4,7 @@ import Link from 'next/link'
 
 function Populartags() {
   const { isLoading, error, data } = useQuery('populartags', () =>
-    fetch('https://subhekabul.com/wp-json/wp/v2/tags?order=desc&orderby=count&per_page=4').then(
+    fetch('https://khaama.com/persian/wp-json/wp/v2/tags?order=desc&orderby=count&per_page=4').then(
       (res) => res.json()
     )
   )
@@ -14,9 +14,9 @@ function Populartags() {
   useEffect(() => {
     return async () => {
       await queryClient.prefetchQuery('populartags', () =>
-        fetch('https://subhekabul.com/wp-json/wp/v2/tags?order=desc&orderby=count&per_page=4').then(
-          (res) => res.json()
-        )
+        fetch(
+          'https://khaama.com/persian/wp-json/wp/v2/tags?order=desc&orderby=count&per_page=4'
+        ).then((res) => res.json())
       )
     }
   }, [])

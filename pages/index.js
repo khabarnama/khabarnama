@@ -1,7 +1,5 @@
 import { useRouter } from 'next/router'
 import ResponsiveArticle from '../components/skeleton/ResponsiveArticle'
-import Head from 'next/head'
-import ReactHtmlParser from 'react-html-parser'
 import Infiniteblog from './../components/Infiniteblog'
 
 function Index() {

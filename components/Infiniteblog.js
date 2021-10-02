@@ -16,7 +16,7 @@ export default function Infinteblog({ type, type_id }) {
   useEffect(() => {
     return async () => {
       await queryClient.prefetchInfiniteQuery('projects', () =>
-        fetch(`https://subhekabul.com/wp-json/wp/v2/posts?_embed=true&per_page=4${args}`).then(
+        fetch(`https://khaama.com/persian/wp-json/wp/v2/posts?_embed=true&per_page=4${args}`).then(
           (res) => res.json()
         )
       )
@@ -25,7 +25,8 @@ export default function Infinteblog({ type, type_id }) {
 
   const fetchProjects = async ({ pageParam = page }) => {
     const res = await fetch(
-      `https://subhekabul.com/wp-json/wp/v2/posts?_embed=true${args}&per_page=2&page=` + pageParam
+      `https://khaama.com/persian/wp-json/wp/v2/posts?_embed=true${args}&per_page=2&page=` +
+        pageParam
     )
     const totalPages = res.headers.get('X-WP-TotalPages')
     const posts = res.json()

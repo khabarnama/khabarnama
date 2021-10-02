@@ -24,7 +24,8 @@ function Category({ category }) {
       ) : (
         <>
           <Head>
-            {ReactHtmlParser(category[0].yoast_head.replace('subhekabul.com', 'khabarnama.net'))}
+            {category[0].yoast_head &&
+              ReactHtmlParser(category[0].yoast_head.replace('etilaatroz.com', 'khabarnama.net'))}
           </Head>
           <header className='px-5'>
             <h1 className='text-xl font-semibold mb-2'>
@@ -62,7 +63,7 @@ export async function getStaticPaths() {
 // This also gets called at build time
 export async function getStaticProps({ params }) {
   const { slug } = params
-  const res = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/categories?slug=${slug}`)
+  const res = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/categories?slug=${encodeURI(slug)}`)
   const category = await res.json()
 
   // Pass post data to the page via props

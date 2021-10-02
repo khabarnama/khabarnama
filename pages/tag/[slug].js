@@ -24,7 +24,8 @@ function Tag({ tag }) {
       ) : (
         <>
           <Head>
-            {ReactHtmlParser(tag[0].yoast_head.replace('subhekabul.com', 'khabarnama.net'))}
+            {tag[0].yoast_head &&
+              ReactHtmlParser(tag[0].yoast_head.replace('subhekabul.com', 'khabarnama.net'))}
           </Head>
           <header className='px-5'>
             <h1 className='text-xl font-semibold mb-2'>
@@ -62,7 +63,7 @@ export async function getStaticPaths() {
 // This also gets called at build time
 export async function getStaticProps({ params }) {
   const { slug } = params
-  const res = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/tags?slug=${slug}`)
+  const res = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/tags?slug=${encodeURI(slug)}`)
   const tag = await res.json()
 
   // Pass post data to the page via props
