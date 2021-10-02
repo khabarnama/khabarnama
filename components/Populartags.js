@@ -4,7 +4,7 @@ import Link from 'next/link'
 
 function Populartags() {
   const { isLoading, error, data } = useQuery('populartags', () =>
-    fetch('https://aleteia.org/wp-json/wp/v2/tags?order=desc&orderby=count&per_page=4').then(
+    fetch('https://subhekabul.com/wp-json/wp/v2/tags?order=desc&orderby=count&per_page=4').then(
       (res) => res.json()
     )
   )
@@ -14,7 +14,7 @@ function Populartags() {
   useEffect(() => {
     return async () => {
       await queryClient.prefetchQuery('populartags', () =>
-        fetch('https://aleteia.org/wp-json/wp/v2/tags?order=desc&orderby=count&per_page=4').then(
+        fetch('https://subhekabul.com/wp-json/wp/v2/tags?order=desc&orderby=count&per_page=4').then(
           (res) => res.json()
         )
       )
@@ -32,7 +32,7 @@ function Populartags() {
           <a
             className={`${
               index == 3 ? 'hidden sm:flex' : ''
-            } flex-none lg:border border-gray-100 hover:bg-red-700 hover:text-white transition duration-300 ease-in-out text-xs lg:p-2 ml-1 rounded-md`}
+            } flex-none lg:border border-gray-100 hover:bg-red-700 hover:text-white transition duration-300 ease-in-out text-xs lg:p-2 mr-1 rounded-md`}
           >
             #{tag.name}
           </a>

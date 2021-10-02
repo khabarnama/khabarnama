@@ -5,7 +5,7 @@ function PostSmall({ post }) {
     <Link href={`/${post.slug}`}>
       <a id={post.id} className='dark:text-gray-400 dark:hover:text-red-600 hover:text-red-800'>
         <li
-          className='relative pl-6 pb-2 pt-2 transition duration-300 ease-in-out'
+          className='relative pr-6 pb-2 pt-2 transition duration-300 ease-in-out'
           dangerouslySetInnerHTML={{ __html: post.title.rendered }}
         />
       </a>

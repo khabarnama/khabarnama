@@ -11,7 +11,7 @@ function Author({ author }) {
   // initially until getStaticProps() finishes running
   if (router.isFallback) {
     return (
-      <div className='pl-5'>
+      <div className='pr-5'>
         <ResponsiveArticle />
       </div>
     )
@@ -20,17 +20,15 @@ function Author({ author }) {
   return (
     <>
       {author.length === 0 ? (
-        <h1 className='pl-5'>NO SUCH USER FOUND</h1>
+        <h1 className='pr-5'>نویسنده مورد نظر موجود نیست!</h1>
       ) : (
         <>
           <Head>
-            {ReactHtmlParser(
-              author[0].yoast_head.replace('https://aleteia.org', 'https://reporterly.net')
-            )}
+            {ReactHtmlParser(author[0].yoast_head.replace('subhekabul.com', 'khabarnama.net'))}
           </Head>
           <header className='px-5'>
             <h1 className='text-xl font-semibold mb-2'>
-              <span className='font-medium'>Author: </span>
+              <span className='font-medium'>نویسنده: </span>
               {author[0].name}
             </h1>
             <article dangerouslySetInnerHTML={{ __html: author[0].description }} />

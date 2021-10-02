@@ -27,7 +27,7 @@ function Post({ post }) {
                 <Link href={`/author/${post._embedded.author.slug}`}>
                   <a>
                     <ImageComponentity
-                      classes='w-10 h-10 rounded-full mr-2'
+                      classes='w-10 h-10 rounded-full ml-2'
                       src={
                         post._embedded.author.avatar_urls
                           ? post._embedded.author.avatar_urls['96']
@@ -48,18 +48,18 @@ function Post({ post }) {
               </div>
             )}
             <div className='share flex items-center text-gray-600'>
-              <div className='ml-1'>
-                <TwitterShareButton url={`https://reporterly.net/${post.slug}`}>
+              <div className='mr-1'>
+                <TwitterShareButton url={`https://khabarnama.net/${post.slug}`}>
                   <TwitterIcon size={24} round={false} />
                 </TwitterShareButton>
               </div>
-              <div className='ml-1'>
-                <LinkedinShareButton url={`https://reporterly.net/${post.slug}`}>
+              <div className='mr-1'>
+                <LinkedinShareButton url={`https://khabarnama.net/${post.slug}`}>
                   <LinkedinIcon size={24} round={false} />
                 </LinkedinShareButton>
               </div>
-              <div className='ml-1'>
-                <FacebookShareButton url={`https://reporterly.net/${post.slug}`}>
+              <div className='mr-1'>
+                <FacebookShareButton url={`https://khabarnama.net/${post.slug}`}>
                   <FacebookIcon size={24} round={false} />
                 </FacebookShareButton>
               </div>
@@ -82,9 +82,9 @@ function Post({ post }) {
           />
           <div className='text-xs md:text-sm font-regular text-gray-900 dark:text-gray-100 flex mt-4 flex items-center justify-between'>
             <div className='flex overflow-scroll scrollbar-hide'>
-              <span className='mr-3 flex-none flex flex-row items-center'>
+              <span className='ml-3 flex-none flex flex-row items-center'>
                 <SVGClock />
-                <span className='ml-1'>{dateFormat(post.date_gmt, 'mmm dS')}</span>
+                <span className='mr-1'>{dateFormat(post.date_gmt, 'mmm dS')}</span>
               </span>
               {post._embedded['wp:term'].map((termArray) =>
                 termArray.map(
@@ -101,7 +101,7 @@ function Post({ post }) {
                           } flex-none items-center hover:text-red-700`}
                         >
                           {term.taxonomy == 'category' ? <SVGCategory /> : <SVGTag />}
-                          <span className='ml-1' dangerouslySetInnerHTML={{ __html: term.name }} />
+                          <span className='mr-1' dangerouslySetInnerHTML={{ __html: term.name }} />
                         </a>
                       </Link>
                     )

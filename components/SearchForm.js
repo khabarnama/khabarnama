@@ -1,14 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
-import SVGCross from './SVG/SVGCross'
-import SVGSearch from './SVG/SVGSearch'
 
 function SearchForm() {
   const router = useRouter()
   const [search, setSearch] = useState('')
   const [loading, setLoading] = useState(false)
   const [disabled, setDisabled] = useState(true)
-  const [display, setDisplay] = useState(false)
 
   const onSubmitHandler = (e) => {
     e.preventDefault()

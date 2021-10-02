@@ -80,7 +80,7 @@ function HeaderClassic() {
                 </div>
                 <div
                   onClick={switchTheme}
-                  className='cursor-pointer hidden lg:inline-block darkmode rounded-full bg-gray-50 p-5 mr-3'
+                  className='cursor-pointer hidden lg:inline-block darkmode rounded-full bg-gray-50 p-5 ml-3'
                 >
                   {theme === 'dark' ? <SVGSun /> : <SVGMoon />}
                 </div>

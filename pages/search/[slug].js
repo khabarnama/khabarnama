@@ -11,7 +11,7 @@ function Search({ search }) {
   // initially until getStaticProps() finishes running
   if (router.isFallback) {
     return (
-      <div className='pl-5'>
+      <div className='pr-5'>
         <ResponsiveArticle />
       </div>
     )
@@ -20,17 +20,15 @@ function Search({ search }) {
   return (
     <>
       {search.length === 0 ? (
-        <h1 className='pl-5'>NO POSTS FOUND</h1>
+        <h1 className='pr-5'>موجود نیست!</h1>
       ) : (
         <>
           <Head>
-            {ReactHtmlParser(
-              search[0].yoast_head.replace('https://aleteia.org', 'https://reporterly.net')
-            )}
+            {ReactHtmlParser(search[0].yoast_head.replace('subhekabul.com', 'khabarnama.net'))}
           </Head>
           <header className='px-5'>
             <h1 className='text-xl font-semibold mb-2'>
-              <span className='font-medium'>Search Results For: </span>
+              <span className='font-medium'>نتایج جستجو برای: </span>
               {search[0].name}
             </h1>
             <article dangerouslySetInnerHTML={{ __html: search[0].description }} />

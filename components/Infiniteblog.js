@@ -16,8 +16,8 @@ export default function Infinteblog({ type, type_id }) {
   useEffect(() => {
     return async () => {
       await queryClient.prefetchInfiniteQuery('projects', () =>
-        fetch(`https://aleteia.org/wp-json/wp/v2/posts?_embed=true&per_page=4${args}`).then((res) =>
-          res.json()
+        fetch(`https://subhekabul.com/wp-json/wp/v2/posts?_embed=true&per_page=4${args}`).then(
+          (res) => res.json()
         )
       )
     }
@@ -25,7 +25,7 @@ export default function Infinteblog({ type, type_id }) {
 
   const fetchProjects = async ({ pageParam = page }) => {
     const res = await fetch(
-      `https://aleteia.org/wp-json/wp/v2/posts?_embed=true${args}&per_page=2&page=` + pageParam
+      `https://subhekabul.com/wp-json/wp/v2/posts?_embed=true${args}&per_page=2&page=` + pageParam
     )
     const totalPages = res.headers.get('X-WP-TotalPages')
     const posts = res.json()
@@ -42,7 +42,7 @@ export default function Infinteblog({ type, type_id }) {
     })
 
   return status === 'loading' ? (
-    <ResponsiveArticle className='pl-5' />
+    <ResponsiveArticle className='pr-5' />
   ) : status === 'error' ? (
     <p className='my-5 text-center text-red-800 font-semibold'>Error: {error.message}</p>
   ) : (

@@ -11,7 +11,7 @@ function Tag({ tag }) {
   // initially until getStaticProps() finishes running
   if (router.isFallback) {
     return (
-      <div className='pl-5'>
+      <div className='pr-5'>
         <ResponsiveArticle />
       </div>
     )
@@ -20,17 +20,15 @@ function Tag({ tag }) {
   return (
     <>
       {tag.length === 0 ? (
-        <h1 className='pl-5'>NO POSTS WITH THIS TAG</h1>
+        <h1 className='pr-5'>موجود نیست!</h1>
       ) : (
         <>
           <Head>
-            {ReactHtmlParser(
-              tag[0].yoast_head.replace('https://aleteia.org', 'https://reporterly.net')
-            )}
+            {ReactHtmlParser(tag[0].yoast_head.replace('subhekabul.com', 'khabarnama.net'))}
           </Head>
           <header className='px-5'>
             <h1 className='text-xl font-semibold mb-2'>
-              <span class='font-medium'>Tag: </span>
+              <span class='font-medium'>هشتگ: </span>
               {tag[0].name}
             </h1>
             <article dangerouslySetInnerHTML={{ __html: tag[0].description }} />

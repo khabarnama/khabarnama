@@ -10,15 +10,14 @@ class MyDocument extends Document {
     return (
       <Html lang='en' className='light'>
         <Head>
-          <link rel='preconnect' href='https://fonts.gstatic.com' crossOrigin='true' />
-          <link rel='preconnect' href='https://fonts.gstatic.com' />
-          <link href='https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap' />
-
-          <meta name='application-name' content='IAP' />
+          <meta name='application-name' content='Khabarnama' />
           <meta name='apple-mobile-web-app-capable' content='yes' />
           <meta name='apple-mobile-web-app-status-bar-style' content='default' />
           <meta name='apple-mobile-web-app-title' content='IAP' />
-          <meta name='description' content='Intellectual Applications and Products' />
+          <meta
+            name='description'
+            content='رسانه‌ای برای بازتاب رویدادها، وقایع و اتفاقات از طریق آنلاین  '
+          />
           <meta name='format-detection' content='telephone=no' />
           <meta name='mobile-web-app-capable' content='yes' />
           <meta name='msapplication-config' content='/static/icons/browserconfig.xml' />
