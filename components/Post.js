@@ -1,15 +1,13 @@
 import ImageComponentity from './ImageComponentity'
 import Link from 'next/link'
 import SVGClock from './../components/SVG/SVGClock'
-import SVGCategory from './../components/SVG/SVGCategory'
+import SVGLifestyle from './../components/SVG/SVGLifestyle'
 import SVGTag from './../components/SVG/SVGTag'
 import { FacebookShareButton, LinkedinShareButton, TwitterShareButton } from 'react-share'
 import { FacebookIcon, LinkedinIcon, TwitterIcon } from 'react-share'
 
 function Post({ post }) {
   var dateFormat = require('dateformat')
-
-  console.log('POST: ', post)
 
   return (
     <>
@@ -32,7 +30,7 @@ function Post({ post }) {
                       classes='w-10 h-10 rounded-full overflow-hidden ml-2'
                       src={
                         post._embedded.author[0].avatar_urls
-                          ? post._embedded.author[0].avatar_urls['96']
+                          ? encodeURI(post._embedded.author[0].avatar_urls['96'])
                           : 'https://secure.gravatar.com/avatar/5ba47e3ab322d98712c8147821ede32a?s=4896&d=mm&r=g'
                       }
                       alt={`نویسنده: ` + post._embedded.author[0].name}
@@ -41,7 +39,7 @@ function Post({ post }) {
                 </Link>
                 <div className='text-xs'>
                   <Link href={`/author/${post._embedded.author[0].slug}`}>
-                    <a className='text-gray-900 font-semibold leading-none text-xs md:text-sm hover:text-red-700'>
+                    <a className='text-gray-900 dark:text-gray-100 font-semibold leading-none text-xs md:text-sm hover:text-red-700 dark:hover:text-red-700 transition duration-500 ease-in-out'>
                       {post._embedded.author[0].name}
                     </a>
                   </Link>
@@ -71,7 +69,7 @@ function Post({ post }) {
         <div className='relative'>
           {post.featured_media != 0 && post.featured_media != null && (
             <ImageComponentity
-              src={post._embedded['wp:featuredmedia'][0].source_url}
+              src={encodeURI(post._embedded['wp:featuredmedia'][0].source_url)}
               classes={'h-48 md:h-72 bg-gray-300 rounded-xl overflow-hidden'}
               alt={post.title.rendered}
             />
@@ -102,7 +100,11 @@ function Post({ post }) {
                             index == 1 ? 'hidden sm:flex' : 'flex'
                           } flex-none items-center hover:text-red-700`}
                         >
-                          {term.taxonomy == 'category' ? <SVGCategory /> : <SVGTag />}
+                          {term.taxonomy == 'category' ? (
+                            <SVGLifestyle classes='h-5' />
+                          ) : (
+                            <SVGTag />
+                          )}
                           <span className='mr-1' dangerouslySetInnerHTML={{ __html: term.name }} />
                         </a>
                       </Link>

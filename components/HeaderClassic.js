@@ -10,14 +10,12 @@ import SearchForm from './SearchForm'
 
 import SVGHome from './../components/SVG/SVGHome'
 import SVGNotification from './../components/SVG/SVGNotification'
-import SVGSecurity from './SVG/SVGSecurity'
-import SVGPeace from './SVG/SVGPeace'
-import SVGSpeech from './SVG/SVGSpeech'
-import SVGEconomy from './SVG/SVGEconomy'
-import SVGWomensymbol from './SVG/SVGWomensymbol'
-import SVGMosque from './SVG/SVGMosque'
-import SVGTv from './SVG/SVGTv'
-import SVGHospital from './SVG/SVGHospital'
+import SVGWork from './../components/SVG/SVGWork'
+import SVGLifestyle from './../components/SVG/SVGLifestyle'
+import SVGStar from './../components/SVG/SVGStar'
+import SVGUnlock from './../components/SVG/SVGUnlock'
+import SVGHeart from './../components/SVG/SVGHeart'
+import SVGDiscovery from './../components/SVG/SVGDiscovery'
 
 import { useTheme } from 'next-themes'
 import SVGSun from './SVG/SVGSun'
@@ -37,16 +35,16 @@ function HeaderClassic() {
   }
   return (
     <>
-      <header className=' p-4 lg:px-8 lg:border-b border-gray-100 lg:mb-2'>
+      <header className='pb-2 px-2 sm:px-4 lg:px-8 lg:border-b border-gray-100 lg:mb-2'>
         <section className='max-w-screen-2xl mx-auto'>
           <div className='flex flex-col items-start lg:flex-row lg:gap-5 lg:items-center'>
             <div className='flex w-full lg:w-64 justify-between items-center'>
-              <div className='w-52 lg:w-64 flex-none'>
+              <div className='mr-4 w-52 lg:w-64 flex-none'>
                 <Link href='/'>
                   <a>
                     <ImageComponentity
-                      src='https://reporterly.net/wp-content/themes/sharks/assets/images/logo.png'
-                      classes='h-8 lg:h-10'
+                      src={theme == 'dark' ? '/icons/logo.png' : '/icons/logo-dark.png'}
+                      classes='h-16 w-24'
                     />
                   </a>
                 </Link>
@@ -67,14 +65,14 @@ function HeaderClassic() {
                 </button>
               </div>
             </div>
-            <div className='flex-grow'>
+            <div className='px-4 lg:px-0 flex-grow'>
               <div className='flex flex-col lg:flex-row items-center justify-between text-gray-500 hover:text-gray-600 transition-colors duration-200 w-full py-2'>
                 <div className='hidden lg:inline-block'>
                   <SearchForm />
                 </div>
                 <div className='flex overflow-scroll scrollbar-hide'>
                   <span className='lg:hidden text-xs text-red-800 dark:text-red-600 font-semibold'>
-                    Trending:
+                    هشتگ ها:
                   </span>
                   <Populartags />
                 </div>
@@ -111,8 +109,8 @@ function HeaderClassic() {
                       <Link href='/'>
                         <a>
                           <ImageComponentity
-                            src='https://reporterly.net/wp-content/themes/sharks/assets/images/logo.png'
-                            classes='h-8 lg:h-10'
+                            src={theme == 'dark' ? '/icons/logo.png' : '/icons/logo-dark.png'}
+                            classes='h-16 w-24'
                           />
                         </a>
                       </Link>
@@ -125,79 +123,63 @@ function HeaderClassic() {
                           <Link href='/'>
                             <a className='text-red-800 dark:text-red-600 hover:text-red-700 p-3 lg:px-5 lg:py-3 hover:bg-red-50 transition duration-300 ease-in-out rounded-full font-semibold flex items-center'>
                               <SVGHome />
-                              <span className='ml-2 '>Home</span>
+                              <span className='mr-2 '>صفحه نخست</span>
                             </a>
                           </Link>
                         </li>
                         <li>
-                          <Link href='/category/latest-stories'>
+                          <Link href='/category/latest-news'>
                             <a className='flex items-center hover:text-red-700 p-3 lg:px-5 lg:py-3 hover:bg-red-50 transition duration-300 ease-in-out rounded-full'>
                               <SVGNotification />
-                              <span className='ml-2 '>Latest Stories</span>
+                              <span className='mr-2 '>روایت زنده</span>
                             </a>
                           </Link>
                         </li>
                         <li>
-                          <Link href='/category/latest-stories'>
+                          <Link href='/category/work'>
                             <a className='flex items-center hover:text-red-700 p-3 lg:px-5 lg:py-3 hover:bg-red-50 transition duration-300 ease-in-out rounded-full'>
-                              <SVGSecurity />
-                              <span className='ml-2 '>Security Trends</span>
+                              <SVGWork />
+                              <span className='mr-2 '>کسب و کار</span>
                             </a>
                           </Link>
                         </li>
                         <li>
-                          <Link href='/category/latest-stories'>
+                          <Link href='/category/lifestyle'>
                             <a className='flex items-center hover:text-red-700 p-3 lg:px-5 lg:py-3 hover:bg-red-50 transition duration-300 ease-in-out rounded-full'>
-                              <SVGPeace />
-                              <span className='ml-2 '>Peace Developments</span>
+                              <SVGLifestyle />
+                              <span className='mr-2 hidden lg:inline-block'>سبک زندگی</span>
                             </a>
                           </Link>
                         </li>
                         <li>
-                          <Link href='/category/latest-stories'>
+                          <Link href='/category/success'>
                             <a className='flex items-center hover:text-red-700 p-3 lg:px-5 lg:py-3 hover:bg-red-50 transition duration-300 ease-in-out rounded-full'>
-                              <SVGSpeech />
-                              <span className='ml-2 '>Political Dynamics</span>
+                              <SVGUnlock />
+                              <span className='mr-2 hidden lg:inline-block'>موفقیت</span>
                             </a>
                           </Link>
                         </li>
                         <li>
-                          <Link href='/category/latest-stories'>
+                          <Link href='/category/health'>
                             <a className='flex items-center hover:text-red-700 p-3 lg:px-5 lg:py-3 hover:bg-red-50 transition duration-300 ease-in-out rounded-full'>
-                              <SVGEconomy />
-                              <span className='ml-2 '>Economic Situation</span>
+                              <SVGHeart />
+                              <span className='mr-2 hidden lg:inline-block'>سلامتی</span>
                             </a>
                           </Link>
                         </li>
                         <li>
-                          <Link href='/category/latest-stories'>
+                          <Link href='/category/trip'>
                             <a className='flex items-center hover:text-red-700 p-3 lg:px-5 lg:py-3 hover:bg-red-50 transition duration-300 ease-in-out rounded-full'>
-                              <SVGWomensymbol />
-                              <span className='ml-2 '>Women Rights</span>
+                              <SVGDiscovery />
+                              <span className='mr-2 hidden lg:inline-block'>سفر و گردشگری</span>
                             </a>
                           </Link>
                         </li>
                         <li>
-                          <Link href='/category/latest-stories'>
+                          <Link href='/category/top'>
                             <a className='flex items-center hover:text-red-700 p-3 lg:px-5 lg:py-3 hover:bg-red-50 transition duration-300 ease-in-out rounded-full'>
-                              <SVGMosque />
-                              <span className='ml-2 '>Ethnic and Religious</span>
-                            </a>
-                          </Link>
-                        </li>
-                        <li>
-                          <Link href='/category/latest-stories'>
-                            <a className='flex items-center hover:text-red-700 p-3 lg:px-5 lg:py-3 hover:bg-red-50 transition duration-300 ease-in-out rounded-full'>
-                              <SVGTv />
-                              <span className='ml-2 '>Media Status</span>
-                            </a>
-                          </Link>
-                        </li>
-                        <li>
-                          <Link href='/category/latest-stories'>
-                            <a className='flex items-center hover:text-red-700 p-3 lg:px-5 lg:py-3 hover:bg-red-50 transition duration-300 ease-in-out rounded-full'>
-                              <SVGHospital />
-                              <span className='ml-2 '>Humanitarian Issues</span>
+                              <SVGStar />
+                              <span className='mr-2 hidden lg:inline-block'>برترین ها</span>
                             </a>
                           </Link>
                         </li>

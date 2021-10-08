@@ -1,27 +1,28 @@
 export default function SVGNotification({ classes }) {
   return (
-    <svg
-      className={`${classes ? classes : 'h-8'}`}
-      fill='currentColor'
-      viewBox='0 0 24 24'
-      id='_24x24_On_Light_Notification-Alert'
-      data-name='24x24/On Light/Notification-Alert'
-      xmlns='http://www.w3.org/2000/svg'
-    >
-      <rect id='view-box' width='24' height='24' fill='none' />
-      <path
-        id='Shape'
-        d='M6,17v-.5H2.25A2.253,2.253,0,0,1,0,14.25v-.382a2.542,2.542,0,0,1,1.415-2.289A1.247,1.247,0,0,0,2.1,10.572l.446-4.91A6.227,6.227,0,0,1,10.618.286a5.477,5.477,0,0,0-.635,1.374A4.794,4.794,0,0,0,8.75,1.5,4.7,4.7,0,0,0,4.045,5.8L3.6,10.708A2.739,2.739,0,0,1,2.089,12.92a1.055,1.055,0,0,0-.589.949v.382A.751.751,0,0,0,2.25,15h13A.751.751,0,0,0,16,14.25v-.382a1.053,1.053,0,0,0-.586-.948A2.739,2.739,0,0,1,13.9,10.708l-.2-2.18a5.473,5.473,0,0,0,1.526.221l.166,1.822a1.26,1.26,0,0,0,.686,1.005,2.547,2.547,0,0,1,1.418,2.29v.382a2.252,2.252,0,0,1-2.25,2.25H11.5V17A2.75,2.75,0,0,1,6,17Zm1.5,0A1.25,1.25,0,0,0,10,17v-.5H7.5ZM15.047,6.744A3.486,3.486,0,0,1,13.5,6.28L13.456,5.8a4.7,4.7,0,0,0-1.648-3.185,3.5,3.5,0,0,1,.61-1.417A6.221,6.221,0,0,1,14.95,5.662l.1,1.081v0Z'
-        transform='translate(3.25 2.25)'
-        fill='currentColor'
-      />
-      <path
-        id='Shape-2'
-        data-name='Shape'
-        d='M3.5,7A3.5,3.5,0,1,1,7,3.5,3.5,3.5,0,0,1,3.5,7Z'
-        transform='translate(15 2)'
-        fill='#ff6359'
-      />
+    <svg className={`${classes ? classes : 'h-8'}`} fill='none' viewBox='0 0 24 24'>
+      <g id='Iconly/Curved/Notification'>
+        <g id='Notification'>
+          <path
+            id='Stroke 1'
+            fill-rule='evenodd'
+            clip-rule='evenodd'
+            d='M11.9961 2.51416C7.56185 2.51416 5.63519 6.5294 5.63519 9.18368C5.63519 11.1675 5.92281 10.5837 4.82471 13.0037C3.48376 16.4523 8.87614 17.8618 11.9961 17.8618C15.1152 17.8618 20.5076 16.4523 19.1676 13.0037C18.0695 10.5837 18.3571 11.1675 18.3571 9.18368C18.3571 6.5294 16.4295 2.51416 11.9961 2.51416Z'
+            stroke='#000'
+            stroke-width='1.5'
+            stroke-linecap='round'
+            stroke-linejoin='round'
+          />
+          <path
+            id='Stroke 3'
+            d='M14.306 20.5122C13.0117 21.9579 10.9927 21.9751 9.68604 20.5122'
+            stroke='#000'
+            stroke-width='1.5'
+            stroke-linecap='round'
+            stroke-linejoin='round'
+          />
+        </g>
+      </g>
     </svg>
   )
 }

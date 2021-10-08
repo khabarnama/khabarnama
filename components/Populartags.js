@@ -4,7 +4,7 @@ import Link from 'next/link'
 
 function Populartags() {
   const { isLoading, error, data } = useQuery('populartags', () =>
-    fetch('https://khaama.com/persian/wp-json/wp/v2/tags?order=desc&orderby=count&per_page=4').then(
+    fetch('https://khabarnama.net/wp-json/wp/v2/tags?order=desc&orderby=count&per_page=4').then(
       (res) => res.json()
     )
   )
@@ -15,7 +15,7 @@ function Populartags() {
     return async () => {
       await queryClient.prefetchQuery('populartags', () =>
         fetch(
-          'https://khaama.com/persian/wp-json/wp/v2/tags?order=desc&orderby=count&per_page=4'
+          'https://khabarnama.net/wp-json/wp/v2/tags?order=desc&orderby=count&per_page=4'
         ).then((res) => res.json())
       )
     }

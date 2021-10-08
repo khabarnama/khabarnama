@@ -2,17 +2,13 @@ import HeaderClassic from './HeaderClassic'
 import LatestStories from './LatestStories'
 import SVGHome from './../components/SVG/SVGHome'
 import SVGNotification from './../components/SVG/SVGNotification'
-import SVGSecurity from './SVG/SVGSecurity'
-import SVGPeace from './SVG/SVGPeace'
-import SVGSpeech from './SVG/SVGSpeech'
-import SVGEconomy from './SVG/SVGEconomy'
-import SVGWomensymbol from './SVG/SVGWomensymbol'
-import SVGMosque from './SVG/SVGMosque'
-import SVGTv from './SVG/SVGTv'
-import SVGHospital from './SVG/SVGHospital'
+import SVGWork from './../components/SVG/SVGWork'
+import SVGLifestyle from './../components/SVG/SVGLifestyle'
+import SVGStar from './../components/SVG/SVGStar'
+import SVGUnlock from './../components/SVG/SVGUnlock'
+import SVGHeart from './../components/SVG/SVGHeart'
+import SVGDiscovery from './../components/SVG/SVGDiscovery'
 import Link from 'next/link'
-import { useTheme } from 'next-themes'
-import { useState } from 'react'
 
 export default function Layout({ children }) {
   return (
@@ -32,7 +28,7 @@ export default function Layout({ children }) {
                   </Link>
                 </li>
                 <li>
-                  <Link href='/category/latest-stories'>
+                  <Link href='/category/latest-news'>
                     <a className='flex items-center hover:text-red-700 p-3 lg:px-5 lg:py-3 hover:bg-red-50 transition duration-300 ease-in-out rounded-full'>
                       <SVGNotification />
                       <span className='mr-2 hidden lg:inline-block'>روایت زنده</span>
@@ -40,10 +36,50 @@ export default function Layout({ children }) {
                   </Link>
                 </li>
                 <li>
-                  <Link href='/category/latest-stories'>
+                  <Link href='/category/work'>
                     <a className='flex items-center hover:text-red-700 p-3 lg:px-5 lg:py-3 hover:bg-red-50 transition duration-300 ease-in-out rounded-full'>
-                      <SVGSecurity />
-                      <span className='mr-2 hidden lg:inline-block'>سیاسی</span>
+                      <SVGWork />
+                      <span className='mr-2 hidden lg:inline-block'>کسب و کار</span>
+                    </a>
+                  </Link>
+                </li>
+                <li>
+                  <Link href='/category/lifestyle'>
+                    <a className='flex items-center hover:text-red-700 p-3 lg:px-5 lg:py-3 hover:bg-red-50 transition duration-300 ease-in-out rounded-full'>
+                      <SVGLifestyle />
+                      <span className='mr-2 hidden lg:inline-block'>سبک زندگی</span>
+                    </a>
+                  </Link>
+                </li>
+                <li>
+                  <Link href='/category/success'>
+                    <a className='flex items-center hover:text-red-700 p-3 lg:px-5 lg:py-3 hover:bg-red-50 transition duration-300 ease-in-out rounded-full'>
+                      <SVGUnlock />
+                      <span className='mr-2 hidden lg:inline-block'>موفقیت</span>
+                    </a>
+                  </Link>
+                </li>
+                <li>
+                  <Link href='/category/health'>
+                    <a className='flex items-center hover:text-red-700 p-3 lg:px-5 lg:py-3 hover:bg-red-50 transition duration-300 ease-in-out rounded-full'>
+                      <SVGHeart />
+                      <span className='mr-2 hidden lg:inline-block'>سلامتی</span>
+                    </a>
+                  </Link>
+                </li>
+                <li>
+                  <Link href='/category/trip'>
+                    <a className='flex items-center hover:text-red-700 p-3 lg:px-5 lg:py-3 hover:bg-red-50 transition duration-300 ease-in-out rounded-full'>
+                      <SVGDiscovery />
+                      <span className='mr-2 hidden lg:inline-block'>سفر و گردشگری</span>
+                    </a>
+                  </Link>
+                </li>
+                <li>
+                  <Link href='/category/top'>
+                    <a className='flex items-center hover:text-red-700 p-3 lg:px-5 lg:py-3 hover:bg-red-50 transition duration-300 ease-in-out rounded-full'>
+                      <SVGStar />
+                      <span className='mr-2 hidden lg:inline-block'>برترین ها</span>
                     </a>
                   </Link>
                 </li>
@@ -62,10 +98,7 @@ export default function Layout({ children }) {
           <LatestStories />
           <div className='border-b border-gray-100 py-5 mb-2'>
             <h1 className='uppercase font-semibold mb-3'>تبلیغات</h1>
-            <img
-              className='w-full'
-              src='https://paikaftab.com/wp-content/uploads/2021/09/Ad.png'
-            />
+            <img className='w-full' src='https://paikaftab.com/wp-content/uploads/2021/09/Ad.png' />
           </div>
         </div>
       </div>

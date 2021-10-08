@@ -12,7 +12,7 @@ function SearchForm() {
     if (search && search != '' && !loading && !disabled) {
       setLoading(true)
       setDisabled(true)
-      router.push(`/search/${search}`)
+      router.push(`/search/${encodeURI(search)}`)
     }
   }
 
@@ -46,7 +46,7 @@ function SearchForm() {
           onClick={(e) => onSubmitHandler(e)}
         >
           {loading ? (
-            'loading...'
+            '...'
           ) : (
             <>
               <span className='sr-only'>Search Sumbit</span>
@@ -65,7 +65,7 @@ function SearchForm() {
         <input
           type='text'
           name='search'
-          placeholder='Search...'
+          placeholder='جستجو...'
           onChange={(e) => inputHandler(e)}
           value={search}
           className='p-3 focus:ring-red-700 focus:border-red-700 rounded-md block w-full sm:text-sm'
