@@ -25,8 +25,7 @@ export default function Infinteblog({ type, type_id }) {
 
   const fetchProjects = async ({ pageParam = page }) => {
     const res = await fetch(
-      `https://khabarnama.net/wp-json/wp/v2/posts?_embed=true${args}&per_page=2&page=` +
-        pageParam
+      `https://khabarnama.net/wp-json/wp/v2/posts?_embed=true${args}&per_page=2&page=` + pageParam
     )
     const totalPages = res.headers.get('X-WP-TotalPages')
     const posts = res.json()
@@ -55,11 +54,7 @@ export default function Infinteblog({ type, type_id }) {
           onClick={() => fetchNextPage()}
           disabled={!hasNextPage || isFetchingNextPage}
         >
-          {isFetchingNextPage
-            ? 'Loading more...'
-            : hasNextPage
-            ? 'Load More'
-            : 'Nothing more to load'}
+          {isFetchingNextPage ? 'منتظر باشید...' : hasNextPage ? 'بارگزاری' : 'بیشتر موجود نیست!'}
         </button>
       </div>
       <div>{isFetching && !isFetchingNextPage ? 'Fetching...' : null}</div>
