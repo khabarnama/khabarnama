@@ -3,20 +3,26 @@ import { useEffect } from 'react'
 import Link from 'next/link'
 
 function Populartags() {
-  const { isLoading, error, data } = useQuery('populartags', () =>
-    fetch('https://khabarnama.net/wp-json/wp/v2/tags?order=desc&orderby=count&per_page=4').then(
-      (res) => res.json()
-    )
+  const { isLoading, error, data } = useQuery(
+    'populartags',
+    () =>
+      fetch('https://khabarnama.net/wp-json/wp/v2/tags?order=desc&orderby=count&per_page=4').then(
+        (res) => res.json()
+      ),
+    { keepPreviousData: true }
   )
 
   const queryClient = new useQueryClient()
 
   useEffect(() => {
     return async () => {
-      await queryClient.prefetchQuery('populartags', () =>
-        fetch(
-          'https://khabarnama.net/wp-json/wp/v2/tags?order=desc&orderby=count&per_page=4'
-        ).then((res) => res.json())
+      await queryClient.prefetchQuery(
+        'populartags',
+        () =>
+          fetch(
+            'https://khabarnama.net/wp-json/wp/v2/tags?order=desc&orderby=count&per_page=4'
+          ).then((res) => res.json()),
+        { keepPreviousData: true }
       )
     }
   }, [])
