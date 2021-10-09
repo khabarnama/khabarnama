@@ -63,7 +63,7 @@ export async function getStaticPaths() {
 // This also gets called at build time
 export async function getStaticProps({ params }) {
   const { slug } = params
-  const res = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/tags?slug=${encodeURI(slug)}`)
+  const res = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/tags?slug=${slug}`)
   const tag = await res.json()
 
   // Pass post data to the page via props

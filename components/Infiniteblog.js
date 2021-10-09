@@ -45,7 +45,7 @@ export default function Infinteblog({ type, type_id }) {
       keepPreviousData: true
     })
 
-  return status === 'loading' ? (
+  return status === 'loading' || (isFetching && !isFetchingNextPage) ? (
     <ResponsiveArticle className='pr-5' />
   ) : status === 'error' ? (
     <p className='my-5 text-center text-red-800 font-semibold'>Error: {error.message}</p>
