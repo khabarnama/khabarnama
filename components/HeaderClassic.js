@@ -65,9 +65,7 @@ function HeaderClassic() {
             </div>
             <div className='px-4 lg:px-0 flex-grow'>
               <div className='flex flex-col lg:flex-row items-center justify-between text-gray-500 hover:text-gray-600 transition-colors duration-200 w-full py-2'>
-                <div className='hidden lg:inline-block'>
-                  <SearchForm />
-                </div>
+                <div className='hidden lg:inline-block'></div>
                 <div className='flex overflow-scroll scrollbar-hide'>
                   <span className='lg:hidden text-xs text-red-800 dark:text-red-600 font-semibold'>
                     هشتگ ها:
