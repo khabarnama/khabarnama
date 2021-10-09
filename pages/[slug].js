@@ -64,9 +64,9 @@ function Blog({ post }) {
             },
             images: [
               {
-                url: post.yoast_head_json.og_image.url,
-                width: post.yoast_head_json.og_image.width,
-                height: post.yoast_head_json.og_image.height,
+                url: post.yoast_head_json.og_image[0].url,
+                width: post.yoast_head_json.og_image[0].width,
+                height: post.yoast_head_json.og_image[0].height,
                 alt: post.yoast_head_json.og_title
               }
             ]
