@@ -67,7 +67,9 @@ function HeaderClassic() {
               <div className='flex flex-col lg:flex-row items-center justify-between text-gray-500 hover:text-gray-600 transition-colors duration-200 w-full py-2'>
                 <div className='hidden lg:inline-block'></div>
                 <div className='flex overflow-scroll scrollbar-hide'>
-                  <div class="hidden sm:inline-block"><Populartags /></div>
+                  <div class='hidden sm:flex'>
+                    <Populartags />
+                  </div>
                 </div>
                 <div
                   onClick={switchTheme}
