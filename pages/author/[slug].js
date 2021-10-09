@@ -22,55 +22,57 @@ function Author({ author }) {
         <h1 className='pr-5'>نویسنده مورد نظر موجود نیست!</h1>
       ) : (
         <>
-          <NextSeo
-            title={author.yoast_head_json.og_title}
-            description={author.yoast_head_json.og_description}
-            canonical={`https://khabarnama.net/author/${author.slug}`}
-            noindex={author.yoast_head_json.robots.index}
-            nofollow={author.yoast_head_json.robots.follow}
-            robotsProps={{
-              maxSnippet: author.yoast_head_json.robots['max-snippet'],
-              maxImagePreview: author.yoast_head_json.robots['max-image-preview'],
-              maxVideoPreview: author.yoast_head_json.robots['max-video-preview']
-            }}
-            additionalLinkTags={[
-              {
-                rel: 'icon',
-                href: '/icons/logo-dark.png'
-              },
-              {
-                rel: 'apple-touch-icon',
-                href: '/icons/logo-dark.png',
-                sizes: '76x76'
-              },
-              {
-                rel: 'manifest',
-                href: '/manifest.json'
-              }
-            ]}
-            openGraph={{
-              title: author.yoast_head_json.og_title,
-              url: `https://khabarnama.net/author/${author.slug}`,
-              locale: author.yoast_head_json.og_locale,
-              site_name: author.yoast_head_json.og_site_name,
-              type: 'profile',
-              profile: {
-                firstName: author.name,
-                username: author.slug
-              },
-              images: [
+          {author.yoast_head_json && (
+            <NextSeo
+              title={author.yoast_head_json.og_title}
+              description={author.yoast_head_json.og_description}
+              canonical={`https://khabarnama.net/author/${author.slug}`}
+              noindex='index'
+              nofollow='follow'
+              robotsProps={{
+                maxSnippet: author.yoast_head_json.robots['max-snippet'],
+                maxImagePreview: author.yoast_head_json.robots['max-image-preview'],
+                maxVideoPreview: author.yoast_head_json.robots['max-video-preview']
+              }}
+              additionalLinkTags={[
                 {
-                  url: author.yoast_head_json.og_image.url,
-                  alt: author.yoast_head_json.og_title
+                  rel: 'icon',
+                  href: '/icons/logo-dark.png'
+                },
+                {
+                  rel: 'apple-touch-icon',
+                  href: '/icons/logo-dark.png',
+                  sizes: '76x76'
+                },
+                {
+                  rel: 'manifest',
+                  href: '/manifest.json'
                 }
-              ]
-            }}
-            twitter={{
-              handle: '@khabarnamaaf',
-              site: '@khabarnamaaf',
-              cardType: 'summary_large_image'
-            }}
-          />
+              ]}
+              openGraph={{
+                title: author.yoast_head_json.og_title,
+                url: `https://khabarnama.net/author/${author.slug}`,
+                locale: author.yoast_head_json.og_locale,
+                site_name: author.yoast_head_json.og_site_name,
+                type: 'profile',
+                profile: {
+                  firstName: author.name,
+                  username: author.slug
+                },
+                images: [
+                  {
+                    url: author.yoast_head_json.og_image.url,
+                    alt: author.yoast_head_json.og_title
+                  }
+                ]
+              }}
+              twitter={{
+                handle: '@khabarnamaaf',
+                site: '@khabarnamaaf',
+                cardType: 'summary_large_image'
+              }}
+            />
+          )}
           <header className='px-5'>
             <h1 className='text-xl font-semibold mb-2'>
               <span className='font-medium'>نویسنده: </span>

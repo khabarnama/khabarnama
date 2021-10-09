@@ -22,54 +22,56 @@ function Category({ category }) {
         <h1 className='pr-5'>موجود نیست!</h1>
       ) : (
         <>
-          <NextSeo
-            title={category.yoast_head_json.og_title}
-            description={category.yoast_head_json.og_description}
-            canonical={`https://khabarnama.net/category/${category.slug}`}
-            noindex={category.yoast_head_json.robots.index}
-            nofollow={category.yoast_head_json.robots.follow}
-            robotsProps={{
-              maxSnippet: category.yoast_head_json.robots['max-snippet'],
-              maxImagePreview: category.yoast_head_json.robots['max-image-preview'],
-              maxVideoPreview: category.yoast_head_json.robots['max-video-preview']
-            }}
-            additionalLinkTags={[
-              {
-                rel: 'icon',
-                href: '/icons/logo-dark.png'
-              },
-              {
-                rel: 'apple-touch-icon',
-                href: '/icons/logo-dark.png',
-                sizes: '76x76'
-              },
-              {
-                rel: 'manifest',
-                href: '/manifest.json'
-              }
-            ]}
-            openGraph={{
-              title: category.yoast_head_json.og_title,
-              description: category.yoast_head_json.og_description,
-              url: `https://khabarnama.net/category/${category.slug}`,
-              type: category.yoast_head_json.og_type,
-              locale: category.yoast_head_json.og_locale,
-              site_name: category.yoast_head_json.og_site_name,
-              images: [
+          {category.yoast_head_json && (
+            <NextSeo
+              title={category.yoast_head_json.og_title}
+              description={category.yoast_head_json.og_description}
+              canonical={`https://khabarnama.net/category/${category.slug}`}
+              noindex='index'
+              nofollow='follow'
+              robotsProps={{
+                maxSnippet: category.yoast_head_json.robots['max-snippet'],
+                maxImagePreview: category.yoast_head_json.robots['max-image-preview'],
+                maxVideoPreview: category.yoast_head_json.robots['max-video-preview']
+              }}
+              additionalLinkTags={[
                 {
-                  url: '/icons/seoindex.png',
-                  width: 1200,
-                  height: 630,
-                  alt: category.yoast_head_json.og_title
+                  rel: 'icon',
+                  href: '/icons/logo-dark.png'
+                },
+                {
+                  rel: 'apple-touch-icon',
+                  href: '/icons/logo-dark.png',
+                  sizes: '76x76'
+                },
+                {
+                  rel: 'manifest',
+                  href: '/manifest.json'
                 }
-              ]
-            }}
-            twitter={{
-              handle: '@khabarnamaaf',
-              site: '@khabarnamaaf',
-              cardType: 'summary_large_image'
-            }}
-          />
+              ]}
+              openGraph={{
+                title: category.yoast_head_json.og_title,
+                description: category.yoast_head_json.og_description,
+                url: `https://khabarnama.net/category/${category.slug}`,
+                type: category.yoast_head_json.og_type,
+                locale: category.yoast_head_json.og_locale,
+                site_name: category.yoast_head_json.og_site_name,
+                images: [
+                  {
+                    url: '/icons/seoindex.png',
+                    width: 1200,
+                    height: 630,
+                    alt: category.yoast_head_json.og_title
+                  }
+                ]
+              }}
+              twitter={{
+                handle: '@khabarnamaaf',
+                site: '@khabarnamaaf',
+                cardType: 'summary_large_image'
+              }}
+            />
+          )}
           <header className='px-5'>
             <h1 className='text-xl font-semibold mb-2'>
               <span className='font-medium'>کتگوری: </span>
