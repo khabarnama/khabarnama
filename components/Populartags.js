@@ -36,9 +36,7 @@ function Populartags() {
       {data.map((tag, index) => (
         <Link key={tag.id} href={`/tag/${tag.slug}`}>
           <a
-            className={`${
-              index == 3 ? 'hidden sm:flex' : ''
-            } flex-none lg:border border-gray-100 hover:bg-red-700 hover:text-white transition duration-300 ease-in-out text-xs lg:p-2 mr-1 rounded-md`}
+            className={`hidden sm:flex flex-none lg:border border-gray-100 hover:bg-red-700 hover:text-white transition duration-300 ease-in-out text-xs lg:p-2 mr-1 rounded-md`}
           >
             #{tag.name}
           </a>
