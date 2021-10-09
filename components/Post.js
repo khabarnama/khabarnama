@@ -5,10 +5,10 @@ import SVGLifestyle from './../components/SVG/SVGLifestyle'
 import SVGTag from './../components/SVG/SVGTag'
 import { FacebookShareButton, LinkedinShareButton, TwitterShareButton } from 'react-share'
 import { FacebookIcon, LinkedinIcon, TwitterIcon } from 'react-share'
+import moment from 'moment'
+import 'moment/locale/fa'
 
 function Post({ post }) {
-  var dateFormat = require('dateformat')
-
   return (
     <>
       <div
@@ -43,7 +43,7 @@ function Post({ post }) {
                       {post._embedded.author[0].name}
                     </a>
                   </Link>
-                  <p className='text-gray-600 text-xs'>{`@` + post._embedded.author[0].slug}</p>
+                  <p className='text-gray-600 text-xs'>{post._embedded.author[0].slug}</p>
                 </div>
               </div>
             )}
@@ -84,7 +84,7 @@ function Post({ post }) {
             <div className='flex overflow-scroll scrollbar-hide'>
               <span className='ml-3 flex-none flex flex-row items-center'>
                 <SVGClock />
-                <span className='mr-1'>{dateFormat(post.date_gmt, 'mmm dS')}</span>
+                <span className='mr-1'>{moment(post.date_gmt).locale('fa').format('DD MMMM')}</span>
               </span>
               {post._embedded['wp:term'].map((termArray) =>
                 termArray.map(

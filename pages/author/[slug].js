@@ -109,9 +109,7 @@ export async function getStaticPaths() {
 // This also gets called at build time
 export async function getStaticProps({ params }) {
   const { slug } = params
-  const res = await fetch(
-    `${process.env.NEXT_PUBLIC_SITE_URL}/users?slug=${encodeURI(slug)}&_embed=true`
-  )
+  const res = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/users?slug=${slug}&_embed=true`)
   const author = await res.json()
 
   return {

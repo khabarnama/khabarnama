@@ -8,10 +8,11 @@ import SVGTag from './../components/SVG/SVGTag'
 import SVGLifestyle from './../components/SVG/SVGLifestyle'
 import Link from 'next/link'
 import { NextSeo } from 'next-seo'
+import moment from 'moment'
+import 'moment/locale/fa'
 
 function Blog({ post }) {
   const router = useRouter()
-  var dateFormat = require('dateformat')
 
   // If the page is not yet generated, this will be displayed
   // initially until getStaticProps() finishes running
@@ -140,7 +141,7 @@ function Blog({ post }) {
             <div className='w-full flex overflow-scroll scrollbar-hide'>
               <span className='ml-5 flex flex-row items-center'>
                 <SVGClock />
-                <span className='mr-1'>{dateFormat(post.date_gmt, 'mmm dS')}</span>
+                <span className='mr-1'>{moment(post.date_gmt).locale('fa').format('DD MMMM')}</span>
               </span>
               {post._embedded['wp:term'].map((termArray) =>
                 termArray.map(
