@@ -144,7 +144,9 @@ export async function getStaticProps({ params }) {
   let args = '_embed=true'
   const { slug } = params
 
-  const pageRes = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/posts?${args}&slug=${slug}`)
+  const pageRes = await fetch(
+    `${process.env.NEXT_PUBLIC_SITE_URL}/posts?${args}&slug=${encodeURI(slug)}`
+  )
   const page = await pageRes.json()
   const post = page[0]
 

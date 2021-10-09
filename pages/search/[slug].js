@@ -63,7 +63,9 @@ export async function getStaticPaths() {
 // This also gets called at build time
 export async function getStaticProps({ params }) {
   const { slug } = params
-  const res = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/posts?search=${slug}&_embed=true`)
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_SITE_URL}/posts?search=${encodeURI(slug)}&_embed=true`
+  )
   const search = await res.json()
 
   return {

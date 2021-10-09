@@ -15,13 +15,10 @@ export default function Infinteblog({ type, type_id }) {
 
   useEffect(() => {
     return async () => {
-      await queryClient.prefetchInfiniteQuery(
-        'projects',
-        () =>
-          fetch(`https://khabarnama.net/wp-json/wp/v2/posts?_embed=true&per_page=4${args}`).then(
-            (res) => res.json()
-          ),
-        { keepPreviousData: true }
+      await queryClient.prefetchInfiniteQuery('projects', () =>
+        fetch(`https://khabarnama.net/wp-json/wp/v2/posts?_embed=true&per_page=4${args}`).then(
+          (res) => res.json()
+        )
       )
     }
   }, [])
@@ -41,8 +38,7 @@ export default function Infinteblog({ type, type_id }) {
     useInfiniteQuery('projects', fetchProjects, {
       getNextPageParam: (lastPage) => {
         return page < totalpages ? page + 1 : undefined
-      },
-      keepPreviousData: true
+      }
     })
 
   return status === 'loading' || (isFetching && !isFetchingNextPage) ? (
