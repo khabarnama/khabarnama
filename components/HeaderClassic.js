@@ -50,9 +50,7 @@ function HeaderClassic() {
                 </Link>
               </div>
               <div className='flex gap-2 items-center'>
-                <div className='hidden md:inline-block lg:hidden'>
-                  <SearchForm />
-                </div>
+                <div className='hidden md:inline-block lg:hidden'></div>
                 <div onClick={switchTheme} className='inline-block lg:hidden cursor-pointer'>
                   {theme === 'dark' ? <SVGSun /> : <SVGMoon />}
                 </div>

@@ -54,7 +54,11 @@ export default function Infinteblog({ type, type_id }) {
           onClick={() => fetchNextPage()}
           disabled={!hasNextPage || isFetchingNextPage}
         >
-          {isFetchingNextPage ? 'منتظر باشید...' : hasNextPage ? 'بارگزاری' : 'بیشتر موجود نیست!'}
+          {isFetchingNextPage
+            ? 'منتظر باشید...'
+            : hasNextPage
+            ? 'بارگزاری بیشتر'
+            : 'بیشتر موجود نیست!'}
         </button>
       </div>
       <div>{isFetching && !isFetchingNextPage ? 'Fetching...' : null}</div>

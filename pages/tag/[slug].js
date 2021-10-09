@@ -1,8 +1,6 @@
 import { useRouter } from 'next/router'
 import Infiniteblog from '../../components/Infiniteblog'
 import ResponsiveArticle from '../../components/skeleton/ResponsiveArticle'
-import Head from 'next/head'
-import ReactHtmlParser from 'react-html-parser'
 
 function Tag({ tag }) {
   const router = useRouter()
@@ -23,10 +21,54 @@ function Tag({ tag }) {
         <h1 className='pr-5'>موجود نیست!</h1>
       ) : (
         <>
-          <Head>
-            {tag[0].yoast_head &&
-              ReactHtmlParser(tag[0].yoast_head.replace('subhekabul.com', 'khabarnama.net'))}
-          </Head>
+          <NextSeo
+            title={tag.yoast_head_json.og_title}
+            description={tag.yoast_head_json.og_description}
+            canonical={`https://khabarnama.net/tag/${tag.slug}`}
+            noindex={tag.yoast_head_json.robots.index}
+            nofollow={tag.yoast_head_json.robots.follow}
+            robotsProps={{
+              maxSnippet: tag.yoast_head_json.robots['max-snippet'],
+              maxImagePreview: tag.yoast_head_json.robots['max-image-preview'],
+              maxVideoPreview: tag.yoast_head_json.robots['max-video-preview']
+            }}
+            additionalLinkTags={[
+              {
+                rel: 'icon',
+                href: '/icons/logo-dark.png'
+              },
+              {
+                rel: 'apple-touch-icon',
+                href: '/icons/logo-dark.png',
+                sizes: '76x76'
+              },
+              {
+                rel: 'manifest',
+                href: '/manifest.json'
+              }
+            ]}
+            openGraph={{
+              title: tag.yoast_head_json.og_title,
+              description: tag.yoast_head_json.og_description,
+              url: `https://khabarnama.net/tag/${tag.slug}`,
+              type: tag.yoast_head_json.og_type,
+              locale: tag.yoast_head_json.og_locale,
+              site_name: tag.yoast_head_json.og_site_name,
+              images: [
+                {
+                  url: '/icons/seoindex.png',
+                  width: 1200,
+                  height: 630,
+                  alt: tag.yoast_head_json.og_title
+                }
+              ]
+            }}
+            twitter={{
+              handle: '@khabarnamaaf',
+              site: '@khabarnamaaf',
+              cardType: 'summary_large_image'
+            }}
+          />
           <header className='px-5'>
             <h1 className='text-xl font-semibold mb-2'>
               <span class='font-medium'>هشتگ: </span>

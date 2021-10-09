@@ -1,7 +1,5 @@
 import { useRouter } from 'next/router'
 import ResponsiveArticle from '../components/skeleton/ResponsiveArticle'
-import Head from 'next/head'
-import ReactHtmlParser from 'react-html-parser'
 import ImageComponentity from './../components/ImageComponentity'
 import { FacebookShareButton, LinkedinShareButton, TwitterShareButton } from 'react-share'
 import { FacebookIcon, LinkedinIcon, TwitterIcon } from 'react-share'
@@ -9,6 +7,7 @@ import SVGClock from './../components/SVG/SVGClock'
 import SVGTag from './../components/SVG/SVGTag'
 import SVGLifestyle from './../components/SVG/SVGLifestyle'
 import Link from 'next/link'
+import { NextSeo } from 'next-seo'
 
 function Blog({ post }) {
   const router = useRouter()
@@ -22,7 +21,60 @@ function Blog({ post }) {
 
   return (
     <>
-      <Head>{post.yoast_head && ReactHtmlParser(post.yoast_head)}</Head>
+      <NextSeo
+        title={post.title.rendered}
+        description={post.yoast_head_json.og_description}
+        canonical='https://khabarnama.net'
+        titleTemplate='خبرنامه | %s'
+        noindex={post.yoast_head_json.robots.index}
+        nofollow={post.yoast_head_json.robots.follow}
+        robotsProps={{
+          maxSnippet: post.yoast_head_json.robots['max-snippet'],
+          maxImagePreview: post.yoast_head_json.robots['max-image-preview'],
+          maxVideoPreview: post.yoast_head_json.robots['max-video-preview']
+        }}
+        additionalLinkTags={[
+          {
+            rel: 'icon',
+            href: '/icons/logo-dark.png'
+          },
+          {
+            rel: 'apple-touch-icon',
+            href: '/icons/logo-dark.png',
+            sizes: '76x76'
+          },
+          {
+            rel: 'manifest',
+            href: '/manifest.json'
+          }
+        ]}
+        openGraph={{
+          title: post.yoast_head_json.og_title,
+          description: post.yoast_head_json.og_description,
+          url: `https://khabarnama.net/${post.slug}`,
+          type: post.yoast_head_json.og_type,
+          locale: post.yoast_head_json.og_locale,
+          site_name: post.yoast_head_json.og_site_name,
+          article: {
+            publishedTime: post.yoast_head_json.article_published_time,
+            section: 'News',
+            authors: [post.yoast_head_json.article_author]
+          },
+          images: [
+            {
+              url: post.yoast_head_json.og_image.url,
+              width: post.yoast_head_json.og_image.width,
+              height: post.yoast_head_json.og_image.height,
+              alt: post.yoast_head_json.og_title
+            }
+          ]
+        }}
+        twitter={{
+          handle: '@khabarnamaaf',
+          site: '@khabarnamaaf',
+          cardType: 'summary_large_image'
+        }}
+      />
       <div id={post.id} className='blog flex flex-col mx-auto px-5'>
         <div className='flex flex-col gap-3 md:p-7 pb-3'>
           <h1
