@@ -9,6 +9,7 @@ module.exports = withPWA({
     domains: [
       'admin.iap.af',
       'khabarnama.net',
+      'old.khabarnama.net',
       'www.etilaatroz.com',
       'reporterly.net',
       'secure.gravatar.com'

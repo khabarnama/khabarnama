@@ -20,13 +20,18 @@ function Blog({ post }) {
     return <ResponsiveArticle />
   }
 
+  let date = post.date_gmt.split('-')
+  let year = date[0]
+  let month = date[1]
+  let day = date[2].substr(0, 1)
+
   return (
     <>
       {post.yoast_head_json && (
         <NextSeo
           title={post.title.rendered}
           description={post.yoast_head_json.og_description}
-          canonical={post.yoast_head_json.canonical.replace('old.', '')}
+          canonical={`https://khabarnama.net/${year}/${month}/${day}/${post.slug}`}
           titleTemplate='خبرنامه | %s'
           noindex='index'
           nofollow='follow'
@@ -53,7 +58,7 @@ function Blog({ post }) {
           openGraph={{
             title: post.yoast_head_json.og_title,
             description: post.yoast_head_json.og_description,
-            url: `https://khabarnama.net/${post.slug}`,
+            url: `https://khabarnama.net${year}/${month}/${day}/${post.slug}`,
             type: post.yoast_head_json.og_type,
             locale: post.yoast_head_json.og_locale,
             site_name: post.yoast_head_json.og_site_name,
@@ -87,7 +92,7 @@ function Blog({ post }) {
           <div className='flex justify-between'>
             {post._embedded.author[0].slug && (
               <div className='flex items-center'>
-                <Link href={`/author/${post._embedded.author[0].slug}`}>
+                <Link href={`/blog/author/${post._embedded.author[0].slug}`}>
                   <a>
                     <ImageComponentity
                       classes='w-10 h-10 rounded-full overflow-hidden ml-2'
@@ -101,7 +106,7 @@ function Blog({ post }) {
                   </a>
                 </Link>
                 <div className='text-xs'>
-                  <Link href={`/author/${post._embedded.author[0].slug}`}>
+                  <Link href={`/blog/author/${post._embedded.author[0].slug}`}>
                     <a className='text-gray-900 font-semibold leading-none text-sm hover:text-red-700'>
                       {post._embedded.author[0].name}
                     </a>
@@ -111,13 +116,13 @@ function Blog({ post }) {
               </div>
             )}
             <div className='share flex gap-2 items-center text-gray-600'>
-              <TwitterShareButton url={`https://khabarnama.net/${post.slug}`}>
+              <TwitterShareButton url={`${post.yoast_head_json.canonical.replace('old.', '')}`}>
                 <TwitterIcon size={24} round={false} />
               </TwitterShareButton>
-              <LinkedinShareButton url={`https://khabarnama.net/${post.slug}`}>
+              <LinkedinShareButton url={`${post.yoast_head_json.canonical.replace('old.', '')}`}>
                 <LinkedinIcon size={24} round={false} />
               </LinkedinShareButton>
-              <FacebookShareButton url={`https://khabarnama.net/${post.slug}`}>
+              <FacebookShareButton url={`${post.yoast_head_json.canonical.replace('old.', '')}`}>
                 <FacebookIcon size={24} round={false} />
               </FacebookShareButton>
             </div>
@@ -149,7 +154,9 @@ function Blog({ post }) {
                     index < 2 && (
                       <Link
                         href={
-                          (term.taxonomy == 'category' ? '/category' : '/tag') + `/${term.slug}`
+                          '/blog' +
+                          (term.taxonomy == 'category' ? '/category' : '/tag') +
+                          `/${term.slug}`
                         }
                       >
                         <a

@@ -1,12 +1,12 @@
 import Link from 'next/link'
 
 function PostSmall({ post }) {
+  let date = post.date_gmt.split('-')
+  let year = date[0]
+  let month = date[1]
+  let day = date[2].substr(0, 1)
   return (
-    <Link
-      href={`${post.yoast_head_json.canonical
-        .replace('old.khabarnama.net', 'khabarnama.net')
-        .replace('khabarnama.net', 'khabarnama.vercel.app')}`}
-    >
+    <Link href={`/blog/${year}/${month}/${day}/${post.slug}`}>
       <a id={post.id} className='dark:text-gray-400 dark:hover:text-red-600 hover:text-red-800'>
         <li
           className='relative pr-6 pb-2 pt-2 transition duration-300 ease-in-out'

@@ -9,6 +9,10 @@ import moment from 'moment'
 import 'moment/locale/fa'
 
 function Post({ post }) {
+  let date = post.date_gmt.split('-')
+  let year = date[0]
+  let month = date[1]
+  let day = date[2].substr(0, 1)
   return (
     <>
       <div
@@ -16,11 +20,7 @@ function Post({ post }) {
         className='blog hover:bg-purple-50 dark:hover:bg-gray-900 overflow-hidden flex flex-col mx-auto px-5'
       >
         <div className='flex flex-col gap-3 p-3 md:p-7 pb-3'>
-          <Link
-            href={`${post.yoast_head_json.canonical
-              .replace('old.khabarnama.net', 'khabarnama.net')
-              .replace('khabarnama.net', 'khabarnama.vercel.app')}`}
-          >
+          <Link href={`/blog/${year}/${month}/${day}/${post.slug}`}>
             <a className='font-semibold text-xl md:text-2xl inline-block hover:text-red-700 transition duration-500 ease-in-out inline-block mb-2'>
               <h1 dangerouslySetInnerHTML={{ __html: post.title.rendered }} />
             </a>
@@ -28,7 +28,7 @@ function Post({ post }) {
           <div className='flex justify-between'>
             {post._embedded.author[0].slug && (
               <div className='flex items-center'>
-                <Link href={`/author/${post._embedded.author[0].slug}`}>
+                <Link href={`/blog/author/${post._embedded.author[0].slug}`}>
                   <a>
                     <ImageComponentity
                       classes='w-10 h-10 rounded-full overflow-hidden ml-2'
@@ -42,7 +42,7 @@ function Post({ post }) {
                   </a>
                 </Link>
                 <div className='text-xs'>
-                  <Link href={`/author/${post._embedded.author[0].slug}`}>
+                  <Link href={`/blog/author/${post._embedded.author[0].slug}`}>
                     <a className='text-gray-900 dark:text-gray-100 font-semibold leading-none text-xs md:text-sm hover:text-red-700 dark:hover:text-red-700 transition duration-500 ease-in-out'>
                       {post._embedded.author[0].name}
                     </a>
@@ -53,17 +53,23 @@ function Post({ post }) {
             )}
             <div className='share flex items-center text-gray-600'>
               <div className='mr-1'>
-                <TwitterShareButton url={`https://khabarnama.net/${post.slug}`}>
+                <TwitterShareButton
+                  url={`https://khabarnama.net/${year}/${month}/${day}/${post.slug}`}
+                >
                   <TwitterIcon size={24} round={false} />
                 </TwitterShareButton>
               </div>
               <div className='mr-1'>
-                <LinkedinShareButton url={`https://khabarnama.net/${post.slug}`}>
+                <LinkedinShareButton
+                  url={`https://khabarnama.net/${year}/${month}/${day}/${post.slug}`}
+                >
                   <LinkedinIcon size={24} round={false} />
                 </LinkedinShareButton>
               </div>
               <div className='mr-1'>
-                <FacebookShareButton url={`https://khabarnama.net/${post.slug}`}>
+                <FacebookShareButton
+                  url={`https://khabarnama.net/${year}/${month}/${day}/${post.slug}`}
+                >
                   <FacebookIcon size={24} round={false} />
                 </FacebookShareButton>
               </div>
@@ -96,7 +102,9 @@ function Post({ post }) {
                     index < 2 && (
                       <Link
                         href={
-                          (term.taxonomy == 'category' ? '/category' : '/tag') + `/${term.slug}`
+                          '/blog' +
+                          (term.taxonomy == 'category' ? '/category' : '/tag') +
+                          `/${term.slug}`
                         }
                       >
                         <a

@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router'
-import Infiniteblog from './../../../../components/Infiniteblog'
-import ResponsiveArticle from './../../../../components/skeleton/ResponsiveArticle'
+import Infiniteblog from './../../../components/Infiniteblog'
+import ResponsiveArticle from './../../../components/skeleton/ResponsiveArticle'
 
 function Tag({ tag }) {
   const router = useRouter()
