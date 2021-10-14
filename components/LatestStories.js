@@ -21,7 +21,9 @@ function LatestStories() {
   if (isLoading) return <NotificationLoader />
 
   if (error)
-    return <p className='text-red-800 font-semibold'>'An error has occurred: ' + error.message</p>
+    return (
+      <p className='text-indigo-800 font-semibold'>'An error has occurred: ' + error.message</p>
+    )
   return (
     <>
       <div className='border-b border-gray-100 py-5 mr-2 mb-2'>

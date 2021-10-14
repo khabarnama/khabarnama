@@ -21,7 +21,7 @@ export default function Layout({ children }) {
               <ul className='navigationbar lg:my-5 border-y flex flex-row justify-around lg:flex-col text-md'>
                 <li>
                   <Link href='/'>
-                    <a className='text-red-800 hover:text-red-700 p-3 lg:px-5 lg:py-3 hover:bg-red-50 transition duration-300 ease-in-out rounded-full font-semibold flex items-center'>
+                    <a className='text-indigo-800 hover:text-indigo-800 p-3 lg:px-5 lg:py-3 hover:bg-indigo-50 transition duration-300 ease-in-out rounded-full font-semibold flex items-center'>
                       <SVGHome />
                       <span className='mr-2 hidden lg:inline-block'>صفحه نخست</span>
                     </a>
@@ -29,7 +29,7 @@ export default function Layout({ children }) {
                 </li>
                 <li>
                   <Link href='/category/latest-news'>
-                    <a className='flex items-center hover:text-red-700 p-3 lg:px-5 lg:py-3 hover:bg-red-50 transition duration-300 ease-in-out rounded-full'>
+                    <a className='flex items-center hover:text-indigo-800 p-3 lg:px-5 lg:py-3 hover:bg-indigo-50 transition duration-300 ease-in-out rounded-full'>
                       <SVGNotification />
                       <span className='mr-2 hidden lg:inline-block'>روایت زنده</span>
                     </a>
@@ -37,7 +37,7 @@ export default function Layout({ children }) {
                 </li>
                 <li>
                   <Link href='/category/work'>
-                    <a className='flex items-center hover:text-red-700 p-3 lg:px-5 lg:py-3 hover:bg-red-50 transition duration-300 ease-in-out rounded-full'>
+                    <a className='flex items-center hover:text-indigo-800 p-3 lg:px-5 lg:py-3 hover:bg-indigo-50 transition duration-300 ease-in-out rounded-full'>
                       <SVGWork />
                       <span className='mr-2 hidden lg:inline-block'>کسب و کار</span>
                     </a>
@@ -45,7 +45,7 @@ export default function Layout({ children }) {
                 </li>
                 <li>
                   <Link href='/category/lifestyle'>
-                    <a className='flex items-center hover:text-red-700 p-3 lg:px-5 lg:py-3 hover:bg-red-50 transition duration-300 ease-in-out rounded-full'>
+                    <a className='flex items-center hover:text-indigo-800 p-3 lg:px-5 lg:py-3 hover:bg-indigo-50 transition duration-300 ease-in-out rounded-full'>
                       <SVGLifestyle />
                       <span className='mr-2 hidden lg:inline-block'>سبک زندگی</span>
                     </a>
@@ -53,7 +53,7 @@ export default function Layout({ children }) {
                 </li>
                 <li>
                   <Link href='/category/success'>
-                    <a className='flex items-center hover:text-red-700 p-3 lg:px-5 lg:py-3 hover:bg-red-50 transition duration-300 ease-in-out rounded-full'>
+                    <a className='flex items-center hover:text-indigo-800 p-3 lg:px-5 lg:py-3 hover:bg-indigo-50 transition duration-300 ease-in-out rounded-full'>
                       <SVGUnlock />
                       <span className='mr-2 hidden lg:inline-block'>موفقیت</span>
                     </a>
@@ -61,7 +61,7 @@ export default function Layout({ children }) {
                 </li>
                 <li>
                   <Link href='/category/health'>
-                    <a className='flex items-center hover:text-red-700 p-3 lg:px-5 lg:py-3 hover:bg-red-50 transition duration-300 ease-in-out rounded-full'>
+                    <a className='flex items-center hover:text-indigo-800 p-3 lg:px-5 lg:py-3 hover:bg-indigo-50 transition duration-300 ease-in-out rounded-full'>
                       <SVGHeart />
                       <span className='mr-2 hidden lg:inline-block'>سلامتی</span>
                     </a>
@@ -69,7 +69,7 @@ export default function Layout({ children }) {
                 </li>
                 <li>
                   <Link href='/category/trip'>
-                    <a className='flex items-center hover:text-red-700 p-3 lg:px-5 lg:py-3 hover:bg-red-50 transition duration-300 ease-in-out rounded-full'>
+                    <a className='flex items-center hover:text-indigo-800 p-3 lg:px-5 lg:py-3 hover:bg-indigo-50 transition duration-300 ease-in-out rounded-full'>
                       <SVGDiscovery />
                       <span className='mr-2 hidden lg:inline-block'>سفر و گردشگری</span>
                     </a>
@@ -77,7 +77,7 @@ export default function Layout({ children }) {
                 </li>
                 <li>
                   <Link href='/category/top'>
-                    <a className='flex items-center hover:text-red-700 p-3 lg:px-5 lg:py-3 hover:bg-red-50 transition duration-300 ease-in-out rounded-full'>
+                    <a className='flex items-center hover:text-indigo-800 p-3 lg:px-5 lg:py-3 hover:bg-indigo-50 transition duration-300 ease-in-out rounded-full'>
                       <SVGStar />
                       <span className='mr-2 hidden lg:inline-block'>برترین ها</span>
                     </a>
@@ -85,7 +85,7 @@ export default function Layout({ children }) {
                 </li>
               </ul>
               <div className='mr-4 hidden lg:inline-block'>
-                <button className='text-center px-7 py-3 bg-red-700 text-white rounded-full shadow-md hover:bg-red-800 transition duration-300 ease-in-out'>
+                <button className='text-center px-7 py-3 bg-indigo-800 text-white rounded-full shadow-md hover:bg-red-800 transition duration-300 ease-in-out'>
                   مشاهده آرشیف
                 </button>
               </div>

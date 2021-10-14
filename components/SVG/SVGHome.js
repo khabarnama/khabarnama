@@ -2,7 +2,7 @@ export default function SVGHome({ classes }) {
   return (
     <svg
       id='Layer_1'
-      className={`${classes ? classes : 'h-8 text-red-800'}`}
+      className={`${classes ? classes : 'h-8 text-indigo-800'}`}
       fill='none'
       viewBox='0 0 24 24'
     >

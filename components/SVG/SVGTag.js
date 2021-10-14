@@ -1,7 +1,7 @@
 export default function SVGArrow({ classes }) {
   return (
     <svg
-      className={classes ? classes : 'h-5 w-5 text-red-800'}
+      className={classes ? classes : 'h-5 w-5 text-indigo-800'}
       fill='currentColor'
       viewBox='0 0 32 32'
     >

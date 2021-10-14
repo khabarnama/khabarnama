@@ -30,12 +30,14 @@ function Populartags() {
   if (isLoading) return <p>...</p>
 
   if (error)
-    return <p className='text-red-800 font-semibold'>'An error has occurred: ' + error.message</p>
+    return (
+      <p className='text-indigo-800 font-semibold'>'An error has occurred: ' + error.message</p>
+    )
   return (
     <>
       {data.map((tag, index) => (
         <Link key={tag.id} href={`/tag/${tag.slug}`}>
-          <a className='flex flex-none lg:border border-gray-100 hover:bg-red-700 hover:text-white transition duration-300 ease-in-out text-xs lg:p-2 mr-1 rounded-md'>
+          <a className='flex flex-none lg:border border-gray-100 hover:bg-indigo-800 hover:text-white transition duration-300 ease-in-out text-xs lg:p-2 mr-1 rounded-md'>
             #{tag.name}
           </a>
         </Link>

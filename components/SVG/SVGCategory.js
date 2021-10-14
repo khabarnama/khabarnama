@@ -1,7 +1,7 @@
 export default function SVGCategory({ classes }) {
   return (
     <svg
-      className={classes ? classes : 'h-5 text-red-800'}
+      className={classes ? classes : 'h-5 text-indigo-800'}
       fill='currentColor'
       version='1.1'
       id='Capa_1'

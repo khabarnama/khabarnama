@@ -107,7 +107,7 @@ function Blog({ post }) {
                 </Link>
                 <div className='text-xs'>
                   <Link href={`/blog/author/${post._embedded.author[0].slug}`}>
-                    <a className='text-gray-900 font-semibold leading-none text-sm hover:text-red-700'>
+                    <a className='text-gray-900 font-semibold leading-none text-sm hover:text-indigo-800'>
                       {post._embedded.author[0].name}
                     </a>
                   </Link>
@@ -162,7 +162,7 @@ function Blog({ post }) {
                         <a
                           className={`mr-1 sm:mr-3 ${
                             index == 1 ? 'hidden sm:flex' : 'flex'
-                          } flex-none items-center hover:text-red-700`}
+                          } flex-none items-center hover:text-indigo-800`}
                         >
                           {term.taxonomy == 'category' ? (
                             <SVGLifestyle classes='h-5' />

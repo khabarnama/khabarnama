@@ -21,7 +21,7 @@ function Post({ post }) {
       >
         <div className='flex flex-col gap-3 p-3 md:p-7 pb-3'>
           <Link href={`/blog/${year}/${month}/${day}/${post.slug}`}>
-            <a className='font-semibold text-xl md:text-2xl inline-block hover:text-red-700 transition duration-500 ease-in-out inline-block mb-2'>
+            <a className='font-semibold text-xl md:text-2xl inline-block hover:text-indigo-800 transition duration-500 ease-in-out inline-block mb-2'>
               <h1 dangerouslySetInnerHTML={{ __html: post.title.rendered }} />
             </a>
           </Link>
@@ -43,7 +43,7 @@ function Post({ post }) {
                 </Link>
                 <div className='text-xs'>
                   <Link href={`/blog/author/${post._embedded.author[0].slug}`}>
-                    <a className='text-gray-900 dark:text-gray-100 font-semibold leading-none text-xs md:text-sm hover:text-red-700 dark:hover:text-red-700 transition duration-500 ease-in-out'>
+                    <a className='text-gray-900 dark:text-gray-100 font-semibold leading-none text-xs md:text-sm hover:text-indigo-800 dark:hover:text-indigo-800 transition duration-500 ease-in-out'>
                       {post._embedded.author[0].name}
                     </a>
                   </Link>
@@ -110,7 +110,7 @@ function Post({ post }) {
                         <a
                           className={`mr-1 sm:mr-3 ${
                             index == 1 ? 'hidden sm:flex' : 'flex'
-                          } flex-none items-center hover:text-red-700`}
+                          } flex-none items-center hover:text-indigo-800`}
                         >
                           {term.taxonomy == 'category' ? (
                             <SVGLifestyle classes='h-5' />

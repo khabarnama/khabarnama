@@ -1,6 +1,6 @@
 export default function SVGClock({ classes }) {
   return (
-    <svg className={classes ? classes : 'h-5 text-red-800'} fill='none' viewBox='0 0 24 24'>
+    <svg className={classes ? classes : 'h-5 text-indigo-800'} fill='none' viewBox='0 0 24 24'>
       <g id='Iconly/Curved/Time Square'>
         <g id='Time Square'>
           <path

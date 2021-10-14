@@ -49,13 +49,13 @@ export default function Infinteblog({ type, type_id }) {
   return status === 'loading' || (isFetching && !isFetchingNextPage) ? (
     <ResponsiveArticle className='pr-5' />
   ) : status === 'error' ? (
-    <p className='my-5 text-center text-red-800 font-semibold'>Error: {error.message}</p>
+    <p className='my-5 text-center text-indigo-800 font-semibold'>Error: {error.message}</p>
   ) : (
     <>
       {data.pages.map((post, i) => post.map((postitem, i) => <Post post={postitem} />))}
       <div className='flex items-center justify-center my-5'>
         <button
-          className='rounded-full text-sm md:text-base px-6 py-2 bg-red-800 text-white hover:bg-red-700'
+          className='rounded-full text-sm md:text-base px-6 py-2 bg-red-800 text-white hover:bg-indigo-800'
           onClick={() => fetchNextPage()}
           disabled={!hasNextPage || isFetchingNextPage}
         >

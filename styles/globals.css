@@ -54,5 +54,5 @@ body {
 }
 
 .newsfeed li:hover:after {
-  background-color: rgba(153, 27, 27, 1);
+  background-color: #3730a3;
 }

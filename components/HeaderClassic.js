@@ -57,7 +57,7 @@ function HeaderClassic() {
                 <button
                   aria-label='navbar-mobile'
                   onClick={() => setDisplay(!display)}
-                  className='lg:hidden z-50  whitespace-no-wrap w-10 h-10 flex items-center justify-center p-3 rounded-full text-red-800 dark:text-white active:text-red-800 transition ease-in-out duration-150'
+                  className='lg:hidden z-50  whitespace-no-wrap w-10 h-10 flex items-center justify-center p-3 rounded-full text-indigo-800 dark:text-white active:text-indigo-800 transition ease-in-out duration-150'
                 >
                   {display ? <SVGCross /> : <SVGBurgernav />}
                 </button>
@@ -116,7 +116,7 @@ function HeaderClassic() {
                       <ul className='navigationbar lg:my-5 border-y flex flex-col text-md'>
                         <li>
                           <Link href='/'>
-                            <a className='text-red-800 dark:text-red-600 hover:text-red-700 p-3 lg:px-5 lg:py-3 hover:bg-red-50 transition duration-300 ease-in-out rounded-full font-semibold flex items-center'>
+                            <a className='text-indigo-800 dark:text-indigo-800 hover:text-indigo-800 p-3 lg:px-5 lg:py-3 hover:bg-indigo-50 transition duration-300 ease-in-out rounded-full font-semibold flex items-center'>
                               <SVGHome />
                               <span className='mr-2 '>صفحه نخست</span>
                             </a>
@@ -124,7 +124,7 @@ function HeaderClassic() {
                         </li>
                         <li>
                           <Link href='/category/latest-news'>
-                            <a className='flex items-center hover:text-red-700 p-3 lg:px-5 lg:py-3 hover:bg-red-50 transition duration-300 ease-in-out rounded-full'>
+                            <a className='flex items-center hover:text-indigo-800 p-3 lg:px-5 lg:py-3 hover:bg-indigo-50 transition duration-300 ease-in-out rounded-full'>
                               <SVGNotification />
                               <span className='mr-2 '>روایت زنده</span>
                             </a>
@@ -132,7 +132,7 @@ function HeaderClassic() {
                         </li>
                         <li>
                           <Link href='/category/work'>
-                            <a className='flex items-center hover:text-red-700 p-3 lg:px-5 lg:py-3 hover:bg-red-50 transition duration-300 ease-in-out rounded-full'>
+                            <a className='flex items-center hover:text-indigo-800 p-3 lg:px-5 lg:py-3 hover:bg-indigo-50 transition duration-300 ease-in-out rounded-full'>
                               <SVGWork />
                               <span className='mr-2 '>کسب و کار</span>
                             </a>
@@ -140,7 +140,7 @@ function HeaderClassic() {
                         </li>
                         <li>
                           <Link href='/category/lifestyle'>
-                            <a className='flex items-center hover:text-red-700 p-3 lg:px-5 lg:py-3 hover:bg-red-50 transition duration-300 ease-in-out rounded-full'>
+                            <a className='flex items-center hover:text-indigo-800 p-3 lg:px-5 lg:py-3 hover:bg-indigo-50 transition duration-300 ease-in-out rounded-full'>
                               <SVGLifestyle />
                               <span className='mr-2 hidden lg:inline-block'>سبک زندگی</span>
                             </a>
@@ -148,7 +148,7 @@ function HeaderClassic() {
                         </li>
                         <li>
                           <Link href='/category/success'>
-                            <a className='flex items-center hover:text-red-700 p-3 lg:px-5 lg:py-3 hover:bg-red-50 transition duration-300 ease-in-out rounded-full'>
+                            <a className='flex items-center hover:text-indigo-800 p-3 lg:px-5 lg:py-3 hover:bg-indigo-50 transition duration-300 ease-in-out rounded-full'>
                               <SVGUnlock />
                               <span className='mr-2 hidden lg:inline-block'>موفقیت</span>
                             </a>
@@ -156,7 +156,7 @@ function HeaderClassic() {
                         </li>
                         <li>
                           <Link href='/category/health'>
-                            <a className='flex items-center hover:text-red-700 p-3 lg:px-5 lg:py-3 hover:bg-red-50 transition duration-300 ease-in-out rounded-full'>
+                            <a className='flex items-center hover:text-indigo-800 p-3 lg:px-5 lg:py-3 hover:bg-indigo-50 transition duration-300 ease-in-out rounded-full'>
                               <SVGHeart />
                               <span className='mr-2 hidden lg:inline-block'>سلامتی</span>
                             </a>
@@ -164,7 +164,7 @@ function HeaderClassic() {
                         </li>
                         <li>
                           <Link href='/category/trip'>
-                            <a className='flex items-center hover:text-red-700 p-3 lg:px-5 lg:py-3 hover:bg-red-50 transition duration-300 ease-in-out rounded-full'>
+                            <a className='flex items-center hover:text-indigo-800 p-3 lg:px-5 lg:py-3 hover:bg-indigo-50 transition duration-300 ease-in-out rounded-full'>
                               <SVGDiscovery />
                               <span className='mr-2 hidden lg:inline-block'>سفر و گردشگری</span>
                             </a>
@@ -172,7 +172,7 @@ function HeaderClassic() {
                         </li>
                         <li>
                           <Link href='/category/top'>
-                            <a className='flex items-center hover:text-red-700 p-3 lg:px-5 lg:py-3 hover:bg-red-50 transition duration-300 ease-in-out rounded-full'>
+                            <a className='flex items-center hover:text-indigo-800 p-3 lg:px-5 lg:py-3 hover:bg-indigo-50 transition duration-300 ease-in-out rounded-full'>
                               <SVGStar />
                               <span className='mr-2 hidden lg:inline-block'>برترین ها</span>
                             </a>

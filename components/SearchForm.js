@@ -40,7 +40,7 @@ function SearchForm() {
     <>
       <form className='w-96 flex flex-row items-center gap-2' onSubmit={(e) => onSubmitHandler(e)}>
         <button
-          className='font-medium text-gray-700 hover:text-red-700'
+          className='font-medium text-gray-700 hover:text-indigo-800'
           disabled={disabled}
           type='submit'
           onClick={(e) => onSubmitHandler(e)}
@@ -68,7 +68,7 @@ function SearchForm() {
           placeholder='جستجو...'
           onChange={(e) => inputHandler(e)}
           value={search}
-          className='p-3 focus:ring-red-700 focus:border-red-700 rounded-md block w-full sm:text-sm'
+          className='p-3 focus:ring-indigo-800 focus:border-indigo-800 rounded-md block w-full sm:text-sm'
         />
       </form>
     </>
