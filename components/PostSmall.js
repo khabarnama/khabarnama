@@ -2,7 +2,11 @@ import Link from 'next/link'
 
 function PostSmall({ post }) {
   return (
-    <Link href={`/${post.slug}`}>
+    <Link
+      href={`${post.yoast_head_json.canonical
+        .replace('old.khabarnama.net', 'khabarnama.net')
+        .replace('khabarnama.net', 'khabarnama.vercel.app')}`}
+    >
       <a id={post.id} className='dark:text-gray-400 dark:hover:text-red-600 hover:text-red-800'>
         <li
           className='relative pr-6 pb-2 pt-2 transition duration-300 ease-in-out'

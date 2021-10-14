@@ -1,11 +1,11 @@
 import { useRouter } from 'next/router'
-import ResponsiveArticle from '../components/skeleton/ResponsiveArticle'
-import ImageComponentity from './../components/ImageComponentity'
+import ResponsiveArticle from './../../components/skeleton/ResponsiveArticle'
+import ImageComponentity from './../../components/ImageComponentity'
 import { FacebookShareButton, LinkedinShareButton, TwitterShareButton } from 'react-share'
 import { FacebookIcon, LinkedinIcon, TwitterIcon } from 'react-share'
-import SVGClock from './../components/SVG/SVGClock'
-import SVGTag from './../components/SVG/SVGTag'
-import SVGLifestyle from './../components/SVG/SVGLifestyle'
+import SVGClock from './../../components/SVG/SVGClock'
+import SVGTag from './../../components/SVG/SVGTag'
+import SVGLifestyle from './../../components/SVG/SVGLifestyle'
 import Link from 'next/link'
 import { NextSeo } from 'next-seo'
 import moment from 'moment'
@@ -26,7 +26,7 @@ function Blog({ post }) {
         <NextSeo
           title={post.title.rendered}
           description={post.yoast_head_json.og_description}
-          canonical='https://khabarnama.net'
+          canonical={post.yoast_head_json.canonical.replace('old.', '')}
           titleTemplate='خبرنامه | %s'
           noindex='index'
           nofollow='follow'
@@ -181,9 +181,18 @@ export async function getStaticPaths() {
   const res = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/posts`)
   const posts = await res.json()
 
+  let date
+  let year
+  let month
+  let day
+
   const slugs = []
   posts.forEach((post) => {
-    slugs.push({ params: { slug: post.slug } })
+    date = post.date_gmt.split('-')
+    year = date[0]
+    month = date[1]
+    day = date[2].substr(0, 1)
+    slugs.push({ params: { slug: [year, month, day, post.slug] } })
   })
 
   return {
@@ -200,7 +209,7 @@ export async function getStaticProps({ params }) {
   const { slug } = params
 
   const pageRes = await fetch(
-    `${process.env.NEXT_PUBLIC_SITE_URL}/posts?${args}&slug=${encodeURI(slug)}`
+    `${process.env.NEXT_PUBLIC_SITE_URL}/posts?${args}&slug=${encodeURI(slug[slug.length - 1])}`
   )
   const page = await pageRes.json()
   const post = page[0]

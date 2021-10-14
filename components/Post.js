@@ -16,7 +16,11 @@ function Post({ post }) {
         className='blog hover:bg-purple-50 dark:hover:bg-gray-900 overflow-hidden flex flex-col mx-auto px-5'
       >
         <div className='flex flex-col gap-3 p-3 md:p-7 pb-3'>
-          <Link href={`/${post.slug}`}>
+          <Link
+            href={`${post.yoast_head_json.canonical
+              .replace('old.khabarnama.net', 'khabarnama.net')
+              .replace('khabarnama.net', 'khabarnama.vercel.app')}`}
+          >
             <a className='font-semibold text-xl md:text-2xl inline-block hover:text-red-700 transition duration-500 ease-in-out inline-block mb-2'>
               <h1 dangerouslySetInnerHTML={{ __html: post.title.rendered }} />
             </a>
