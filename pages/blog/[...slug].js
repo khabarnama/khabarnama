@@ -116,13 +116,19 @@ function Blog({ post }) {
               </div>
             )}
             <div className='share flex gap-2 items-center text-gray-600'>
-              <TwitterShareButton url={`${post.yoast_head_json.canonical.replace('old.', '')}`}>
+              <TwitterShareButton
+                url={`https://khabarnama.net/${year}/${month}/${day}/${post.slug}`}
+              >
                 <TwitterIcon size={24} round={false} />
               </TwitterShareButton>
-              <LinkedinShareButton url={`${post.yoast_head_json.canonical.replace('old.', '')}`}>
+              <LinkedinShareButton
+                url={`https://khabarnama.net/${year}/${month}/${day}/${post.slug}`}
+              >
                 <LinkedinIcon size={24} round={false} />
               </LinkedinShareButton>
-              <FacebookShareButton url={`${post.yoast_head_json.canonical.replace('old.', '')}`}>
+              <FacebookShareButton
+                url={`https://khabarnama.net/${year}/${month}/${day}/${post.slug}`}
+              >
                 <FacebookIcon size={24} round={false} />
               </FacebookShareButton>
             </div>

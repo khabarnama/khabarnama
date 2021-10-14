@@ -7,7 +7,7 @@ function Populartags() {
     'populartags',
     () =>
       fetch(
-        'https://old.khabarnama.net/wp-json/wp/v2/blog/tags?order=desc&orderby=count&per_page=4'
+        'https://old.khabarnama.net/wp-json/wp/v2/tags?order=desc&orderby=count&per_page=4'
       ).then((res) => res.json()),
     { keepPreviousData: true }
   )
@@ -20,7 +20,7 @@ function Populartags() {
         'populartags',
         () =>
           fetch(
-            'https://old.khabarnama.net/wp-json/wp/v2/blog/tags?order=desc&orderby=count&per_page=4'
+            'https://old.khabarnama.net/wp-json/wp/v2/tags?order=desc&orderby=count&per_page=4'
           ).then((res) => res.json()),
         { keepPreviousData: true }
       )
