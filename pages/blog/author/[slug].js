@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router'
-import Infiniteblog from '../../components/Infiniteblog'
-import ResponsiveArticle from '../../components/skeleton/ResponsiveArticle'
+import Infiniteblog from './../../../../components/Infiniteblog'
+import ResponsiveArticle from './../../../../components/skeleton/ResponsiveArticle'
 import { NextSeo } from 'next-seo'
 
 function Author({ author }) {
@@ -26,7 +26,7 @@ function Author({ author }) {
             <NextSeo
               title={author.yoast_head_json.og_title}
               description={author.yoast_head_json.og_description}
-              canonical={`https://khabarnama.net/author/${author.slug}`}
+              canonical={`https://khabarnama.net/blog/author/${author.slug}`}
               noindex='index'
               nofollow='follow'
               robotsProps={{
@@ -51,7 +51,7 @@ function Author({ author }) {
               ]}
               openGraph={{
                 title: author.yoast_head_json.og_title,
-                url: `https://khabarnama.net/author/${author.slug}`,
+                url: `https://khabarnama.net/blog/author/${author.slug}`,
                 locale: author.yoast_head_json.og_locale,
                 site_name: author.yoast_head_json.og_site_name,
                 type: 'profile',
