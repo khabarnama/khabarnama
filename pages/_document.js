@@ -22,9 +22,9 @@ class MyDocument extends Document {
           <meta name='msapplication-tap-highlight' content='no' />
           <meta name='theme-color' content='#000000' />
 
-          <link rel='apple-touch-icon' href='/icons/logo.png' />
+          <link rel='apple-touch-icon' href='/icons/logo-dark.png' />
           <link rel='manifest' href='/manifest.json' />
-          <link rel='shortcut icon' href='/icons/logo.png' />
+          <link rel='shortcut icon' href='/icons/logo-dark.png' />
         </Head>
         <body>
           <Main />
