@@ -89,7 +89,7 @@ export default Category
 
 // This function gets called at build time
 export async function getStaticPaths() {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/categories?order=desc&orderby=count`)
+  const res = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/categories?order=desc&orderby=id`)
   const categories = await res.json()
 
   const slugs = []
