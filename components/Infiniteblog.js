@@ -19,7 +19,7 @@ export default function Infinteblog({ type, type_id }) {
         'projects',
         () =>
           fetch(
-            `https://old.khabarnama.net/wp-json/wp/v2/posts?_embed=true&per_page=4${args}`
+            `https://old.khabarnama.net/wp-json/wp/v2/posts?_embed=true&per_page=10${args}`
           ).then((res) => res.json()),
         { keepPreviousData: true }
       )
@@ -28,7 +28,7 @@ export default function Infinteblog({ type, type_id }) {
 
   const fetchProjects = async ({ pageParam = page }) => {
     const res = await fetch(
-      `https://old.khabarnama.net/wp-json/wp/v2/posts?_embed=true${args}&per_page=2&page=` +
+      `https://old.khabarnama.net/wp-json/wp/v2/posts?_embed=true${args}&per_page=10&page=` +
         pageParam
     )
     const totalPages = res.headers.get('X-WP-TotalPages')
@@ -55,7 +55,7 @@ export default function Infinteblog({ type, type_id }) {
       {data.pages.map((post, i) => post.map((postitem, i) => <Post post={postitem} />))}
       <div className='flex items-center justify-center my-5'>
         <button
-          className='rounded-full text-sm md:text-base px-6 py-2 bg-red-800 text-white hover:bg-indigo-800'
+          className='rounded-full text-sm md:text-base px-6 py-2 bg-indigo-700 text-white hover:bg-indigo-800'
           onClick={() => fetchNextPage()}
           disabled={!hasNextPage || isFetchingNextPage}
         >

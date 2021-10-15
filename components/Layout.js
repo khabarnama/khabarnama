@@ -1,7 +1,7 @@
 import HeaderClassic from './HeaderClassic'
 import LatestStories from './LatestStories'
 import SVGHome from './../components/SVG/SVGHome'
-import SVGNotification from './../components/SVG/SVGNotification'
+import Footer from './Footer'
 import SVGWork from './../components/SVG/SVGWork'
 import SVGLifestyle from './../components/SVG/SVGLifestyle'
 import SVGStar from './../components/SVG/SVGStar'
@@ -24,14 +24,6 @@ export default function Layout({ children }) {
                     <a className='text-indigo-800 hover:text-indigo-800 p-3 lg:px-5 lg:py-3 hover:bg-indigo-50 transition duration-300 ease-in-out rounded-full font-semibold flex items-center'>
                       <SVGHome />
                       <span className='mr-2 hidden lg:inline-block'>صفحه نخست</span>
-                    </a>
-                  </Link>
-                </li>
-                <li>
-                  <Link href='/blog/category/latest-news'>
-                    <a className='flex items-center hover:text-indigo-800 p-3 lg:px-5 lg:py-3 hover:bg-indigo-50 transition duration-300 ease-in-out rounded-full'>
-                      <SVGNotification />
-                      <span className='mr-2 hidden lg:inline-block'>روایت زنده</span>
                     </a>
                   </Link>
                 </li>
@@ -89,6 +81,7 @@ export default function Layout({ children }) {
                   مشاهده آرشیف
                 </button>
               </div>
+              <Footer />
             </div>
           </div>
           <div className='flex-grow flex flex-col'>{children}</div>

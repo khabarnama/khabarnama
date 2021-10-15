@@ -1,17 +1,17 @@
 import { useRouter } from 'next/router'
-import ResponsiveArticle from './../../components/skeleton/ResponsiveArticle'
-import ImageComponentity from './../../components/ImageComponentity'
+import ResponsiveArticle from './../components/skeleton/ResponsiveArticle'
+import ImageComponentity from './../components/ImageComponentity'
 import { FacebookShareButton, LinkedinShareButton, TwitterShareButton } from 'react-share'
 import { FacebookIcon, LinkedinIcon, TwitterIcon } from 'react-share'
-import SVGClock from './../../components/SVG/SVGClock'
-import SVGTag from './../../components/SVG/SVGTag'
-import SVGLifestyle from './../../components/SVG/SVGLifestyle'
+import SVGClock from './../components/SVG/SVGClock'
+import SVGTag from './../components/SVG/SVGTag'
+import SVGLifestyle from './../components/SVG/SVGLifestyle'
 import Link from 'next/link'
 import { NextSeo } from 'next-seo'
 import moment from 'moment'
 import 'moment/locale/fa'
 
-function Blog({ post }) {
+function Page({ post }) {
   const router = useRouter()
 
   // If the page is not yet generated, this will be displayed
@@ -20,18 +20,13 @@ function Blog({ post }) {
     return <ResponsiveArticle />
   }
 
-  let date = post.date_gmt.split('-')
-  let year = date[0]
-  let month = date[1]
-  let day = date[2].substr(0, 1)
-
   return (
     <>
       {post.yoast_head_json && (
         <NextSeo
           title={post.title.rendered}
           description={post.yoast_head_json.og_description}
-          canonical={`https://khabarnama.net/${year}/${month}/${day}/${post.slug}`}
+          canonical={`https://khabarnama.net/${post.slug}`}
           titleTemplate='خبرنامه | %s'
           robotsProps={{
             maxSnippet: post.yoast_head_json.robots['max-snippet'],
@@ -56,7 +51,7 @@ function Blog({ post }) {
           openGraph={{
             title: post.yoast_head_json.og_title,
             description: post.yoast_head_json.og_description,
-            url: `https://khabarnama.net/${year}/${month}/${day}/${post.slug}`,
+            url: `https://khabarnama.net/${post.slug}`,
             type: post.yoast_head_json.og_type,
             locale: post.yoast_head_json.og_locale,
             site_name: post.yoast_head_json.og_site_name,
@@ -120,19 +115,13 @@ function Blog({ post }) {
               </div>
             )}
             <div className='share flex gap-2 items-center text-gray-600'>
-              <TwitterShareButton
-                url={`https://khabarnama.net/${year}/${month}/${day}/${post.slug}`}
-              >
+              <TwitterShareButton url={`https://khabarnama.net/${post.slug}`}>
                 <TwitterIcon size={24} round={false} />
               </TwitterShareButton>
-              <LinkedinShareButton
-                url={`https://khabarnama.net/${year}/${month}/${day}/${post.slug}`}
-              >
+              <LinkedinShareButton url={`https://khabarnama.net/${post.slug}`}>
                 <LinkedinIcon size={24} round={false} />
               </LinkedinShareButton>
-              <FacebookShareButton
-                url={`https://khabarnama.net/${year}/${month}/${day}/${post.slug}`}
-              >
+              <FacebookShareButton url={`https://khabarnama.net/${post.slug}`}>
                 <FacebookIcon size={24} round={false} />
               </FacebookShareButton>
             </div>
@@ -160,7 +149,7 @@ function Blog({ post }) {
                 <SVGClock />
                 <span className='mr-1'>{moment(post.date_gmt).locale('fa').format('DD MMMM')}</span>
               </span>
-              {post._embedded['wp:term'].map((termArray) =>
+              {post._embedded['wp:term']?.map((termArray) =>
                 termArray.map(
                   (term, index) =>
                     index < 2 && (
@@ -197,21 +186,12 @@ function Blog({ post }) {
 
 // This function gets called at build time
 export async function getStaticPaths() {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/posts`)
+  const res = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/pages`)
   const posts = await res.json()
-
-  let date
-  let year
-  let month
-  let day
 
   const slugs = []
   posts.forEach((post) => {
-    date = post.date_gmt.split('-')
-    year = date[0]
-    month = date[1]
-    day = date[2].substr(0, 1)
-    slugs.push({ params: { slug: [year, month, day, post.slug] } })
+    slugs.push({ params: { slug: post.slug } })
   })
 
   return {
@@ -228,7 +208,7 @@ export async function getStaticProps({ params }) {
   const { slug } = params
 
   const pageRes = await fetch(
-    `${process.env.NEXT_PUBLIC_SITE_URL}/posts?${args}&slug=${encodeURI(slug[slug.length - 1])}`
+    `${process.env.NEXT_PUBLIC_SITE_URL}/pages?${args}&slug=${encodeURI(slug)}`
   )
   const page = await pageRes.json()
   const post = page[0]
@@ -240,4 +220,4 @@ export async function getStaticProps({ params }) {
   }
 }
 
-export default Blog
+export default Page

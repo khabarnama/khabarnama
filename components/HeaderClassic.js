@@ -123,14 +123,6 @@ function HeaderClassic() {
                           </Link>
                         </li>
                         <li>
-                          <Link href='/blog/category/latest-news'>
-                            <a className='flex items-center hover:text-indigo-800 p-3 lg:px-5 lg:py-3 hover:bg-indigo-50 transition duration-300 ease-in-out rounded-full'>
-                              <SVGNotification />
-                              <span className='mr-2 '>روایت زنده</span>
-                            </a>
-                          </Link>
-                        </li>
-                        <li>
                           <Link href='/blog/category/work'>
                             <a className='flex items-center hover:text-indigo-800 p-3 lg:px-5 lg:py-3 hover:bg-indigo-50 transition duration-300 ease-in-out rounded-full'>
                               <SVGWork />
