@@ -142,7 +142,7 @@ function HeaderClassic() {
                           <Link href='/blog/category/lifestyle'>
                             <a className='flex items-center hover:text-indigo-800 p-3 lg:px-5 lg:py-3 hover:bg-indigo-50 transition duration-300 ease-in-out rounded-full'>
                               <SVGLifestyle />
-                              <span className='mr-2 hidden lg:inline-block'>سبک زندگی</span>
+                              <span className='mr-2'>سبک زندگی</span>
                             </a>
                           </Link>
                         </li>
@@ -150,7 +150,7 @@ function HeaderClassic() {
                           <Link href='/blog/category/success'>
                             <a className='flex items-center hover:text-indigo-800 p-3 lg:px-5 lg:py-3 hover:bg-indigo-50 transition duration-300 ease-in-out rounded-full'>
                               <SVGUnlock />
-                              <span className='mr-2 hidden lg:inline-block'>موفقیت</span>
+                              <span className='mr-2'>موفقیت</span>
                             </a>
                           </Link>
                         </li>
@@ -158,7 +158,7 @@ function HeaderClassic() {
                           <Link href='/blog/category/health'>
                             <a className='flex items-center hover:text-indigo-800 p-3 lg:px-5 lg:py-3 hover:bg-indigo-50 transition duration-300 ease-in-out rounded-full'>
                               <SVGHeart />
-                              <span className='mr-2 hidden lg:inline-block'>سلامتی</span>
+                              <span className='mr-2'>سلامتی</span>
                             </a>
                           </Link>
                         </li>
@@ -166,7 +166,7 @@ function HeaderClassic() {
                           <Link href='/blog/category/trip'>
                             <a className='flex items-center hover:text-indigo-800 p-3 lg:px-5 lg:py-3 hover:bg-indigo-50 transition duration-300 ease-in-out rounded-full'>
                               <SVGDiscovery />
-                              <span className='mr-2 hidden lg:inline-block'>سفر و گردشگری</span>
+                              <span className='mr-2'>سفر و گردشگری</span>
                             </a>
                           </Link>
                         </li>
@@ -174,7 +174,7 @@ function HeaderClassic() {
                           <Link href='/blog/category/top'>
                             <a className='flex items-center hover:text-indigo-800 p-3 lg:px-5 lg:py-3 hover:bg-indigo-50 transition duration-300 ease-in-out rounded-full'>
                               <SVGStar />
-                              <span className='mr-2 hidden lg:inline-block'>برترین ها</span>
+                              <span className='mr-2'>برترین ها</span>
                             </a>
                           </Link>
                         </li>
