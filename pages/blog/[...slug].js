@@ -33,8 +33,6 @@ function Blog({ post }) {
           description={post.yoast_head_json.og_description}
           canonical={`https://khabarnama.net/${year}/${month}/${day}/${post.slug}`}
           titleTemplate='خبرنامه | %s'
-          noindex='index'
-          nofollow='follow'
           robotsProps={{
             maxSnippet: post.yoast_head_json.robots['max-snippet'],
             maxImagePreview: post.yoast_head_json.robots['max-image-preview'],

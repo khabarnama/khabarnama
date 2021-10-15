@@ -27,8 +27,6 @@ function Category({ category }) {
               title={category.yoast_head_json.og_title}
               description={category.yoast_head_json.og_description}
               canonical={`https://khabarnama.net/blog/category/${category.slug}`}
-              noindex='index'
-              nofollow='follow'
               robotsProps={{
                 maxSnippet: category.yoast_head_json.robots['max-snippet'],
                 maxImagePreview: category.yoast_head_json.robots['max-image-preview'],

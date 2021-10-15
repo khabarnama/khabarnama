@@ -21,8 +21,6 @@ function Index() {
         description='خبرنامه رسانه‌ای برای بازتاب رویدادها، وقایع و اتفاقات از طریق آنلاین است. این رسانه با گزارش‌های تحلیلی-تحقیقی خود در راستای ارائه روایت واقعی ایجاد شده است.'
         canonical='https://khabarnama.net'
         titleTemplate='خبرنامه | %s'
-        noindex='index'
-        nofollow='follow'
         robotsProps={{
           maxSnippet: 'max-snippet:-1',
           maxImagePreview: 'max-image-preview:large',

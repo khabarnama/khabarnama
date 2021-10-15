@@ -27,8 +27,6 @@ function Author({ author }) {
               title={author.yoast_head_json.og_title}
               description={author.yoast_head_json.og_description}
               canonical={`https://khabarnama.net/blog/author/${author.slug}`}
-              noindex='index'
-              nofollow='follow'
               robotsProps={{
                 maxSnippet: author.yoast_head_json.robots['max-snippet'],
                 maxImagePreview: author.yoast_head_json.robots['max-image-preview'],

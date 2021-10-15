@@ -26,8 +26,6 @@ function Tag({ tag }) {
               title={tag.yoast_head_json.og_title}
               description={tag.yoast_head_json.og_description}
               canonical={`https://khabarnama.net/blog/tag/${tag.slug}`}
-              noindex='index'
-              nofollow='follow'
               robotsProps={{
                 maxSnippet: tag.yoast_head_json.robots['max-snippet'],
                 maxImagePreview: tag.yoast_head_json.robots['max-image-preview'],
