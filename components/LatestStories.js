@@ -1,24 +1,14 @@
 import PostSmall from './PostSmall'
-import { useQuery, useQueryClient } from 'react-query'
+import { useQuery } from 'react-query'
 import NotificationLoader from './skeleton/NotificationLoader'
-import { useEffect } from 'react'
+import SmallLoader from './skeleton/SmallLoader'
 
 function LatestStories() {
-  const { isLoading, error, data } = useQuery(
+  const { isLoading, isRefetching, error, data } = useQuery(
     'lateststories',
     () => fetch('https://old.khabarnama.net/wp-json/wp/v2/posts').then((res) => res.json()),
     { keepPreviousData: true }
   )
-
-  const queryClient = new useQueryClient()
-
-  useEffect(() => {
-    return async () => {
-      await queryClient.prefetchQuery('lateststories', () =>
-        fetch('https://old.khabarnama.net/wp-json/wp/v2/posts').then((res) => res.json())
-      )
-    }
-  }, [])
 
   if (isLoading) return <NotificationLoader />
 
@@ -29,7 +19,16 @@ function LatestStories() {
   return (
     <>
       <div className='border-b border-gray-100 py-5 mr-2 mb-2'>
-        <h1 className='uppercase font-semibold mb-3'>مطالب تازه</h1>
+        <div className='flex items-center justify-start gap-2 mb-4'>
+          <h1 className='uppercase font-semibold'>مطالب تازه</h1>
+          {isRefetching && (
+            <div className='w-14 flex items-center justify-center'>
+              <SmallLoader />
+              <SmallLoader />
+              <SmallLoader />
+            </div>
+          )}
+        </div>
         <ul className='newsfeed text-gray-600'>
           {data.map((post) => (
             <PostSmall post={post} />

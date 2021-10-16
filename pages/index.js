@@ -92,11 +92,12 @@ const fetchProjects = async () => {
 export async function getStaticProps() {
   const queryClient = new QueryClient()
 
-  await queryClient.prefetchQuery('projects', fetchProjects)
+  await queryClient.prefetchQuery('lateststories', fetchProjects)
+  await queryClient.prefetchInfiniteQuery('projects', fetchProjects)
 
   return {
     props: {
-      dehydratedState: dehydrate(queryClient)
+      dehydratedState: JSON.parse(JSON.stringify(dehydrate(queryClient)))
     }
   }
 }

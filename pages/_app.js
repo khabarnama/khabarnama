@@ -6,7 +6,7 @@ import 'nprogress/nprogress.css' //styles of nprogress
 import { Hydrate, QueryClient, QueryClientProvider } from 'react-query'
 import { ThemeProvider } from 'next-themes'
 import { ReactQueryDevtools } from 'react-query/devtools'
-
+import React from 'react'
 //Binding events.
 Router.events.on('routeChangeStart', () => NProgress.start())
 Router.events.on('routeChangeComplete', () => NProgress.done())
@@ -26,16 +26,18 @@ Router.onRouteChangeComplete = () => {
   NProgress.done()
 }
 
-const queryClient = new QueryClient({
-  defaultOptions: {
-    queries: {
-      refetchOnWindowFocus: false,
-      keepPreviousData: true
-    }
-  }
-})
-
 function MyApp({ Component, pageProps }) {
+  const [queryClient] = React.useState(
+    () =>
+      new QueryClient({
+        defaultOptions: {
+          queries: {
+            refetchOnWindowFocus: false,
+            keepPreviousData: true
+          }
+        }
+      })
+  )
   return (
     <QueryClientProvider client={queryClient}>
       <Hydrate state={pageProps.dehydratedState}>
