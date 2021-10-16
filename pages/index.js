@@ -4,6 +4,7 @@ import Infiniteblog from './../components/Infiniteblog'
 import ImageComponentity from './../components/ImageComponentity'
 import Link from 'next/link'
 import { NextSeo } from 'next-seo'
+import { dehydrate, QueryClient, useQuery } from 'react-query'
 
 function Index() {
   const router = useRouter()
@@ -78,6 +79,30 @@ function Index() {
       <Infiniteblog />
     </>
   )
+}
+
+const fetchProjects = async ({ pageParam = page }) => {
+  const res = await fetch(
+    `https://old.khabarnama.net/wp-json/wp/v2/posts?_embed=true${args}&per_page=10&page=` +
+      pageParam
+  )
+  const totalPages = res.headers.get('X-WP-TotalPages')
+  const posts = res.json()
+  setPage(page + 1)
+  setTotalpages(totalPages)
+  return posts
+}
+
+export async function getStaticProps() {
+  const queryClient = new QueryClient()
+
+  await queryClient.prefetchQuery('projects', fetchProjects)
+
+  return {
+    props: {
+      dehydratedState: dehydrate(queryClient)
+    }
+  }
 }
 
 export default Index

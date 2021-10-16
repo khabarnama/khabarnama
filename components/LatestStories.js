@@ -29,7 +29,7 @@ function LatestStories() {
   return (
     <>
       <div className='border-b border-gray-100 py-5 mr-2 mb-2'>
-        <h1 className='uppercase font-semibold mb-3'>روایت زنده</h1>
+        <h1 className='uppercase font-semibold mb-3'>مطالب تازه</h1>
         <ul className='newsfeed text-gray-600'>
           {data.map((post) => (
             <PostSmall post={post} />

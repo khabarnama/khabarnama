@@ -3,11 +3,10 @@ import Layout from '../components/Layout'
 import Router from 'next/router'
 import NProgress from 'nprogress' //nprogress module
 import 'nprogress/nprogress.css' //styles of nprogress
-import { QueryClient, QueryClientProvider } from 'react-query'
-import { ReactQueryDevtools } from 'react-query/devtools'
+import { Hydrate, QueryClient, QueryClientProvider } from 'react-query'
 import { ThemeProvider } from 'next-themes'
 
-const queryClient = new QueryClient({
+const [queryClient] = new QueryClient({
   defaultOptions: {
     queries: {
       refetchOnWindowFocus: false,
@@ -37,12 +36,13 @@ Router.onRouteChangeComplete = () => {
 function MyApp({ Component, pageProps }) {
   return (
     <QueryClientProvider client={queryClient}>
-      <ThemeProvider attribute='class'>
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
-      </ThemeProvider>
-      <ReactQueryDevtools initialIsOpen={false} />
+      <Hydrate state={pageProps.dehydratedState}>
+        <ThemeProvider attribute='class'>
+          <Layout>
+            <Component {...pageProps} />
+          </Layout>
+        </ThemeProvider>
+      </Hydrate>
     </QueryClientProvider>
   )
 }
