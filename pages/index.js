@@ -82,9 +82,7 @@ function Index() {
 }
 
 const fetchProjects = async () => {
-  const res = await fetch(
-    `https://old.khabarnama.net/wp-json/wp/v2/posts?_embed=true&orderby=id&order=asc`
-  )
+  const res = await fetch(`https://old.khabarnama.net/wp-json/wp/v2/posts?_embed=true`)
   const posts = res.json()
   return posts
 }
