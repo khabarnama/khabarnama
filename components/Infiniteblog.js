@@ -11,20 +11,20 @@ export default function Infinteblog({ type, type_id }) {
   const [page, setPage] = useState(1)
   const [totalpages, setTotalpages] = useState(1)
 
-  const queryClient = new useQueryClient()
+  // const queryClient = new useQueryClient()
 
-  useEffect(() => {
-    return async () => {
-      await queryClient.prefetchInfiniteQuery(
-        'projects',
-        () =>
-          fetch(
-            `https://old.khabarnama.net/wp-json/wp/v2/posts?_embed=true&per_page=10${args}`
-          ).then((res) => res.json()),
-        { keepPreviousData: true }
-      )
-    }
-  }, [])
+  // useEffect(() => {
+  //   return async () => {
+  //     await queryClient.prefetchInfiniteQuery(
+  //       'projects',
+  //       () =>
+  //         fetch(
+  //           `https://old.khabarnama.net/wp-json/wp/v2/posts?_embed=true&per_page=10${args}`
+  //         ).then((res) => res.json()),
+  //       { keepPreviousData: true }
+  //     )
+  //   }
+  // }, [])
 
   const fetchProjects = async ({ pageParam = page }) => {
     const res = await fetch(
