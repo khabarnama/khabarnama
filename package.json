@@ -21,7 +21,7 @@
     "react-content-loader": "^6.0.3",
     "react-dom": "^17.0.2",
     "react-html-parser": "^2.0.2",
-    "react-query": "^3.19.2",
+    "react-query": "^3.27.0",
     "react-share": "^4.4.0",
     "sharp": "^0.29.1",
     "tailwind-scrollbar-hide": "^1.0.3"
