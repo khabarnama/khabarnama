@@ -21,7 +21,11 @@ export default function Layout({ children }) {
               <ul className='navigationbar lg:my-5 border-y flex flex-row justify-around lg:flex-col text-md'>
                 <li>
                   <Link href='/'>
-                    <a className='text-indigo-800 hover:text-indigo-800 p-3 lg:px-5 lg:py-3 hover:bg-indigo-50 transition duration-300 ease-in-out rounded-full font-semibold flex items-center'>
+                    <a
+                      className={`${
+                        router.pathname == '/' ? 'text-semibold' : ''
+                      } flex items-center hover:text-indigo-800 p-3 lg:px-5 lg:py-3 hover:bg-indigo-50 transition duration-300 ease-in-out rounded-full`}
+                    >
                       <SVGHome />
                       <span className='mr-2 hidden lg:inline-block'>صفحه نخست</span>
                     </a>
@@ -29,7 +33,11 @@ export default function Layout({ children }) {
                 </li>
                 <li>
                   <Link href='/blog/category/work'>
-                    <a className='flex items-center hover:text-indigo-800 p-3 lg:px-5 lg:py-3 hover:bg-indigo-50 transition duration-300 ease-in-out rounded-full'>
+                    <a
+                      className={`${
+                        router.pathname == '/blog/category/work' ? 'text-semibold' : ''
+                      } flex items-center hover:text-indigo-800 p-3 lg:px-5 lg:py-3 hover:bg-indigo-50 transition duration-300 ease-in-out rounded-full`}
+                    >
                       <SVGWork />
                       <span className='mr-2 hidden lg:inline-block'>کسب و کار</span>
                     </a>
@@ -37,7 +45,11 @@ export default function Layout({ children }) {
                 </li>
                 <li>
                   <Link href='/blog/category/lifestyle'>
-                    <a className='flex items-center hover:text-indigo-800 p-3 lg:px-5 lg:py-3 hover:bg-indigo-50 transition duration-300 ease-in-out rounded-full'>
+                    <a
+                      className={`${
+                        router.pathname == '/blog.category/lifestyle' ? 'text-semibold' : ''
+                      } flex items-center hover:text-indigo-800 p-3 lg:px-5 lg:py-3 hover:bg-indigo-50 transition duration-300 ease-in-out rounded-full`}
+                    >
                       <SVGLifestyle />
                       <span className='mr-2 hidden lg:inline-block'>سبک زندگی</span>
                     </a>
@@ -45,7 +57,11 @@ export default function Layout({ children }) {
                 </li>
                 <li>
                   <Link href='/blog/category/success'>
-                    <a className='flex items-center hover:text-indigo-800 p-3 lg:px-5 lg:py-3 hover:bg-indigo-50 transition duration-300 ease-in-out rounded-full'>
+                    <a
+                      className={`${
+                        router.pathname == '/blog/category/success' ? 'text-semibold' : ''
+                      } flex items-center hover:text-indigo-800 p-3 lg:px-5 lg:py-3 hover:bg-indigo-50 transition duration-300 ease-in-out rounded-full`}
+                    >
                       <SVGUnlock />
                       <span className='mr-2 hidden lg:inline-block'>موفقیت</span>
                     </a>
@@ -53,7 +69,11 @@ export default function Layout({ children }) {
                 </li>
                 <li>
                   <Link href='/blog/category/health'>
-                    <a className='flex items-center hover:text-indigo-800 p-3 lg:px-5 lg:py-3 hover:bg-indigo-50 transition duration-300 ease-in-out rounded-full'>
+                    <a
+                      className={`${
+                        router.pathname == '/blog/category/health' ? 'text-semibold' : ''
+                      } flex items-center hover:text-indigo-800 p-3 lg:px-5 lg:py-3 hover:bg-indigo-50 transition duration-300 ease-in-out rounded-full`}
+                    >
                       <SVGHeart />
                       <span className='mr-2 hidden lg:inline-block'>سلامتی</span>
                     </a>
@@ -61,7 +81,11 @@ export default function Layout({ children }) {
                 </li>
                 <li>
                   <Link href='/blog/category/trip'>
-                    <a className='flex items-center hover:text-indigo-800 p-3 lg:px-5 lg:py-3 hover:bg-indigo-50 transition duration-300 ease-in-out rounded-full'>
+                    <a
+                      className={`${
+                        router.pathname == '/blog/category/trip' ? 'text-semibold' : ''
+                      } flex items-center hover:text-indigo-800 p-3 lg:px-5 lg:py-3 hover:bg-indigo-50 transition duration-300 ease-in-out rounded-full`}
+                    >
                       <SVGDiscovery />
                       <span className='mr-2 hidden lg:inline-block'>سفر و گردشگری</span>
                     </a>
@@ -69,7 +93,11 @@ export default function Layout({ children }) {
                 </li>
                 <li>
                   <Link href='/blog/category/top'>
-                    <a className='flex items-center hover:text-indigo-800 p-3 lg:px-5 lg:py-3 hover:bg-indigo-50 transition duration-300 ease-in-out rounded-full'>
+                    <a
+                      className={`${
+                        router.pathname == '/blog/category/top' ? 'text-semibold' : ''
+                      } flex items-center hover:text-indigo-800 p-3 lg:px-5 lg:py-3 hover:bg-indigo-50 transition duration-300 ease-in-out rounded-full`}
+                    >
                       <SVGStar />
                       <span className='mr-2 hidden lg:inline-block'>برترین ها</span>
                     </a>
