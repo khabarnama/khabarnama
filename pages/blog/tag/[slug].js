@@ -98,7 +98,7 @@ export async function getStaticPaths() {
 
   return {
     paths: slugs,
-    fallback: true
+    fallback: blocking
   }
 }
 
@@ -107,7 +107,11 @@ export async function getStaticProps({ params }) {
   const { slug } = params
   const res = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/tags?slug=${encodeURI(slug)}`)
   const tag = await res.json()
-
+  if (!tag) {
+    return {
+      notFound: true
+    }
+  }
   // Pass post data to the page via props
   return {
     props: { tag }

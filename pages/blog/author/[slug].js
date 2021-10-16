@@ -100,7 +100,7 @@ export async function getStaticPaths() {
 
   return {
     paths: slugs,
-    fallback: true
+    fallback: 'blocking'
   }
 }
 
@@ -110,6 +110,11 @@ export async function getStaticProps({ params }) {
   const res = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/users?slug=${slug}&_embed=true`)
   const author = await res.json()
 
+  if (!author) {
+    return {
+      notFound: true
+    }
+  }
   return {
     props: { author }
   }

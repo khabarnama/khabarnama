@@ -99,7 +99,7 @@ export async function getStaticPaths() {
 
   return {
     paths: slugs,
-    fallback: true
+    fallback: 'blocking'
   }
 }
 
@@ -108,6 +108,12 @@ export async function getStaticProps({ params }) {
   const { slug } = params
   const res = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/categories?slug=${encodeURI(slug)}`)
   const category = await res.json()
+
+  if (!category) {
+    return {
+      notFound: true
+    }
+  }
 
   // Pass post data to the page via props
   return {

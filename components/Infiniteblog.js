@@ -63,7 +63,7 @@ export default function Infinteblog({ type, type_id }) {
   // console.log('isFetchingNextPage: ', isFetchingNextPage)
 
   return isLoading ? (
-    <ResponsiveArticle className='pr-5' />
+    <ResponsiveArticle className='pl-5 md:pl-0 pr-5' />
   ) : status === 'error' ? (
     <p className='my-5 text-center text-indigo-800 font-semibold'>Error: {error.message}</p>
   ) : (
