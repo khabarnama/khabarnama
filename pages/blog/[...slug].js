@@ -219,7 +219,7 @@ export async function getStaticPaths() {
     paths: slugs,
     // Enable statically generating additional pages
     // For example: `/pages/3`
-    fallback: true
+    fallback: 'blocking'
   }
 }
 
