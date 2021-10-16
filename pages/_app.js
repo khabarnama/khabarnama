@@ -5,6 +5,7 @@ import NProgress from 'nprogress' //nprogress module
 import 'nprogress/nprogress.css' //styles of nprogress
 import { Hydrate, QueryClient, QueryClientProvider } from 'react-query'
 import { ThemeProvider } from 'next-themes'
+import { ReactQueryDevtools } from 'react-query/devtools'
 
 //Binding events.
 Router.events.on('routeChangeStart', () => NProgress.start())
@@ -44,6 +45,7 @@ function MyApp({ Component, pageProps }) {
           </Layout>
         </ThemeProvider>
       </Hydrate>
+      <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>
   )
 }
