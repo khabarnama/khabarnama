@@ -9,8 +9,11 @@ import SVGUnlock from './../components/SVG/SVGUnlock'
 import SVGHeart from './../components/SVG/SVGHeart'
 import SVGDiscovery from './../components/SVG/SVGDiscovery'
 import Link from 'next/link'
+import { useRouter } from 'next/router'
 
 export default function Layout({ children }) {
+  const router = useRouter()
+
   return (
     <div className='py-4 lg:px-4 flex flex-col lg:gap-5'>
       <HeaderClassic />

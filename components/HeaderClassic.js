@@ -9,7 +9,6 @@ import Populartags from './Populartags'
 import SearchForm from './SearchForm'
 
 import SVGHome from './../components/SVG/SVGHome'
-import SVGNotification from './../components/SVG/SVGNotification'
 import SVGWork from './../components/SVG/SVGWork'
 import SVGLifestyle from './../components/SVG/SVGLifestyle'
 import SVGStar from './../components/SVG/SVGStar'
@@ -20,8 +19,11 @@ import SVGDiscovery from './../components/SVG/SVGDiscovery'
 import { useTheme } from 'next-themes'
 import SVGSun from './SVG/SVGSun'
 import SVGMoon from './SVG/SVGMoon'
+import { useRouter } from 'next/router'
 
 function HeaderClassic() {
+  const router = useRouter()
+
   const [display, setDisplay] = useState(false)
   const { theme, setTheme } = useTheme()
   const [isMounted, setIsMounted] = useState(false)
