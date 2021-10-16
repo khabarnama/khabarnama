@@ -4,8 +4,10 @@ import NotificationLoader from './skeleton/NotificationLoader'
 import { useEffect } from 'react'
 
 function LatestStories() {
-  const { isLoading, error, data } = useQuery('lateststories', () =>
-    fetch('https://old.khabarnama.net/wp-json/wp/v2/posts').then((res) => res.json())
+  const { isLoading, error, data } = useQuery(
+    'lateststories',
+    () => fetch('https://old.khabarnama.net/wp-json/wp/v2/posts').then((res) => res.json()),
+    { keepPreviousData: true }
   )
 
   const queryClient = new useQueryClient()

@@ -11,7 +11,7 @@ const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
       refetchOnWindowFocus: false,
-      keepPreviousData: <i class='fas fa-temperature-high    '></i>
+      keepPreviousData: true
     }
   }
 })
