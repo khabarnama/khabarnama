@@ -6,7 +6,10 @@ import SmallLoader from './skeleton/SmallLoader'
 function LatestStories() {
   const { isLoading, isRefetching, error, data } = useQuery(
     'lateststories',
-    () => fetch('https://old.khabarnama.net/wp-json/wp/v2/posts').then((res) => res.json()),
+    () =>
+      fetch(
+        'https://old.khabarnama.net/wp-json/wp/v2/posts?_fields[]=id&_fields[]=title&_fields[]=slug&_fields[]=date_gmt'
+      ).then((res) => res.json()),
     { keepPreviousData: true }
   )
 
@@ -31,7 +34,7 @@ function LatestStories() {
         </div>
         <ul className='newsfeed text-gray-600'>
           {data.map((post) => (
-            <PostSmall post={post} />
+            <PostSmall key={post.id} post={post} />
           ))}
         </ul>
       </div>

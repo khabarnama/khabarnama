@@ -1,6 +1,7 @@
-export default function SVGCross() {
+export default function SVGCross({ classes }) {
   return (
     <svg
+      className={classes ? classes : 'text-gray-900'}
       fill='currentColor'
       version='1.1'
       id='Layer_1'

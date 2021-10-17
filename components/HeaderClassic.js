@@ -14,6 +14,7 @@ import SVGLifestyle from './../components/SVG/SVGLifestyle'
 import SVGStar from './../components/SVG/SVGStar'
 import SVGUnlock from './../components/SVG/SVGUnlock'
 import SVGHeart from './../components/SVG/SVGHeart'
+import SVGSearch from './../components/SVG/SVGSearch'
 import SVGDiscovery from './../components/SVG/SVGDiscovery'
 
 import { useTheme } from 'next-themes'
@@ -25,6 +26,7 @@ function HeaderClassic() {
   const router = useRouter()
 
   const [display, setDisplay] = useState(false)
+  const [search, setSearch] = useState(false)
   const { theme, setTheme } = useTheme()
   const [isMounted, setIsMounted] = useState(false)
   useEffect(() => {
@@ -37,55 +39,59 @@ function HeaderClassic() {
   }
   return (
     <>
-      <header className='pb-2 px-2 sm:px-4 lg:px-8 lg:border-b border-gray-100 lg:mb-2'>
-        <section className='max-w-screen-2xl mx-auto'>
-          <div className='flex flex-col items-start lg:flex-row lg:gap-5 lg:items-center'>
-            <div className='flex w-full lg:w-64 justify-between items-center'>
-              <div className='mr-4 w-52 lg:w-64 flex-none'>
-                <Link href='/'>
-                  <a>
-                    <ImageComponentity
-                      src={theme == 'dark' ? '/icons/logo.png' : '/icons/logo-dark.png'}
-                      classes='h-16 w-24'
-                    />
-                  </a>
-                </Link>
+      <header className='lg:border-b border-gray-100 mb-2 py-4'>
+        <section className='grid grid-cols-12 justify-between'>
+          <div className='col-span-12 sm:col-span-9 flex justify-between sm:justify-stretch items-center px-4'>
+            <div className='w-52 lg:w-72 lg:pr-10'>
+              <Link href='/'>
+                <a>
+                  <ImageComponentity
+                    src={theme == 'dark' ? '/icons/logo.png' : '/icons/logo-dark.png'}
+                    classes='h-16 w-24'
+                  />
+                </a>
+              </Link>
+            </div>
+            <div className='flex gap-2 items-center justify-between'>
+              <div
+                onClick={switchTheme}
+                className='inline-block lg:hidden cursor-pointer flex items-center justify-center'
+              >
+                {theme === 'dark' ? <SVGSun /> : <SVGMoon />}
               </div>
-              <div className='flex gap-2 items-center'>
-                <div className='hidden md:inline-block lg:hidden'></div>
-                <div onClick={switchTheme} className='inline-block lg:hidden cursor-pointer'>
-                  {theme === 'dark' ? <SVGSun /> : <SVGMoon />}
-                </div>
-                <button
-                  aria-label='navbar-mobile'
-                  onClick={() => setDisplay(!display)}
-                  className='lg:hidden z-50  whitespace-no-wrap w-10 h-10 flex items-center justify-center p-3 rounded-full text-indigo-800 dark:text-white active:text-indigo-800 transition ease-in-out duration-150'
-                >
-                  {display ? <SVGCross /> : <SVGBurgernav />}
-                </button>
+              <div
+                onClick={() => setSearch(!search)}
+                className='inline-block lg:hidden cursor-pointer flex items-center justify-center'
+              >
+                <SVGSearch />
+              </div>
+              <div
+                onClick={() => setDisplay(!display)}
+                className='inline-block lg:hidden cursor-pointer flex items-center justify-center'
+              >
+                {display ? <SVGCross /> : <SVGBurgernav />}
               </div>
             </div>
-            <div className='px-4 lg:px-0 flex-grow'>
-              <div className='flex flex-col lg:flex-row items-center justify-between text-gray-500 hover:text-gray-600 transition-colors duration-200 w-full py-2'>
-                <div className='hidden lg:inline-block'></div>
-                <div className='flex overflow-scroll scrollbar-hide'>
-                  <div class='hidden sm:flex'>
-                    <Populartags />
-                  </div>
-                </div>
-                <div
-                  onClick={switchTheme}
-                  className='cursor-pointer hidden lg:inline-block darkmode rounded-full bg-gray-50 p-5 ml-3'
-                >
-                  {theme === 'dark' ? <SVGSun /> : <SVGMoon />}
-                </div>
-              </div>
+            <div class='hidden sm:inline-block'>
+              <SearchForm />
+            </div>
+          </div>
+          <div className='hidden sm:flex col-span-3 gap-2 items-center justify-between px-4'>
+            <div className='hidden sm:flex'>
+              <Populartags />
+            </div>
+            <div
+              onClick={switchTheme}
+              className='cursor-pointer hidden lg:inline-block darkmode rounded-full bg-gray-50 p-5 ml-3'
+            >
+              {theme === 'dark' ? <SVGSun /> : <SVGMoon />}
             </div>
           </div>
         </section>
+        <div class='block px-4 mt-2 sm:hidden'>{search && <SearchForm />}</div>
 
         <div
-          className={`z-10 ${
+          className={`z-50 ${
             display ? 'fixed' : 'hidden'
           } transition ease-in-out duration-300 inset-0 overflow-hidden`}
           aria-labelledby='slide-over-title'
@@ -101,7 +107,7 @@ function HeaderClassic() {
             <div className='fixed inset-y-0 left-0 pr-20 max-w-full flex'>
               <div className='relative w-screen max-w-md'>
                 <div className='bg-white dark:bg-gray-500 h-full flex flex-col py-6  dark:bg-gray-700 shadow-xl overflow-y-scroll'>
-                  <div className='px-4 sm:px-6'>
+                  <div className='px-4 flex items-center justify-between'>
                     <div className='w-52 lg:w-64 flex-none'>
                       <Link href='/'>
                         <a>
@@ -111,6 +117,12 @@ function HeaderClassic() {
                           />
                         </a>
                       </Link>
+                    </div>
+                    <div
+                      onClick={() => setDisplay(!display)}
+                      className='inline-block lg:hidden cursor-pointer flex items-center justify-center'
+                    >
+                      {display ? <SVGCross /> : <SVGBurgernav />}
                     </div>
                   </div>
                   <div className='mt-6 relative flex-1 px-4 sm:px-6'>

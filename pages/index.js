@@ -87,11 +87,26 @@ const fetchProjects = async () => {
   return posts
 }
 
+const fetchPosts = async (type, type_id) => {
+  const res = await fetch(
+    `https://old.khabarnama.net/wp-json/wp/v2/posts?_embed=true&${type}=${type_id}`
+  )
+  const posts = res.json()
+  return posts
+}
+
 export async function getStaticProps() {
   const queryClient = new QueryClient()
 
   await queryClient.prefetchQuery('lateststories', fetchProjects)
   await queryClient.prefetchInfiniteQuery('projects', fetchProjects)
+  await queryClient.prefetchInfiniteQuery('author86', fetchPosts('author', 86))
+  await queryClient.prefetchInfiniteQuery('categories9154', fetchPosts('categories', 9154))
+  await queryClient.prefetchInfiniteQuery('categories9153', fetchPosts('categories', 9153))
+  await queryClient.prefetchInfiniteQuery('categories9152', fetchPosts('categories', 9152))
+  await queryClient.prefetchInfiniteQuery('categories9151', fetchPosts('categories', 9151))
+  await queryClient.prefetchInfiniteQuery('categories9150', fetchPosts('categories', 9150))
+  await queryClient.prefetchInfiniteQuery('categories9149', fetchPosts('categories', 9149))
 
   return {
     props: {

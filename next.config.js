@@ -11,7 +11,6 @@ module.exports = withPWA({
       'khabarnama.net',
       'old.khabarnama.net',
       'www.etilaatroz.com',
-      'reporterly.net',
       'secure.gravatar.com'
     ]
   }

@@ -39,12 +39,12 @@ export default function Infinteblog({ type, type_id }) {
   }, [page])
 
   const fetchProjects = async () => {
-    console.log('PAGE: ', page)
-    console.log(
-      'URL: ',
-      `https://old.khabarnama.net/wp-json/wp/v2/posts?_embed=true${args}&per_page=10&page=` +
-        (page == null ? 1 : page)
-    )
+    // console.log('PAGE: ', page)
+    // console.log(
+    //   'URL: ',
+    //   `https://old.khabarnama.net/wp-json/wp/v2/posts?_embed=true${args}&per_page=10&page=` +
+    //     (page == null ? 1 : page)
+    // )
     const res = await fetch(
       `https://old.khabarnama.net/wp-json/wp/v2/posts?_embed=true${args}&per_page=10&page=` +
         (page == null ? 1 : page)
@@ -78,11 +78,11 @@ export default function Infinteblog({ type, type_id }) {
   // console.log('isFetchingNextPage: ', isFetchingNextPage)
 
   return isLoading ? (
-    <BlogLoader className='pl-5 md:pl-0 pr-5 w-full' />
+    <BlogLoader className='z-0 pl-5 md:pl-0 pr-5 w-full' />
   ) : status === 'error' ? (
-    <p className='my-5 text-center text-indigo-800 font-semibold'>Error: {error.message}</p>
+    <p className='z-0 my-5 text-center text-indigo-800 font-semibold'>Error: {error.message}</p>
   ) : (
-    <div className='relative'>
+    <div className='z-0 relative'>
       {isRefetching && (
         <div className='flex flex-col items-center justify-center gap-2 text-semibold'>
           <div className='w-14 flex items-center justify-center'>
