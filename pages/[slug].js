@@ -199,7 +199,7 @@ export async function getStaticPaths() {
     paths: slugs,
     // Enable statically generating additional pages
     // For example: `/pages/3`
-    fallback: true
+    fallback: 'blocking'
   }
 }
 
@@ -211,6 +211,11 @@ export async function getStaticProps({ params }) {
     `${process.env.NEXT_PUBLIC_SITE_URL}/pages?${args}&slug=${encodeURI(slug)}`
   )
   const page = await pageRes.json()
+  if (!page) {
+    return {
+      notFound: true
+    }
+  }
   const post = page[0]
 
   return {
