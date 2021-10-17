@@ -66,12 +66,13 @@ function Index() {
         }}
       />
       <div className='ad p-5 hover:bg-purple-50 dark:hover:bg-gray-900'>
-        <Link href='https://f45training.af/'>
+        <Link href='https://codenawis.com/'>
           <a target='_blank' rel='noopener'>
             <ImageComponentity
-              src='https://www.etilaatroz.com/wp-content/uploads/2020/11/F45-fitness-training-afghanistan.jpg'
-              classes={'w-full h-24'}
-              alt='Advertisement Fitness'
+              src='https://old.khabarnama.net/wp-content/uploads/2021/10/ads.png'
+              classes={'w-full h-10 sm:h-16 md:h-24'}
+              alt='CodeNawis - website design and development'
+              title='CodeNawis - website design and development'
             />
           </a>
         </Link>
