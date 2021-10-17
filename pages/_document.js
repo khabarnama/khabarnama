@@ -20,7 +20,7 @@ class MyDocument extends Document {
           <meta name='msapplication-config' content='/static/icons/browserconfig.xml' />
           <meta name='msapplication-TileColor' content='#2B5797' />
           <meta name='msapplication-tap-highlight' content='no' />
-          <meta name='theme-color' content='#000000' />
+          <meta name='theme-color' content='#fff' />
 
           <link rel='apple-touch-icon' href='/icons/icon192.png' />
           <link rel='manifest' href='/manifest.json' />

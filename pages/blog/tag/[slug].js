@@ -77,7 +77,7 @@ function Tag({ tag }) {
             <article dangerouslySetInnerHTML={{ __html: tag[0].description }} />
             <hr className='my-4' />
           </header>
-          <Infiniteblog type='tags' type_id={tag[0].id} />
+          <Infiniteblog key={`tags${tag[0].id}`} type='tags' type_id={tag[0].id} />
         </>
       )}
     </>

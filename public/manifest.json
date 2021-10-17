@@ -3,8 +3,8 @@
     "short_name": "خبرنامه",
     "display": "standalone",
     "orientation": "portrait",
-    "theme_color": "#000",
-    "background_color": "#000",
+    "theme_color": "#fff",
+    "background_color": "#fff",
     "start_url": "/",
     "icons": [
         {

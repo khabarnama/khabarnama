@@ -1,5 +1,5 @@
 import { useRouter } from 'next/router'
-import ResponsiveArticle from './../components/skeleton/ResponsiveArticle'
+import BlogLoader from './../components/skeleton/BlogLoader'
 import ImageComponentity from './../components/ImageComponentity'
 import { FacebookShareButton, LinkedinShareButton, TwitterShareButton } from 'react-share'
 import { FacebookIcon, LinkedinIcon, TwitterIcon } from 'react-share'
@@ -17,7 +17,7 @@ function Page({ post }) {
   // If the page is not yet generated, this will be displayed
   // initially until getStaticProps() finishes running
   if (router.isFallback) {
-    return <ResponsiveArticle />
+    return <BlogLoader class='w-full' />
   }
 
   return (

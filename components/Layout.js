@@ -119,7 +119,7 @@ export default function Layout({ children }) {
         </div>
 
         <div className='hidden lg:block relative col-span-3 pl-5 scrollbar-hide h-screen overflow-y-scroll sticky top-0'>
-          <LatestStories />
+          <LatestStories key={'lateststories'} />
           <div className='border-b border-gray-100 py-5 mb-2'>
             <h1 className='uppercase font-semibold mb-3'>تبلیغات</h1>
             <img className='w-full' src='https://paikaftab.com/wp-content/uploads/2021/09/Ad.png' />

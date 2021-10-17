@@ -76,7 +76,7 @@ function Index() {
           </a>
         </Link>
       </div>
-      <Infiniteblog />
+      <Infiniteblog key={'projects'} />
     </>
   )
 }

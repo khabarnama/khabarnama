@@ -78,7 +78,11 @@ function Category({ category }) {
             <article dangerouslySetInnerHTML={{ __html: category[0].description }} />
             <hr className='my-4' />
           </header>
-          <Infiniteblog type='categories' type_id={category[0].id} />
+          <Infiniteblog
+            key={`categories${category[0].id}`}
+            type='categories'
+            type_id={category[0].id}
+          />
         </>
       )}
     </>

@@ -79,7 +79,7 @@ function Author({ author }) {
             <article dangerouslySetInnerHTML={{ __html: author[0].description }} />
             <hr className='my-4' />
           </header>
-          <Infiniteblog type='author' type_id={author[0].id} />
+          <Infiniteblog key={`author${author[0].id}`} type='author' type_id={author[0].id} />
         </>
       )}
     </>

@@ -1,7 +1,7 @@
 import { useInfiniteQuery, useQueryClient } from 'react-query'
 import { useState, useEffect } from 'react'
 import Post from './Post'
-import ResponsiveArticle from './skeleton/ResponsiveArticle'
+import BlogLoader from './skeleton/BlogLoader'
 import SmallLoader from './skeleton/SmallLoader'
 
 export default function Infinteblog({ type, type_id }) {
@@ -14,10 +14,19 @@ export default function Infinteblog({ type, type_id }) {
 
   const queryClient = new useQueryClient()
 
+  // useEffect(() => {
+  //   return () => {
+  //     setPage(1)
+  //     setTotalpages(1)
+  //     console.log('TYPE_ID CHANGED')
+  //     console.log('PAGE', page)
+  //   }
+  // }, [type_id])
+
   useEffect(() => {
     return async () => {
       await queryClient.prefetchInfiniteQuery(
-        'projects',
+        !type_id ? 'projects' : `${type + type_id}`,
         () =>
           fetch(
             `https://old.khabarnama.net/wp-json/wp/v2/posts?_embed=true&per_page=10${args}&page=${
@@ -29,10 +38,16 @@ export default function Infinteblog({ type, type_id }) {
     }
   }, [page])
 
-  const fetchProjects = async ({ pageParam = page }) => {
+  const fetchProjects = async () => {
+    console.log('PAGE: ', page)
+    console.log(
+      'URL: ',
+      `https://old.khabarnama.net/wp-json/wp/v2/posts?_embed=true${args}&per_page=10&page=` +
+        (page == null ? 1 : page)
+    )
     const res = await fetch(
       `https://old.khabarnama.net/wp-json/wp/v2/posts?_embed=true${args}&per_page=10&page=` +
-        (pageParam == null ? 1 : pageParam)
+        (page == null ? 1 : page)
     )
     const totalPages = res.headers.get('X-WP-TotalPages')
     const posts = res.json()
@@ -50,7 +65,7 @@ export default function Infinteblog({ type, type_id }) {
     isFetchingNextPage,
     status,
     isRefetching
-  } = useInfiniteQuery('projects', fetchProjects, {
+  } = useInfiniteQuery(!type_id ? 'projects' : `${type + type_id}`, fetchProjects, {
     getNextPageParam: (lastPage) => {
       return page < totalpages ? page + 1 : undefined
     },
@@ -63,7 +78,7 @@ export default function Infinteblog({ type, type_id }) {
   // console.log('isFetchingNextPage: ', isFetchingNextPage)
 
   return isLoading ? (
-    <ResponsiveArticle className='pl-5 md:pl-0 pr-5' />
+    <BlogLoader className='pl-5 md:pl-0 pr-5 w-full' />
   ) : status === 'error' ? (
     <p className='my-5 text-center text-indigo-800 font-semibold'>Error: {error.message}</p>
   ) : (
