@@ -72,7 +72,7 @@ function HeaderClassic() {
                 {display ? <SVGCross /> : <SVGBurgernav />}
               </div>
             </div>
-            <div class='hidden sm:inline-block'>
+            <div class='flex-grow hidden sm:inline-block'>
               <SearchForm />
             </div>
           </div>
