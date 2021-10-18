@@ -88,9 +88,49 @@ const fetchProjects = async () => {
   return posts
 }
 
-const fetchPosts = async (type, type_id) => {
+const fetchKhabarnama = async () => {
+  const res = await fetch(`https://old.khabarnama.net/wp-json/wp/v2/posts?_embed=true&author=86`)
+  const posts = res.json()
+  return posts
+}
+const fetchTop = async () => {
   const res = await fetch(
-    `https://old.khabarnama.net/wp-json/wp/v2/posts?_embed=true&${type}=${type_id}`
+    `https://old.khabarnama.net/wp-json/wp/v2/posts?_embed=true&categories=9154`
+  )
+  const posts = res.json()
+  return posts
+}
+const fetchTrip = async () => {
+  const res = await fetch(
+    `https://old.khabarnama.net/wp-json/wp/v2/posts?_embed=true&categories=9153`
+  )
+  const posts = res.json()
+  return posts
+}
+const fetchHealth = async () => {
+  const res = await fetch(
+    `https://old.khabarnama.net/wp-json/wp/v2/posts?_embed=true&categories=9152`
+  )
+  const posts = res.json()
+  return posts
+}
+const fetchSuccess = async () => {
+  const res = await fetch(
+    `https://old.khabarnama.net/wp-json/wp/v2/posts?_embed=true&categories=9151`
+  )
+  const posts = res.json()
+  return posts
+}
+const fetchLifestyle = async () => {
+  const res = await fetch(
+    `https://old.khabarnama.net/wp-json/wp/v2/posts?_embed=true&categories=9150`
+  )
+  const posts = res.json()
+  return posts
+}
+const fetchWork = async () => {
+  const res = await fetch(
+    `https://old.khabarnama.net/wp-json/wp/v2/posts?_embed=true&categories=9149`
   )
   const posts = res.json()
   return posts
@@ -101,13 +141,13 @@ export async function getStaticProps() {
 
   await queryClient.prefetchQuery('lateststories', fetchProjects)
   await queryClient.prefetchInfiniteQuery('projects', fetchProjects)
-  await queryClient.prefetchInfiniteQuery('author86', fetchPosts('author', 86))
-  await queryClient.prefetchInfiniteQuery('categories9154', fetchPosts('categories', 9154))
-  await queryClient.prefetchInfiniteQuery('categories9153', fetchPosts('categories', 9153))
-  await queryClient.prefetchInfiniteQuery('categories9152', fetchPosts('categories', 9152))
-  await queryClient.prefetchInfiniteQuery('categories9151', fetchPosts('categories', 9151))
-  await queryClient.prefetchInfiniteQuery('categories9150', fetchPosts('categories', 9150))
-  await queryClient.prefetchInfiniteQuery('categories9149', fetchPosts('categories', 9149))
+  await queryClient.prefetchInfiniteQuery('author86', fetchKhabarnama)
+  await queryClient.prefetchInfiniteQuery('categories9154', fetchTop)
+  await queryClient.prefetchInfiniteQuery('categories9153', fetchTrip)
+  await queryClient.prefetchInfiniteQuery('categories9152', fetchHealth)
+  await queryClient.prefetchInfiniteQuery('categories9151', fetchSuccess)
+  await queryClient.prefetchInfiniteQuery('categories9150', fetchLifestyle)
+  await queryClient.prefetchInfiniteQuery('categories9149', fetchWork)
 
   return {
     props: {

@@ -111,10 +111,11 @@ function HeaderClassic() {
                     <div className='w-52 lg:w-64 flex-none'>
                       <Link href='/'>
                         <a>
-                          <ImageComponentity
-                            src={theme == 'dark' ? '/icons/logo.png' : '/icons/logo-dark.png'}
-                            classes='h-16 w-24'
-                          />
+                          {theme == 'dark' ? (
+                            <ImageComponentity src='/icons/logo.png' classes='h-16 w-24' />
+                          ) : (
+                            <ImageComponentity src='/icons/logo-dark.png' classes='h-16 w-24' />
+                          )}
                         </a>
                       </Link>
                     </div>
