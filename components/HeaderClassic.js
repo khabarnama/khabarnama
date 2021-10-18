@@ -57,7 +57,7 @@ function HeaderClassic() {
                 onClick={switchTheme}
                 className='inline-block lg:hidden cursor-pointer flex items-center justify-center'
               >
-                {theme === 'dark' ? <SVGSun /> : <SVGMoon />}
+                {theme === 'dark' ? <SVGSun classes='h-6 text-gray-900' /> : <SVGMoon />}
               </div>
               <div
                 onClick={() => setSearch(!search)}
