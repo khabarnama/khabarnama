@@ -31,7 +31,7 @@ function Blog({ post }) {
         <NextSeo
           title={post.title.rendered}
           description={post.yoast_head_json.og_description}
-          canonical={`https://khabarnama.net/${year}/${month}/${day}/${post.slug}`}
+          canonical={`https://khabarnama.net/blog/${year}/${month}/${day}/${post.slug}`}
           titleTemplate='خبرنامه | %s'
           robotsProps={{
             maxSnippet: post.yoast_head_json.robots['max-snippet'],
