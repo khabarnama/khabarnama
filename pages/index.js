@@ -153,7 +153,7 @@ export async function getStaticProps() {
     props: {
       dehydratedState: JSON.parse(JSON.stringify(dehydrate(queryClient)))
     },
-    revalidate: 86400
+    revalidate: 43200
   }
 }
 

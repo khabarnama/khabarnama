@@ -242,7 +242,7 @@ export async function getStaticProps({ params }) {
     props: {
       post
     },
-    revalidate: 86400
+    revalidate: 43200
   }
 }
 
