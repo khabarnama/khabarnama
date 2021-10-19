@@ -71,7 +71,7 @@ function Tag({ tag }) {
           )}
           <header className='px-5'>
             <h1 className='text-xl font-semibold mb-2'>
-              <span class='font-medium'>هشتگ: </span>
+              <span className='font-medium'>هشتگ: </span>
               {tag[0].name}
             </h1>
             <article dangerouslySetInnerHTML={{ __html: tag[0].description }} />

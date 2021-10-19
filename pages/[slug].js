@@ -17,7 +17,7 @@ function Page({ post }) {
   // If the page is not yet generated, this will be displayed
   // initially until getStaticProps() finishes running
   if (router.isFallback) {
-    return <BlogLoader class='w-full' />
+    return <BlogLoader className='w-full' />
   }
 
   return (
@@ -83,50 +83,6 @@ function Page({ post }) {
         />
       )}
       <div id={post.id} className='blog flex flex-col mx-auto px-5'>
-        <div className='flex flex-col gap-3 md:p-7 pb-3'>
-          <h1
-            className='font-semibold text-xl md:text-2xl inline-block inline-block mb-2'
-            dangerouslySetInnerHTML={{ __html: post.title.rendered }}
-          />
-          <div className='flex justify-between'>
-            {post._embedded.author[0].slug && (
-              <div className='flex items-center'>
-                <Link href={`/blog/author/${post._embedded.author[0].slug}`}>
-                  <a>
-                    <ImageComponentity
-                      classes='w-10 h-10 rounded-full overflow-hidden ml-2'
-                      src={
-                        post._embedded.author[0].avatar_urls
-                          ? encodeURI(post._embedded.author[0].avatar_urls['96'])
-                          : 'https://secure.gravatar.com/avatar/5ba47e3ab322d98712c8147821ede32a?s=4896&d=mm&r=g'
-                      }
-                      alt={`نویسنده: ` + post._embedded.author[0].name}
-                    />
-                  </a>
-                </Link>
-                <div className='text-xs'>
-                  <Link href={`/blog/author/${post._embedded.author[0].slug}`}>
-                    <a className='text-gray-900 font-semibold leading-none text-sm hover:text-indigo-800'>
-                      {post._embedded.author[0].name}
-                    </a>
-                  </Link>
-                  <p className='text-gray-600 text-xs'>{`@` + post._embedded.author[0].slug}</p>
-                </div>
-              </div>
-            )}
-            <div className='share flex gap-2 items-center text-gray-600'>
-              <TwitterShareButton url={`https://khabarnama.net/${post.slug}`}>
-                <TwitterIcon size={24} round={false} />
-              </TwitterShareButton>
-              <LinkedinShareButton url={`https://khabarnama.net/${post.slug}`}>
-                <LinkedinIcon size={24} round={false} />
-              </LinkedinShareButton>
-              <FacebookShareButton url={`https://khabarnama.net/${post.slug}`}>
-                <FacebookIcon size={24} round={false} />
-              </FacebookShareButton>
-            </div>
-          </div>
-        </div>
         <div className='relative'>
           {post.featured_media != 0 && post.featured_media != null && (
             <ImageComponentity
@@ -143,41 +99,6 @@ function Page({ post }) {
               __html: post.content.rendered.replace('old.khabarnama', 'khabarnama')
             }}
           />
-          <div className='text-xs md:text-sm font-regular text-gray-900 flex mt-4 flex items-center justify-between'>
-            <div className='w-full flex overflow-scroll scrollbar-hide'>
-              <span className='ml-5 flex flex-row items-center'>
-                <SVGClock />
-                <span className='mr-1'>{moment(post.date_gmt).locale('fa').format('DD MMMM')}</span>
-              </span>
-              {post._embedded['wp:term']?.map((termArray) =>
-                termArray.map(
-                  (term, index) =>
-                    index < 2 && (
-                      <Link
-                        href={
-                          '/blog' +
-                          (term.taxonomy == 'category' ? '/category' : '/tag') +
-                          `/${term.slug}`
-                        }
-                      >
-                        <a
-                          className={`mr-1 sm:mr-3 ${
-                            index == 1 ? 'hidden sm:flex' : 'flex'
-                          } flex-none items-center hover:text-indigo-800`}
-                        >
-                          {term.taxonomy == 'category' ? (
-                            <SVGLifestyle classes='h-5' />
-                          ) : (
-                            <SVGTag />
-                          )}
-                          <span className='mr-1' dangerouslySetInnerHTML={{ __html: term.name }} />
-                        </a>
-                      </Link>
-                    )
-                )
-              )}
-            </div>
-          </div>
         </div>
       </div>
     </>

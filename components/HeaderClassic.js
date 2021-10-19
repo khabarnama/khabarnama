@@ -72,7 +72,7 @@ function HeaderClassic() {
                 {display ? <SVGCross /> : <SVGBurgernav />}
               </div>
             </div>
-            <div class='flex-grow hidden sm:inline-block'>
+            <div className='flex-grow hidden sm:inline-block'>
               <SearchForm />
             </div>
           </div>
@@ -88,7 +88,7 @@ function HeaderClassic() {
             </div>
           </div>
         </section>
-        <div class='block px-4 mt-2 sm:hidden'>{search && <SearchForm />}</div>
+        <div className='block px-4 mt-2 sm:hidden'>{search && <SearchForm />}</div>
 
         <div
           className={`z-50 ${

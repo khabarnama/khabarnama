@@ -7,7 +7,7 @@ export default function Footer() {
         <Link href='/about-us'>
           <a className='hover:underline'>درباره ما</a>
         </Link>
-        <Link href='/contact-us'>
+        <Link href='/تماس-باما'>
           <a className='hover:underline'>تماس باما</a>
         </Link>
       </div>
