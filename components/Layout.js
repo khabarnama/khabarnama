@@ -20,7 +20,7 @@ export default function Layout({ children }) {
       <div className='main grid grid-cols-12 justify-between'>
         <div className='col-span-12 lg:col-span-9 flex'>
           <div className='hidden lg:relative z-50 lg:inline-block lg:w-72 lg:flex-none lg:border-l border-gray-100'>
-            <div className='lg:sticky lg:top-0 lg:p-8 lg:pt-0 lg:pl-1'>
+            <div className='lg:sticky lg:top-10 lg:p-8 lg:pt-0 lg:pl-1'>
               <ul className='navigationbar lg:my-5 border-y flex flex-row justify-around lg:flex-col text-md'>
                 <li>
                   <Link href='/'>
@@ -107,10 +107,12 @@ export default function Layout({ children }) {
                   </Link>
                 </li>
               </ul>
-              <div className='mr-4 hidden lg:inline-block'>
-                <button className='text-center px-7 py-3 bg-indigo-800 text-white rounded-full shadow-md hover:bg-red-800 transition duration-300 ease-in-out'>
-                  مشاهده آرشیف
-                </button>
+              <div className='mr-4 mt-4 hidden lg:inline-block'>
+                <Link href='/archive'>
+                  <a className='text-center px-7 py-3 bg-indigo-700 text-white rounded-full shadow-md hover:bg-indigo-800 transition duration-300 ease-in-out'>
+                    مشاهده آرشیف
+                  </a>
+                </Link>
               </div>
               <Footer />
             </div>

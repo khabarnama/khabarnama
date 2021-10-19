@@ -70,7 +70,7 @@ function Index() {
           <a target='_blank' rel='noopener'>
             <ImageComponentity
               src='https://old.khabarnama.net/wp-content/uploads/2021/10/ads.png'
-              classes={'w-full h-10 sm:h-16 md:h-24'}
+              classes={'w-full h-10 sm:h-16 md:h-28'}
               alt='CodeNawis - website design and development'
               title='CodeNawis - website design and development'
             />
