@@ -25,6 +25,12 @@ class MyDocument extends Document {
           <link rel='apple-touch-icon' href='/icons/icon192.png' />
           <link rel='manifest' href='/manifest.json' />
           <link rel='shortcut icon' href='/icons/icon192.png' />
+
+          <script async src='https://www.googletagmanager.com/gtag/js?id=G-TXNLVZ0XDN'></script>
+          <script>
+            window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments)}
+            gtag('js', new Date()); gtag('config', 'G-TXNLVZ0XDN');
+          </script>
         </Head>
         <body>
           <Main />
