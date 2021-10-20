@@ -26,11 +26,20 @@ class MyDocument extends Document {
           <link rel='manifest' href='/manifest.json' />
           <link rel='shortcut icon' href='/icons/icon192.png' />
 
-          <script async src='https://www.googletagmanager.com/gtag/js?id=G-TXNLVZ0XDN'></script>
-          <script>
-            window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments)}
-            gtag('js', new Date()); gtag('config', 'G-TXNLVZ0XDN');
-          </script>
+          {/* Global Site Tag (gtag.js) - Google Analytics */}
+          <script async src={`https://www.googletagmanager.com/gtag/js?id=G-TXNLVZ0XDN`} />
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-TXNLVZ0XDN', {
+              page_path: window.location.pathname,
+            });
+          `
+            }}
+          />
         </Head>
         <body>
           <Main />
