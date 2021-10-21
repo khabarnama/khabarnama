@@ -111,15 +111,17 @@ function Blog({ post }) {
                 </Link>
                 <div className='text-xs'>
                   <Link href={`/blog/author/${post._embedded.author[0].slug}`}>
-                    <a className='text-gray-900 font-semibold leading-none text-sm hover:text-indigo-800'>
+                    <a className='text-gray-900 dark:text-gray-100 font-semibold leading-none text-sm hover:text-indigo-800'>
                       {post._embedded.author[0].name}
                     </a>
                   </Link>
-                  <p className='text-gray-600 text-xs'>{`@` + post._embedded.author[0].slug}</p>
+                  <p className='text-gray-600 dark:text-gray-300 text-xs'>
+                    {`@` + post._embedded.author[0].slug}
+                  </p>
                 </div>
               </div>
             )}
-            <div className='share flex gap-2 items-center text-gray-600'>
+            <div className='share flex gap-2 items-center text-gray-600 dark:text-gray-100'>
               <TwitterShareButton
                 url={`https://khabarnama.net/${year}/${month}/${day}/${post.slug}`}
               >
@@ -149,21 +151,21 @@ function Blog({ post }) {
         </div>
         <div className='sm:p-7 pb-5 border-b border-gray-100'>
           <div
-            className='text-gray-700 leading-8 single_content'
+            className='text-gray-700 dark:text-gray-300 leading-8 single_content'
             dangerouslySetInnerHTML={{
               __html: post.content.rendered.replace('old.khabarnama', 'khabarnama')
             }}
           />
-          <div className='text-xs md:text-sm font-regular text-gray-900 flex mt-4 flex items-center justify-between'>
+          <div className='text-xs md:text-sm font-regular text-gray-900 dark:text-gray-50 flex mt-4 flex items-center justify-between'>
             <div className='w-full flex overflow-scroll scrollbar-hide'>
               <span className='ml-5 flex flex-row items-center'>
-                <SVGClock />
+                <SVGClock classes='h-5 text-gray-600 dark:text-gray-50' />
                 <span className='mr-1'>{moment(post.date_gmt).locale('fa').format('DD MMMM')}</span>
               </span>
               {post._embedded['wp:term'].map((termArray) =>
                 termArray.map(
                   (term, index) =>
-                    index < 2 && (
+                    index < 4 && (
                       <Link
                         href={
                           '/blog' +
@@ -173,13 +175,13 @@ function Blog({ post }) {
                       >
                         <a
                           className={`mr-1 sm:mr-3 ${
-                            index == 1 ? 'hidden sm:flex' : 'flex'
+                            index > 1 ? 'hidden sm:flex' : 'flex'
                           } flex-none items-center hover:text-indigo-800`}
                         >
                           {term.taxonomy == 'category' ? (
-                            <SVGLifestyle classes='h-5' />
+                            <SVGLifestyle classes='h-5 text-gray-600 dark:text-gray-50' />
                           ) : (
-                            <SVGTag />
+                            <SVGTag classes='h-5 text-gray-600 dark:text-gray-50' />
                           )}
                           <span className='mr-1' dangerouslySetInnerHTML={{ __html: term.name }} />
                         </a>

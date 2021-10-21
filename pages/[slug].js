@@ -94,7 +94,7 @@ function Page({ post }) {
         </div>
         <div className='sm:p-7 pb-5 border-b border-gray-100'>
           <div
-            className='text-gray-700 leading-8 single_content'
+            className='text-gray-700 dark:text-gray-50 leading-8 single_content'
             dangerouslySetInnerHTML={{
               __html: post.content.rendered.replace('old.khabarnama', 'khabarnama')
             }}

@@ -29,7 +29,7 @@ export default function Layout({ children }) {
                         router.pathname == '/' ? 'text-semibold' : ''
                       } flex items-center hover:text-indigo-800 p-3 lg:px-5 lg:py-3 hover:bg-indigo-50 transition duration-300 ease-in-out rounded-full`}
                     >
-                      <SVGHome />
+                      <SVGHome classes='text-gray-700 dark:text-gray-200 h-7' />
                       <span className='mr-2 hidden lg:inline-block'>صفحه نخست</span>
                     </a>
                   </Link>
@@ -41,7 +41,7 @@ export default function Layout({ children }) {
                         router.pathname == '/blog/category/work' ? 'text-semibold' : ''
                       } flex items-center hover:text-indigo-800 p-3 lg:px-5 lg:py-3 hover:bg-indigo-50 transition duration-300 ease-in-out rounded-full`}
                     >
-                      <SVGWork />
+                      <SVGWork classes='text-gray-700 dark:text-gray-200 h-7' />
                       <span className='mr-2 hidden lg:inline-block'>کسب و کار</span>
                     </a>
                   </Link>
@@ -53,7 +53,7 @@ export default function Layout({ children }) {
                         router.pathname == '/blog.category/lifestyle' ? 'text-semibold' : ''
                       } flex items-center hover:text-indigo-800 p-3 lg:px-5 lg:py-3 hover:bg-indigo-50 transition duration-300 ease-in-out rounded-full`}
                     >
-                      <SVGLifestyle />
+                      <SVGLifestyle classes='text-gray-700 dark:text-gray-200 h-7' />
                       <span className='mr-2 hidden lg:inline-block'>سبک زندگی</span>
                     </a>
                   </Link>
@@ -65,7 +65,7 @@ export default function Layout({ children }) {
                         router.pathname == '/blog/category/success' ? 'text-semibold' : ''
                       } flex items-center hover:text-indigo-800 p-3 lg:px-5 lg:py-3 hover:bg-indigo-50 transition duration-300 ease-in-out rounded-full`}
                     >
-                      <SVGUnlock />
+                      <SVGUnlock classes='text-gray-700 dark:text-gray-200 h-7' />
                       <span className='mr-2 hidden lg:inline-block'>موفقیت</span>
                     </a>
                   </Link>
@@ -77,7 +77,7 @@ export default function Layout({ children }) {
                         router.pathname == '/blog/category/health' ? 'text-semibold' : ''
                       } flex items-center hover:text-indigo-800 p-3 lg:px-5 lg:py-3 hover:bg-indigo-50 transition duration-300 ease-in-out rounded-full`}
                     >
-                      <SVGHeart />
+                      <SVGHeart classes='text-gray-700 dark:text-gray-200 h-7' />
                       <span className='mr-2 hidden lg:inline-block'>سلامتی</span>
                     </a>
                   </Link>
@@ -89,7 +89,7 @@ export default function Layout({ children }) {
                         router.pathname == '/blog/category/trip' ? 'text-semibold' : ''
                       } flex items-center hover:text-indigo-800 p-3 lg:px-5 lg:py-3 hover:bg-indigo-50 transition duration-300 ease-in-out rounded-full`}
                     >
-                      <SVGDiscovery />
+                      <SVGDiscovery classes='text-gray-700 dark:text-gray-200 h-7' />
                       <span className='mr-2 hidden lg:inline-block'>سفر و گردشگری</span>
                     </a>
                   </Link>
@@ -101,13 +101,13 @@ export default function Layout({ children }) {
                         router.pathname == '/blog/category/top' ? 'text-semibold' : ''
                       } flex items-center hover:text-indigo-800 p-3 lg:px-5 lg:py-3 hover:bg-indigo-50 transition duration-300 ease-in-out rounded-full`}
                     >
-                      <SVGStar />
+                      <SVGStar classes='text-gray-700 dark:text-gray-200 h-7' />
                       <span className='mr-2 hidden lg:inline-block'>برترین ها</span>
                     </a>
                   </Link>
                 </li>
               </ul>
-              <div className='mr-4 mt-4 hidden lg:inline-block'>
+              <div className='mr-4 mt-4 mb-12 hidden lg:inline-block'>
                 <Link href='/archive'>
                   <a className='text-center px-7 py-3 bg-indigo-700 text-white rounded-full shadow-md hover:bg-indigo-800 transition duration-300 ease-in-out'>
                     مشاهده آرشیف

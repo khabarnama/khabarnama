@@ -2,7 +2,7 @@ export default function SVGSun({ classes }) {
   return (
     <svg
       className={`${classes ? classes : 'h-6'}`}
-      fill='currentColor'
+      fill='text-gray-900'
       viewBox='0 0 32 32'
       id='icon'
       xmlns='http://www.w3.org/2000/svg'
