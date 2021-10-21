@@ -27,14 +27,14 @@ class MyDocument extends Document {
           <link rel='shortcut icon' href='/icons/icon192.png' />
 
           {/* Global Site Tag (gtag.js) - Google Analytics */}
-          <script async src={`https://www.googletagmanager.com/gtag/js?id=G-TXNLVZ0XDN`} />
+          <script async src={`https://www.googletagmanager.com/gtag/js?id=UA-164578051-1`} />
           <script
             dangerouslySetInnerHTML={{
               __html: `
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', 'G-TXNLVZ0XDN', {
+            gtag('config', 'UA-164578051-1', {
               page_path: window.location.pathname,
             });
           `
