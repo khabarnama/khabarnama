@@ -67,6 +67,9 @@ function Tag({ tag }) {
                 site: '@khabarnamaaf',
                 cardType: 'summary_large_image'
               }}
+              facebook={{
+                appId: '213017455829104'
+              }}
             />
           )}
           <header className='px-5'>

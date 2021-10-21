@@ -1,15 +1,7 @@
 import { useRouter } from 'next/router'
 import BlogLoader from './../components/skeleton/BlogLoader'
 import ImageComponentity from './../components/ImageComponentity'
-import { FacebookShareButton, LinkedinShareButton, TwitterShareButton } from 'react-share'
-import { FacebookIcon, LinkedinIcon, TwitterIcon } from 'react-share'
-import SVGClock from './../components/SVG/SVGClock'
-import SVGTag from './../components/SVG/SVGTag'
-import SVGLifestyle from './../components/SVG/SVGLifestyle'
-import Link from 'next/link'
 import { NextSeo } from 'next-seo'
-import moment from 'moment'
-import 'moment/locale/fa'
 
 function Page({ post }) {
   const router = useRouter()
@@ -79,6 +71,9 @@ function Page({ post }) {
             handle: '@khabarnamaaf',
             site: '@khabarnamaaf',
             cardType: 'summary_large_image'
+          }}
+          facebook={{
+            appId: '213017455829104'
           }}
         />
       )}

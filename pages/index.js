@@ -64,6 +64,9 @@ function Index() {
           site: '@khabarnamaaf',
           cardType: 'summary_large_image'
         }}
+        facebook={{
+          appId: '213017455829104'
+        }}
       />
       <div className='ad p-5 hover:bg-purple-50 dark:hover:bg-gray-900'>
         <Link href='https://codenawis.com/'>

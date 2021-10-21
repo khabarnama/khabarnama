@@ -85,6 +85,9 @@ function Blog({ post }) {
             site: '@khabarnamaaf',
             cardType: 'summary_large_image'
           }}
+          facebook={{
+            appId: '213017455829104'
+          }}
         />
       )}
       <div id={post.id} className='blog flex flex-col mx-auto px-5'>
