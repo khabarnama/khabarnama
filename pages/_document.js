@@ -45,7 +45,7 @@ class MyDocument extends Document {
             }}
           />
         </Head>
-        <body className='overflow-hidden'>
+        <body className='overflow-x-hidden'>
           <Main />
           <NextScript />
         </body>
