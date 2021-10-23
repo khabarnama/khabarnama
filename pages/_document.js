@@ -26,9 +26,9 @@ class MyDocument extends Document {
           <link rel='manifest' href='/manifest.json' />
           <link rel='shortcut icon' href='/icons/icon192.png' />
 
-          <meta property="article:publisher" content="https://www.facebook.com/khabarnamaaf/" />
-          <meta property="fb:app_id" content="213017455829104" />
-          <meta property="fb:pages" content="453100431376924" />
+          <meta property='article:publisher' content='https://www.facebook.com/khabarnamaaf/' />
+          <meta property='fb:app_id' content='213017455829104' />
+          <meta property='fb:pages' content='453100431376924' />
 
           {/* Global Site Tag (gtag.js) - Google Analytics */}
           <script async src={`https://www.googletagmanager.com/gtag/js?id=UA-164578051-1`} />
@@ -45,7 +45,7 @@ class MyDocument extends Document {
             }}
           />
         </Head>
-        <body>
+        <body className='overflow-hidden'>
           <Main />
           <NextScript />
         </body>
